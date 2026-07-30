@@ -1,13 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Every RL policy trains against an actuator model, and the industry default is fiction. A/B experiments on a quadruped and a humanoid, from Atlas Motion Systems.">
-<meta property="og:title" content="The Actuator Model Problem: Why Sim-to-Real Fails at the Motor">
-<meta property="og:description" content="A humanoid trained on stock simulation actuators falls in 4,554 of 4,554 episodes on real motor physics. Trained on a design-derived model, it walks with zero falls.">
-<meta property="og:image" content="https://theenergynerd.github.io/actuator-model-problem/assets/fig-anatomy.png">
-<meta property="og:type" content="article">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <meta charset="utf-8">
 <title>The Actuator Model Problem — Atlas Motion Systems</title>
 <style>
@@ -46,8 +36,6 @@
   footer{margin-top:60px;padding-top:14px;border-top:1px solid #E4E4E4;color:#9A9A9A;font-size:12.5px;
          display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 </style>
-</head>
-<body>
 
 <div class="page">
 <p class="eyebrow">Atlas Motion Systems · Research</p>
@@ -98,7 +86,7 @@ control at 20–40 kHz, converting "give me thirty newton-meters" into three pre
 phase currents while watching current, rotor angle, and winding temperature. The gearbox
 trades the motor's speed for joint torque.</p>
 
-<figure><img src="assets/fig-anatomy.png" alt="Signal chain of a robot actuator from policy to joint with feedback loops">
+<figure><img src="{{FIG0}}" alt="Signal chain of a robot actuator from policy to joint with feedback loops">
 <figcaption><b>Fig 1: anatomy of an actuator.</b> A stack of loops at wildly different
 speeds: the policy at 50–100 Hz, the current loop at 20–40 kHz, three orders of magnitude
 apart. Every layer above the drive can be replaced by a neural network. The shaded one
@@ -125,13 +113,13 @@ limits, and thermal resistances, which is everything needed to simulate what the
 microcontroller will actually run: field-oriented control, current loop included. The part
 simpler models miss entirely is the price of torque at speed:</p>
 
-<figure><img src="assets/fig-torque-speed.png" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
+<figure><img src="{{FIG1}}" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
 <figcaption><b>Fig 2: maximum torque against speed, same motor, two models.</b> A resistive
 envelope holds full torque nearly to no-load speed. The FOC model pays the true voltage cost
 of going fast: past ~130 rad/s the inverter saturates and torque falls away. The wedge is
 capability a policy can train on but will never receive.</figcaption></figure>
 
-<figure><img src="assets/fig-field-weakening.png" alt="dq currents versus speed showing field weakening">
+<figure><img src="{{FIG2}}" alt="dq currents versus speed showing field weakening">
 <figcaption><b>Fig 3: what the controller does about it.</b> Past base speed the controller
 drives flux-axis current negative to cancel back-EMF, trading torque for speed. Engineers
 tune this by hand; here it follows from the design parameters.</figcaption></figure>
@@ -151,35 +139,35 @@ changes is attributable to the model. ANYmal-C, identical everything, 1,500 iter
 Policy A trains on the stock actuator net, policy B on our FOC model. Both are evaluated on
 the FOC physics, which stands in for the robot you actually built.</p>
 
-<figure><img src="assets/fig-training-curves.png" alt="Training curves for both policies and the failed first attempt">
+<figure><img src="{{FIG3}}" alt="Training curves for both policies and the failed first attempt">
 <figcaption><b>Fig 4: training curves.</b> Policy B tracks the baseline almost exactly, 23.6
 against 23.4. The red line is our first attempt, PD gains set wrong (Kp 120/Kd 6 instead of
 ~85/2): the policy learned to stand still, finishing at 0.13. A reader caught it by watching
 the video, not the reward curve.</figcaption></figure>
 
-<figure><img src="assets/fig-eval.png" alt="Evaluation reward and fall rates for the three policy-world combinations">
+<figure><img src="{{FIG4}}" alt="Evaluation reward and fall rates for the three policy-world combinations">
 <figcaption><b>Fig 5: where the policies land</b> (~260 episodes per cell). B on its own
 physics: 25.9, parity with the baseline's 26.1 at home. A transferred onto real physics:
 24.5, falling 2.6x as often, on the most forgiving terrain there is.</figcaption></figure>
 
 <div class="vidrow">
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-a-ideal.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_A_IDEAL}}"></video>
     <figcaption><b>Baseline.</b> Policy A in the world it trained in. 26.1, 1.9%
     falls.</figcaption>
   </figure>
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-a-foc.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_A_FOC}}"></video>
     <figcaption><b>Transfer.</b> Same policy, real physics. 24.5, 2.6× the
     falls.</figcaption>
   </figure>
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-b-foc.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_B_FOC}}"></video>
     <figcaption><b>Matched.</b> Policy B on the physics that ships. 25.9.</figcaption>
   </figure>
 </div>
 
-<figure><img src="assets/fig-compounding.png" alt="Transferred policy score before and after the gain fix">
+<figure><img src="{{FIG5}}" alt="Transferred policy score before and after the gain fix">
 <figcaption><b>Fig 6: mismatch compounds with mistuning.</b> With bad gains in the loop,
 transfer did not degrade; it collapsed to −243.9, same model, same task. Two moderate
 mismatches do not add. They multiply.</figcaption></figure>
@@ -192,13 +180,13 @@ proves nothing. The gap lives in shove recovery, torque demanded at speed, exact
 Fig 2's curves separate. Could better training close it? We retrained both with ±2.0 m/s
 shoves:</p>
 
-<figure><img src="assets/fig-hard-curves.png" alt="Training curves for both policies under the hardened curriculum">
+<figure><img src="{{FIG12}}" alt="Training curves for both policies under the hardened curriculum">
 <figcaption><b>Fig 7: the hardened retrain.</b> Policy B learns slower on real physics
 (balance is harder when torque is honest) and finishes two points higher. Neither fact is
 the story: nothing in either curve predicts the fall-rate gap in the next figure. Training
 dashboards do not surface actuator mismatch. Stress evaluation does.</figcaption></figure>
 
-<figure><img src="assets/fig-push-two-gen.png" alt="Fall rate versus shove strength for both policies and both training curricula">
+<figure><img src="{{FIG6}}" alt="Fall rate versus shove strength for both policies and both training curricula">
 <figcaption><b>Fig 8: fall rate against shove strength, both policies, both curricula.</b>
 Hardening collapses fall rates (43.5 → 5.9 percent at ±1.5 for the mismatched policy), but
 at ±2.5 it still falls 2.2x as often (16.5 versus 7.4), and the gap persists through ±3.5.
@@ -206,7 +194,7 @@ Training harder moved the cliff, not the ordering. The missing information is in
 actuator model, not the recipe.</figcaption></figure>
 
 <figure class="wide">
-  <video controls muted loop playsinline preload="metadata" src="assets/vid-quad-shove.mp4"></video>
+  <video controls muted loop playsinline preload="metadata" src="{{VID_PUSH}}"></video>
   <figcaption><b>The hardened policies under stress, counted.</b> Sixteen robots per side,
   identical random 3.5 m/s shoves; the counter ticks and the frame flashes as robots go
   down. Mismatched model: eight falls. Matched: three. Full 256-robot eval: 42.4 versus 34.4
@@ -221,7 +209,7 @@ has iterated inside a compile-test loop for fifty years; actuators never had one
 grading hardware by the behavior it produces required the hardware to exist. A design-time
 actuator model breaks that dependency:</p>
 
-<figure><img src="assets/fig-codesign-loop.png" alt="Hardware design loop before and after a design-time actuator model">
+<figure><img src="{{FIG13}}" alt="Hardware design loop before and after a design-time actuator model">
 <figcaption><b>Fig 9: the loop that did not exist.</b> Top: the traditional flow, where
 behavior is discovered after the machine is built and a revision costs a quarter. Bottom:
 with a design-time model, every actuator parameter is a hyperparameter — motor constants,
@@ -250,7 +238,7 @@ one name on it.</p>
 <p>We ran the loop on the gearbox — three ratios, one policy each, graded in their own
 worlds:</p>
 
-<figure><img src="assets/fig-gear-sweep.png" alt="Evaluation reward for three gear ratios">
+<figure><img src="{{FIG7}}" alt="Evaluation reward for three gear ratios">
 <figcaption><b>Fig 10: the gear-ratio sweep,</b> one policy per ratio, a dollar per
 candidate. Flat ground barely discriminates (25.0 / 25.9 / 26.1, the larger gears inside
 the Fig 5 baseline band), and the fine structure says the rest: the lightest gearbox pays a
@@ -259,7 +247,7 @@ elsewhere; to make this axis discriminate, give the sweep stairs or payload, a o
 change.</figcaption></figure>
 
 <figure class="wide">
-  <video controls muted loop playsinline preload="metadata" src="assets/vid-gear-sweep.mp4"></video>
+  <video controls muted loop playsinline preload="metadata" src="{{VID_SWEEP}}"></video>
   <figcaption><b>6:1, 9:1, 12:1,</b> every robot commanded 1 m/s ahead. The similarity is
   the finding: a 2x spread in peak torque buys walking that looks and scores the
   same.</figcaption>
@@ -270,7 +258,7 @@ ratio, the sensible move, made everything worse: the optimizer, training through
 model, had already found a better operating point.</p>
 
 <figure class="wide">
-  <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-gains-ab.mp4"></video>
+  <video controls muted loop playsinline preload="metadata" src="{{VID_GAINS_AB}}"></video>
   <figcaption><b>The negative result, on camera.</b> Same humanoid, same reward, same
   budget. Left: gains rescaled by dimensional analysis. Right: stock gains adapted by the
   optimizer through the real model. Intuition lost to gradient descent by 2.7x in
@@ -285,13 +273,13 @@ the real knee peaks at 139 — marketed versus achieved, for torque, baked into 
 policy that task has produced. Our variant gears one Atlas motor three ways (12:1 legs,
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
-<figure><img src="assets/fig-g1-curves.png" alt="G1 training curves: episode length for stock and Atlas actuator models">
+<figure><img src="{{FIG9}}" alt="G1 training curves: episode length for stock and Atlas actuator models">
 <figcaption><b>Fig 11: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
-<figure><img src="assets/fig-g1-falls.png" alt="G1 fall rates on real physics for both policies">
+<figure><img src="{{FIG10}}" alt="G1 fall rates on real physics for both policies">
 <figcaption><b>Fig 12: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either; the quadruped section shows how to buy the shoved numbers
@@ -299,17 +287,17 @@ down.</figcaption></figure>
 
 <div class="vidrow">
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-ref.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_G1_REF}}"></video>
     <figcaption><b>At home.</b> The posture-shaped recipe on fantasy joints: upright,
     walking, torque is free.</figcaption>
   </figure>
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-collapse.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_G1_COLLAPSE}}"></video>
     <figcaption><b>Same recipe, real physics.</b> Collapse, respawn, collapse. 4,554 of
     4,554 episodes, no pushes.</figcaption>
   </figure>
   <figure>
-    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-walk.mp4"></video>
+    <video controls muted loop playsinline preload="metadata" src="{{VID_G1_WALK}}"></video>
     <figcaption><b>Ours, real physics.</b> Upright, striding, zero falls in
     256.</figcaption>
   </figure>
@@ -319,7 +307,7 @@ down.</figcaption></figure>
 torque:</p>
 
 <figure class="wide">
-  <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-gait-ab.mp4"></video>
+  <video controls muted loop playsinline preload="metadata" src="{{VID_GAIT_AB}}"></video>
   <figcaption><b>Same actuator, two rewards.</b> Left: the stock reward's converged gait, a
   crouched shuffle, which is genuinely what that reward wants. Right: the same policy
   warm-started under a posture-shaped reward. Both walk on real physics; only one looks
@@ -331,7 +319,7 @@ the fantasy world on the first try; trained from scratch on real physics, it pro
 policy that stands, perfectly stable, and never walks. <b>Fantasy torque does not just
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
-<figure><img src="assets/fig-standing-trap.png" alt="Reward curves for posture training from scratch versus warm start">
+<figure><img src="{{FIG11}}" alt="Reward curves for posture training from scratch versus warm start">
 <figcaption><b>Fig 13: the standing trap.</b> One reward, two starting points. From scratch,
 the optimizer finds the standing optimum and pays the tracking penalty forever: reward −13,
 zero falls, zero walking. Warm-started from a walking policy, it keeps locomotion and gains
@@ -364,7 +352,7 @@ confirmed it, and the corrected model is the one reported. Watch the behavior. D
 trust the scalar.</p>
 
 <figure class="wide">
-  <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-shove.mp4"></video>
+  <video controls muted loop playsinline preload="metadata" src="{{VID_G1_SHOVE}}"></video>
   <figcaption><b>The count, on two legs.</b> The exact pair from the clips above, identical
   1.0 m/s shoves, counters burned in from the run log. The stock side stays red because the
   falls never stop: 147 in fifteen seconds. The Atlas side falls once.</figcaption>
@@ -496,6 +484,3 @@ https://theenergynerd.github.io/actuator-model-problem/</pre>
 </footer>
 </div>
 
-
-</body>
-</html>
