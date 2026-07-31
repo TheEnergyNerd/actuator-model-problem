@@ -253,6 +253,20 @@ change.</figcaption></figure>
   same.</figcaption>
 </figure>
 
+<p>Then we took the sweep's own advice. The one-line change that makes the axis
+discriminate turned out to be the command range: 1 m/s becomes 2.5, and the tie breaks
+immediately. The 6:1 posts the highest reward and the most falls. The 12:1 gives back two
+reward points and buys a third fewer falls. And the 9:1, the compromise gear a datasheet
+would call the safe middle choice, loses to the 12:1 on <i>both</i> axes at once, less
+reward and more falls. <b>Flat-ground cruise could not rank three gearboxes; three dollars
+of sprint could, and it eliminated the middle of the catalog.</b></p>
+
+<figure><img src="{{FIG_SPRINT}}" alt="Sprint sweep: reward versus fall rate per gear ratio">
+<figcaption><b>Fig 11: the same sweep at sprint commands,</b> 1,500 iterations per gear,
+two eval repeats (small dots). The frontier runs from 6:1, fastest and falls most, to
+12:1, most robust; 9:1 sits strictly inside it. No bench test tells you which gearbox
+survives being asked for speed. A policy trained through the real actuator model does.</figcaption></figure>
+
 <p>The loop runs the other way too. Hand-rescaling the humanoid's PD gains to the torque
 ratio, the sensible move, made everything worse: the optimizer, training through the real
 model, had already found a better operating point.</p>
@@ -274,13 +288,13 @@ policy that task has produced. Our variant gears one Atlas motor three ways (12:
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
 <figure><img src="{{FIG9}}" alt="G1 training curves: episode length for stock and Atlas actuator models">
-<figcaption><b>Fig 11: what fantasy torque buys during training.</b> The stock policy
+<figcaption><b>Fig 12: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
 <figure><img src="{{FIG10}}" alt="G1 fall rates on real physics for both policies">
-<figcaption><b>Fig 12: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
+<figcaption><b>Fig 13: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either; the quadruped section shows how to buy the shoved numbers
 down.</figcaption></figure>
@@ -320,7 +334,7 @@ policy that stands, perfectly stable, and never walks. <b>Fantasy torque does no
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="{{FIG11}}" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 13: the standing trap.</b> One reward, two starting points. From scratch,
+<figcaption><b>Fig 14: the standing trap.</b> One reward, two starting points. From scratch,
 the optimizer finds the standing optimum and pays the tracking penalty forever: reward −13,
 zero falls, zero walking. Warm-started from a walking policy, it keeps locomotion and gains
 posture, +9. On fantasy torque this trap does not exist.</figcaption></figure>
