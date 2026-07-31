@@ -56,7 +56,7 @@ real motor ramps current through inductance, loses torque with speed, and derate
 The policy rehearses habits the hardware cannot honor, 150 million steps at a time.</p>
 
 <p>Atlas builds actuator design tools, and a finished design already contains every number a
-faithful simulation needs. So we built <a href="https://github.com/TheEnergyNerd/atlas-actuators"><code>atlas_actuators</code></a>,
+faithful simulation needs. So we built <a href="https://github.com/pranavatlas/atlas-actuators"><code>atlas_actuators</code></a>,
 an open-source Isaac Lab plugin that turns any Atlas design into a physics-accurate training
 actuator, and measured what the fantasy costs:</p>
 
@@ -505,8 +505,8 @@ it chooses.</p>
 
 <h2>Run it</h2>
 
-<p>The plugin is open source: <a href="https://github.com/TheEnergyNerd/atlas-actuators">
-github.com/TheEnergyNerd/atlas-actuators</a> (MIT), with every trained checkpoint behind the
+<p>The plugin is open source: <a href="https://github.com/pranavatlas/atlas-actuators">
+github.com/pranavatlas/atlas-actuators</a> (MIT), with every trained checkpoint behind the
 numbers above attached to the v0.1.0 release.</p>
 
 <pre><span class="c"># the whole chain, no GPU: design → control → program → firmware → Isaac cfg</span>
@@ -524,7 +524,7 @@ python atlas_full_stack_demo.py
 <pre>Myana, P. (2026). The Actuator Model Problem: Physics-Accurate
 Actuator Models for Reinforcement Learning. Technical Report,
 Atlas Motion Systems.
-https://theenergynerd.github.io/actuator-model-problem/</pre>
+https://pranavatlas.github.io/actuator-model-problem/</pre>
 
 <pre>@techreport{myana2026actuatormodel,
   author      = {Myana, Pranav},
@@ -534,7 +534,7 @@ https://theenergynerd.github.io/actuator-model-problem/</pre>
   type        = {Technical Report},
   year        = {2026},
   month       = {July},
-  url         = {https://theenergynerd.github.io/actuator-model-problem/},
+  url         = {https://pranavatlas.github.io/actuator-model-problem/},
   note        = {Isaac Lab plugin \texttt{atlas\_actuators}; quadruped and
                  humanoid actuator-model A/B experiments}
 }</pre>

@@ -44,7 +44,7 @@ SITE_HEAD = """<!doctype html>
 <meta name="description" content="Every RL policy trains against an actuator model, and the industry default is fiction. A/B experiments on a quadruped and a humanoid, from Atlas Motion Systems.">
 <meta property="og:title" content="The Actuator Model Problem: Why Sim-to-Real Fails at the Motor">
 <meta property="og:description" content="A humanoid trained on stock simulation actuators falls in 4,554 of 4,554 episodes on real motor physics. Trained on a design-derived model, it walks with zero falls.">
-<meta property="og:image" content="https://theenergynerd.github.io/actuator-model-problem/assets/fig-anatomy.png">
+<meta property="og:image" content="https://pranavatlas.github.io/actuator-model-problem/assets/fig-anatomy.png">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 """
