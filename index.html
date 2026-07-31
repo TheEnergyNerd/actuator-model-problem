@@ -75,6 +75,7 @@ actuator, and measured what the fantasy costs:</p>
 <ol class="findings">
 <li><b>On a humanoid, actuator-model mismatch is fatal.</b> The stock G1 policy falls in
 essentially every episode on real physics; ours walks it with zero falls in 256
+(a second training seed replicates the split, 99.7 versus 4.5 percent)
 episodes.</li>
 <li><b>Hardware-software co-design becomes a compile-test loop.</b> Gearboxes swept like
 learning rates for a dollar a candidate — and because Atlas manufactures the actuator, the
@@ -339,7 +340,8 @@ curves end healthy. Only one describes a robot that can exist.</figcaption></fig
 <figcaption><b>Fig 14: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either; the quadruped section shows how to buy the shoved numbers
-down.</figcaption></figure>
+down. A second seed, retrained from scratch, lands in the same place: 99.7 percent falls
+for the stock recipe on real physics, 4.5 for ours.</figcaption></figure>
 
 <div class="vidrow">
   <figure>
@@ -490,8 +492,8 @@ seconds, no GPU):</p>
 
 <h2>What we have not shown</h2>
 
-<p>The quadruped A/B now spans three seeds, and the humanoid and hardware-effects results
-are single seeds still. The backlash model is a first-order play operator; gear
+<p>The quadruped A/B spans three seeds and the humanoid two — the split was 25x or worse
+both times it ran — while the hardware-effects and thermal results are single seeds still. The backlash model is a first-order play operator; gear
 friction and bus latency are still absent from the physics and arrive with fleet telemetry.
 And the largest omission is physical: validated against physics and its own firmware, not
 yet against a motor on a bench. The next artifact
