@@ -288,6 +288,27 @@ model, had already found a better operating point.</p>
   falls.</figcaption>
 </figure>
 
+<p>The last axis is the one no simulator models at all: heat. Every joint in our model
+carries a winding-temperature state, I&sup2;R in, Newton cooling out, and a derate that
+fades the current ceiling as the winding approaches its limit. We built a task where the
+constraint binds, two minutes of commanded sprinting on a thermal time constant of forty
+seconds, and trained the same warm-started walker twice: once blind, once with its twelve
+winding temperatures appended to the observation. The naive prediction is that the aware
+policy learns to slow down. It does not. <b>It walks the same 1.7 m/s and runs its hottest
+winding eleven degrees cooler,</b> spreading load across motors so no single winding
+becomes the fuse. The blind policy crosses into derate at thirty seconds and spends the
+rest of the episode there, falling 17 times to the aware policy's 4. Thermal
+load-balancing is not in the reward, not in the curriculum, and not in any spec we wrote.
+It is what gradient descent does with a temperature sense and a physics model honest
+enough to make heat cost something.</p>
+
+<figure><img src="{{FIG_THERMAL}}" alt="Winding temperature and speed over time, blind versus temperature-aware policy">
+<figcaption><b>Fig 12: racing the thermal clock.</b> Hottest winding in a 4,096-robot
+fleet (solid) and fleet mean (dotted), then forward speed. Same starting checkpoint, same
+reward; the only difference is whether the policy can feel its motors heat. The
+temperature-aware policy holds the same speed and stays out of the derate band for an
+extra minute.</figcaption></figure>
+
 <h2>The humanoid does not get up</h2>
 
 <p>A quadruped stumbles onto its other legs; a humanoid balances or it does not exist. And
@@ -297,13 +318,13 @@ policy that task has produced. Our variant gears one Atlas motor three ways (12:
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
 <figure><img src="{{FIG9}}" alt="G1 training curves: episode length for stock and Atlas actuator models">
-<figcaption><b>Fig 12: what fantasy torque buys during training.</b> The stock policy
+<figcaption><b>Fig 13: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
 <figure><img src="{{FIG10}}" alt="G1 fall rates on real physics for both policies">
-<figcaption><b>Fig 13: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
+<figcaption><b>Fig 14: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either; the quadruped section shows how to buy the shoved numbers
 down.</figcaption></figure>
@@ -343,7 +364,7 @@ policy that stands, perfectly stable, and never walks. <b>Fantasy torque does no
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="{{FIG11}}" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 14: the standing trap.</b> One reward, two starting points. From scratch,
+<figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. From scratch,
 the optimizer finds the standing optimum and pays the tracking penalty forever: reward −13,
 zero falls, zero walking. Warm-started from a walking policy, it keeps locomotion and gains
 posture, +9. On fantasy torque this trap does not exist.</figcaption></figure>

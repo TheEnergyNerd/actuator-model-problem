@@ -19,6 +19,7 @@ MAP = {
     "FIG6": ("figs/fig6_push_two_gen.png", "fig-push-two-gen.png"),
     "FIG7": ("figs/fig7_sweep.png", "fig-gear-sweep.png"),
     "FIG_SPRINT": ("figs/fig_sprint_pareto.png", "fig-sprint-pareto.png"),
+    "FIG_THERMAL": ("figs/fig_thermal.png", "fig-thermal.png"),
     "FIG9": ("figs/fig9_g1_curves.png", "fig-g1-curves.png"),
     "FIG10": ("figs/fig10_g1_falls.png", "fig-g1-falls.png"),
     "FIG11": ("figs/fig_standing_trap.png", "fig-standing-trap.png"),
