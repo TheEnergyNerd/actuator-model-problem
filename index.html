@@ -79,9 +79,10 @@ episodes.</li>
 <li><b>Hardware-software co-design becomes a compile-test loop.</b> Gearboxes swept like
 learning rates for a dollar a candidate — and because Atlas manufactures the actuator, the
 design you converge on is the one that ships.</li>
-<li>Fidelity is free at train time: same seed, same rewards, parity in its own world (25.9
-versus 26.1).</li>
-<li>The bill arrives at transfer: 2.6x the falls, on flat ground.</li>
+<li>Fidelity is free at train time: same rewards, parity in its own world, 26.0 versus
+26.2 averaged over three seeds.</li>
+<li>The bill arrives at transfer: 4x the falls, pooled over three seeds (2.6x on the
+kindest seed, 6.3x on the harshest), on flat ground.</li>
 <li><b>Better training does not close a model gap:</b> a hardened curriculum cut falls ~7x
 for both policies; the mismatched one still falls 2.2x as often.</li>
 <li>The training model, the safety layer, and the shipped firmware are one law, at 1.1×10⁻⁶
@@ -161,6 +162,14 @@ the video, not the reward curve.</figcaption></figure>
 <figcaption><b>Fig 5: where the policies land</b> (~260 episodes per cell). B on its own
 physics: 25.9, parity with the baseline's 26.1 at home. A transferred onto real physics:
 24.5, falling 2.6x as often, on the most forgiving terrain there is.</figcaption></figure>
+
+<p>That was one seed, so we ran two more, fresh training and ~260-episode evals for every
+cell. The gap does not shrink; it was hiding its size. Transfer falls 5.0 / 6.3 / 5.8
+percent across seeds 42/43/44 while the matched policy falls 2.7 / 0.9 / 1.5 — every seed
+shows the penalty, and the original 2.6x turns out to be the <i>most flattering</i> draw
+of the three. Own-world parity replicates too: 26.0 against 26.2 on average, with the
+matched policy's worst seed still within half a reward point of the baseline's
+best.</p>
 
 <div class="vidrow">
   <figure>
@@ -460,7 +469,8 @@ seconds, no GPU):</p>
 
 <h2>What we have not shown</h2>
 
-<p>Single seeds throughout. The backlash model is a first-order play operator; gear
+<p>The quadruped A/B now spans three seeds, and the humanoid and hardware-effects results
+are single seeds still. The backlash model is a first-order play operator; gear
 friction and bus latency are still absent from the physics and arrive with fleet telemetry.
 And the largest omission is physical: validated against physics and its own firmware, not
 yet against a motor on a bench. The next artifact
