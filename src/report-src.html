@@ -108,6 +108,20 @@ today, and it describes exactly one actuator, theirs. The method requires the ha
 exist first — so the model you need most, the one that decides whether a motor is worth
 building, is the one it structurally cannot produce.</p>
 
+<p>The hardware record says the fantasy is not a rounding error. ETH's own ablation is the
+cleanest: policies trained with an ideal or analytical actuator model
+"<a href="https://arxiv.org/abs/1901.08652">could not make a single step without
+falling</a>" on ANYmal — after a week spent tuning the analytical model. On
+<a href="https://arxiv.org/abs/2504.06585">TOCABI</a>, a full-size humanoid with 100:1
+harmonic drives, every training seed of the naive baseline failed to control the robot. On
+a <a href="https://ojs.aaai.org/index.php/AAAI/article/view/11044">NAO</a> whose simulator
+answered commands instantly, seven of ten policies improved in sim and degraded the real
+walk. Google's <a href="https://arxiv.org/abs/1804.10332">Minitaur</a> "fell to the ground
+immediately" until torque saturation and latency entered the simulation, and domain
+randomization alone did not save it. The pattern in the wild is the same one our A/B
+measures: transfer survives in proportion to how honestly the training world models the
+actuator.</p>
+
 <h2>The model is a design output</h2>
 
 <p>A finished Atlas design knows its torque constant, resistance, inductance, current
