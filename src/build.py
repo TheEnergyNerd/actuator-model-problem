@@ -29,6 +29,7 @@ MAP = {
     "VID_A_FOC": ("v3/A_foc_fwd_web.mp4", "vid-a-foc.mp4"),
     "VID_B_FOC": ("v3/B_foc_fwd_web.mp4", "vid-b-foc.mp4"),
     "VID_PUSH": ("v3/AB_shove_hard35_pg.mp4", "vid-quad-shove.mp4"),
+    "VID_QUAD_FALLS": ("../quadfalls/film/quadfalls_AB_pg.mp4", "vid-quad-falls.mp4"),
     "VID_SWEEP": ("sweep_montage_web.mp4", "vid-gear-sweep.mp4"),
     "VID_G1_REF": ("v3/G1_ref_pg.mp4", "vid-g1-ref.mp4"),
     "VID_G1_COLLAPSE": ("v3/G1_collapse_pg.mp4", "vid-g1-collapse.mp4"),

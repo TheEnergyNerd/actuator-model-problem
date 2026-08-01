@@ -194,8 +194,18 @@ transfer collapsed to &minus;243.9. Same model, same task. Mismatches multiply.<
 
 <p>At steady cruise the two policies are measurably identical (tracking 0.97 versus 0.95,
 saturation near zero), so cruise footage proves nothing. The gap is in shove recovery,
-where torque is demanded at speed and Fig 2's curves separate. To see whether better
-training closes it, we retrained both policies with &plusmn;2.0 m/s shoves:</p>
+where torque is demanded at speed and Fig 2's curves separate:</p>
+
+<figure class="wide">
+  <video controls muted loop playsinline preload="metadata" src="{{VID_QUAD_FALLS}}"></video>
+  <figcaption><b>The falls, counted.</b> Sixteen robots per side, identical random
+  &plusmn;1.5 m/s shoves, counters from the run log. Neither policy ever trained against a
+  push. Stock model: 8 falls in fifteen seconds. Matched: 5. The full curves across shove
+  strengths are in Fig 8.</figcaption>
+</figure>
+
+<p>Could better training close it? We retrained both policies with &plusmn;2.0 m/s
+shoves:</p>
 
 <figure><img src="{{FIG12}}" alt="Training curves for both policies under the hardened curriculum">
 <figcaption><b>Fig 7: the hardened retrain.</b> Policy B learns slower on real physics and
