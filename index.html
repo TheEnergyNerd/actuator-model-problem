@@ -9,7 +9,7 @@
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <meta charset="utf-8">
-<title>The Actuator Model Problem — Atlas Motion Systems</title>
+<title>The Actuator Model Problem | Atlas Motion Systems</title>
 <style>
   body{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1B1B1B;
        background:#fff;margin:0;padding:0 20px;font-size:16.5px;line-height:1.6;}
@@ -53,99 +53,96 @@
 <p class="eyebrow">Atlas Motion Systems · Research</p>
 <h1>The Actuator Model Problem: Why Sim-to-Real Fails at the Motor</h1>
 <p class="dek">Every RL policy trains against an actuator model, and the industry default is
-fiction. We A/B tested fiction against physics on a quadruped and a humanoid: the humanoid
-trained on fiction falls in 4,554 of 4,554 episodes on real motor physics; trained on our
-model, it walks with zero falls. The same model closes the loop the other way: hardware
-choices graded by the policies they produce, before the hardware exists.</p>
+wrong. We tested it against real motor physics on a quadruped and a humanoid. The humanoid
+trained on the default falls in 4,554 of 4,554 episodes; trained on our model, it walks
+with zero falls. The same model works in reverse: hardware choices graded by the policies
+they produce, before the hardware exists.</p>
 <p class="byline">Pranav Myana · Atlas Motion Systems</p>
 <p class="meta">July 2026</p>
 
 <hr>
 
-<p>Every RL policy trains against some model of its actuators. The industry default is a PD
+<p>Every RL policy trains against some model of its actuators. The default is a PD
 controller with a torque clamp: thirty newton-meters, instantly, at any speed, forever. A
-real motor ramps current through inductance, loses torque with speed, and derates with heat.
-The policy rehearses habits the hardware cannot honor, 150 million steps at a time.</p>
+real motor ramps current through inductance, loses torque with speed, and derates with
+heat. The policy spends 150 million steps rehearsing habits the hardware can't honor.</p>
 
-<p>Atlas builds actuator design tools, and a finished design already contains every number a
-faithful simulation needs. So we built <a href="https://github.com/pranavatlas/atlas-actuators"><code>atlas_actuators</code></a>,
-an open-source Isaac Lab plugin that turns any Atlas design into a physics-accurate training
-actuator, and measured what the fantasy costs:</p>
+<p>Atlas builds actuator design tools, and a finished design already contains every number
+a faithful simulation needs. So we built
+<a href="https://github.com/pranavatlas/atlas-actuators"><code>atlas_actuators</code></a>,
+an open-source Isaac Lab plugin that turns an Atlas design into a physics-accurate training
+actuator, and measured what the default costs:</p>
 
 <ol class="findings">
-<li><b>On a humanoid, actuator-model mismatch is fatal.</b> The stock G1 policy falls in
-essentially every episode on real physics; ours walks it with zero falls in 256
-(a second training seed replicates the split, 99.7 versus 4.5 percent)
-episodes.</li>
-<li><b>Hardware-software co-design becomes a compile-test loop.</b> Gearboxes swept like
-learning rates for a dollar a candidate — and because Atlas manufactures the actuator, the
-design you converge on is the one that ships.</li>
-<li>Fidelity is free at train time: same rewards, parity in its own world, 26.0 versus
-26.2 averaged over three seeds.</li>
-<li>The bill arrives at transfer: 4x the falls, pooled over three seeds (2.6x on the
-kindest seed, 6.3x on the harshest), on flat ground.</li>
-<li><b>Better training does not close a model gap:</b> a hardened curriculum cut falls ~7x
-for both policies; the mismatched one still falls 2.2x as often.</li>
-<li>The training model, the safety layer, and the shipped firmware are one law, at 1.1×10⁻⁶
-parity.</li>
+<li><b>On a humanoid, the mismatch is fatal.</b> The stock G1 policy falls in essentially
+every episode on real physics. Ours walks with zero falls in 256 episodes; a second
+training seed lands at 99.7 versus 4.5 percent.</li>
+<li><b>Hardware iteration becomes a compile-test loop.</b> We swept gearboxes like learning
+rates for about a dollar each. Because Atlas manufactures the actuator, the design you
+converge on is the one that ships.</li>
+<li>Fidelity costs nothing at train time: 26.0 versus 26.2 in its own world, averaged over
+three seeds.</li>
+<li>The bill arrives at transfer: 4x the falls, pooled over three seeds, on flat
+ground.</li>
+<li><b>Better training does not close a model gap.</b> A hardened curriculum cut falls
+about 7x for both policies; the mismatched one still falls 2.2x as often.</li>
+<li>The training model, the safety layer, and the shipped firmware are one law, matched to
+1.1e-6.</li>
 </ol>
 
 <h2>What an actuator actually is</h2>
 
-<p>An actuator is not a motor. It is a motor, a gearbox, and a drive: power electronics plus
-a microcontroller that stand between every command and every motion. The motor is magnets on
-a rotor chasing currents in stator windings; making torque means steering those currents
-thousands of times per second as the rotor turns. That is the drive's job — field-oriented
-control at 20–40 kHz, converting "give me thirty newton-meters" into three precisely timed
-phase currents while watching current, rotor angle, and winding temperature. The gearbox
-trades the motor's speed for joint torque.</p>
+<p>An actuator is a motor, a gearbox, and a drive: power electronics and a microcontroller
+that sit between every command and every motion. The motor is magnets on a rotor chasing
+currents in stator windings. Making torque means steering those currents thousands of times
+a second as the rotor turns, which is the drive's job: field-oriented control at 20-40 kHz,
+turning "give me thirty newton-meters" into three timed phase currents while watching
+current, rotor angle, and winding temperature. The gearbox trades motor speed for joint
+torque.</p>
 
-<figure><img src="assets/fig-anatomy.png" alt="Signal chain of a robot actuator from policy to joint with feedback loops">
-<figcaption><b>Fig 1: anatomy of an actuator.</b> A stack of loops at wildly different
-speeds: the policy at 50–100 Hz, the current loop at 20–40 kHz, three orders of magnitude
-apart. Every layer above the drive can be replaced by a neural network. The shaded one
-cannot, and everything the robot does passes through it.</figcaption></figure>
+<figure><img src="assets/fig-anatomy.png" alt="Cross-section of an integrated actuator: drive board, encoder, motor, planetary gearbox, output flange">
+<figcaption><b>Fig 1: inside an integrated actuator.</b> The policy commands joints over
+the bus at 50-100 Hz. Inside the housing, the drive closes the current loop at 20-40 kHz,
+three orders of magnitude faster. Every layer above the drive can be replaced by a neural
+network. This one cannot, and everything the robot does passes through it.</figcaption></figure>
 
-<p>Integration is where the trouble starts. The robot's computer talks to each drive over a
-bus a few hundred times per second; the drive handles everything faster than that on its
-own. So when a simulator models "the actuator," it is modeling this entire closed-loop stack
-— motor physics, current controller, limits — and the default model throws all of it away in
-favor of a torque genie.</p>
+<p>The robot's computer talks to each drive a few hundred times per second; the drive
+handles everything faster on its own. So a simulator that models "the actuator" is modeling
+this whole closed-loop stack: motor physics, current controller, limits. The default model
+throws all of it away in favor of a torque genie.</p>
 
 <h2>Every simulator ships a fantasy motor</h2>
 
 <p>The one strong model in the toolbox is ETH's 2019 actuator net: hours of measured torque
 on their ANYdrive, distilled into an LSTM. It transferred famously, Isaac Lab ships it
-today, and it describes exactly one actuator, theirs. The method requires the hardware to
-exist first — so the model you need most, the one that decides whether a motor is worth
-building, is the one it structurally cannot produce.</p>
+today, and it describes exactly one actuator. The method needs the hardware to exist first,
+so it can't answer the question that matters at design time: whether this motor is worth
+building at all.</p>
 
-<p>The hardware record says the fantasy is not a rounding error. ETH's own ablation is the
-cleanest: policies trained with an ideal or analytical actuator model
-"<a href="https://arxiv.org/abs/1901.08652">could not make a single step without
-falling</a>" on ANYmal — after a week spent tuning the analytical model. On
+<p>The hardware record is blunt. Policies trained with an ideal or analytical actuator
+model "<a href="https://arxiv.org/abs/1901.08652">could not make a single step without
+falling</a>" on ANYmal, and that was after ETH spent a week tuning the analytical model. On
 <a href="https://arxiv.org/abs/2504.06585">TOCABI</a>, a full-size humanoid with 100:1
 harmonic drives, every training seed of the naive baseline failed to control the robot. On
 a <a href="https://ojs.aaai.org/index.php/AAAI/article/view/11044">NAO</a> whose simulator
 answered commands instantly, seven of ten policies improved in sim and degraded the real
 walk. Google's <a href="https://arxiv.org/abs/1804.10332">Minitaur</a> "fell to the ground
-immediately" until torque saturation and latency entered the simulation, and domain
-randomization alone did not save it. The pattern in the wild is the same one our A/B
-measures: transfer survives in proportion to how honestly the training world models the
-actuator.</p>
+immediately" until torque saturation and latency entered the simulation; domain
+randomization alone did not save it. Transfer survives in proportion to how honestly the
+training world models the actuator.</p>
 
 <h2>The model is a design output</h2>
 
 <p>A finished Atlas design knows its torque constant, resistance, inductance, current
-limits, and thermal resistances, which is everything needed to simulate what the drive's
-microcontroller will actually run: field-oriented control, current loop included. The part
-simpler models miss entirely is the price of torque at speed:</p>
+limits, and thermal resistances. That is everything needed to simulate what the drive's
+microcontroller will actually run, current loop included. What simpler models miss is the
+price of torque at speed:</p>
 
 <figure><img src="assets/fig-torque-speed.png" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
 <figcaption><b>Fig 2: maximum torque against speed, same motor, two models.</b> A resistive
-envelope holds full torque nearly to no-load speed. The FOC model pays the true voltage cost
-of going fast: past ~130 rad/s the inverter saturates and torque falls away. The wedge is
-capability a policy can train on but will never receive.</figcaption></figure>
+envelope holds full torque nearly to no-load speed. The FOC model pays the true voltage
+cost of going fast: past ~130 rad/s the inverter saturates and torque falls away. The wedge
+between them is capability a policy can train on but will never receive.</figcaption></figure>
 
 <figure><img src="assets/fig-field-weakening.png" alt="dq currents versus speed showing field weakening">
 <figcaption><b>Fig 3: what the controller does about it.</b> Past base speed the controller
@@ -153,7 +150,7 @@ drives flux-axis current negative to cancel back-EMF, trading torque for speed. 
 tune this by hand; here it follows from the design parameters.</figcaption></figure>
 
 <p>Two checks keep it honest: energy conservation closes to 0.00 percent, and the control
-law compiles to microcontroller C that replays against the simulation to within 1.1×10⁻⁶.
+law compiles to microcontroller C that replays against the simulation to within 1.1e-6.
 The simulator and the firmware are the same law.</p>
 
 <blockquote>The plugin enters Isaac Lab through the same <code>ActuatorBase</code> socket as
@@ -168,23 +165,21 @@ Policy A trains on the stock actuator net, policy B on our FOC model. Both are e
 the FOC physics, which stands in for the robot you actually built.</p>
 
 <figure><img src="assets/fig-training-curves.png" alt="Training curves for both policies and the failed first attempt">
-<figcaption><b>Fig 4: training curves.</b> Policy B tracks the baseline almost exactly, 23.6
-against 23.4. The red line is our first attempt, PD gains set wrong (Kp 120/Kd 6 instead of
-~85/2): the policy learned to stand still, finishing at 0.13. A reader caught it by watching
-the video, not the reward curve.</figcaption></figure>
+<figcaption><b>Fig 4: training curves.</b> Policy B tracks the baseline almost exactly,
+23.6 against 23.4. The red line is our first attempt with the PD gains set wrong (Kp 120/Kd
+6 instead of ~85/2): the policy learned to stand still, finishing at 0.13. A reader caught
+it by watching the video, not the reward curve.</figcaption></figure>
 
 <figure><img src="assets/fig-eval.png" alt="Evaluation reward and fall rates for the three policy-world combinations">
 <figcaption><b>Fig 5: where the policies land</b> (~260 episodes per cell). B on its own
 physics: 25.9, parity with the baseline's 26.1 at home. A transferred onto real physics:
 24.5, falling 2.6x as often, on the most forgiving terrain there is.</figcaption></figure>
 
-<p>That was one seed, so we ran two more, fresh training and ~260-episode evals for every
-cell. The gap does not shrink; it was hiding its size. Transfer falls 5.0 / 6.3 / 5.8
-percent across seeds 42/43/44 while the matched policy falls 2.7 / 0.9 / 1.5 — every seed
-shows the penalty, and the original 2.6x turns out to be the <i>most flattering</i> draw
-of the three. Own-world parity replicates too: 26.0 against 26.2 on average, with the
-matched policy's worst seed still within half a reward point of the baseline's
-best.</p>
+<p>That was one seed, so we ran two more with fresh training and ~260-episode evals for
+every cell. Transfer falls 5.0 / 6.3 / 5.8 percent across seeds 42/43/44; the matched
+policy falls 2.7 / 0.9 / 1.5. Every seed shows the penalty, and the original 2.6x turns out
+to be the most flattering draw of the three. Own-world parity replicates: 26.0 against 26.2
+on average.</p>
 
 <div class="vidrow">
   <figure>
@@ -194,7 +189,7 @@ best.</p>
   </figure>
   <figure>
     <video controls muted loop playsinline preload="metadata" src="assets/vid-a-foc.mp4"></video>
-    <figcaption><b>Transfer.</b> Same policy, real physics. 24.5, 2.6× the
+    <figcaption><b>Transfer.</b> Same policy, real physics. 24.5, 2.6x the
     falls.</figcaption>
   </figure>
   <figure>
@@ -205,52 +200,48 @@ best.</p>
 
 <figure><img src="assets/fig-compounding.png" alt="Transferred policy score before and after the gain fix">
 <figcaption><b>Fig 6: mismatch compounds with mistuning.</b> With bad gains in the loop,
-transfer did not degrade; it collapsed to −243.9, same model, same task. Two moderate
-mismatches do not add. They multiply.</figcaption></figure>
+transfer collapsed to &minus;243.9. Same model, same task. Mismatches multiply.</figcaption></figure>
 
-<h2>Cruise hides it. Recovery prices it.</h2>
+<h2>The gap lives in recovery</h2>
 
 <p>At steady cruise the two policies are measurably identical (tracking 0.97 versus 0.95,
-saturation ~0 percent): a loafing motor looks the same under any model, so cruise footage
-proves nothing. The gap lives in shove recovery, torque demanded at speed, exactly where
-Fig 2's curves separate. Could better training close it? We retrained both with ±2.0 m/s
-shoves:</p>
+saturation near zero), so cruise footage proves nothing. The gap is in shove recovery,
+where torque is demanded at speed and Fig 2's curves separate. To see whether better
+training closes it, we retrained both policies with &plusmn;2.0 m/s shoves:</p>
 
 <figure><img src="assets/fig-hard-curves.png" alt="Training curves for both policies under the hardened curriculum">
-<figcaption><b>Fig 7: the hardened retrain.</b> Policy B learns slower on real physics
-(balance is harder when torque is honest) and finishes two points higher. Neither fact is
-the story: nothing in either curve predicts the fall-rate gap in the next figure. Training
-dashboards do not surface actuator mismatch. Stress evaluation does.</figcaption></figure>
+<figcaption><b>Fig 7: the hardened retrain.</b> Policy B learns slower on real physics and
+finishes two points higher. Neither curve predicts the fall-rate gap in the next figure.
+Training dashboards do not surface actuator mismatch; stress evaluation does.</figcaption></figure>
 
 <figure><img src="assets/fig-push-two-gen.png" alt="Fall rate versus shove strength for both policies and both training curricula">
 <figcaption><b>Fig 8: fall rate against shove strength, both policies, both curricula.</b>
-Hardening collapses fall rates (43.5 → 5.9 percent at ±1.5 for the mismatched policy), but
-at ±2.5 it still falls 2.2x as often (16.5 versus 7.4), and the gap persists through ±3.5.
-Training harder moved the cliff, not the ordering. The missing information is in the
-actuator model, not the recipe.</figcaption></figure>
+Hardening collapses fall rates (43.5 to 5.9 percent at &plusmn;1.5 for the mismatched
+policy), but at &plusmn;2.5 it still falls 2.2x as often (16.5 versus 7.4), and the gap
+persists through &plusmn;3.5. Training harder moved the cliff, not the ordering.</figcaption></figure>
 
 <figure class="wide">
   <video controls muted loop playsinline preload="metadata" src="assets/vid-quad-shove.mp4"></video>
   <figcaption><b>The hardened policies under stress, counted.</b> Sixteen robots per side,
   identical random 3.5 m/s shoves; the counter ticks and the frame flashes as robots go
-  down. Mismatched model: eight falls. Matched: three. Full 256-robot eval: 42.4 versus 34.4
-  percent.</figcaption>
+  down. Mismatched model: eight falls. Matched: three. Full 256-robot eval: 42.4 versus
+  34.4 percent.</figcaption>
 </figure>
 
 <h2>Co-design for a dollar a gearbox</h2>
 
-<p>Hardware design has always been open-loop with respect to behavior: size the motor, build
-the robot, discover the truth months later, when the gearbox is glued into a leg. Software
-has iterated inside a compile-test loop for fifty years; actuators never had one, because
-grading hardware by the behavior it produces required the hardware to exist. A design-time
-actuator model breaks that dependency:</p>
+<p>Hardware design has always been open-loop with respect to behavior: size the motor,
+build the robot, learn the truth months later. Software has iterated inside a compile-test
+loop for fifty years. Actuators never had one, because grading hardware by the behavior it
+produces required the hardware to exist. A design-time actuator model breaks that
+dependency:</p>
 
 <figure><img src="assets/fig-codesign-loop.png" alt="Hardware design loop before and after a design-time actuator model">
 <figcaption><b>Fig 9: the loop that did not exist.</b> Top: the traditional flow, where
 behavior is discovered after the machine is built and a revision costs a quarter. Bottom:
-with a design-time model, every actuator parameter is a hyperparameter — motor constants,
-gear ratio, gains — iterated against trained behavior in minutes. The last box is the part
-nobody else can offer: the loop terminates in a factory.</figcaption></figure>
+with a design-time model, every actuator parameter is a hyperparameter, iterated against
+trained behavior in minutes. The last box matters most: the loop ends in a
+factory.</figcaption></figure>
 
 <div class="tablewrap">
 <table>
@@ -263,24 +254,21 @@ nobody else can offer: the loop terminates in a factory.</figcaption></figure>
 </table>
 </div>
 
-<p>The reason this loop terminates in something real is that Atlas is not a design tool
-with a simulator attached. We manufacture the actuator. A roboticist iterating in this loop
-is not sweeping abstractions; they are co-designing, with us, the exact unit that will
-arrive — its training twin already the spec sheet, its firmware already the law the policy
-trained against. Simulator vendors do not build motors. Motor catalogs do not ship training
-models. The loop only closes when the same party does both, and today that party list has
-one name on it.</p>
+<p>The loop ends in something real because Atlas is not a design tool with a simulator
+attached. We manufacture the actuator. A roboticist iterating in this loop is co-designing
+the exact unit that will arrive, its training twin already the spec sheet, its firmware
+already the law the policy trained against. Simulator vendors do not build motors. Motor
+catalogs do not ship training models. The loop only closes when the same party does both,
+and today that list has one name on it.</p>
 
-<p>We ran the loop on the gearbox — three ratios, one policy each, graded in their own
-worlds:</p>
+<p>We ran the loop on the gearbox: three ratios, one policy each, graded in their own
+worlds.</p>
 
 <figure><img src="assets/fig-gear-sweep.png" alt="Evaluation reward for three gear ratios">
 <figcaption><b>Fig 10: the gear-ratio sweep,</b> one policy per ratio, a dollar per
-candidate. Flat ground barely discriminates (25.0 / 25.9 / 26.1, the larger gears inside
-the Fig 5 baseline band), and the fine structure says the rest: the lightest gearbox pays a
-small recovery-headroom tax, 4.2 percent falls against 2.7. Ship the 6:1 and spend the mass
-elsewhere; to make this axis discriminate, give the sweep stairs or payload, a one-line
-change.</figcaption></figure>
+candidate. Flat ground barely discriminates (25.0 / 25.9 / 26.1), though the lightest
+gearbox pays a small recovery tax, 4.2 percent falls against 2.7. Ship the 6:1 and spend
+the mass elsewhere.</figcaption></figure>
 
 <figure class="wide">
   <video controls muted loop playsinline preload="metadata" src="assets/vid-gear-sweep.mp4"></video>
@@ -289,58 +277,53 @@ change.</figcaption></figure>
   same.</figcaption>
 </figure>
 
-<p>Then we took the sweep's own advice. The one-line change that makes the axis
-discriminate turned out to be the command range: 1 m/s becomes 2.5, and the tie breaks
-immediately. The 6:1 posts the highest reward and the most falls. The 12:1 gives back two
-reward points and buys a third fewer falls. And the 9:1, the compromise gear a datasheet
-would call the safe middle choice, loses to the 12:1 on <i>both</i> axes at once, less
-reward and more falls. <b>Flat-ground cruise could not rank three gearboxes; three dollars
-of sprint could, and it eliminated the middle of the catalog.</b></p>
+<p>One line makes the same axis discriminate: raise the command range from 1 m/s to 2.5 and
+the tie breaks. The 6:1 posts the highest reward and the most falls. The 12:1 gives back
+two reward points and buys a third fewer falls. The 9:1, the safe middle choice on a
+datasheet, loses to the 12:1 on both axes. <b>Flat-ground cruise could not rank three
+gearboxes; three dollars of sprint eliminated the middle of the catalog.</b></p>
 
 <figure><img src="assets/fig-sprint-pareto.png" alt="Sprint sweep: reward versus fall rate per gear ratio">
 <figcaption><b>Fig 11: the same sweep at sprint commands,</b> 1,500 iterations per gear,
-two eval repeats (small dots). The frontier runs from 6:1, fastest and falls most, to
-12:1, most robust; 9:1 sits strictly inside it. No bench test tells you which gearbox
-survives being asked for speed. A policy trained through the real actuator model does.</figcaption></figure>
+two eval repeats (small dots). The frontier runs from 6:1, fastest and falls most, to 12:1,
+most robust; 9:1 sits strictly inside it. No bench test tells you which gearbox survives
+being asked for speed. A policy trained through the real actuator model
+does.</figcaption></figure>
 
 <p>The loop runs the other way too. Hand-rescaling the humanoid's PD gains to the torque
-ratio, the sensible move, made everything worse: the optimizer, training through the real
-model, had already found a better operating point.</p>
+ratio made everything worse: the optimizer, training through the real model, had already
+found a better operating point.</p>
 
 <figure class="wide">
   <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-gains-ab.mp4"></video>
   <figcaption><b>The negative result, on camera.</b> Same humanoid, same reward, same
   budget. Left: gains rescaled by dimensional analysis. Right: stock gains adapted by the
-  optimizer through the real model. Intuition lost to gradient descent by 2.7x in
-  falls.</figcaption>
+  optimizer through the real model. Intuition lost by 2.7x in falls.</figcaption>
 </figure>
 
-<p>The last axis is the one no simulator models at all: heat. Every joint in our model
-carries a winding-temperature state, I&sup2;R in, Newton cooling out, and a derate that
-fades the current ceiling as the winding approaches its limit. We built a task where the
-constraint binds, two minutes of commanded sprinting on a thermal time constant of forty
-seconds, and trained the same warm-started walker twice: once blind, once with its twelve
-winding temperatures appended to the observation. The naive prediction is that the aware
-policy learns to slow down. It does not. <b>It walks the same 1.7 m/s and runs its hottest
-winding eleven degrees cooler,</b> spreading load across motors so no single winding
-becomes the fuse. The blind policy crosses into derate at thirty seconds and spends the
-rest of the episode there, falling 17 times to the aware policy's 4. Thermal
-load-balancing is not in the reward, not in the curriculum, and not in any spec we wrote.
-It is what gradient descent does with a temperature sense and a physics model honest
-enough to make heat cost something.</p>
+<p>The last axis is heat, which no stock simulator models at all. Every joint in our model
+carries a winding-temperature state (I&sup2;R heating, Newton cooling) and a derate that
+fades the current ceiling as the winding heats. We built a task where the constraint binds,
+two minutes of commanded sprinting against a forty-second thermal time constant, and
+trained the same warm-started walker twice: once blind, once with its twelve winding
+temperatures in the observation. The obvious prediction is that the aware policy learns to
+slow down. It does not. <b>It walks the same 1.7 m/s with its hottest winding eleven
+degrees cooler,</b> spreading load so no single winding becomes the fuse, and falls 4 times
+to the blind policy's 17. Thermal load-balancing appears in no reward term. It is what the
+optimizer does once the policy can feel heat and the physics makes heat cost
+something.</p>
 
 <figure><img src="assets/fig-thermal.png" alt="Winding temperature and speed over time, blind versus temperature-aware policy">
-<figcaption><b>Fig 12: racing the thermal clock.</b> Hottest winding in a 4,096-robot
-fleet (solid) and fleet mean (dotted), then forward speed. Same starting checkpoint, same
-reward; the only difference is whether the policy can feel its motors heat. The
-temperature-aware policy holds the same speed and stays out of the derate band for an
-extra minute.</figcaption></figure>
+<figcaption><b>Fig 12: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
+(solid) and fleet mean (dotted), then forward speed. Same starting checkpoint, same reward;
+the only difference is whether the policy can feel its motors heat. The aware policy holds
+the same speed and stays out of the derate band for an extra minute.</figcaption></figure>
 
 <h2>The humanoid does not get up</h2>
 
 <p>A quadruped stumbles onto its other legs; a humanoid balances or it does not exist. And
-its baseline is worse than idealized: the stock G1 task drives every joint at 300 N·m when
-the real knee peaks at 139 — marketed versus achieved, for torque, baked into every G1
+its baseline is worse than idealized: the stock G1 task drives every joint at 300 N&middot;m
+when the real knee peaks at 139. Marketed versus achieved, for torque, baked into every G1
 policy that task has produced. Our variant gears one Atlas motor three ways (12:1 legs,
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
@@ -353,9 +336,8 @@ curves end healthy. Only one describes a robot that can exist.</figcaption></fig
 <figure><img src="assets/fig-g1-falls.png" alt="G1 fall rates on real physics for both policies">
 <figcaption><b>Fig 14: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
-disturbance curriculum on either; the quadruped section shows how to buy the shoved numbers
-down. A second seed, retrained from scratch, lands in the same place: 99.7 percent falls
-for the stock recipe on real physics, 4.5 for ours.</figcaption></figure>
+disturbance curriculum on either. A second seed, retrained from scratch, lands in the same
+place: 99.7 percent falls against 4.5.</figcaption></figure>
 
 <div class="vidrow">
   <figure>
@@ -375,8 +357,8 @@ for the stock recipe on real physics, 4.5 for ours.</figcaption></figure>
   </figure>
 </div>
 
-<p>The gait chase became evidence. The stock reward is satisfied by a crouch, on any
-torque:</p>
+<p>The gait chase became evidence in its own right. The stock reward is satisfied by a
+crouch, on any torque:</p>
 
 <figure class="wide">
   <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-gait-ab.mp4"></video>
@@ -387,41 +369,41 @@ torque:</p>
 </figure>
 
 <p>Getting the right-hand clip produced the sharpest finding here. The posture reward fixed
-the fantasy world on the first try; trained from scratch on real physics, it produced a
+the fantasy world on the first try. Trained from scratch on real physics, it produced a
 policy that stands, perfectly stable, and never walks. <b>Fantasy torque does not just
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="assets/fig-standing-trap.png" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. From scratch,
-the optimizer finds the standing optimum and pays the tracking penalty forever: reward −13,
-zero falls, zero walking. Warm-started from a walking policy, it keeps locomotion and gains
-posture, +9. On fantasy torque this trap does not exist.</figcaption></figure>
+<figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. From
+scratch, the optimizer finds the standing optimum and pays the tracking penalty forever:
+reward &minus;13, zero falls, zero walking. Warm-started from a walking policy, it keeps
+locomotion and gains posture, +9. On fantasy torque this trap does not
+exist.</figcaption></figure>
 
 <div class="tablewrap">
 <table>
-  <tr><th>policy</th><th>gait on real physics</th><th>falls, no pushes</th><th>falls, ±1.0 m/s</th></tr>
-  <tr><td>stock recipe, 300 N·m fantasy joints</td><td>cannot stand</td><td>97.7%</td><td>100%</td></tr>
+  <tr><th>policy</th><th>gait on real physics</th><th>falls, no pushes</th><th>falls, &plusmn;1.0 m/s</th></tr>
+  <tr><td>stock recipe, 300 N&middot;m fantasy joints</td><td>cannot stand</td><td>97.7%</td><td>100%</td></tr>
   <tr><td>Atlas model, stock reward, 3,000 iters</td><td>crouch shuffle</td><td>0.4%</td><td>41.7%</td></tr>
   <tr><td>Atlas model, stock reward, 5,000 iters</td><td>crouch, confident</td><td>3.5%</td><td>21.3%</td></tr>
   <tr><td>Atlas model, gains rescaled by hand</td><td>weak, hesitant</td><td>1.9%</td><td>56.8%</td></tr>
   <tr><td>Atlas model, posture reward, from scratch</td><td>stands, never walks</td><td>0.4%</td><td>97.8%</td></tr>
   <tr><td>Atlas model, posture reward, warm start</td><td>upright stride</td><td>0.0%</td><td>22.4%</td></tr>
-  <tr><td>+ push curriculum (±1.0 in training)</td><td><b>upright stride</b></td><td><b>0.0%</b></td><td><b>0.4%</b></td></tr>
+  <tr><td>+ push curriculum (&plusmn;1.0 in training)</td><td><b>upright stride</b></td><td><b>0.0%</b></td><td><b>0.4%</b></td></tr>
   <tr><td>+ encoder quantization and backlash</td><td>upright, degraded</td><td>14.3%</td><td>45.0%</td></tr>
 </table>
 </div>
 
 <p>The last two rows close open loops. Training against shoves does for the humanoid what
-it did for the quadruped, and then some: 0.4 percent falls at ±1.0, one fall in 512
-episodes. And the actuator model now includes two effects the actuator net used to hold
-over physics: a 14-bit motor-shaft encoder (velocity from finite differences of the
-quantized signal) and 8 mrad of gear play, modeled as a play operator whose gap traversal
-costs the physical fraction of a control step. Half a degree of backlash is not cosmetic:
-after 1,500 adaptation iterations it still costs 14.3 percent of unpushed episodes. Our
-first backlash model gated torque to zero for a full control step per reversal, ~10x the
-physical dead time, and collapsed the policy entirely; the film caught it, the arithmetic
-confirmed it, and the corrected model is the one reported. Watch the behavior. Do not
-trust the scalar.</p>
+it did for the quadruped: 0.4 percent falls at &plusmn;1.0, one fall in 512 episodes. The
+actuator model also now covers two effects the actuator net used to hold over physics: a
+14-bit motor-shaft encoder (velocity from finite differences of the quantized signal) and
+8 mrad of gear play, modeled as a play operator whose gap traversal costs the physical
+fraction of a control step. Half a degree of backlash is not cosmetic; after 1,500
+adaptation iterations it still costs 14.3 percent of unpushed episodes. Our first backlash
+model gated torque for a full control step per reversal, about 10x the physical dead time,
+and collapsed the policy. Video review caught it, and the corrected model is the one
+reported here.</p>
 
 <figure class="wide">
   <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-shove.mp4"></video>
@@ -430,22 +412,22 @@ trust the scalar.</p>
   falls never stop: 147 in fifteen seconds. The Atlas side falls once.</figcaption>
 </figure>
 
-<p>The scaling law is uncomfortable: the quadruped pays mismatch as a 2x robustness tax, the
-humanoid pays it as nonexistence, and the industry is migrating from the forgiving platform
-to the unforgiving one.</p>
+<p>The scaling is uncomfortable. The quadruped pays mismatch as a 2x robustness tax; the
+humanoid pays it as nonexistence. The industry is migrating from the forgiving platform to
+the unforgiving one.</p>
 
 <h2>Actuator net or physics? Wrong question.</h2>
 
-<p>On an ANYdrive, ETH's network is almost certainly more accurate; it absorbed friction and
-backlash that first principles miss. The right metric is transfer quality per dollar and
-week of characterization, and there the columns have opposite shapes:</p>
+<p>On an ANYdrive, ETH's network is almost certainly more accurate; it absorbed friction
+and backlash that first principles miss. The right metric is transfer quality per dollar
+and week of characterization:</p>
 
 <div class="tablewrap">
 <table>
   <tr><th></th><th>actuator net (ETH)</th><th>physics-from-design (Atlas)</th></tr>
   <tr><td>needs the hardware to exist</td><td>yes, plus a torque-instrumented rig</td><td>no</td></tr>
   <tr><td>marginal cost per new actuator</td><td>weeks of collection and fitting</td><td>zero; it is a design output</td></tr>
-  <tr><td>captures friction, backlash, comm delays</td><td>yes, when the data covers them</td><td>backlash and encoder quantization now modeled from design parameters; friction and delays arrive through fleet telemetry, because we build the actuator and its firmware</td></tr>
+  <tr><td>captures friction, backlash, comm delays</td><td>yes, when the data covers them</td><td>backlash and encoder quantization modeled from design parameters; friction and delays arrive through fleet telemetry</td></tr>
   <tr><td>extrapolates to a new bus voltage, a hotter winding, a gear swap</td><td>silent; it never saw that data</td><td>answers from physics</td></tr>
   <tr><td>thermal state, temperature-aware policies</td><td>none</td><td>winding temperature per joint, observable by the policy</td></tr>
   <tr><td>auditable</td><td>black box</td><td>every parameter is a design quantity; energy-balance checked</td></tr>
@@ -453,39 +435,38 @@ week of characterization, and there the columns have opposite shapes:</p>
 </table>
 </div>
 
-<p>The approaches compose: the endgame is a learned residual on a physics prior, and it
+<p>The approaches compose. The endgame is a learned residual on a physics prior, and it
 belongs to whoever builds the actuator. ETH needed a rig to characterize someone else's
-black box from outside. We are inside, where measuring commanded against delivered torque
-at 20 kHz is just what FOC does. <b>ETH characterized one actuator, once. A fleet that
-ships with its own characterization loop does it continuously</b>, and every residual flows
+black box from outside. We are inside, where comparing commanded against delivered torque
+at 20 kHz is what FOC already does. <b>ETH characterized one actuator, once. A fleet that
+ships with its own characterization loop does it continuously,</b> and every residual flows
 back into the training twin.</p>
 
 <h2>The permanent layer</h2>
 
-<p>As robots get more neural, does the engineered actuator layer matter less? It becomes
-the most important layer on the robot, for three reasons, and the third has no
-counterargument.</p>
+<p>As robots get more neural, the engineered actuator layer does not fade. It becomes the
+most important layer on the robot.</p>
 
-<p><b>The physics floor does not move.</b> Policies run at 50–100 Hz; commutation runs at
-20–40 kHz with hard real-time guarantees. No network does it, and no gradient makes it
-worth trying. The more the stack neuralizes, the more this is the only engineered interface
-left.</p>
+<p><b>The physics floor does not move.</b> Policies run at 50-100 Hz; commutation runs at
+20-40 kHz with hard real-time guarantees. No network does that job, and no gradient makes
+it worth trying. The more the stack neuralizes, the more this is the only engineered
+interface left.</p>
 
 <p><b>Every policy trains against an actuator model; the only question is whose.</b> In a
-hand-tuned world a datasheet model was fine, the engineer compensated. In an RL world the
-model is the product interface. <b>RL does not route around your characterization data. It
-consumes it.</b></p>
+hand-tuned world a datasheet model was fine because an engineer compensated. In an RL world
+the model is the product interface. RL does not route around your characterization data.
+It consumes it.</p>
 
 <p><b>A learned policy cannot be the safety layer.</b> Thermal limits, overcurrent, joint
 limits, sanity when the policy outputs garbage: these need guarantees, and networks do not
-issue them. That layer lives in firmware — in our case the same law the simulation runs.
-The thing that protects the hardware, the thing the policy trains against, and the thing
-that ships are one object.</p>
+issue them. That layer lives in firmware, which in our case is the same law the simulation
+runs. The thing that protects the hardware, the thing the policy trains against, and the
+thing that ships are one object.</p>
 
 <p>Today those three floors belong to three vendors plus glue, and the sim-to-real gap is
-the seam where the glue fails. Atlas's position: one surface. We design and manufacture the motor, the
-same computation produces the training twin, the firmware is the identical law, and every
-deployed unit feeds telemetry back into the model every future policy trains
+the seam where the glue fails. Atlas's position is one surface: we design and manufacture
+the motor, the same computation produces the training twin, the firmware is the identical
+law, and every deployed unit feeds telemetry back into the model every future policy trains
 against.</p>
 
 <h2>One design, five consumers</h2>
@@ -508,12 +489,11 @@ seconds, no GPU):</p>
 
 <p>Three seeds on the quadruped, two on the humanoid, one each on the hardware-effects and
 thermal results; the splits are large enough that more seeds would sharpen error bars, not
-conclusions. The model keeps growing where the data arrives: gear friction and bus latency
-land with fleet telemetry, and the backlash operator graduates from first-order play when
-a real gearbox gets measured. Which is the next artifact: a drive board, a motor, and a
-load cell, ~$300 in parts, the emitted firmware flashed unmodified, and the measured
-torque-speed curve laid over Fig 2. That plot settles the argument in whichever direction
-it chooses.</p>
+conclusions. The model grows where the data arrives: gear friction and bus latency land
+with fleet telemetry, and the backlash operator graduates from first-order play when a real
+gearbox gets measured. The next artifact is a drive board, a motor, and a load cell, about
+$300 in parts, the emitted firmware flashed unmodified, and the measured torque-speed curve
+laid over Fig 2. That plot settles the argument in whichever direction it chooses.</p>
 
 <h2>Run it</h2>
 
@@ -521,7 +501,7 @@ it chooses.</p>
 github.com/pranavatlas/atlas-actuators</a> (MIT), with every trained checkpoint behind the
 numbers above attached to the v0.1.0 release.</p>
 
-<pre><span class="c"># the whole chain, no GPU: design → control → program → firmware → Isaac cfg</span>
+<pre><span class="c"># the whole chain, no GPU: design, control, program, firmware, Isaac cfg</span>
 python atlas_full_stack_demo.py
 
 <span class="c"># the RL experiment: Isaac Lab + the atlas_actuators plugin, one GPU</span>
@@ -556,7 +536,6 @@ https://pranavatlas.github.io/actuator-model-problem/</pre>
 <span>Atlas Motion Systems</span>
 </footer>
 </div>
-
 
 </body>
 </html>
