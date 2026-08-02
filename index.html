@@ -42,6 +42,9 @@
   figure.wide{margin:24px 0;}
   blockquote{margin:16px 0;padding-left:14px;border-left:3px solid #A6854A;color:#555;font-size:15px;}
   ol.findings{margin:0 0 16px 22px;padding:0;}
+  ol.refs{margin:0 0 16px 22px;padding:0;font-size:13.5px;color:#555;line-height:1.55;}
+  ol.refs li{margin:0 0 8px;}
+  a.cit{font-size:12px;vertical-align:super;text-decoration:none;}
   ol.findings li{margin:0 0 10px;}
   footer{margin-top:60px;padding-top:14px;border-top:1px solid #E4E4E4;color:#9A9A9A;font-size:12.5px;
          display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
@@ -113,23 +116,23 @@ throws all of it away in favor of a torque genie.</p>
 
 <h2>Every simulator ships a fantasy motor</h2>
 
-<p>The one strong model in the toolbox is ETH's 2019 actuator net: hours of measured torque
-on their ANYdrive, distilled into an LSTM. It transferred famously, Isaac Lab ships it
-today, and it describes exactly one actuator. The method needs the hardware to exist first,
+<p>The one strong model in the toolbox is ETH's 2019 actuator net <a class="cit" href="#ref1">[1]</a>:
+hours of measured torque on their ANYdrive, distilled into an LSTM. It transferred
+famously, Isaac Lab ships it today <a class="cit" href="#ref2">[2]</a>, and it describes
+exactly one actuator. The method needs the hardware to exist first,
 so it can't answer the question that matters at design time: whether this motor is worth
 building at all.</p>
 
 <p>The hardware record is blunt. Policies trained with an ideal or analytical actuator
-model "<a href="https://arxiv.org/abs/1901.08652">could not make a single step without
-falling</a>" on ANYmal, and that was after ETH spent a week tuning the analytical model. On
-<a href="https://arxiv.org/abs/2504.06585">TOCABI</a>, a full-size humanoid with 100:1
-harmonic drives, every training seed of the naive baseline failed to control the robot. On
-a <a href="https://ojs.aaai.org/index.php/AAAI/article/view/11044">NAO</a> whose simulator
+model "could not make a single step without falling" on ANYmal, and that was after ETH
+spent a week tuning the analytical model <a class="cit" href="#ref1">[1]</a>. On TOCABI, a
+full-size humanoid with 100:1 harmonic drives, every training seed of the naive baseline
+failed to control the robot <a class="cit" href="#ref3">[3]</a>. On a NAO whose simulator
 answered commands instantly, seven of ten policies improved in sim and degraded the real
-walk. Google's <a href="https://arxiv.org/abs/1804.10332">Minitaur</a> "fell to the ground
+walk <a class="cit" href="#ref4">[4]</a>. Google's Minitaur "fell to the ground
 immediately" until torque saturation and latency entered the simulation; domain
-randomization alone did not save it. Transfer survives in proportion to how honestly the
-training world models the actuator.</p>
+randomization alone did not save it <a class="cit" href="#ref5">[5]</a>. Transfer survives
+in proportion to how honestly the training world models the actuator.</p>
 
 <h2>The model is a design output</h2>
 
@@ -321,7 +324,9 @@ slow down. It does not. <b>It walks the same 1.7 m/s with its hottest winding el
 degrees cooler,</b> spreading load so no single winding becomes the fuse, and falls 4 times
 to the blind policy's 17. Thermal load-balancing appears in no reward term. It is what the
 optimizer does once the policy can feel heat and the physics makes heat cost
-something.</p>
+something. Heat is not hypothetical: agile-skill data collection on deployed G1s has
+ended with joint motors overheated to hardware failure
+<a class="cit" href="#ref6">[6]</a>.</p>
 
 <figure><img src="assets/fig-thermal.png" alt="Winding temperature and speed over time, blind versus temperature-aware policy">
 <figcaption><b>Fig 12: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
@@ -452,6 +457,15 @@ at 20 kHz is what FOC already does. <b>ETH characterized one actuator, once. A f
 ships with its own characterization loop does it continuously,</b> and every residual flows
 back into the training twin.</p>
 
+<p>The field's other routes agree on the diagnosis and pick different medicine. Berkeley
+Humanoid constrains the hardware to low gear ratios so the ideal model becomes nearly true
+<a class="cit" href="#ref7">[7]</a>. Booster measures each actuator's torque-speed envelope
+on a bench and pastes the knee points into simulation <a class="cit" href="#ref8">[8]</a>.
+Recent work reshapes the real actuator's own controller until it imitates the simulator's
+reference model <a class="cit" href="#ref9">[9]</a>. Each treats the actuator model as the
+product. Ours is the same conclusion with a different origin: the model is emitted by the
+tool that designed the motor.</p>
+
 <h2>The permanent layer</h2>
 
 <p>As robots get more neural, the engineered actuator layer does not fade. It becomes the
@@ -520,6 +534,40 @@ python atlas_full_stack_demo.py
 <span class="c"># hardened curriculum + the humanoid</span>
 ./isaaclab.sh -p train.py --task Isaac-Velocity-Flat-Anymal-C-AtlasFOC-Hard-v0 --headless
 ./isaaclab.sh -p train.py --task Isaac-Velocity-Flat-G1-AtlasFOC-v0 --headless</pre>
+
+<h2>References</h2>
+
+<ol class="refs">
+<li id="ref1">Hwangbo, J., Lee, J., Dosovitskiy, A., Bellicoso, D., Tsounis, V., Koltun,
+V., Hutter, M. Learning agile and dynamic motor skills for legged robots. <i>Science
+Robotics</i> 4(26), 2019. <a href="https://arxiv.org/abs/1901.08652">arXiv:1901.08652</a></li>
+<li id="ref2">Rudin, N., Hoeller, D., Reist, P., Hutter, M. Learning to walk in minutes
+using massively parallel deep reinforcement learning. <i>CoRL</i>, 2021.
+<a href="https://arxiv.org/abs/2109.11978">arXiv:2109.11978</a></li>
+<li id="ref3">Cha, J. R., Cha, W., Shin, J., Kim, D., Park, J. Sim-to-real of humanoid
+locomotion policies via joint torque space perturbation injection, 2025.
+<a href="https://arxiv.org/abs/2504.06585">arXiv:2504.06585</a></li>
+<li id="ref4">Hanna, J., Stone, P. Grounded action transformation for robot learning in
+simulation. <i>AAAI</i>, 2017.
+<a href="https://ojs.aaai.org/index.php/AAAI/article/view/11044">AAAI 11044</a></li>
+<li id="ref5">Tan, J., Zhang, T., Coumans, E., Iscen, A., Bai, Y., Hafner, D., Bohez, S.,
+Vanhoucke, V. Sim-to-real: Learning agile locomotion for quadruped robots. <i>RSS</i>,
+2018. <a href="https://arxiv.org/abs/1804.10332">arXiv:1804.10332</a></li>
+<li id="ref6">He, T., Gao, J., Xiao, W., Zhang, Y., Wang, Z., Wang, J., Luo, Z., He, G.,
+Sobanbab, N., Pan, C., Yi, Z., Qu, G., Kitani, K., Hodgins, J., Fan, L., Zhu, Y., Liu,
+C., Shi, G. ASAP: Aligning simulation and real-world physics for learning agile humanoid
+whole-body skills. <i>RSS</i>, 2025.
+<a href="https://arxiv.org/abs/2502.01143">arXiv:2502.01143</a></li>
+<li id="ref7">Liao, Q., Zhang, B., Huang, X., Huang, X., Li, Z., Sreenath, K. Berkeley
+Humanoid: A research platform for learning-based control, 2024.
+<a href="https://arxiv.org/abs/2407.21781">arXiv:2407.21781</a></li>
+<li id="ref8">Chen, P., Zheng, T., Zhang, Y., Zhao, M. Booster Lab: A data-centric
+pipeline for learning deployable humanoid locomotion policies, 2026.
+<a href="https://arxiv.org/abs/2606.27813">arXiv:2606.27813</a></li>
+<li id="ref9">Yamamori, S., Ishihara, K., Minamikawa, K., Ohmori, R., Yasaki, T.,
+Sugimoto, N., Morimoto, J. Actuator reality shaping for zero-shot sim-to-real robot
+learning, 2026. <a href="https://arxiv.org/abs/2607.02205">arXiv:2607.02205</a></li>
+</ol>
 
 <h2>Citing this report</h2>
 
