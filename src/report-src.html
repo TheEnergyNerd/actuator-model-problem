@@ -358,6 +358,13 @@ magnets, different iron. Nothing in that table was hand-chosen. The tasks were. 
 robot's software is now a load case,</b> the same way gravity is, and an actuator vendor
 that cannot run this loop is guessing at half the loads.</p>
 
+<figure><img src="{{FIG_CAD_PAIR}}" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
+<figcaption><b>Fig 13: the table, in metal.</b> Cutaway renders of the generated CAD for
+both designs, same scale, housing removed. Gold is copper, black is magnet, gray is iron.
+The carry design's winding is visibly heavier and its stack two millimeters longer; the
+sprint design trades that copper for a faster winding. Both STEP files are
+manufacturing-ready outputs of the same run that produced the table.</figcaption></figure>
+
 <h2>The humanoid does not get up</h2>
 
 <p>A quadruped stumbles onto its other legs; a humanoid balances or it does not exist. And
@@ -367,13 +374,13 @@ policy that task has produced. Our variant gears one Atlas motor three ways (12:
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
 <figure><img src="{{FIG9}}" alt="G1 training curves: episode length for stock and Atlas actuator models">
-<figcaption><b>Fig 13: what fantasy torque buys during training.</b> The stock policy
+<figcaption><b>Fig 14: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
 <figure><img src="{{FIG10}}" alt="G1 fall rates on real physics for both policies">
-<figcaption><b>Fig 14: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
+<figcaption><b>Fig 15: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either. A second seed, retrained from scratch, lands in the same
 place: 99.7 percent falls against 4.5.</figcaption></figure>
@@ -413,7 +420,7 @@ policy that stands, perfectly stable, and never walks. <b>Fantasy torque does no
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="{{FIG11}}" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. From
+<figcaption><b>Fig 16: the standing trap.</b> One reward, two starting points. From
 scratch, the optimizer finds the standing optimum and pays the tracking penalty forever:
 reward &minus;13, zero falls, zero walking. Warm-started from a walking policy, it keeps
 locomotion and gains posture, +9. On fantasy torque this trap does not
