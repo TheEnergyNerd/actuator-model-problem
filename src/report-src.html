@@ -322,6 +322,42 @@ ended with joint motors overheated to hardware failure
 the only difference is whether the policy can feel its motors heat. The aware policy holds
 the same speed and stays out of the derate band for an extra minute.</figcaption></figure>
 
+<p>The gearbox was the visible knob. The task reaches much deeper than that, because every
+layer of the metal is the answer to a question the software asks. Peak torque at speed,
+the shove-recovery currency, is a voltage problem: the winding gets fewer turns of thicker
+wire, trading torque per amp for headroom against back-EMF. A steady payload carry asks
+the opposite question, so the same stator gets wound with more turns, buying torque per
+amp and cutting resistive heat at continuous duty. Magnet thickness follows the continuous
+magnetic loading and the demagnetization margin at peak current. Back iron exists to carry
+the flux the magnets push, so it thickens in lockstep with them, and a high pole count
+keeps flux per pole small enough that both rims stay thin. Gear teeth are sized by the
+peak tooth loads in the winning policy's own torque history; how much backlash the gears
+are allowed is priced by what play costs the policy (half a degree, 14.3 percent of
+episodes). Even the sensor list is task-derived: encoder resolution is priced by what
+velocity quantization costs the policy, and the winding thermistors earn their BOM line
+because a policy that can feel them falls four times instead of seventeen. To make this
+concrete, we gave the design generator two tasks for the same joint envelope and let it
+answer:</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th></th><th>sprint-recovery task</th><th>steady-carry task</th></tr>
+  <tr><td>what the policy demands</td><td>14 N&middot;m peak / 7 cont at 250 rpm</td><td>12 N&middot;m peak / 10 cont at 120 rpm</td></tr>
+  <tr><td>winding</td><td>15 turns per coil, Kv 147</td><td>38 turns per coil, Kv 52</td></tr>
+  <tr><td>torque constant</td><td>0.113 N&middot;m/A</td><td>0.320 N&middot;m/A</td></tr>
+  <tr><td>magnet thickness</td><td>2.42 mm</td><td>2.67 mm</td></tr>
+  <tr><td>stator back iron</td><td>1.24 mm</td><td>1.38 mm</td></tr>
+  <tr><td>stack length</td><td>16.8 mm</td><td>18.8 mm</td></tr>
+  <tr><td>slots / poles</td><td>18 / 20</td><td>18 / 20</td></tr>
+  <tr><td>actuator mass</td><td>606 g</td><td>651 g</td></tr>
+</table>
+</div>
+
+<p>Same envelope, same voltage rail, same slot-pole skeleton; different copper, different
+magnets, different iron. Nothing in that table was hand-chosen. The tasks were. <b>The
+robot's software is now a load case,</b> the same way gravity is, and an actuator vendor
+that cannot run this loop is guessing at half the loads.</p>
+
 <h2>The humanoid does not get up</h2>
 
 <p>A quadruped stumbles onto its other legs; a humanoid balances or it does not exist. And
