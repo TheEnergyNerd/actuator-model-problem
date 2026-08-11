@@ -197,21 +197,21 @@ const canvas=document.getElementById("c");
 const gl=canvas.getContext("webgl",{antialias:true,alpha:true,premultipliedAlpha:false});
 const VS=`
 attribute vec3 p; attribute vec3 n;
-uniform mat4 uMVP, uModel; uniform vec3 uCenter, uExplodeVec; uniform float uExplode, uR;
-varying vec3 vVN; varying float vClip;
+uniform mat4 uMVP, uModel, uMV; uniform vec3 uCenter, uExplodeVec; uniform float uExplode, uR;
+varying vec3 vVN; varying float vVZ;
 void main(){
   vec3 pc = (p - uCenter) + uExplodeVec*uExplode*uR;
   vVN = normalize(mat3(uModel)*n);
-  vClip = (uModel*vec4(pc,1.0)).y;
+  vVZ = (uMV*vec4(pc,1.0)).z;         // view-space depth for the section plane
   gl_Position = uMVP*vec4(pc,1.0);
 }`;
 const FS=`
 precision highp float;
-varying vec3 vVN; varying float vClip;
-uniform sampler2D uMat; uniform vec3 uTint; uniform float uSection, uAlpha, uFres;
+varying vec3 vVN; varying float vVZ;
+uniform sampler2D uMat; uniform vec3 uTint; uniform float uSection, uAlpha, uFres, uCutZ;
 vec3 aces(vec3 x){return clamp((x*(2.51*x+0.03))/(x*(2.43*x+0.59)+0.14),0.0,1.0);}
 void main(){
-  if(uSection>0.5 && vClip>0.0) discard;
+  if(uSection>0.5 && vVZ>uCutZ) discard;
   vec3 N=normalize(vVN);
   vec2 uv=N.xy*0.5+0.5;
   // matcap art is already sRGB and pre-lit: sample directly, no re-gamma
@@ -223,7 +223,7 @@ void main(){
 function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw gl.getShaderInfoLog(o);return o;}
 const prog=gl.createProgram();gl.attachShader(prog,sh(gl.VERTEX_SHADER,VS));gl.attachShader(prog,sh(gl.FRAGMENT_SHADER,FS));gl.linkProgram(prog);gl.useProgram(prog);
 const loc={};["p","n"].forEach(a=>loc[a]=gl.getAttribLocation(prog,a));
-["uMVP","uModel","uCenter","uExplodeVec","uExplode","uR","uMat","uTint","uSection","uAlpha","uFres"].forEach(u=>loc[u]=gl.getUniformLocation(prog,u));
+["uMVP","uModel","uMV","uCenter","uExplodeVec","uExplode","uR","uMat","uTint","uSection","uAlpha","uFres","uCutZ"].forEach(u=>loc[u]=gl.getUniformLocation(prog,u));
 gl.enable(gl.DEPTH_TEST); gl.disable(gl.CULL_FACE);
 // upload matcap textures
 const texs=MATCAPS.map(cv=>{const t=gl.createTexture();gl.bindTexture(gl.TEXTURE_2D,t);
@@ -267,7 +267,8 @@ function render(){
   const model=M4.mul(M4.rotX(el),M4.rotY(az));
   const mv=M4.mul(M4.trans(panx*R,pany*R,-dist*R),model);
   const mvp=M4.mul(proj,mv);
-  gl.uniformMatrix4fv(loc.uMVP,false,mvp);gl.uniformMatrix4fv(loc.uModel,false,model);
+  gl.uniformMatrix4fv(loc.uMVP,false,mvp);gl.uniformMatrix4fv(loc.uModel,false,model);gl.uniformMatrix4fv(loc.uMV,false,mv);
+  gl.uniform1f(loc.uCutZ,-dist*R+R*0.06);
   gl.uniform3fv(loc.uCenter,m.center);gl.uniform1f(loc.uExplode,explode);gl.uniform1f(loc.uR,R);
   gl.activeTexture(gl.TEXTURE0);gl.uniform1i(loc.uMat,0);
   // opaque pass then translucent housing
@@ -280,7 +281,7 @@ function render(){
     gl.drawElements(gl.TRIANGLES,pt.count,pt.u16?gl.UNSIGNED_SHORT:gl.UNSIGNED_INT,0);
   };
   gl.enable(gl.DEPTH_TEST);gl.depthMask(true);gl.disable(gl.BLEND);
-  gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);
+  if(!section){gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);}else{gl.disable(gl.CULL_FACE);}
   gl.uniform1f(loc.uSection,section?1:0);gl.uniform1f(loc.uAlpha,1);
   for(const pt of parts){ if(pt.group==="housing")continue;
     gl.uniform3fv(loc.uTint,[1,1,1]); gl.uniform1f(loc.uFres,0.18); draw(pt);}
@@ -327,14 +328,18 @@ function renderPanel(name){document.getElementById("pName").textContent=DATA.mot
     const r=document.createElement("div");r.className="row";
     r.innerHTML=`<span class="k">${label}</span><span class="v ${changed?'chg':''}">${val}<span class="u">${unit}</span>${delta}</span>`;rows.appendChild(r);}}
 function select(name,btn){prev=cur;cur=name;[...tabsEl.children].forEach(c=>c.setAttribute("aria-selected",c===btn));buildMotor(name);buildLegend(name);renderPanel(name);}
-document.getElementById("secBtn").onclick=e=>{section=!section;e.currentTarget.setAttribute("aria-pressed",section);};
-document.getElementById("houseBtn").onclick=e=>{housing=!housing;e.currentTarget.setAttribute("aria-pressed",housing);};
-document.getElementById("spinBtn").onclick=e=>{spin=!spin;e.currentTarget.setAttribute("aria-pressed",spin);};
-function setExplode(v){explode=v;document.getElementById("exp").value=Math.round(v*100);
-  document.getElementById("expBtn").setAttribute("aria-pressed",v>0.02);
-  if(v>0.02 && section){section=false;document.getElementById("secBtn").setAttribute("aria-pressed",false);}}
-document.getElementById("exp").addEventListener("input",e=>setExplode(e.target.value/100));
-document.getElementById("expBtn").onclick=()=>setExplode(explode>0.02?0:0.62);
+const secBtn=document.getElementById("secBtn"),houseBtn=document.getElementById("houseBtn"),
+  expBtn=document.getElementById("expBtn"),spinBtn=document.getElementById("spinBtn"),expSlider=document.getElementById("exp");
+function syncBtns(){secBtn.setAttribute("aria-pressed",section);houseBtn.setAttribute("aria-pressed",housing);
+  expBtn.setAttribute("aria-pressed",explode>0.02);spinBtn.setAttribute("aria-pressed",spin);expSlider.value=Math.round(explode*100);}
+function setExplode(v){explode=v; if(v>0.02) section=false; syncBtns();}
+secBtn.onclick=()=>{section=!section;
+  if(section){ housing=false; explode=0; }         // section reveals at any orbit angle now
+  syncBtns();};
+houseBtn.onclick=()=>{housing=!housing; if(housing) section=false; syncBtns();};
+spinBtn.onclick=()=>{spin=!spin; syncBtns();};
+expSlider.addEventListener("input",e=>setExplode(e.target.value/100));
+expBtn.onclick=()=>setExplode(explode>0.02?0:0.62);
 
 resize();buildMotor(cur);buildLegend(cur);renderPanel(cur);
 [...tabsEl.children][0].setAttribute("aria-selected","true");
