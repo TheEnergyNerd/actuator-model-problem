@@ -67,14 +67,19 @@ def build_site():
             shutil.copyfile(s, d)
         assert t.count("{{" + tok + "}}") == 1, tok
         t = t.replace("{{" + tok + "}}", f"assets/{dst}")
+    t = t.replace("<!--SITE_ONLY-->", "").replace("<!--/SITE_ONLY-->", "")
     tokens_ok(t)
     t = SITE_HEAD + t
     t = t.replace("</style>", "</style>\n</head>\n<body>", 1) + "\n</body>\n</html>\n"
     (SITE / "index.html").write_text(t)
+    viewer = HERE.parent / "motor-explorer.html"
+    if viewer.exists() and viewer.resolve() != (SITE / "motor-explorer.html").resolve():
+        shutil.copyfile(viewer, SITE / "motor-explorer.html")
     print("site built")
 
 def build_artifact():
     t = (HERE / "report-src.html").read_text()
+    t = re.sub(r"<!--SITE_ONLY-->.*?<!--/SITE_ONLY-->", "", t, flags=re.S)
     for tok, (src, _) in MAP.items():
         data = (AB / src).read_bytes()
         mime = "image/png" if src.endswith(".png") else "video/mp4"
