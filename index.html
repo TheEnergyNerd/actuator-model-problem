@@ -141,6 +141,30 @@ limits, and thermal resistances. That is everything needed to simulate what the 
 microcontroller will actually run, current loop included. What simpler models miss is the
 price of torque at speed:</p>
 
+<p>Those numbers are not typed in. They fall out of a physics-based design engine that
+takes a spec (peak and continuous torque, a speed, a voltage rail, a mass and envelope
+budget) and solves the coupled problem an actuator actually is. The electromagnetics set
+the winding: turns, wire gauge, and slot fill fix the torque constant and the phase
+resistance, and the magnet grade and thickness fix the airgap flux and the demagnetization
+margin at peak current. The magnetics then hand the thermal model a loss map, and the
+thermal model sizes the copper and the iron against the duty cycle, because a winding that
+makes the torque but cooks in ninety seconds is not a design. The mechanics close the loop:
+the gear ratio trades the motor's speed for joint torque, the tooth loads set the gear
+module and face width, the bearings are picked against the reaction forces, and the whole
+stack has to fit the envelope and hit the mass budget. Every one of those decisions moves
+the electrical parameters the policy trains against, which is why the actuator model is not
+a datasheet lookup bolted onto a simulator. It is the residue of a real hardware design,
+and it is exact because the same solve emits the geometry we machine, the gains the firmware
+runs, and the dict Isaac Lab loads.</p>
+
+<p>The corollary is the uncomfortable one for the rest of the industry. A motor catalog
+sells you a part and a page of nominal numbers measured at one operating point on one
+sample. It cannot tell you what the winding does at your bus voltage, in your thermal
+enclosure, on your duty cycle, because it never solved your problem. We solve your problem
+to build the part, so the model and the metal are the same object, and the model is honest
+in exactly the regimes (torque at speed, torque when hot, torque after a gear swap) where
+a policy gets a robot hurt.</p>
+
 <figure><img src="assets/fig-torque-speed.png" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
 <figcaption><b>Fig 2: maximum torque against speed, same motor, two models.</b> A resistive
 envelope holds full torque nearly to no-load speed. The FOC model pays the true voltage

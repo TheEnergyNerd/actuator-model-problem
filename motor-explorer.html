@@ -157,27 +157,27 @@ function makeMatcap(stops, hi, rim){
   let rg=g.createRadialGradient(S*0.5,S*0.5,S*0.05,S*0.5,S*0.5,S*0.52);
   stops.forEach(s=>rg.addColorStop(s[0],s[1]));
   g.beginPath(); g.arc(S/2,S/2,S/2,0,7); g.fillStyle=rg; g.fill();
-  // key highlight, upper-left
-  let hg=g.createRadialGradient(S*0.34,S*0.30,2,S*0.34,S*0.30,S*0.42);
-  hg.addColorStop(0,hi); hg.addColorStop(1,"rgba(255,255,255,0)");
+  // key highlight: a tight offset spot, not a center wash
+  let hg=g.createRadialGradient(S*0.36,S*0.30,1,S*0.36,S*0.30,S*0.22);
+  hg.addColorStop(0,hi); hg.addColorStop(0.6,"rgba(255,255,255,0.06)"); hg.addColorStop(1,"rgba(255,255,255,0)");
   g.globalCompositeOperation="lighter"; g.fillStyle=hg; g.beginPath(); g.arc(S/2,S/2,S/2,0,7); g.fill();
-  // cool rim light, lower-right
-  if(rim){let rr=g.createRadialGradient(S*0.72,S*0.78,2,S*0.72,S*0.78,S*0.36);
+  // cool rim light, lower-right edge
+  if(rim){let rr=g.createRadialGradient(S*0.74,S*0.80,1,S*0.74,S*0.80,S*0.30);
     rr.addColorStop(0,rim); rr.addColorStop(1,"rgba(0,0,0,0)");
     g.fillStyle=rr; g.beginPath(); g.arc(S/2,S/2,S/2,0,7); g.fill();}
   g.globalCompositeOperation="source-over";
   return cv;
 }
 const MATCAPS=[
-  makeMatcap([[0,"#eef2f6"],[.45,"#aab0b8"],[.8,"#585d66"],[1,"#2b2f36"]],"rgba(255,255,255,.9)","rgba(150,170,200,.5)"), //0 steel
-  makeMatcap([[0,"#ffe9c8"],[.4,"#d69a52"],[.78,"#96601f"],[1,"#4a2f0f"]],"rgba(255,240,210,.95)","rgba(210,150,90,.5)"), //1 copper
-  makeMatcap([[0,"#5a5f68"],[.5,"#33373f"],[1,"#141619"]],"rgba(190,200,215,.55)","rgba(90,110,140,.4)"), //2 magnet dark
-  makeMatcap([[0,"#7a7f88"],[.5,"#4d515a"],[1,"#212429"]],"rgba(210,220,235,.55)","rgba(110,130,160,.4)"), //3 magnet grey
-  makeMatcap([[0,"#ffffff"],[.4,"#c6cdd6"],[.8,"#6d7480"],[1,"#31363e"]],"rgba(255,255,255,1)","rgba(170,190,220,.55)"), //4 shaft bright
-  makeMatcap([[0,"#e2e6ec"],[.5,"#aab0ba"],[1,"#6e747f"]],"rgba(255,255,255,.85)","rgba(160,180,205,.5)"), //5 alu housing
-  makeMatcap([[0,"#9aa0aa"],[.45,"#5f656f"],[.82,"#33373f"],[1,"#191c21"]],"rgba(200,212,228,.7)","rgba(110,130,160,.4)"), //6 rotor steel-dark
+  makeMatcap([[0,"#8b9099"],[.5,"#565c65"],[.82,"#33383f"],[1,"#181b20"]],"rgba(240,246,255,.85)","rgba(120,145,180,.5)"), //0 steel
+  makeMatcap([[0,"#b06f2c"],[.48,"#8a521c"],[.8,"#5c360f"],[1,"#2c1a08"]],"rgba(255,224,180,.9)","rgba(200,130,70,.5)"), //1 copper
+  makeMatcap([[0,"#3a3f47"],[.55,"#24282f"],[1,"#0e1013"]],"rgba(150,170,205,.5)","rgba(80,100,135,.4)"), //2 magnet dark
+  makeMatcap([[0,"#50555e"],[.55,"#34383f"],[1,"#16181c"]],"rgba(170,190,220,.5)","rgba(95,120,155,.4)"), //3 magnet grey
+  makeMatcap([[0,"#a7adb7"],[.42,"#767d88"],[.8,"#454b54"],[1,"#20242a"]],"rgba(255,255,255,.95)","rgba(160,185,220,.55)"), //4 shaft chrome
+  makeMatcap([[0,"#8f959f"],[.5,"#5e646d"],[1,"#363b43"]],"rgba(245,250,255,.8)","rgba(140,165,200,.5)"), //5 alu housing
+  makeMatcap([[0,"#565c66"],[.5,"#383d45"],[.82,"#22262c"],[1,"#101216"]],"rgba(180,198,225,.6)","rgba(95,120,155,.4)"), //6 rotor dark-steel
 ];
-const MAT_LEGEND_COLOR=["#9aa0aa","#c98a3e","#33373f","#4d515a","#d7dbe2","#b8bec8","#5f656f"];
+const MAT_LEGEND_COLOR=["#7c828c","#a8641f","#2b2f36","#40454d","#9aa0aa","#7e848e","#4a4f57"];
 
 // ── explode vectors per part (radius units; motor axis = z) ──
 const EXPLODE={
@@ -209,11 +209,10 @@ void main(){
   if(uSection>0.5 && vClip>0.0) discard;
   vec3 N=normalize(vVN);
   vec2 uv=N.xy*0.5+0.5;
+  // matcap art is already sRGB and pre-lit: sample directly, no re-gamma
   vec3 c=texture2D(uMat,uv).rgb*uTint;
-  float fres=pow(1.0-max(N.z,0.0),3.0);
-  c += fres*uFres*vec3(0.55,0.62,0.75);
-  c=aces(c*1.05);
-  c=pow(c,vec3(0.4545));
+  float fres=pow(1.0-max(N.z,0.0),3.5);
+  c += fres*uFres*vec3(0.45,0.52,0.66);
   gl_FragColor=vec4(c,uAlpha);
 }`;
 function sh(t,s){const o=gl.createShader(t);gl.shaderSource(o,s);gl.compileShader(o);if(!gl.getShaderParameter(o,gl.COMPILE_STATUS))throw gl.getShaderInfoLog(o);return o;}
@@ -278,7 +277,7 @@ function render(){
   gl.enable(gl.DEPTH_TEST);gl.depthMask(true);gl.disable(gl.BLEND);
   gl.uniform1f(loc.uSection,section?1:0);gl.uniform1f(loc.uAlpha,1);
   for(const pt of parts){ if(pt.group==="housing")continue;
-    gl.uniform3fv(loc.uTint,[1,1,1]); gl.uniform1f(loc.uFres,0.28); draw(pt);}
+    gl.uniform3fv(loc.uTint,[1,1,1]); gl.uniform1f(loc.uFres,0.18); draw(pt);}
   if(housing){
     gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);gl.depthMask(false);
     gl.enable(gl.CULL_FACE);gl.cullFace(gl.BACK);
