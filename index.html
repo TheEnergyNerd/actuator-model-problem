@@ -265,6 +265,94 @@ persists through &plusmn;3.5. Training harder moved the cliff, not the ordering.
   34.4 percent.</figcaption>
 </figure>
 
+<h2>A few degrees becomes a fall</h2>
+
+<p>The recovery gap is where torque is demanded at speed, and that is exactly where the
+actuator stops being the thing the policy trained against. Two failures live in that corner,
+and neither appears on a datasheet: the torque envelope <em>shrinks</em>, and the torque
+vector <em>rotates</em>. The policy was promised a rectangle of capability. What the metal
+delivers is a smaller rectangle, tilted, and moving while the robot leans on it.</p>
+
+<p>Field-oriented control makes torque by holding the stator current ninety electrical
+degrees ahead of the rotor flux, on the q-axis. The entire torque command is projected onto
+one number, the rotor angle. Miss it by &delta; and the current splits: the useful part is
+<code>i&middot;cos&nbsp;&delta;</code> and the stray part <code>i&middot;sin&nbsp;&delta;</code>
+does no work and still dissipates full I&sup2;R. Torque therefore follows cos&nbsp;&delta; &mdash;
+15&deg; costs three percent, 30&deg; costs thirteen, 90&deg; makes zero torque, and past
+90&deg; it reverses, the leg pushing the way it should be resisting. The heat to buy the
+torque back rises as 1/cos&sup2;&delta;: thirty degrees of error is a third more copper loss
+for the same newton-meter, dumped in the same milliseconds the winding is already loaded with
+the recovery transient.</p>
+
+<figure><img src="assets/fig-misalignment.png" alt="Torque retention cos delta and copper-loss penalty one over cos squared delta versus electrical misalignment">
+<figcaption><b>Fig 9: what a commutation error costs.</b> Torque delivered is cos&nbsp;&delta;
+(left); the current wasted on the d-axis is not free, and holding the same torque through a
+&delta;&deg; error costs 1/cos&sup2;&delta; in copper heat (right). A thirty-degree error is
+thirteen percent less torque <em>and</em> a third more heat &mdash; both landing in the recovery
+corner at once.</figcaption></figure>
+
+<p>Where does &delta; come from? Latency, for one: any delay &tau; in sensing and the current
+loop becomes an angle error &delta;&nbsp;=&nbsp;&omega;<sub>e</sub>&middot;&tau; that grows with
+electrical speed, so it is worst at the top of a jump when the rotor spins fastest and the
+robot still needs force. But the subtle source is that the aligned angle itself <em>moves
+under load</em>. Drive tens of amps of q-axis current and the iron cross-saturates; the angle
+of maximum torque-per-amp shifts several electrical degrees from where it sat at the gentle
+current the commutation offset was trimmed at. A motor calibrated in pick-and-place duty
+&mdash; a few amps, at rest &mdash; is systematically miscommutated at its sixty-amp peak.
+This is the report's thesis in miniature: the calibration is honest only in the regime you
+calibrated, and the robot spends its violent moments in the regime you did not.</p>
+
+<p>Misalignment never acts alone. The same recovery transient is voltage-limited &mdash; past
+base speed the inverter runs out of volts against the back-EMF and torque falls away (Fig 2)
+&mdash; while field weakening is already spending current to cancel that back-EMF (Fig 3), and
+the winding is derating as it heats. Each is a different edge of the promised envelope closing
+in, and they close together, because high speed, high torque, and hot copper are the same
+instant:</p>
+
+<div class="tablewrap"><table>
+<tr><th>Edge that closes</th><th>Mechanism</th><th>Where it bites</th></tr>
+<tr><td>Voltage ceiling</td><td>inverter runs out of volts vs back-EMF; usable torque falls as
+V&nbsp;&minus;&nbsp;&omega;K<sub>e</sub> shrinks</td><td>high speed &mdash; end of a push, top of a jump</td></tr>
+<tr><td>Field weakening</td><td>negative d-axis current spent to reach speed, not torque</td><td>above base speed</td></tr>
+<tr><td>Thermal derate</td><td>current limit falls as the winding heats; K<sub>e</sub> drops with magnet temperature</td><td>after a few seconds of hard duty</td></tr>
+<tr><td>Commutation misalignment</td><td>torque &times; cos&nbsp;&delta;, heat &times; 1/cos&sup2;&delta;; the aligned angle moves under load</td><td>fast, hot, high-current &mdash; all at once</td></tr>
+</table></div>
+
+<p>A newton-meter lost or misdirected at the motor does not stay at the motor. Multiply it by
+the gear ratio and it is a joint-torque error, and the joint is one actuator inside a
+whole-body controller that solves, tens of times a second, a constrained optimization: find
+the joint torques that produce the commanded ground-reaction forces without exceeding any
+actuator's limit or tipping the robot. That solver is handed the limits as fact. When the true
+limit is lower (derate) or the delivered torque points the wrong way (misalignment), the
+torques it computed are infeasible on the metal &mdash; and the controller does not find out
+until the force it asked for fails to appear.</p>
+
+<figure><img src="assets/fig-error-ladder.png" alt="Error amplification ladder from motor miscommutation up through joint, whole-body controller, to a fall">
+<figcaption><b>Fig 10: the amplification ladder.</b> A few electrical degrees at the motor
+become a joint-torque error, then an infeasible whole-body solve, then a wrong ground-reaction
+force at the wrong instant. Each rung multiplies the last; the fall is the top of a staircase
+whose first step is invisible on a datasheet.</figcaption></figure>
+
+<p>What follows is the dangerous part. The joint saturates below its promised torque, the
+commanded ground-reaction force is not produced, and the robot's actual acceleration parts ways
+with the plan. Next tick the controller tries to make up the missing force by loading the
+neighbouring joints harder &mdash; pushing them toward their own, also-derated, limits. One
+saturated actuator becomes three. The whole-body program that had a feasible answer against
+fantasy limits has none against real ones; it returns a clipped, least-bad torque set, the
+posture error grows, and on a legged robot a posture error that grows during a support phase is
+the definition of a fall. This is why the gap lives in recovery: cruise never asks for the
+corner, so the cascade never lights; a shove or a jump asks for all of it at once.</p>
+
+<p>And it is not only magnitude. Misalignment ripples the torque and shifts its phase; derating
+changes how fast a joint can rise to a commanded force. Both move the <em>timing</em> of force,
+and legged motion is timing &mdash; the impulse that has to land inside the eighty milliseconds
+of a foot strike, the symmetric push that keeps a biped from yawing, the co-timed extension of
+hip, knee, and ankle that makes a jump instead of a stumble. A model that gets the steady torque
+right and the timing wrong still puts the robot in the wrong place at the wrong instant. The
+policy never sees any of it, because it trained against a torque genie with no angle to miss, no
+heat to fear, and no neighbour to overload. The fall is not the policy being foolish. It is the
+policy being faithful to a machine that was described to it dishonestly.</p>
+
 <h2>Co-design for a dollar a gearbox</h2>
 
 <p>Hardware design has always been open-loop with respect to behavior: size the motor,
@@ -274,7 +362,7 @@ produces required the hardware to exist. A design-time actuator model breaks tha
 dependency:</p>
 
 <figure><img src="assets/fig-codesign-loop.png" alt="Hardware design loop before and after a design-time actuator model">
-<figcaption><b>Fig 9: the loop that did not exist.</b> Top: the traditional flow, where
+<figcaption><b>Fig 11: the loop that did not exist.</b> Top: the traditional flow, where
 behavior is discovered after the machine is built and a revision costs a quarter. Bottom:
 with a design-time model, every actuator parameter is a hyperparameter, iterated against
 trained behavior in minutes. The last box matters most: the loop ends in a
@@ -302,7 +390,7 @@ and today that list has one name on it.</p>
 worlds.</p>
 
 <figure><img src="assets/fig-gear-sweep.png" alt="Evaluation reward for three gear ratios">
-<figcaption><b>Fig 10: the gear-ratio sweep,</b> one policy per ratio, a dollar per
+<figcaption><b>Fig 12: the gear-ratio sweep,</b> one policy per ratio, a dollar per
 candidate. Flat ground barely discriminates (25.0 / 25.9 / 26.1), though the lightest
 gearbox pays a small recovery tax, 4.2 percent falls against 2.7. Ship the 6:1 and spend
 the mass elsewhere.</figcaption></figure>
@@ -321,7 +409,7 @@ datasheet, loses to the 12:1 on both axes. <b>Flat-ground cruise could not rank 
 gearboxes; three dollars of sprint eliminated the middle of the catalog.</b></p>
 
 <figure><img src="assets/fig-sprint-pareto.png" alt="Sprint sweep: reward versus fall rate per gear ratio">
-<figcaption><b>Fig 11: the same sweep at sprint commands,</b> 1,500 iterations per gear,
+<figcaption><b>Fig 13: the same sweep at sprint commands,</b> 1,500 iterations per gear,
 two eval repeats (small dots). The frontier runs from 6:1, fastest and falls most, to 12:1,
 most robust; 9:1 sits strictly inside it. No bench test tells you which gearbox survives
 being asked for speed. A policy trained through the real actuator model
@@ -353,7 +441,7 @@ ended with joint motors overheated to hardware failure
 <a class="cit" href="#ref6">[6]</a>.</p>
 
 <figure><img src="assets/fig-thermal.png" alt="Winding temperature and speed over time, blind versus temperature-aware policy">
-<figcaption><b>Fig 12: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
+<figcaption><b>Fig 14: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
 (solid) and fleet mean (dotted), then forward speed. Same starting checkpoint, same reward;
 the only difference is whether the policy can feel its motors heat. The aware policy holds
 the same speed and stays out of the derate band for an extra minute.</figcaption></figure>
@@ -395,7 +483,7 @@ robot's software is now a load case,</b> the same way gravity is, and an actuato
 that cannot run this loop is guessing at half the loads.</p>
 
 <figure><img src="assets/fig-cad-pair.png" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
-<figcaption><b>Fig 13: the table, in metal.</b> Cutaway renders of the generated CAD for
+<figcaption><b>Fig 15: the table, in metal.</b> Cutaway renders of the generated CAD for
 both designs, same scale, housing removed. Gold is copper, black is magnet, gray is iron.
 The carry design's winding is visibly heavier and its stack two millimeters longer; the
 sprint design trades that copper for a faster winding. Both STEP files are
@@ -423,13 +511,13 @@ policy that task has produced. Our variant gears one Atlas motor three ways (12:
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
 <figure><img src="assets/fig-g1-curves.png" alt="G1 training curves: episode length for stock and Atlas actuator models">
-<figcaption><b>Fig 14: what fantasy torque buys during training.</b> The stock policy
+<figcaption><b>Fig 16: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
 <figure><img src="assets/fig-g1-falls.png" alt="G1 fall rates on real physics for both policies">
-<figcaption><b>Fig 15: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
+<figcaption><b>Fig 17: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either. A second seed, retrained from scratch, lands in the same
 place: 99.7 percent falls against 4.5.</figcaption></figure>
@@ -469,7 +557,7 @@ policy that stands, perfectly stable, and never walks. <b>Fantasy torque does no
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="assets/fig-standing-trap.png" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 16: the standing trap.</b> One reward, two starting points. From
+<figcaption><b>Fig 18: the standing trap.</b> One reward, two starting points. From
 scratch, the optimizer finds the standing optimum and pays the tracking penalty forever:
 reward &minus;13, zero falls, zero walking. Warm-started from a walking policy, it keeps
 locomotion and gains posture, +9. On fantasy torque this trap does not
