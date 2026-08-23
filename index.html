@@ -119,8 +119,9 @@ physics. Ours walks with zero falls in 256 episodes.</li>
 &mdash; the winding, the magnets, the iron, the gear, the bearings, the shaft, the housing,
 and the sensors &mdash; so every layer is a knob a trained policy can grade. Because Atlas
 manufactures the actuator, the design you converge on is the one that ships.</li>
-<li><b>Transfer:</b> For the quadrupeds, humanoids, and hands there are several multiples
-more falls on multiple seeds.</li>
+<li><b>Transfer:</b> For the quadrupeds and humanoids there are several multiples more
+falls on multiple seeds; for the hand, the policy trained on the default completes 2.7x fewer
+in-hand reorientations than the one trained on the real motor.</li>
 </ol>
 
 <h2>So first, let's break down an actuator</h2>
@@ -476,6 +477,22 @@ continuous torque the winding can hold:</p>
 <p><b>Seven times the task performance, for a bigger winding.</b> That is the
 whole argument in one row. Nobody had to build either hand to find it out, and
 the design that comes back is the one we would machine.</p>
+
+<h3>And the transfer test</h3>
+
+<p>The same cross-evaluation as the quadruped and the humanoid, all explicit so
+the actuator model is the only thing that moves. Train a policy against the
+default-shaped clamp, deploy it on the torque-matched real motor, and it
+completes <b>0.49</b> reorientations against <b>1.33</b> for the policy trained
+on the real motor &mdash; <b>2.7x fewer, from the model alone</b>. On the weak
+finger motor the penalty vanishes, 0.23 against 0.19, because that actuator caps
+everyone equally; the mismatch costs you exactly where the hardware has
+capability the model never described.</p>
+
+<p>The reverse direction is the sharper sentence. Evaluated in the clamp's own
+fantasy world, the policy trained on the real motor beats the policy trained
+there, 0.85 against 0.39. Training against the real envelope did not cost
+performance in the easy world. It produced the better policy in both.</p>
 
 <h3>What we could not measure, and why we are saying so</h3>
 

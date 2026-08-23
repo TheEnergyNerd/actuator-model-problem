@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-08-22T22:21:53.622873</dc:date>
+    <dc:date>2026-08-23T10:31:07.658373</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -83,7 +83,7 @@ z
      <g id="line2d_7">
       <path d="M 93.355609 248.721734 
 L 611.424 248.721734 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_8"/>
      <g id="text_8">
@@ -94,7 +94,7 @@ L 611.424 248.721734
      <g id="line2d_9">
       <path d="M 93.355609 216.069947 
 L 611.424 216.069947 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_10"/>
      <g id="text_9">
@@ -105,7 +105,7 @@ L 611.424 216.069947
      <g id="line2d_11">
       <path d="M 93.355609 183.41816 
 L 611.424 183.41816 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_12"/>
      <g id="text_10">
@@ -116,7 +116,7 @@ L 611.424 183.41816
      <g id="line2d_13">
       <path d="M 93.355609 150.766373 
 L 611.424 150.766373 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_14"/>
      <g id="text_11">
@@ -127,7 +127,7 @@ L 611.424 150.766373
      <g id="line2d_15">
       <path d="M 93.355609 118.114586 
 L 611.424 118.114586 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_16"/>
      <g id="text_12">
@@ -490,7 +490,7 @@ L 593.969 127.869307
 L 596.469717 128.028485 
 L 598.970433 128.51418 
 L 598.970433 128.51418 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #23a7a8; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #23a7a8; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_18">
     <path d="M 100.82775 233.286768 
@@ -841,11 +841,11 @@ L 596.469717 152.460184
 L 597.803432 151.848546 
 L 598.970433 152.137748 
 L 598.970433 152.137748 
-" clip-path="url(#pd8452267d6)" style="fill: none; stroke: #e05739; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#p03bad0766e)" style="fill: none; stroke: #e05739; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_19">
     <defs>
-     <path id="m62ec5b3376" d="M 0 4.6 
+     <path id="mfa0c837542" d="M 0 4.6 
 C 1.219934 4.6 2.390067 4.115315 3.252691 3.252691 
 C 4.115315 2.390067 4.6 1.219934 4.6 0 
 C 4.6 -1.219934 4.115315 -2.390067 3.252691 -3.252691 
@@ -858,7 +858,7 @@ z
 " style="stroke: #191817; stroke-width: 2"/>
     </defs>
     <g>
-     <use xlink:href="#m62ec5b3376" x="121.667052" y="245.661795" style="fill: #23a7a8; stroke: #191817; stroke-width: 2"/>
+     <use xlink:href="#mfa0c837542" x="121.667052" y="245.661795" style="fill: #23a7a8; stroke: #191817; stroke-width: 2"/>
     </g>
    </g>
    <g id="patch_4">
@@ -2831,7 +2831,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pd8452267d6">
+  <clipPath id="p03bad0766e">
    <rect x="93.355609" y="116.874751" width="518.068391" height="140.636611"/>
   </clipPath>
  </defs>
