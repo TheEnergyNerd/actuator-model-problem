@@ -31,6 +31,7 @@
   h1{font-size:clamp(34px,5.2vw,52px);line-height:1.04;margin:6px 0 14px;
      font-weight:500;letter-spacing:-.038em;}
   h2{font-size:27px;margin:52px 0 14px;font-weight:500;letter-spacing:-.032em;}
+  h3{font-size:19px;margin:34px 0 10px;font-weight:500;letter-spacing:-.024em;color:var(--ink);}
   p{margin:0 0 16px;}
   .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
            color:var(--faint);margin:0 0 16px;}
@@ -411,6 +412,88 @@ episodes. Our first backlash model gated torque for a full control step per reve
 <p>The quadruped pays for mismatch as a 2x robustness tax and the humanoid pays it as
 nonexistence.</p>
 
+<h2>Hands are the hard case</h2>
+
+<p>A leg touches the ground a few times a second. A hand is in contact the whole
+time, and it is in contact with sixteen motors at once. That changes what the
+actuator model is doing. On a leg it sets a ceiling the policy occasionally
+reaches. On a hand it is the thing the policy lives inside.</p>
+
+<p>We ran the same experiment on Isaac Lab's Allegro in-hand cube reorientation:
+one task, one reward, 8,192 robots, 1,300 iterations, and nothing different
+between the arms except the actuator. Four of them. A real finger motor
+(0.135&nbsp;N&middot;m continuous), a bigger one matched to the fantasy actuator's
+torque (0.54&nbsp;N&middot;m continuous), the stock PD-with-a-torque-clamp at
+0.5&nbsp;N&middot;m, and that same clamp solved inside the physics engine.</p>
+
+<p>The first thing we measured is not the score. It is whether the actuator is
+the binding constraint at all. It is.</p>
+
+<figure><img src="assets/fig-hand-saturation.svg" alt="Joints at the torque limit, of 16, for four actuator models">
+<figcaption><b>Fig 16: the hand runs saturated.</b> On the real finger motor,
+9.8 of the hand's 16 joints are pinned at their torque ceiling at any instant, 61
+percent of the time. Even the fantasy actuator pins 6.3. This is the cascade from
+Fig 11, counted rather than drawn: most of the hand is against the stop, most of
+the time.</figcaption></figure>
+
+<p>That number is not an artifact of our motor being weak. The real Allegro
+peaks at 0.70&nbsp;N&middot;m per joint, and it is documented as unable to handle
+stiff tool-use because that torque saturates
+<a class="cit" href="#ref10">[10]</a>. The hardware is at its limit in real life
+too. What the simulator's default does is tell the policy that only 6 joints
+will be pinned when the truth is 10.</p>
+
+<p>The second thing is the part we did not expect. The default model is not too
+generous. It is the wrong shape.</p>
+
+<figure><img src="assets/fig-hand-shape.svg" alt="Continuous torque as a share of peak torque, real actuators versus the default model">
+<figcaption><b>Fig 17: no motor holds its peak forever.</b> A typical air-cooled
+actuator sustains 25&ndash;30 percent of its peak torque; the best humanoid joints
+reach 80&ndash;90 <a class="cit" href="#ref11">[11]</a>. A flat torque clamp
+sustains 100 percent, which is not a generous motor, it is an impossible one. It
+is too kind at steady state and too mean in transient, and the transient is where
+a regrasp lives.</figcaption></figure>
+
+<p>Our torque-matched motor has less flat headroom than the clamp and beats it
+anyway, 1.33 against 0.39 reorientations, because it can put out
+0.99&nbsp;N&middot;m for a moment when the cube is slipping and then cool off. The
+policy uses it: the 95th percentile of its commanded torque is 0.96. The clamp
+never allows that instant, so a policy trained against the clamp never learns the
+behavior the real motor would have paid for.</p>
+
+<p>The third thing is the one that matters for design. Two real finger motors,
+same hand, same task, same everything, and the only difference is how much
+continuous torque the winding can hold:</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th>actuator</th><th>continuous</th><th>peak</th><th>reorientations</th><th>joints pinned</th></tr>
+  <tr><td>real finger (F1)</td><td>0.135 N&middot;m</td><td>0.45 N&middot;m</td><td>0.19</td><td>9.8 / 16</td></tr>
+  <tr><td>torque-matched (F4)</td><td>0.540 N&middot;m</td><td>0.99 N&middot;m</td><td><b>1.33</b></td><td>8.9 / 16</td></tr>
+</table>
+</div>
+
+<p><b>Seven times the task performance, for a bigger winding.</b> That is the
+whole argument in one row. Nobody had to build either hand to find it out, and
+the design that comes back is the one we would machine.</p>
+
+<h3>What we could not measure, and why we are saying so</h3>
+
+<p>There is a fourth number and it is bigger than any of the ones above. The
+stock clamp scores 6.47 when the physics engine solves it internally and 0.39
+when the identical torque limit is applied as an explicit torque, a 17x gap from
+changing nothing but where the PD law is evaluated. Isaac Lab documents this:
+implicit actuators are integrated with the solver and are more accurate at large
+timesteps <a class="cit" href="#ref12">[12]</a>.</p>
+
+<p>Every Atlas actuator is explicit, because a real motor's envelope cannot be
+expressed as a solver constraint. So our numbers and the stock number are not
+directly comparable, and we are not going to compare them. The comparisons above
+are all explicit against explicit, where the actuator is the only thing that
+moves. <b>Anyone benchmarking an actuator model against a stock implicit baseline
+is measuring their integrator, not their motor.</b> We made that mistake twice
+before catching it, which is why it is here rather than in a footnote.</p>
+
 <h2>So, actuator net or physics?</h2>
 
 <p>On an ANYdrive, ETH's network is almost certainly more accurate; it absorbed friction and
@@ -500,6 +583,22 @@ pipeline for learning deployable humanoid locomotion policies, 2026.
 <li id="ref9">Yamamori, S., Ishihara, K., Minamikawa, K., Ohmori, R., Yasaki, T.,
 Sugimoto, N., Morimoto, J. Actuator reality shaping for zero-shot sim-to-real robot
 learning, 2026. <a href="https://arxiv.org/abs/2607.02205">arXiv:2607.02205</a></li>
+<li id="ref10">Yin, Z.-H., Shi, G., Abbeel, P., Liu, C. K. Mana: Dexterous
+manipulation of articulated tools, 2026. Section 6 (Limitations): "Due to insufficient motor
+strength (maximum torque of 0.7 Nm and a longest finger link of 0.06&ndash;0.07 m), our system
+cannot handle common stiff tool-use cases where the required force or activation threshold
+exceeds 10 N."
+<a href="https://arxiv.org/abs/2606.13677">arxiv.org/abs/2606.13677</a></li>
+<li id="ref11">Peak versus continuous torque in electric robotic actuators: continuous rating is
+a fraction of peak because the winding is thermally limited. Typical air-cooled joints sustain
+roughly a quarter to a third of peak; the best humanoid joints reach 80&ndash;90 percent. See
+also Wan et al., <i>Learning to balance motor thermal safety and quadrupedal locomotion
+performance with residual policy</i>, 2026, which notes that "existing RL-based policies usually
+assume that actuators can operate reliably at different thermal states."
+<a href="https://arxiv.org/abs/2605.27046">arxiv.org/abs/2605.27046</a></li>
+<li id="ref12">Isaac Lab documentation, <i>Actuators</i>: implicit actuators are integrated by
+the physics solver and are more accurate than an explicit PD law at large simulation timesteps.
+<a href="https://isaac-sim.github.io/IsaacLab/main/source/overview/core-concepts/actuators.html">isaac-sim.github.io/IsaacLab</a></li>
 </ol>
 
 <footer>
