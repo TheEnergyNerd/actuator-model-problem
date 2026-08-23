@@ -109,7 +109,7 @@ more falls on multiple seeds.</li>
 <p>It consists of a motor, a gearbox, a drive, the housings, and the shafts. It includes
 sensors, power electronics, and a microcontroller.</p>
 
-<figure><img src="assets/fig-anatomy.png" alt="Cross-section of an integrated actuator: drive board, encoder, motor, planetary gearbox, output flange">
+<figure><img src="assets/fig-anatomy.svg" alt="Cross-section of an integrated actuator: drive board, encoder, motor, planetary gearbox, output flange">
 <figcaption><b>Fig 1: what is actually inside.</b> The motor, the gearbox, the drive, the
 housings, the shafts, and the sensors. The robot's computer talks to the drive a few hundred
 times a second. The drive commutates at 20&ndash;40 kHz on its own. Everything the robot does
@@ -152,13 +152,13 @@ motor speed for joint torque, the tooth loads set the gear module and face width
 bearings are picked against the reaction forces, and the whole stack has to fit the envelope
 and hit the mass budget.</p>
 
-<figure><img src="assets/fig-torque-speed.png" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
+<figure><img src="assets/fig-torque-speed.svg" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
 <figcaption><b>Fig 2: the price of torque at speed.</b> Same motor, two models. The simple
 envelope holds full torque nearly to no-load speed. The real one pays the voltage cost of
 going fast, and past ~130 rad/s the inverter saturates and torque falls away. The wedge
 between them is capability a policy can train on but will never receive.</figcaption></figure>
 
-<figure><img src="assets/fig-field-weakening.png" alt="dq currents versus speed showing field weakening">
+<figure><img src="assets/fig-field-weakening.svg" alt="dq currents versus speed showing field weakening">
 <figcaption><b>Fig 3: what the drive does about it.</b> Past base speed the controller drives
 flux-axis current negative to cancel back-EMF, trading torque for speed. Engineers tune this
 by hand. Here it falls out of the design parameters.</figcaption></figure>
@@ -169,7 +169,7 @@ the winding at your bus voltage, your thermal enclosure, or your duty cycle. We 
 part on all of those factors. The model and the hardware are optimized for the same
 thing.</p>
 
-<figure><img src="assets/fig-codesign-loop.png" alt="Hardware design loop before and after a design-time actuator model">
+<figure><img src="assets/fig-codesign-loop.svg" alt="Hardware design loop before and after a design-time actuator model">
 <figcaption><b>Fig 4: the loop that did not exist.</b> Top: the normal flow, where you learn
 the truth after the robot is built and a revision costs a quarter. Bottom: with a design-time
 model, every actuator parameter is a knob you can turn against trained behavior in minutes.
@@ -192,7 +192,7 @@ with two different motors. Nothing in this table was hand-chosen. The tasks were
 </table>
 </div>
 
-<figure><img src="assets/fig-cad-pair.png" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
+<figure><img src="assets/fig-cad-pair.svg" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
 <figcaption><b>Fig 5: the table, in metal.</b> The generated CAD for both designs, same
 scale, housing removed. Gold is copper, black is magnet, gray is iron. The carry design's
 winding is visibly heavier and its stack is two millimeters longer. The sprint design trades
@@ -217,12 +217,12 @@ stock actuator net, and policy B trained on our FOC model that we developed with
 flywheel. Both are evaluated on FOC physics, which stands in for the robot that we actually
 build.</p>
 
-<figure><img src="assets/fig-training-curves.png" alt="Training curves for both policies">
+<figure><img src="assets/fig-training-curves.svg" alt="Training curves for both policies">
 <figcaption><b>Fig 6: both policies train fine.</b> Policy B tracks the baseline almost
 exactly, 23.6 against 23.4. Fidelity costs nothing at train time. Nothing here tells you
 which one is about to fail.</figcaption></figure>
 
-<figure><img src="assets/fig-eval.png" alt="Evaluation reward and fall rates for the three policy-world combinations">
+<figure><img src="assets/fig-eval.svg" alt="Evaluation reward and fall rates for the three policy-world combinations">
 <figcaption><b>Fig 7: where they land.</b> B on its own physics scores 25.9, parity with the
 baseline's 26.1 at home. A transferred onto real physics scores 24.5 and falls 2.6x as often,
 on the most forgiving terrain there is.</figcaption></figure>
@@ -263,12 +263,12 @@ curves separate.</p>
 <p>To find out if better training could close it, we trained both policies with &plusmn;2.0
 m/s shoves:</p>
 
-<figure><img src="assets/fig-hard-curves.png" alt="Training curves for both policies under the hardened curriculum">
+<figure><img src="assets/fig-hard-curves.svg" alt="Training curves for both policies under the hardened curriculum">
 <figcaption><b>Fig 8: the hardened retrain.</b> Policy B learns slower on real physics and
 finishes two points higher. Neither curve predicts the fall-rate gap in the next figure.
 Training dashboards do not surface actuator mismatch.</figcaption></figure>
 
-<figure><img src="assets/fig-push-two-gen.png" alt="Fall rate versus shove strength for both policies and both training curricula">
+<figure><img src="assets/fig-push-two-gen.svg" alt="Fall rate versus shove strength for both policies and both training curricula">
 <figcaption><b>Fig 9: better training does not close a model gap.</b> Hardening collapses
 fall rates for both, but at &plusmn;2.5 the mismatched policy still falls 2.2x as often, and
 the gap persists through &plusmn;3.5. Training harder moved the cliff, not the
@@ -295,7 +295,7 @@ trimmed at. A motor calibrated in pick-and-place duty (a few amps at rest) is sy
 miscommutated at its sixty-amp peak. Calibration only is honest in the regime that you
 calibrated in, and the robot spends a lot of time in the regimes that you did not.</p>
 
-<figure><img src="assets/fig-misalignment.png" alt="Torque retention cos delta and copper-loss penalty versus electrical misalignment">
+<figure><img src="assets/fig-misalignment.svg" alt="Torque retention cos delta and copper-loss penalty versus electrical misalignment">
 <figcaption><b>Fig 10: what being off by a few degrees costs.</b> The torque you get follows
 cos&nbsp;&delta;. The current you wasted is not free, so holding the same torque through a
 &delta;&deg; error costs 1/cos&sup2;&delta; in heat. Thirty degrees is thirteen percent less
@@ -309,7 +309,7 @@ spending current to cancel back-EMF and the winding derates as it heats.</p>
 joint-torque error, and this joint is just one actuator inside a whole-body controller that
 solves a constrained optimization on false facts.</p>
 
-<figure><img src="assets/fig-cascade.png" alt="Three control ticks: one joint clips, load redistributes, all three saturate">
+<figure><img src="assets/fig-cascade.svg" alt="Three control ticks: one joint clips, load redistributes, all three saturate">
 <figcaption><b>Fig 11: one saturated actuator becomes three.</b> The knee is commanded past
 its derated ceiling and clips. The controller makes up the missing force with the hip and the
 ankle, which are derated too. By the third tick all three are saturated, there is no feasible
@@ -317,7 +317,7 @@ torque set left, and the posture error it was correcting has gone from 2&deg; to
 ceilings sag across the ticks because the windings are heating while it
 happens.</figcaption></figure>
 
-<figure><img src="assets/fig-timing.png" alt="Commanded versus delivered joint force across an 80 ms foot-strike window">
+<figure><img src="assets/fig-timing.svg" alt="Commanded versus delivered joint force across an 80 ms foot-strike window">
 <figcaption><b>Fig 12: the force shows up late.</b> A foot strike is eighty milliseconds
 long. The commanded force is instant. The real one climbs against inductance and the voltage
 ceiling, peaks short because the winding is derating, and is still arriving after the foot has
@@ -329,13 +329,13 @@ left. Legged motion is timing, and this is the wrong instant.</figcaption></figu
 terrible: the stock G1 task drives every joint at 300 N&middot;m when the real knee peaks at
 139.</p>
 
-<figure><img src="assets/fig-g1-curves.png" alt="G1 training curves: episode length for stock and Atlas actuator models">
+<figure><img src="assets/fig-g1-curves.svg" alt="G1 training curves: episode length for stock and Atlas actuator models">
 <figcaption><b>Fig 13: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125, because any balance error can be erased with torque the
 robot does not have. The same recipe on real physics takes twice as long. Both curves end
 healthy. Only one describes a robot that can exist.</figcaption></figure>
 
-<figure><img src="assets/fig-g1-falls.png" alt="G1 fall rates on real physics for both policies">
+<figure><img src="assets/fig-g1-falls.svg" alt="G1 fall rates on real physics for both policies">
 <figcaption><b>Fig 14: the humanoid does not get up.</b> 256 robots, 30 seconds, real
 physics. Stock: 97.7 percent falls unpushed, 100 percent under any shove. Ours: 0.4 percent
 unpushed. A second seed retrained from scratch lands in the same place, 99.7 percent against
@@ -370,7 +370,7 @@ fixed the fantasy world on the first try. Trained from scratch on real physics i
 policy that stands, perfectly stable, and never walks. Fantasy torque doesn't just distort
 your gait, it changes the behaviors that are reachable.</p>
 
-<figure><img src="assets/fig-standing-trap.png" alt="One reward, two starting points: walking versus standing">
+<figure><img src="assets/fig-standing-trap.svg" alt="One reward, two starting points: walking versus standing">
 <figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. On real
 physics the same recipe finds a policy that stands perfectly still forever. It is stable, it
 is safe, and it never walks. The reachable set changed, not just the
