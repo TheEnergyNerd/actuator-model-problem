@@ -83,8 +83,8 @@
     <div class="brand">Atlas Motion Systems · Co-design</div>
     <h1>One joint, four motors</h1>
   </header>
-  <p class="dek">The same joint envelope, four different tasks. Nobody chose the copper, the
-  magnets, or the iron. The task did. Drag to orbit, scroll to zoom, section it, or pull it
+  <p class="dek">The same joint envelope, four different tasks. Nothing here was
+  hand-chosen. The tasks were. Drag to orbit, scroll to zoom, section it, or pull it
   apart.</p>
 
   <div class="tabs" id="tabs" role="tablist"></div>
@@ -108,19 +108,19 @@
 
     <aside class="panel" id="panel">
       <h2 id="pName">Sprint</h2>
-      <p class="sub">what the design tool answered</p>
+      <p class="sub">what the design engine answered</p>
       <div id="rows"></div>
     </aside>
   </div>
 
-  <p class="note"><b>Same 80&nbsp;mm envelope, same 48&nbsp;V rail.</b> Switch tasks and watch the
-  winding, magnets, back-iron, and gearbox change. Impulse tasks (jump, sprint) get few-turn,
-  thin-iron windings built to dump a peak and cool off; continuous tasks (carry, pick) get many
-  turns, thick iron, and a taller gear stack to hold torque without overheating. Highlighted rows
-  moved from the previous view.</p>
+  <p class="note"><b>Same 80&nbsp;mm envelope, same 48&nbsp;V rail.</b> Give the design
+  engine a different task and it answers with a different motor. Impulse tasks like the jump
+  and the sprint get few-turn, thin-iron windings that dump a peak and cool off. Continuous
+  tasks like the carry and the pick get many turns, thick iron, and a taller gear stack to hold
+  torque without overheating. The highlighted rows are the ones that moved.</p>
 
   <footer>
-    <span>Generated CAD from the Atlas design kernel · motor, gearbox, housing, output shaft.</span>
+    <span>Generated CAD from the same design solve · motor, gearbox, housing, output shaft.</span>
     <span>Confidential · Atlas Motion Systems</span>
   </footer>
 </div>
@@ -254,7 +254,7 @@ function buildMotor(name){
 }
 
 let cur="sprint", az=-0.62, el=0.34, dist=3.0, panx=0, pany=0.05;
-let section=false, spin=true, housing=true, explode=0.55;
+let section=false, spin=true, housing=true, explode=0;
 const view={w:1,h:1};
 function resize(){const r=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
   view.w=r.width;view.h=r.height;canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);gl.viewport(0,0,canvas.width,canvas.height);}
