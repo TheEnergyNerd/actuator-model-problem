@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-08-22T22:21:22.290242</dc:date>
+    <dc:date>2026-08-22T22:21:39.799898</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -26,7 +26,7 @@ L 633.6 345.6
 L 633.6 0 
 L 0 0 
 z
-" style="fill: #faf6ee"/>
+" style="fill: #191817"/>
   </g>
   <g id="axes_1">
    <g id="patch_2">
@@ -35,114 +35,114 @@ L 611.424 270.298562
 L 611.424 142.860151 
 L 89.035609 142.860151 
 z
-" style="fill: #faf6ee"/>
+" style="fill: #191817"/>
    </g>
    <g id="matplotlib.axis_1">
     <g id="xtick_1">
      <g id="line2d_1"/>
      <g id="text_1">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="96.570057" y="285.501687" transform="rotate(-0 96.570057 285.501687)">0</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="96.570057" y="285.501687" transform="rotate(-0 96.570057 285.501687)">0</text>
      </g>
     </g>
     <g id="xtick_2">
      <g id="line2d_2"/>
      <g id="text_2">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="159.357123" y="285.501687" transform="rotate(-0 159.357123 285.501687)">25</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="159.357123" y="285.501687" transform="rotate(-0 159.357123 285.501687)">25</text>
      </g>
     </g>
     <g id="xtick_3">
      <g id="line2d_3"/>
      <g id="text_3">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="222.14419" y="285.501687" transform="rotate(-0 222.14419 285.501687)">50</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="222.14419" y="285.501687" transform="rotate(-0 222.14419 285.501687)">50</text>
      </g>
     </g>
     <g id="xtick_4">
      <g id="line2d_4"/>
      <g id="text_4">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="284.931256" y="285.501687" transform="rotate(-0 284.931256 285.501687)">75</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="284.931256" y="285.501687" transform="rotate(-0 284.931256 285.501687)">75</text>
      </g>
     </g>
     <g id="xtick_5">
      <g id="line2d_5"/>
      <g id="text_5">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="347.718322" y="285.501687" transform="rotate(-0 347.718322 285.501687)">100</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="347.718322" y="285.501687" transform="rotate(-0 347.718322 285.501687)">100</text>
      </g>
     </g>
     <g id="xtick_6">
      <g id="line2d_6"/>
      <g id="text_6">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="410.505388" y="285.501687" transform="rotate(-0 410.505388 285.501687)">125</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="410.505388" y="285.501687" transform="rotate(-0 410.505388 285.501687)">125</text>
      </g>
     </g>
     <g id="xtick_7">
      <g id="line2d_7"/>
      <g id="text_7">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="473.292454" y="285.501687" transform="rotate(-0 473.292454 285.501687)">150</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="473.292454" y="285.501687" transform="rotate(-0 473.292454 285.501687)">150</text>
      </g>
     </g>
     <g id="xtick_8">
      <g id="line2d_8"/>
      <g id="text_8">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="536.079521" y="285.501687" transform="rotate(-0 536.079521 285.501687)">175</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="536.079521" y="285.501687" transform="rotate(-0 536.079521 285.501687)">175</text>
      </g>
     </g>
     <g id="xtick_9">
      <g id="line2d_9"/>
      <g id="text_9">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="598.866587" y="285.501687" transform="rotate(-0 598.866587 285.501687)">200</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="598.866587" y="285.501687" transform="rotate(-0 598.866587 285.501687)">200</text>
      </g>
     </g>
     <g id="text_10">
-     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #373533" x="350.229805" y="304.480691" transform="rotate(-0 350.229805 304.480691)">motor speed  (rad/s)</text>
+     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #a8a8a7" x="350.229805" y="304.480691" transform="rotate(-0 350.229805 304.480691)">motor speed  (rad/s)</text>
     </g>
    </g>
    <g id="matplotlib.axis_2">
     <g id="ytick_1">
      <g id="line2d_10"/>
      <g id="text_11">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #6c6a67" x="83.035609" y="274.900124" transform="rotate(-0 83.035609 274.900124)">0</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #797877" x="83.035609" y="274.900124" transform="rotate(-0 83.035609 274.900124)">0</text>
      </g>
     </g>
     <g id="ytick_2">
      <g id="line2d_11">
       <path d="M 89.035609 230.965719 
 L 611.424 230.965719 
-" clip-path="url(#paf2770c57d)" style="fill: none; stroke: #d6d3cc; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p1613be6894)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_12"/>
      <g id="text_12">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #6c6a67" x="83.035609" y="235.567281" transform="rotate(-0 83.035609 235.567281)">5</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #797877" x="83.035609" y="235.567281" transform="rotate(-0 83.035609 235.567281)">5</text>
      </g>
     </g>
     <g id="ytick_3">
      <g id="line2d_13">
       <path d="M 89.035609 191.632876 
 L 611.424 191.632876 
-" clip-path="url(#paf2770c57d)" style="fill: none; stroke: #d6d3cc; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p1613be6894)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_14"/>
      <g id="text_13">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #6c6a67" x="83.035609" y="196.234438" transform="rotate(-0 83.035609 196.234438)">10</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #797877" x="83.035609" y="196.234438" transform="rotate(-0 83.035609 196.234438)">10</text>
      </g>
     </g>
     <g id="ytick_4">
      <g id="line2d_15">
       <path d="M 89.035609 152.300033 
 L 611.424 152.300033 
-" clip-path="url(#paf2770c57d)" style="fill: none; stroke: #d6d3cc; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p1613be6894)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_16"/>
      <g id="text_14">
-      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #6c6a67" x="83.035609" y="156.901596" transform="rotate(-0 83.035609 156.901596)">15</text>
+      <text style="font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: end; fill: #797877" x="83.035609" y="156.901596" transform="rotate(-0 83.035609 156.901596)">15</text>
      </g>
     </g>
     <g id="text_15">
-     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #373533" x="63.765766" y="206.579356" transform="rotate(-90 63.765766 206.579356)">max torque  (N·m)</text>
+     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #a8a8a7" x="63.765766" y="206.579356" transform="rotate(-90 63.765766 206.579356)">max torque  (N·m)</text>
     </g>
    </g>
    <g id="FillBetweenPolyCollection_1">
     <defs>
-     <path id="mf217328f88" d="M 424.318543 -183.855563 
+     <path id="m0b06930a45" d="M 424.318543 -183.855563 
 L 424.318543 -183.860085 
 L 425.574284 -183.860085 
 L 426.830025 -183.860085 
@@ -371,14 +371,14 @@ L 424.318543 -183.855563
 z
 "/>
     </defs>
-    <g clip-path="url(#paf2770c57d)">
-     <use xlink:href="#mf217328f88" x="0" y="345.6" style="fill: #f9ddd4"/>
+    <g clip-path="url(#p1613be6894)">
+     <use xlink:href="#m0b06930a45" x="0" y="345.6" style="fill: #331f1c"/>
     </g>
    </g>
    <g id="patch_3">
     <path d="M 89.035609 270.298562 
 L 611.424 270.298562 
-" style="fill: none; stroke: #a7a49f; stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square"/>
+" style="fill: none; stroke: #555453; stroke-width: 0.9; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="line2d_17">
     <path d="M 96.570057 161.739915 
@@ -394,7 +394,7 @@ L 523.522107 176.002879
 L 554.91564 182.474278 
 L 598.866587 191.632876 
 L 598.866587 191.632876 
-" clip-path="url(#paf2770c57d)" style="fill: none; stroke: #0b9d9e; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#p1613be6894)" style="fill: none; stroke: #23a7a8; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="line2d_18">
     <path d="M 96.570057 161.739915 
@@ -402,23 +402,23 @@ L 561.194347 161.739915
 L 578.774726 270.298562 
 L 598.866587 270.298562 
 L 598.866587 270.298562 
-" clip-path="url(#paf2770c57d)" style="fill: none; stroke: #c8543b; stroke-width: 2; stroke-linecap: round"/>
+" clip-path="url(#p1613be6894)" style="fill: none; stroke: #e05739; stroke-width: 2; stroke-linecap: round"/>
    </g>
    <g id="text_16">
-    <text style="font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #6c6a67" x="490.872833" y="240.532899" transform="rotate(-0 490.872833 240.532899)">INVERTER SATURATED</text>
+    <text style="font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #797877" x="490.872833" y="240.532899" transform="rotate(-0 490.872833 240.532899)">INVERTER SATURATED</text>
    </g>
    <g id="patch_4">
     <path d="M 381.195452 204.18213 
 Q 447.89677 189.296252 514.598088 174.410375 
-" style="fill: none; stroke: #6c6a67; stroke-width: 0.7; stroke-linecap: round"/>
+" style="fill: none; stroke: #797877; stroke-width: 0.7; stroke-linecap: round"/>
    </g>
    <g id="text_17">
-    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #d11928" transform="translate(251.530374 216.208311)">capability a policy can train on</text>
-    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #d11928" transform="translate(271.354983 227.097959)">but will never receive</text>
+    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #f51f31" transform="translate(251.530374 216.208311)">capability a policy can train on</text>
+    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #f51f31" transform="translate(271.354983 227.097959)">but will never receive</text>
    </g>
    <g id="line2d_19">
     <defs>
-     <path id="m6fb1b7b053" d="M 0 4.6 
+     <path id="m93fe63b17c" d="M 0 4.6 
 C 1.219934 4.6 2.390067 4.115315 3.252691 3.252691 
 C 4.115315 2.390067 4.6 1.219934 4.6 0 
 C 4.6 -1.219934 4.115315 -2.390067 3.252691 -3.252691 
@@ -428,24 +428,24 @@ C -4.115315 -2.390067 -4.6 -1.219934 -4.6 0
 C -4.6 1.219934 -4.115315 2.390067 -3.252691 3.252691 
 C -2.390067 4.115315 -1.219934 4.6 0 4.6 
 z
-" style="stroke: #faf6ee; stroke-width: 2"/>
+" style="stroke: #191817; stroke-width: 2"/>
     </defs>
     <g>
-     <use xlink:href="#m6fb1b7b053" x="423.062801" y="161.739915" style="fill: #0b9d9e; stroke: #faf6ee; stroke-width: 2"/>
+     <use xlink:href="#m93fe63b17c" x="423.062801" y="161.739915" style="fill: #23a7a8; stroke: #191817; stroke-width: 2"/>
     </g>
    </g>
    <g id="patch_5">
     <path d="M 527.961712 198.739793 
 Q 560.430207 195.48542 592.898702 192.231047 
-" style="fill: none; stroke: #6c6a67; stroke-width: 0.7; stroke-linecap: round"/>
+" style="fill: none; stroke: #797877; stroke-width: 0.7; stroke-linecap: round"/>
    </g>
    <g id="text_18">
-    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #0b9d9e" x="473.292454" y="207.493311" transform="rotate(-0 473.292454 207.493311)">10.0 N·m at 200 rad/s</text>
+    <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #23a7a8" x="473.292454" y="207.493311" transform="rotate(-0 473.292454 207.493311)">10.0 N·m at 200 rad/s</text>
    </g>
    <g id="patch_6">
     <path d="M 380.974264 146.424919 
 Q 400.139397 153.398645 419.304529 160.372371 
-" style="fill: none; stroke: #6c6a67; stroke-width: 0.7; stroke-linecap: round"/>
+" style="fill: none; stroke: #797877; stroke-width: 0.7; stroke-linecap: round"/>
    </g>
    <g id="text_19">
     <path d="M 315.400301 141.657611 
@@ -997,7 +997,7 @@ Q 404.692958 140.562142 404.424364 140.916517
 Q 404.157176 141.269486 403.680458 141.470579 
 Q 403.203739 141.670267 402.583583 141.670267 
 z
-" style="fill: #077e7e; stroke: #faf6ee; stroke-width: 2.6"/>
+" style="fill: #23a7a8; stroke: #191817; stroke-width: 2.6"/>
     <path d="M 315.400301 141.657611 
 Q 314.982645 141.657611 314.701395 141.514173 
 Q 314.420145 141.370736 314.252801 141.169642 
@@ -1547,29 +1547,29 @@ Q 404.692958 140.562142 404.424364 140.916517
 Q 404.157176 141.269486 403.680458 141.470579 
 Q 403.203739 141.670267 402.583583 141.670267 
 z
-" style="fill: #077e7e"/>
+" style="fill: #23a7a8"/>
    </g>
   </g>
   <g id="text_20">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; fill: #010101" transform="translate(53.856 36.62)">The wedge between the two models is torque a policy will never</text>
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; fill: #010101" transform="translate(53.856 59.927)">receive</text>
+   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; fill: #ffffff" transform="translate(53.856 36.62)">The wedge between the two models is torque a policy will never</text>
+   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; fill: #ffffff" transform="translate(53.856 59.927)">receive</text>
   </g>
   <g id="text_21">
-   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #373533" x="53.856" y="84.365825" transform="rotate(-0 53.856 84.365825)">Peak joint torque against speed, same motor, same bus</text>
+   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #a8a8a7" x="53.856" y="84.365825" transform="rotate(-0 53.856 84.365825)">Peak joint torque against speed, same motor, same bus</text>
   </g>
   <g id="text_22">
-   <text style="font-weight: 600; font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #373533" x="70.3296" y="116.838961" transform="rotate(-0 70.3296 116.838961)">FOC model · what the joint does</text>
+   <text style="font-weight: 600; font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #a8a8a7" x="70.3296" y="116.838961" transform="rotate(-0 70.3296 116.838961)">FOC model · what the joint does</text>
   </g>
   <g id="text_23">
-   <text style="font-weight: 600; font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #373533" x="252.348075" y="116.838961" transform="rotate(-0 252.348075 116.838961)">simple resistive envelope</text>
+   <text style="font-weight: 600; font-size: 9.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #a8a8a7" x="252.348075" y="116.838961" transform="rotate(-0 252.348075 116.838961)">simple resistive envelope</text>
   </g>
   <g id="text_24">
-   <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #6c6a67" x="53.856" y="327.997707" transform="rotate(-0 53.856 327.997707)">Source: FOC voltage-limit solve · theenergynerd.github.io/actuator-model-problem Fig 2</text>
+   <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #797877" x="53.856" y="327.997707" transform="rotate(-0 53.856 327.997707)">Source: FOC voltage-limit solve · theenergynerd.github.io/actuator-model-problem Fig 2</text>
   </g>
   <g id="line2d_20">
    <path d="M 53.856 97.507751 
 L 611.424 97.507751 
-" style="fill: none; stroke: #010101; stroke-width: 1.6"/>
+" style="fill: none; stroke: #ffffff; stroke-width: 1.6"/>
   </g>
   <g id="patch_7">
    <path d="M 58.9248 115.283951 
@@ -1582,7 +1582,7 @@ C 55.807181 112.395533 55.44 112.879053 55.44 113.383151
 C 55.44 113.887249 55.807181 114.370768 56.460674 114.727219 
 C 57.114168 115.083671 58.00062 115.283951 58.9248 115.283951 
 z
-" style="fill: #0b9d9e"/>
+" style="fill: #23a7a8"/>
   </g>
   <g id="patch_8">
    <path d="M 240.943275 115.283951 
@@ -1595,11 +1595,11 @@ C 237.825656 112.395533 237.458475 112.879053 237.458475 113.383151
 C 237.458475 113.887249 237.825656 114.370768 238.479149 114.727219 
 C 239.132643 115.083671 240.019095 115.283951 240.943275 115.283951 
 z
-" style="fill: #c8543b"/>
+" style="fill: #e05739"/>
   </g>
  </g>
  <defs>
-  <clipPath id="paf2770c57d">
+  <clipPath id="p1613be6894">
    <rect x="89.035609" y="142.860151" width="522.388391" height="127.438411"/>
   </clipPath>
  </defs>

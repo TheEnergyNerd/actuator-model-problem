@@ -9,54 +9,72 @@
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <meta charset="utf-8">
+<meta name="theme-color" content="#181818">
 <title>The Actuator Model Problem | Atlas Motion Systems</title>
 <style>
-  body{font-family:-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;color:#1B1B1B;
-       background:#fff;margin:0;padding:0 20px;font-size:16.5px;line-height:1.6;}
-  .page{max-width:690px;margin:0 auto;padding:48px 0 80px;}
-  a{color:#A6854A;}
-  h1{font-size:33px;line-height:1.15;margin:6px 0 12px;font-weight:700;letter-spacing:-.015em;}
-  h2{font-size:22px;margin:46px 0 12px;font-weight:700;letter-spacing:-.01em;}
+  /* Design language matched to atlasmotion.com: #181818 ground, warm off-white
+     #EEE8E8 text, pale-cream #FFFDE0 accent, medium (500) headings, and the
+     site's signature tight negative tracking (~-0.038em). SuisseIntl is
+     licensed, so the stack falls back to a neutral grotesque. */
+  :root{
+    --bg:#181818; --panel:#121211; --line:rgba(255,255,255,.2);
+    --ink:#EEE8E8; --dim:#BBBBBB; --faint:rgba(204,203,189,.5); --acc:#FFFDE0;
+  }
+  html{background:var(--bg);}
+  body{font-family:"SuisseIntl","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);margin:0;padding:0 20px;
+       font-size:16.5px;line-height:1.6;letter-spacing:-.011em;
+       -webkit-font-smoothing:antialiased;}
+  .page{max-width:720px;margin:0 auto;padding:48px 0 80px;}
+  a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(255,253,224,.35);}
+  a:hover{border-bottom-color:var(--acc);}
+  h1{font-size:clamp(34px,5.2vw,52px);line-height:1.04;margin:6px 0 14px;
+     font-weight:500;letter-spacing:-.038em;}
+  h2{font-size:27px;margin:52px 0 14px;font-weight:500;letter-spacing:-.032em;}
   p{margin:0 0 16px;}
-  .eyebrow{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:#A6854A;margin:0 0 14px;}
-  .byline{color:#555;font-size:15px;margin:0 0 4px;}
-  .meta{color:#9A9A9A;font-size:13px;margin:0 0 8px;}
-  .dek{font-size:18.5px;line-height:1.45;color:#555;margin:0 0 18px;}
-  hr{border:none;border-top:1px solid #E4E4E4;margin:34px 0;}
-  code{font-family:Menlo,Consolas,monospace;font-size:13.5px;background:#F4F1EB;padding:1px 4px;}
-  pre{font-family:Menlo,Consolas,monospace;font-size:13px;background:#FAF8F4;
-      border:1px solid #E4E4E4;padding:12px 14px;overflow-x:auto;line-height:1.55;margin:16px 0;}
-  pre .c{color:#9A9A9A;}
-  figure{margin:24px 0;}
-  figure img{width:100%;height:auto;display:block;}
-  figcaption{font-size:13px;color:#666;margin-top:7px;line-height:1.5;}
-  figcaption b{color:#1B1B1B;}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--faint);margin:0 0 16px;}
+  .byline{color:var(--dim);font-size:15px;margin:0 0 4px;letter-spacing:-.011em;}
+  .meta{color:var(--faint);font-size:13px;margin:0 0 8px;}
+  .dek{font-size:19px;line-height:1.5;color:var(--dim);margin:0 0 20px;
+       letter-spacing:-.018em;}
+  hr{border:none;border-top:1px solid var(--line);margin:34px 0;}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;
+       background:var(--panel);color:var(--acc);padding:1px 5px;border-radius:2px;}
+  pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;
+      background:var(--panel);border:1px solid var(--line);padding:12px 14px;
+      overflow-x:auto;line-height:1.55;margin:16px 0;border-radius:3px;}
+  pre .c{color:var(--faint);}
+  figure{margin:26px 0;}
+  figure img{width:100%;height:auto;display:block;border-radius:3px;}
+  figcaption{font-size:13px;color:var(--dim);margin-top:9px;line-height:1.5;}
+  figcaption b{color:var(--ink);font-weight:500;}
   table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0;}
-  th{border-bottom:1.5px solid #1B1B1B;padding:8px 10px;text-align:left;font-weight:600;
-     font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#555;}
-  td{border-bottom:1px solid #E4E4E4;padding:9px 10px;text-align:left;vertical-align:top;}
+  th{border-bottom:1px solid var(--ink);padding:8px 10px;text-align:left;
+     font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+     color:var(--dim);}
+  td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;
+     vertical-align:top;color:var(--ink);}
   .tablewrap{overflow-x:auto;}
-  .vidrow{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0;}
+  .vidrow{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0;}
   .vidrow figure{flex:1 1 200px;margin:0;}
-  .vidrow video,figure.wide video{width:100%;height:auto;display:block;background:#1B1B1B;}
-  figure.wide{margin:24px 0;}
-  blockquote{margin:16px 0;padding-left:14px;border-left:3px solid #A6854A;color:#555;font-size:15px;}
+  .vidrow video,figure.wide video{width:100%;height:auto;display:block;
+    background:#000;border-radius:3px;}
+  figure.wide{margin:26px 0;}
+  blockquote{margin:16px 0;padding-left:14px;border-left:2px solid var(--acc);
+    color:var(--dim);font-size:15px;}
   ol.findings{margin:0 0 16px 22px;padding:0;}
-  ol.refs{margin:0 0 16px 22px;padding:0;font-size:13.5px;color:#555;line-height:1.55;}
-  ol.refs li{margin:0 0 8px;}
-  a.cit{font-size:12px;vertical-align:super;text-decoration:none;}
   ol.findings li{margin:0 0 10px;}
-  /* No break-out: margin-left:50% + translateX(-50%) with a 100vw width
-     overflows horizontally (100vw includes the scrollbar), which gives the
-     whole page a sideways scroll and throws the embed off-centre. Keep the
-     figure in the text column; the frame self-sizes its height anyway. */
-  /* Starts short and grows to whatever height the explorer reports (it can
-     grow but not shrink, since its body stretches to the frame), so the embed
-     ends up exactly as tall as its content and never scrolls internally. */
-  .explorer-box{position:relative;width:100%;height:620px;border:1px solid #E4E1D8;
-    border-radius:4px;overflow:hidden;background:#101116;}
-  footer{margin-top:60px;padding-top:14px;border-top:1px solid #E4E4E4;color:#9A9A9A;font-size:12.5px;
-         display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  ol.findings li::marker{color:var(--faint);}
+  ol.refs{margin:0 0 16px 22px;padding:0;font-size:13.5px;color:var(--dim);
+    line-height:1.55;}
+  ol.refs li{margin:0 0 8px;}
+  a.cit{font-size:12px;vertical-align:super;text-decoration:none;border:0;}
+  footer{margin-top:60px;padding-top:14px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:12.5px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:6px;}
+  .explorer-box{position:relative;width:100%;height:620px;
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#101116;}
 </style>
 </head>
 <body>
