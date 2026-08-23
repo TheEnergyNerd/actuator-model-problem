@@ -55,22 +55,16 @@
 <div class="page">
 <p class="eyebrow">Atlas Motion Systems · Research</p>
 <h1>The Actuator Model Problem: Why Sim-to-Real Fails at the Motor</h1>
-<p class="dek">Every RL policy trains against an actuator model, and the industry default is
-wrong. We tested it against real motor physics on a quadruped and a humanoid. The humanoid
-trained on the default falls in 4,554 of 4,554 episodes; trained on our model, it walks
-with zero falls. The same model works in reverse: the policy grades the
-hardware, and the hardware grades the policy, before either exists in metal.</p>
+<p class="dek">Actuators are up to 80 percent of a robot's BOM cost, and they are the
+component that lets the robot move at all. Every RL policy trains against some model of its
+actuators. The default is a PD controller with a torque clamp: thirty newton-meters,
+instantly, at any speed, forever. A real motor ramps current through inductance, loses
+torque with speed, and derates with heat. The policy spends 150 million steps rehearsing
+habits the hardware can't honor.</p>
 <p class="byline">Pranav Myana · Atlas Motion Systems</p>
 <p class="meta">July 2026</p>
 
 <hr>
-
-<p>Actuators are up to 80 percent of a robot's BOM cost, and they are the component
-that lets the robot move at all. Every RL policy trains against some model of its
-actuators. The default is a PD
-controller with a torque clamp: thirty newton-meters, instantly, at any speed, forever. A
-real motor ramps current through inductance, loses torque with speed, and derates with
-heat. The policy spends 150 million steps rehearsing habits the hardware can't honor.</p>
 
 <p>Atlas builds actuator design tools, and a finished design already contains every number
 a faithful simulation needs. So we built
