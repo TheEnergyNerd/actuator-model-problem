@@ -360,7 +360,10 @@ requestAnimationFrame(loop);
     var h = Math.ceil(b.getBoundingClientRect().height
                       + parseFloat(cs.marginTop || 0)
                       + parseFloat(cs.marginBottom || 0));
-    if (Math.abs(h - last) < 2) return;
+    /* The body stretches to fill the frame, so a measurement is only ever a
+       LOWER bound on the true content height. Keep the running maximum and
+       report that, which converges instead of chasing the frame down. */
+    if (h <= last + 1) return;
     last = h;
     parent.postMessage({ atlasExplorerHeight: h }, "*");
   }
