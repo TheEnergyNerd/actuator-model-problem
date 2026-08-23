@@ -46,6 +46,13 @@
   ol.refs li{margin:0 0 8px;}
   a.cit{font-size:12px;vertical-align:super;text-decoration:none;}
   ol.findings li{margin:0 0 10px;}
+  .explorer-fig{width:min(1120px,calc(100vw - 40px));margin-left:50%;transform:translateX(-50%);}
+  .explorer-fig figcaption{max-width:690px;margin-left:auto;margin-right:auto;}
+  /* Starts short and grows to whatever height the explorer reports (it can
+     grow but not shrink, since its body stretches to the frame), so the embed
+     ends up exactly as tall as its content and never scrolls internally. */
+  .explorer-box{position:relative;width:100%;height:620px;border:1px solid #E4E1D8;
+    border-radius:4px;overflow:hidden;background:#101116;transition:height .25s ease;}
   footer{margin-top:60px;padding-top:14px;border-top:1px solid #E4E4E4;color:#9A9A9A;font-size:12.5px;
          display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;}
 </style>
@@ -362,7 +369,7 @@ showed up at the wrong instant.</figcaption></figure>
 miss, no heat to fear, and no neighbour to overload. The fall is not the policy being foolish.
 It is the policy being faithful to a machine that was described to it dishonestly.</p>
 
-<h2>Co-design for a dollar a candidate</h2>
+<h2>Co-design, one candidate at a time</h2>
 
 <p>Hardware design has always been open-loop with respect to behavior: size the motor,
 build the robot, learn the truth months later. Software has iterated inside a compile-test
@@ -508,10 +515,10 @@ sprint design trades that copper for a faster winding. Both STEP files are
 manufacturing-ready outputs of the same run that produced the table.</figcaption></figure>
 
 
-<figure class="wide" style="margin-top:26px">
-  <div style="position:relative;width:100%;aspect-ratio:16/10;border:1px solid #E4E1D8;border-radius:4px;overflow:hidden;background:#101116">
-    <iframe src="motor-explorer.html" title="Interactive 3D: one joint, four motors"
-      loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+<figure class="wide explorer-fig" style="margin-top:26px">
+  <div class="explorer-box" id="explorer-box">
+    <iframe id="explorer-frame" src="motor-explorer.html" title="Interactive 3D: one joint, four motors"
+      loading="lazy" scrolling="no" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
   </div>
   <figcaption><b>Explore it live.</b> All four task-derived actuators, from the same
   generated CAD. Switch tasks and the winding, magnets, iron, and gear stack change;
@@ -781,5 +788,15 @@ https://pranavatlas.github.io/actuator-model-problem/</pre>
 </footer>
 </div>
 
+<script>
+/* The 3D explorer reports its own content height; size the frame to it so the
+   embed never scrolls internally. Its viewport is a fixed px height, so this
+   settles on one value rather than feeding back. */
+window.addEventListener("message", function (e) {
+  var h = e.data && e.data.atlasExplorerHeight;
+  var box = document.getElementById("explorer-box");
+  if (box && typeof h === "number" && h > 400 && h < 4000) box.style.height = h + "px";
+});
+</script>
 </body>
 </html>
