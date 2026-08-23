@@ -58,14 +58,16 @@
 <p class="dek">Every RL policy trains against an actuator model, and the industry default is
 wrong. We tested it against real motor physics on a quadruped and a humanoid. The humanoid
 trained on the default falls in 4,554 of 4,554 episodes; trained on our model, it walks
-with zero falls. The same model works in reverse: hardware choices graded by the policies
-they produce, before the hardware exists.</p>
+with zero falls. The same model works in reverse: the policy grades the
+hardware, and the hardware grades the policy, before either exists in metal.</p>
 <p class="byline">Pranav Myana · Atlas Motion Systems</p>
 <p class="meta">July 2026</p>
 
 <hr>
 
-<p>Every RL policy trains against some model of its actuators. The default is a PD
+<p>Actuators are up to 80 percent of a robot's BOM cost, and they are the component
+that lets the robot move at all. Every RL policy trains against some model of its
+actuators. The default is a PD
 controller with a torque clamp: thirty newton-meters, instantly, at any speed, forever. A
 real motor ramps current through inductance, loses torque with speed, and derates with
 heat. The policy spends 150 million steps rehearsing habits the hardware can't honor.</p>
@@ -80,9 +82,10 @@ actuator, and measured what the default costs:</p>
 <li><b>On a humanoid, the mismatch is fatal.</b> The stock G1 policy falls in essentially
 every episode on real physics. Ours walks with zero falls in 256 episodes; a second
 training seed lands at 99.7 versus 4.5 percent.</li>
-<li><b>Hardware iteration becomes a compile-test loop.</b> We swept gearboxes like learning
-rates for about a dollar each. Because Atlas manufactures the actuator, the design you
-converge on is the one that ships.</li>
+<li><b>Hardware iteration becomes a compile-test loop.</b> Every layer of the actuator
+&mdash; winding, magnets, iron, gear, bearings, shaft, housing, sensors &mdash; is a
+hyperparameter, graded by the policy it produces, for about a dollar a candidate. Because
+Atlas manufactures the actuator, the design you converge on is the one that ships.</li>
 <li>Fidelity costs nothing at train time: 26.0 versus 26.2 in its own world, averaged over
 three seeds.</li>
 <li>The bill arrives at transfer: 4x the falls, pooled over three seeds, on flat
@@ -333,27 +336,39 @@ become a joint-torque error, then an infeasible whole-body solve, then a wrong g
 force at the wrong instant. Each rung multiplies the last; the fall is the top of a staircase
 whose first step is invisible on a datasheet.</figcaption></figure>
 
-<p>What follows is the dangerous part. The joint saturates below its promised torque, the
-commanded ground-reaction force is not produced, and the robot's actual acceleration parts ways
-with the plan. Next tick the controller tries to make up the missing force by loading the
-neighbouring joints harder &mdash; pushing them toward their own, also-derated, limits. One
-saturated actuator becomes three. The whole-body program that had a feasible answer against
-fantasy limits has none against real ones; it returns a clipped, least-bad torque set, the
-posture error grows, and on a legged robot a posture error that grows during a support phase is
-the definition of a fall. This is why the gap lives in recovery: cruise never asks for the
-corner, so the cascade never lights; a shove or a jump asks for all of it at once.</p>
+<p>What follows is the dangerous part, and it is a chain reaction rather than a
+shortfall: the joint saturates below its promised torque, the controller makes up the missing
+force by loading its neighbours harder, and <b>one saturated actuator becomes three</b>.</p>
 
-<p>And it is not only magnitude. Misalignment ripples the torque and shifts its phase; derating
-changes how fast a joint can rise to a commanded force. Both move the <em>timing</em> of force,
-and legged motion is timing &mdash; the impulse that has to land inside the eighty milliseconds
-of a foot strike, the symmetric push that keeps a biped from yawing, the co-timed extension of
-hip, knee, and ankle that makes a jump instead of a stumble. A model that gets the steady torque
-right and the timing wrong still puts the robot in the wrong place at the wrong instant. The
-policy never sees any of it, because it trained against a torque genie with no angle to miss, no
-heat to fear, and no neighbour to overload. The fall is not the policy being foolish. It is the
-policy being faithful to a machine that was described to it dishonestly.</p>
+<figure><img src="assets/fig-cascade.png" alt="Three control ticks: one joint clips, load redistributes, all three saturate and the solve goes infeasible">
+<figcaption><b>Fig 11: one saturated actuator becomes three.</b> Three control ticks on one
+leg. The knee is commanded past its derated ceiling and clips; the controller redistributes
+the missing force onto the hip and ankle, which are themselves derated; by the third tick all
+three are saturated, the whole-body solve has no feasible torque set, and the posture error it
+was correcting has grown from 2&deg; to 19&deg;. The ceilings sag across the ticks because the
+windings are heating while this happens. On a legged robot, a posture error that grows during a
+support phase is the definition of a fall.</figcaption></figure>
 
-<h2>Co-design for a dollar a gearbox</h2>
+<p>This is why the gap lives in recovery: cruise never asks for the corner, so the cascade
+never lights; a shove or a jump asks for all of it at once.</p>
+
+<p>And it is not only magnitude. Misalignment ripples the torque and shifts its phase;
+derating changes how fast a joint can rise to a commanded force. Both move the <em>timing</em>
+of force, and legged motion is timing.</p>
+
+<figure><img src="assets/fig-timing.png" alt="Commanded versus delivered joint force across an 80 ms foot-strike window">
+<figcaption><b>Fig 12: the impulse misses its window.</b> A foot strike is eighty milliseconds
+long. The commanded force is available instantly; the real one climbs against inductance and the
+voltage ceiling, peaks short because the winding is derating, ripples at the commutation error,
+and is still arriving after the foot has left. The shaded wedge is impulse the robot was planned
+around and never received &mdash; not because the average torque was wrong, but because it
+showed up at the wrong instant.</figcaption></figure>
+
+<p>The policy never sees any of it, because it trained against a torque genie with no angle to
+miss, no heat to fear, and no neighbour to overload. The fall is not the policy being foolish.
+It is the policy being faithful to a machine that was described to it dishonestly.</p>
+
+<h2>Co-design for a dollar a candidate</h2>
 
 <p>Hardware design has always been open-loop with respect to behavior: size the motor,
 build the robot, learn the truth months later. Software has iterated inside a compile-test
@@ -362,7 +377,7 @@ produces required the hardware to exist. A design-time actuator model breaks tha
 dependency:</p>
 
 <figure><img src="assets/fig-codesign-loop.png" alt="Hardware design loop before and after a design-time actuator model">
-<figcaption><b>Fig 11: the loop that did not exist.</b> Top: the traditional flow, where
+<figcaption><b>Fig 13: the loop that did not exist.</b> Top: the traditional flow, where
 behavior is discovered after the machine is built and a revision costs a quarter. Bottom:
 with a design-time model, every actuator parameter is a hyperparameter, iterated against
 trained behavior in minutes. The last box matters most: the loop ends in a
@@ -386,11 +401,20 @@ already the law the policy trained against. Simulator vendors do not build motor
 catalogs do not ship training models. The loop only closes when the same party does both,
 and today that list has one name on it.</p>
 
-<p>We ran the loop on the gearbox: three ratios, one policy each, graded in their own
+<p>Every layer of the actuator is inside that loop, because the design engine solves
+the whole coupled machine at once: the winding turns and wire gauge that set torque per amp,
+the magnet grade and thickness, the back iron that carries their flux, the gear ratio and
+the tooth sizing under it, the bearings chosen against the reaction forces, the shaft, the
+housing that has to shed the heat, and the sensors that report it. Every one of them is a
+hyperparameter, and every one of them can be graded by the behavior it produces rather than
+by a margin on a datasheet. What follows is that loop run for real, one axis at a time,
+because a sweep needs an axis.</p>
+
+<p>We ran it first on the gear ratio: three ratios, one policy each, graded in their own
 worlds.</p>
 
 <figure><img src="assets/fig-gear-sweep.png" alt="Evaluation reward for three gear ratios">
-<figcaption><b>Fig 12: the gear-ratio sweep,</b> one policy per ratio, a dollar per
+<figcaption><b>Fig 14: the gear-ratio sweep,</b> one policy per ratio, a dollar per
 candidate. Flat ground barely discriminates (25.0 / 25.9 / 26.1), though the lightest
 gearbox pays a small recovery tax, 4.2 percent falls against 2.7. Ship the 6:1 and spend
 the mass elsewhere.</figcaption></figure>
@@ -409,7 +433,7 @@ datasheet, loses to the 12:1 on both axes. <b>Flat-ground cruise could not rank 
 gearboxes; three dollars of sprint eliminated the middle of the catalog.</b></p>
 
 <figure><img src="assets/fig-sprint-pareto.png" alt="Sprint sweep: reward versus fall rate per gear ratio">
-<figcaption><b>Fig 13: the same sweep at sprint commands,</b> 1,500 iterations per gear,
+<figcaption><b>Fig 15: the same sweep at sprint commands,</b> 1,500 iterations per gear,
 two eval repeats (small dots). The frontier runs from 6:1, fastest and falls most, to 12:1,
 most robust; 9:1 sits strictly inside it. No bench test tells you which gearbox survives
 being asked for speed. A policy trained through the real actuator model
@@ -441,13 +465,13 @@ ended with joint motors overheated to hardware failure
 <a class="cit" href="#ref6">[6]</a>.</p>
 
 <figure><img src="assets/fig-thermal.png" alt="Winding temperature and speed over time, blind versus temperature-aware policy">
-<figcaption><b>Fig 14: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
+<figcaption><b>Fig 16: racing the thermal clock.</b> Hottest winding in a 4,096-robot fleet
 (solid) and fleet mean (dotted), then forward speed. Same starting checkpoint, same reward;
 the only difference is whether the policy can feel its motors heat. The aware policy holds
 the same speed and stays out of the derate band for an extra minute.</figcaption></figure>
 
-<p>The gearbox was the visible knob. The task reaches much deeper than that, because every
-layer of the metal is the answer to a question the software asks. Peak torque at speed,
+<p>The gear ratio was the visible knob, and the narrowest one. The loop reaches every
+layer of the metal, because every layer is the answer to a question the software asks. Peak torque at speed,
 the shove-recovery currency, is a voltage problem: the winding gets fewer turns of thicker
 wire, trading torque per amp for headroom against back-EMF. A steady payload carry asks
 the opposite question, so the same stator gets wound with more turns, buying torque per
@@ -483,7 +507,7 @@ robot's software is now a load case,</b> the same way gravity is, and an actuato
 that cannot run this loop is guessing at half the loads.</p>
 
 <figure><img src="assets/fig-cad-pair.png" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
-<figcaption><b>Fig 15: the table, in metal.</b> Cutaway renders of the generated CAD for
+<figcaption><b>Fig 17: the table, in metal.</b> Cutaway renders of the generated CAD for
 both designs, same scale, housing removed. Gold is copper, black is magnet, gray is iron.
 The carry design's winding is visibly heavier and its stack two millimeters longer; the
 sprint design trades that copper for a faster winding. Both STEP files are
@@ -511,13 +535,13 @@ policy that task has produced. Our variant gears one Atlas motor three ways (12:
 matching the real knee; 2:1 ankles and arms) and changes nothing else.</p>
 
 <figure><img src="assets/fig-g1-curves.png" alt="G1 training curves: episode length for stock and Atlas actuator models">
-<figcaption><b>Fig 16: what fantasy torque buys during training.</b> The stock policy
+<figcaption><b>Fig 18: what fantasy torque buys during training.</b> The stock policy
 survives everything by iteration 125: any balance error can be erased with torque the robot
 does not have. The same recipe on real physics takes twice as long and keeps paying. Both
 curves end healthy. Only one describes a robot that can exist.</figcaption></figure>
 
 <figure><img src="assets/fig-g1-falls.png" alt="G1 fall rates on real physics for both policies">
-<figcaption><b>Fig 17: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
+<figcaption><b>Fig 19: the cross-evaluation</b> (256 robots, 30 s, real physics). Stock:
 97.7 percent falls unpushed, 100 percent under any shove. Atlas: 0.4 percent unpushed. No
 disturbance curriculum on either. A second seed, retrained from scratch, lands in the same
 place: 99.7 percent falls against 4.5.</figcaption></figure>
@@ -557,7 +581,7 @@ policy that stands, perfectly stable, and never walks. <b>Fantasy torque does no
 distort the gait you get; it changes which behaviors are reachable.</b></p>
 
 <figure><img src="assets/fig-standing-trap.png" alt="Reward curves for posture training from scratch versus warm start">
-<figcaption><b>Fig 18: the standing trap.</b> One reward, two starting points. From
+<figcaption><b>Fig 20: the standing trap.</b> One reward, two starting points. From
 scratch, the optimizer finds the standing optimum and pays the tracking penalty forever:
 reward &minus;13, zero falls, zero walking. Warm-started from a walking policy, it keeps
 locomotion and gains posture, +9. On fantasy torque this trap does not
