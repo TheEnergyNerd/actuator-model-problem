@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-08-23T10:08:03.240901</dc:date>
+    <dc:date>2026-08-24T09:27:34.831474</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -78,7 +78,7 @@ z
      <g id="line2d_6">
       <path d="M 93.931609 205.740917 
 L 667.008 205.740917 
-" clip-path="url(#p7c6451181f)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p15d6de4890)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_7"/>
      <g id="text_6">
@@ -89,7 +89,7 @@ L 667.008 205.740917
      <g id="line2d_8">
       <path d="M 93.931609 162.263092 
 L 667.008 162.263092 
-" clip-path="url(#p7c6451181f)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p15d6de4890)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_9"/>
      <g id="text_7">
@@ -100,7 +100,7 @@ L 667.008 162.263092
      <g id="line2d_10">
       <path d="M 93.931609 118.785267 
 L 667.008 118.785267 
-" clip-path="url(#p7c6451181f)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
+" clip-path="url(#p15d6de4890)" style="fill: none; stroke: #343332; stroke-width: 0.7; stroke-linecap: square"/>
      </g>
      <g id="line2d_11"/>
      <g id="text_8">
@@ -108,13 +108,13 @@ L 667.008 118.785267
      </g>
     </g>
     <g id="text_9">
-     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #a8a8a7" x="68.661766" y="179.654222" transform="rotate(-90 68.661766 179.654222)">joints at torque limit  (of 16)</text>
+     <text style="font-weight: 500; font-size: 10px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #a8a8a7" x="68.661766" y="179.654222" transform="rotate(-90 68.661766 179.654222)">joints above continuous  (of 16)</text>
     </g>
    </g>
    <g id="line2d_12">
     <path d="M 93.931609 110.089702 
 L 667.008 110.089702 
-" clip-path="url(#p7c6451181f)" style="fill: none; stroke: #555453; stroke-opacity: 0.5; stroke-linecap: square"/>
+" clip-path="url(#p15d6de4890)" style="fill: none; stroke: #555453; stroke-opacity: 0.5; stroke-linecap: square"/>
    </g>
    <g id="patch_3">
     <path d="M 93.931609 249.218742 
@@ -129,7 +129,7 @@ L 181.799665 163.915249
 Q 184.799665 163.915249 184.799665 166.915249 
 L 184.799665 249.218742 
 z
-" clip-path="url(#p7c6451181f)" style="fill: #23a7a8"/>
+" clip-path="url(#p15d6de4890)" style="fill: #23a7a8"/>
    </g>
    <g id="patch_5">
     <path d="M 303.246425 249.218742 
@@ -139,7 +139,7 @@ L 318.246425 171.741258
 Q 321.246425 171.741258 321.246425 174.741258 
 L 321.246425 249.218742 
 z
-" clip-path="url(#p7c6451181f)" style="fill: #23a7a8"/>
+" clip-path="url(#p15d6de4890)" style="fill: #23a7a8"/>
    </g>
    <g id="patch_6">
     <path d="M 439.693185 249.218742 
@@ -149,7 +149,7 @@ L 454.693185 183.828093
 Q 457.693185 183.828093 457.693185 186.828093 
 L 457.693185 249.218742 
 z
-" clip-path="url(#p7c6451181f)" style="fill: #23a7a8"/>
+" clip-path="url(#p15d6de4890)" style="fill: #23a7a8"/>
    </g>
    <g id="patch_7">
     <path d="M 576.139944 249.218742 
@@ -159,7 +159,7 @@ L 591.139944 194.262771
 Q 594.139944 194.262771 594.139944 197.262771 
 L 594.139944 249.218742 
 z
-" clip-path="url(#p7c6451181f)" style="fill: #23a7a8"/>
+" clip-path="url(#p15d6de4890)" style="fill: #23a7a8"/>
    </g>
    <g id="text_10">
     <text style="font-weight: 600; font-size: 9px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: middle; fill: #a8a8a7" x="175.799665" y="157.244351" transform="rotate(-0 175.799665 157.244351)">9.81</text>
@@ -175,14 +175,15 @@ z
    </g>
   </g>
   <g id="text_14">
-   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; text-anchor: start; fill: #ffffff" x="58.752" y="35.828" transform="rotate(-0 58.752 35.828)">A hand runs saturated: most of it is pinned at the torque ceiling</text>
+   <text style="font-weight: 700; font-size: 17px; font-family: 'Source Serif 4', 'Charter', 'Georgia', 'Iowan Old Style', 'DejaVu Serif', 'Bitstream Vera Serif', 'Computer Modern Roman', 'New Century Schoolbook', 'Century Schoolbook L', 'Utopia', 'ITC Bookman', 'Bookman', 'Nimbus Roman No9 L', 'Times New Roman', 'Times', 'Palatino', serif; text-anchor: start; fill: #ffffff" x="58.752" y="35.828" transform="rotate(-0 58.752 35.828)">A hand runs past what its motors can sustain</text>
   </g>
   <g id="text_15">
-   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 59.950025)">Joints at their torque limit, of 16, averaged over the episode — the weaker the actuator, the more of the hand</text>
-   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 73.864576)">is pinned</text>
+   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 59.950025)">Joints demanding more than the actuator's continuous rating, of 16, averaged over the episode. For the flat</text>
+   <text style="font-size: 11.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 73.864576)">clamp, continuous is peak.</text>
   </g>
   <g id="text_16">
-   <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #a8a8a7" x="58.752" y="298.348107" transform="rotate(-0 58.752 298.348107)">The real Allegro peaks at 0.70 N·m per joint and is documented as torque-saturation-limited in tool use; this is that limit, counted.</text>
+   <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 288.063439)">Measured direct-drive (no reduction), the worst case: gearing a finger trades speed it does not need for torque it does. The real Allegro peaks at</text>
+   <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; fill: #a8a8a7" transform="translate(58.752 298.348107)">0.70 N·m per joint and is documented as torque-saturation-limited in tool use.</text>
   </g>
   <g id="text_17">
    <text style="font-size: 8.5px; font-family: 'Inter', 'Helvetica Neue', 'Avenir Next', 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start; fill: #797877" x="58.752" y="314.245707" transform="rotate(-0 58.752 314.245707)">Source: measured, Allegro in-hand reorientation, 8192 envs × 1300 iters · theenergynerd.github.io/actuator-model-problem Fig 16</text>
@@ -194,7 +195,7 @@ L 667.008 86.574502
   </g>
  </g>
  <defs>
-  <clipPath id="p7c6451181f">
+  <clipPath id="p15d6de4890">
    <rect x="93.931609" y="110.089702" width="573.076391" height="139.129041"/>
   </clipPath>
  </defs>

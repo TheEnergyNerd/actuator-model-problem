@@ -433,11 +433,13 @@ torque (0.54&nbsp;N&middot;m continuous), the stock PD-with-a-torque-clamp at
 the binding constraint at all. It is.</p>
 
 <figure><img src="assets/fig-hand-saturation.svg" alt="Joints at the torque limit, of 16, for four actuator models">
-<figcaption><b>Fig 16: the hand runs saturated.</b> On the real finger motor,
-9.8 of the hand's 16 joints are pinned at their torque ceiling at any instant, 61
-percent of the time. Even the fantasy actuator pins 6.3. This is the cascade from
-Fig 11, counted rather than drawn: most of the hand is against the stop, most of
-the time.</figcaption></figure>
+<figcaption><b>Fig 16: the hand runs past what its motors can sustain.</b> On the real
+finger motor, 9.8 of the hand's 16 joints are asking for more than the winding can hold
+continuously, 61 percent of the time; the flat clamp, which has no sustainable-versus-peak
+distinction at all, still shows 6.3. This is the cascade from Fig 11, counted rather than
+drawn. It is measured direct-drive, which is the worst case and our modelling choice: a
+finger is the one joint where you can gear freely, because it needs torque and not
+speed.</figcaption></figure>
 
 <p>That number is not an artifact of our motor being weak. The real Allegro
 peaks at 0.70&nbsp;N&middot;m per joint, and it is documented as unable to handle
