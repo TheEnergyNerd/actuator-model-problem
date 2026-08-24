@@ -120,8 +120,10 @@ physics. Ours walks with zero falls in 256 episodes.</li>
 and the sensors &mdash; so every layer is a knob a trained policy can grade. Because Atlas
 manufactures the actuator, the design you converge on is the one that ships.</li>
 <li><b>Transfer:</b> For the quadrupeds and humanoids there are several multiples more
-falls on multiple seeds; for the hand, the policy trained on the default completes 2.7x fewer
-in-hand reorientations than the one trained on the real motor.</li>
+falls on multiple seeds. For the hand, trained to plateau across three seeds, there is no
+transfer penalty at all &mdash; 1.21x, with seeds on both sides of one. What replicates there
+is the saturation gap: the default model tells the policy that 6 of 16 joints are pinned when
+the truth is 10.</li>
 </ol>
 
 <h2>So first, let's break down an actuator</h2>
@@ -479,35 +481,43 @@ saturation &mdash; 9.8 of 16 joints pinned, median demand above its continuous r
 is a physics bound, not a training outcome. Nobody had to build either hand to find this
 out.</p>
 
-<h3>And the transfer test, which we ran three times and will not oversell</h3>
+<h3>And the transfer test, which came back null</h3>
 
 <p>The same cross-evaluation as the quadruped and the humanoid, all explicit so the actuator
-model is the only thing that moves. On the first seed it produced the signature result: the
-clamp-trained policy completed 2.7x fewer reorientations on the real motor than the policy
-trained there, 0.49 against 1.33. Then we reran it on two more seeds, because the quadruped
-numbers have three and the hand deserved the same bar.</p>
+model is the only thing that moves. Our first attempt looked like the report's signature
+result: the clamp-trained policy completed 2.7x fewer reorientations on the real motor. It was
+an artifact of stopping too early. This task learns as a takeoff, and at 1,300 iterations every
+arm was still doubling every two to five hundred iterations, so that score was an exponential
+race against a clock nobody controls &mdash; the same seed, same configuration, rerun, diverges
+2.5x at the same iteration, because GPU physics is not deterministic. So we trained all six
+policies to plateau, 3,000 iterations, three seeds, and ran the matrix again.</p>
 
 <div class="tablewrap">
 <table>
-  <tr><th>seed</th><th>clamp &rarr; real motor</th><th>trained on the real motor</th></tr>
-  <tr><td>42</td><td>0.49</td><td>1.33</td></tr>
-  <tr><td>43</td><td>0.87</td><td>0.83</td></tr>
-  <tr><td>44</td><td>2.07</td><td>0.98</td></tr>
+  <tr><th>seed</th><th>clamp &rarr; real motor</th><th>real motor, matched</th><th>ratio</th></tr>
+  <tr><td>42</td><td>3.35</td><td>6.35</td><td>1.89x</td></tr>
+  <tr><td>43</td><td>4.90</td><td>4.44</td><td>0.91x</td></tr>
+  <tr><td>44</td><td>6.06</td><td>5.09</td><td>0.84x</td></tr>
+  <tr><td><b>mean</b></td><td><b>4.77</b></td><td><b>5.29</b></td><td><b>1.21x</b></td></tr>
 </table>
 </div>
 
-<p><b>It did not replicate.</b> One seed says 2.7x worse, one says parity, one says better.
-The control explains why: the clamp evaluated in its own world, identical everything, scores
-0.39 / 0.81 / 1.90 across three seeds &mdash; a 5x spread. It is not even the seed: the same
-seed, same configuration, rerun, diverges 2.5x at the same iteration, because GPU physics is
-nondeterministic. This task learns as a takeoff, every uncapped arm was still doubling every
-200&ndash;500 iterations at the cutoff, and an endpoint score taken mid-takeoff is an
-exponential race against a clock nobody controls. The one arm that replicated is the one
-physics had capped. On this task, at this budget, the success metric cannot resolve any
-cross-model ratio smaller than its own noise, in either direction. The saturation and shape findings above do not depend on it: they
-are measured from what the actuators do, not from what the policies score. A transfer claim
-for hands needs training to the plateau, or a takeoff-time metric, and until it has one, this
-report does not make it.</p>
+<p><b>There is no transfer penalty for this hand.</b> The distributions overlap
+(3.35&ndash;6.06 against 4.44&ndash;6.35), the mean ratio is 1.21x with seeds landing on both
+sides of one, and the reverse direction mirrors it. Training the policy against a flat torque
+clamp instead of a real motor's envelope cost it nothing it could not recover, on this task, at
+this torque class.</p>
+
+<p>We report it because it is what happened. The quadruped and the humanoid pay for a bad
+actuator model; this hand did not. The honest reading is that in-hand cube reorientation at
+0.5&nbsp;N&middot;m is not a task where torque <em>shape</em> decides the outcome: the hand is
+saturated either way (Fig 16), so both models leave the policy in the same regime, and the
+policy adapts. A task with a real transient demand, or a motor closer to its thermal edge,
+is where we would expect shape to bite, and that experiment is not this one. What the section
+above establishes does not rest on a policy score &mdash; it is measured from the actuators
+themselves: the hand runs pinned, and the default model understates how pinned by 3.5x. The
+one arm that never left the floor in any run, at any budget, is F1, the finger motor that
+saturates. <b>Torque you do not have is the thing a policy cannot learn around.</b></p>
 
 <h3>What we could not measure, and why we are saying so</h3>
 
