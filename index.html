@@ -498,12 +498,16 @@ numbers have three and the hand deserved the same bar.</p>
 
 <p><b>It did not replicate.</b> One seed says 2.7x worse, one says parity, one says better.
 The control explains why: the clamp evaluated in its own world, identical everything, scores
-0.39 / 0.81 / 1.90 across three seeds &mdash; a 5x spread from the seed alone. On this task,
-at this budget, the success metric cannot resolve any cross-model ratio smaller than its own
-noise, in either direction. The saturation and shape findings above do not depend on it: they
+0.39 / 0.81 / 1.90 across three seeds &mdash; a 5x spread. It is not even the seed: the same
+seed, same configuration, rerun, diverges 2.5x at the same iteration, because GPU physics is
+nondeterministic. This task learns as a takeoff, every uncapped arm was still doubling every
+200&ndash;500 iterations at the cutoff, and an endpoint score taken mid-takeoff is an
+exponential race against a clock nobody controls. The one arm that replicated is the one
+physics had capped. On this task, at this budget, the success metric cannot resolve any
+cross-model ratio smaller than its own noise, in either direction. The saturation and shape findings above do not depend on it: they
 are measured from what the actuators do, not from what the policies score. A transfer claim
-for hands needs either far more seeds or a harder metric, and until it has one, this report
-does not make it.</p>
+for hands needs training to the plateau, or a takeoff-time metric, and until it has one, this
+report does not make it.</p>
 
 <h3>What we could not measure, and why we are saying so</h3>
 
