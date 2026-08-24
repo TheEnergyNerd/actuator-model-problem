@@ -455,12 +455,11 @@ sustains 100 percent, which is not a generous motor, it is an impossible one. It
 is too kind at steady state and too mean in transient, and the transient is where
 a regrasp lives.</figcaption></figure>
 
-<p>Our torque-matched motor has less flat headroom than the clamp and beats it
-anyway, 1.33 against 0.39 reorientations, because it can put out
-0.99&nbsp;N&middot;m for a moment when the cube is slipping and then cool off. The
-policy uses it: the 95th percentile of its commanded torque is 0.96. The clamp
-never allows that instant, so a policy trained against the clamp never learns the
-behavior the real motor would have paid for.</p>
+<p>The policy trained on the torque-matched motor uses the shape: the 95th percentile of
+its commanded torque is 0.96&nbsp;N&middot;m, a transient the clamp never allows. On one seed
+it beat the clamp 1.33 against 0.39. Across three seeds they are statistically the same
+(1.05 against 1.03 on average, and the clamp's own three seeds span 0.39 to 1.90). The shape
+argument stands on the physics above, not on the task score, and we say so.</p>
 
 <p>The third thing is the one that matters for design. Two real finger motors,
 same hand, same task, same everything, and the only difference is how much
@@ -474,25 +473,37 @@ continuous torque the winding can hold:</p>
 </table>
 </div>
 
-<p><b>Seven times the task performance, for a bigger winding.</b> That is the
-whole argument in one row. Nobody had to build either hand to find it out, and
-the design that comes back is the one we would machine.</p>
+<p><b>Seven times the task performance on this seed, for a bigger winding.</b> F4's three
+seeds span 0.83 to 1.33, every one of them at least 4x above F1's single seed, and F1's
+saturation &mdash; 9.8 of 16 joints pinned, median demand above its continuous rating &mdash;
+is a physics bound, not a training outcome. Nobody had to build either hand to find this
+out.</p>
 
-<h3>And the transfer test</h3>
+<h3>And the transfer test, which we ran three times and will not oversell</h3>
 
-<p>The same cross-evaluation as the quadruped and the humanoid, all explicit so
-the actuator model is the only thing that moves. Train a policy against the
-default-shaped clamp, deploy it on the torque-matched real motor, and it
-completes <b>0.49</b> reorientations against <b>1.33</b> for the policy trained
-on the real motor &mdash; <b>2.7x fewer, from the model alone</b>. On the weak
-finger motor the penalty vanishes, 0.23 against 0.19, because that actuator caps
-everyone equally; the mismatch costs you exactly where the hardware has
-capability the model never described.</p>
+<p>The same cross-evaluation as the quadruped and the humanoid, all explicit so the actuator
+model is the only thing that moves. On the first seed it produced the signature result: the
+clamp-trained policy completed 2.7x fewer reorientations on the real motor than the policy
+trained there, 0.49 against 1.33. Then we reran it on two more seeds, because the quadruped
+numbers have three and the hand deserved the same bar.</p>
 
-<p>The reverse direction is the sharper sentence. Evaluated in the clamp's own
-fantasy world, the policy trained on the real motor beats the policy trained
-there, 0.85 against 0.39. Training against the real envelope did not cost
-performance in the easy world. It produced the better policy in both.</p>
+<div class="tablewrap">
+<table>
+  <tr><th>seed</th><th>clamp &rarr; real motor</th><th>trained on the real motor</th></tr>
+  <tr><td>42</td><td>0.49</td><td>1.33</td></tr>
+  <tr><td>43</td><td>0.87</td><td>0.83</td></tr>
+  <tr><td>44</td><td>2.07</td><td>0.98</td></tr>
+</table>
+</div>
+
+<p><b>It did not replicate.</b> One seed says 2.7x worse, one says parity, one says better.
+The control explains why: the clamp evaluated in its own world, identical everything, scores
+0.39 / 0.81 / 1.90 across three seeds &mdash; a 5x spread from the seed alone. On this task,
+at this budget, the success metric cannot resolve any cross-model ratio smaller than its own
+noise, in either direction. The saturation and shape findings above do not depend on it: they
+are measured from what the actuators do, not from what the policies score. A transfer claim
+for hands needs either far more seeds or a harder metric, and until it has one, this report
+does not make it.</p>
 
 <h3>What we could not measure, and why we are saying so</h3>
 
