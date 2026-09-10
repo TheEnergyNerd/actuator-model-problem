@@ -28,6 +28,7 @@ export type Sample = {
   grip: number[][];
   contact_forces?: number[][];
   failures?: number;
+  target?: number[];
 };
 export type Recording = { poses: Float32Array; samples: Sample[]; result: any };
 const sceneCache = new Map<string, Promise<SceneData>>();
@@ -125,7 +126,7 @@ export function Replay({
       const joint = m.body % 11 === 7;
       const material = new THREE.MeshStandardMaterial({
         color:
-          sceneData.kind === "locomotion"
+          sceneData.kind === "locomotion" || sceneData.kind === "hand"
             ? new THREE.Color(...(m.color as [number, number, number]))
             : finger
               ? "#343b36"
@@ -185,7 +186,7 @@ export function Replay({
     grid.rotation.x = Math.PI / 2;
     grid.position.z = 0.002;
     scene.add(grid);
-    if (sceneData.kind !== "locomotion")
+    if (!sceneData.kind)
       for (const [x, y, c] of [
         [0.45, -0.3, "#e1c17e"],
         [0.48, 0.3, "#438973"],
@@ -211,7 +212,24 @@ export function Replay({
         ? new THREE.LineSegments(traceGeo, traceMat)
         : new THREE.Line(traceGeo, traceMat);
     scene.add(trace);
-    const glows = (sceneData.kind === "locomotion" ? [] : [9, 10, 20, 21]).map((i) => {
+    const goalGeo = new THREE.EdgesGeometry(
+      new THREE.BoxGeometry(
+        sceneData.cube_size || 0.055,
+        sceneData.cube_size || 0.055,
+        sceneData.cube_size || 0.055,
+      ),
+    );
+    geometries.push(goalGeo);
+    const goalMat = new THREE.LineBasicMaterial({
+      color: "#d98b38",
+      transparent: true,
+      opacity: 0.8,
+    });
+    materials.push(goalMat);
+    const goal = new THREE.LineSegments(goalGeo, goalMat);
+    goal.visible = sceneData.kind === "hand";
+    scene.add(goal);
+    const glows = (sceneData.kind ? [] : [9, 10, 20, 21]).map((i) => {
       const g = new THREE.SphereGeometry(0.011, 12, 8);
       geometries.push(g);
       const m = new THREE.MeshBasicMaterial({
@@ -277,6 +295,13 @@ export function Replay({
         0,
         sceneData.kind === "locomotion" ? f0 * 2 : Math.max(2, f0 + 1),
       );
+      if (sceneData.kind === "hand") {
+        const target = c.recording.samples[f0]?.target;
+        goal.position
+          .copy(bodies[bodies.length - 1].position)
+          .add(new THREE.Vector3(0.11, 0, 0.035));
+        if (target) goal.quaternion.set(target[1], target[2], target[3], target[0]);
+      }
       const contacts = c.recording.samples[f0]?.contact_forces;
       glows.forEach((g, i) => {
         const v = contacts?.[i] || [];
@@ -303,7 +328,7 @@ export function Replay({
         h = host.current.clientHeight;
       renderer.setSize(w, h);
       camera.aspect = w / h;
-      camera.zoom = Math.min(1, camera.aspect / (sceneData.kind === "locomotion" ? 0.9 : 1.5));
+      camera.zoom = Math.min(1, camera.aspect / (sceneData.kind ? 0.9 : 1.5));
       camera.updateProjectionMatrix();
     });
     observer.observe(host.current);
@@ -349,22 +374,37 @@ export function Replay({
       ],
     };
     const v =
-      sceneData.kind === "locomotion"
+      sceneData.kind === "hand"
         ? cameraView === "top"
           ? [
-              [0, 0.01, 4],
-              [0, 0, 0.5],
+              [0, -0.12, 1.05],
+              [0, -0.12, 0.49],
             ]
           : cameraView === "front"
             ? [
-                [3, 0, 1.2],
-                [0, 0, 0.65],
+                [0, 0.48, 0.57],
+                [0, -0.12, 0.49],
               ]
             : [
-                [2.4, 2.4, 1.8],
-                [0, 0, 0.65],
+                [0.26, 0.08, 0.68],
+                [0, -0.12, 0.5],
               ]
-        : views[cameraView] || views.overview;
+        : sceneData.kind === "locomotion"
+          ? cameraView === "top"
+            ? [
+                [0, 0.01, 4],
+                [0, 0, 0.5],
+              ]
+            : cameraView === "front"
+              ? [
+                  [3, 0, 1.2],
+                  [0, 0, 0.65],
+                ]
+              : [
+                  [2.4, 2.4, 1.8],
+                  [0, 0, 0.65],
+                ]
+          : views[cameraView] || views.overview;
     s.camera.position.set(...v[0]);
     s.controls.target.set(...v[1]);
     s.controls.update();

@@ -1,5 +1,6 @@
 "use client";
 import Locomotion from "./locomotion";
+import DexterousHand from "./hand";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
@@ -270,7 +271,7 @@ export default function Home() {
               ["transfer", "Bimanual transfer"],
               ["g1", "G1 walking"],
               ["anymal", "ANYmal"],
-              ["allegro", "Allegro baseline"],
+              ["allegro", "Dexterous hand"],
             ].map(([v, l]) => (
               <Button
                 key={v}
@@ -810,6 +811,8 @@ export default function Home() {
         </>
       ) : task === "g1" || task === "anymal" ? (
         <Locomotion key={task} robot={task} />
+      ) : task === "allegro" ? (
+        <DexterousHand />
       ) : (
         <section className="existing-task">
           <div>

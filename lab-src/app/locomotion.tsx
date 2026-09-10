@@ -23,7 +23,7 @@ type Manifest = {
   description: string;
 };
 const cache = new Map<string, Promise<Recording>>();
-async function loadRecording(path: string) {
+export async function loadRecording(path: string) {
   if (!cache.has(path))
     cache.set(
       path,
@@ -49,7 +49,7 @@ async function loadRecording(path: string) {
     );
   return cache.get(path)!;
 }
-function SyncedVideo({
+export function SyncedVideo({
   src,
   clock,
   label,
@@ -368,7 +368,7 @@ export default function Locomotion({ robot }: { robot: "g1" | "anymal" }) {
             ))}
           </NativeSelect>
           <div style={{ height: 260, width: "100%" }}>
-            <ResponsiveContainer initialDimension={{width:600,height:260}}>
+            <ResponsiveContainer initialDimension={{ width: 600, height: 260 }}>
               <LineChart data={chart}>
                 <XAxis dataKey="t" type="number" domain={[0, result.duration]} unit="s" />
                 <YAxis width={55} />
