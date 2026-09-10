@@ -1,0 +1,61 @@
+[
+  {
+    "source": "/root/atlas/atlas-actuator-isaac/results/precision_hand/candidate_stable.json",
+    "checkpoint_sha256": "eebb9dbe75bb9e6a5e5a25fd3ed18a97dfa55e2b9819fc8d6e73c7720b4348dd",
+    "seeds": [
+      {
+        "seed": 201,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        "drop_events": 9,
+        "mean_orientation_error_deg": 64.28635806667137,
+        "mean_torque_shortfall_fraction": 0.38902995735406876,
+        "max_winding_C": 68.94904327392578
+      },
+      {
+        "seed": 202,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0
+        ],
+        "drop_events": 6,
+        "mean_orientation_error_deg": 65.32388439888553,
+        "mean_torque_shortfall_fraction": 0.3781412844546139,
+        "max_winding_C": 68.95030975341797
+      },
+      {
+        "seed": 203,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "drop_events": 4,
+        "mean_orientation_error_deg": 71.16698925092172,
+        "mean_torque_shortfall_fraction": 0.3671864210627973,
+        "max_winding_C": 68.95030975341797
+      }
+    ],
+    "total_complete_sequences": 0,
+    "total_trials": 96
+  }
+]

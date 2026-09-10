@@ -1,2 +1,6 @@
 lab-src/node_modules/
 lab-src/*.tsbuildinfo
+
+__pycache__/
+.pytest_cache/
+*.pyc

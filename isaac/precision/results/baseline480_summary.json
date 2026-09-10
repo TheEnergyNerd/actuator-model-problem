@@ -1,0 +1,27 @@
+[
+  {
+    "source": "results/precision_hand/baseline480_seed101.json",
+    "checkpoint_sha256": "295e2fdb2868069afd690e9b785815ef7256586e021d06e60107e32b0885282f",
+    "seeds": [
+      {
+        "seed": 101,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          3,
+          8,
+          4,
+          6,
+          3,
+          6
+        ],
+        "drop_events": 0,
+        "mean_orientation_error_deg": 33.7178016398433,
+        "mean_torque_shortfall_fraction": 0.3885199725627899,
+        "max_winding_C": 68.9133529663086
+      }
+    ],
+    "total_complete_sequences": 0,
+    "total_trials": 32
+  }
+]

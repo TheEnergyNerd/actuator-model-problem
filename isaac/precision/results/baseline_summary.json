@@ -1,0 +1,61 @@
+[
+  {
+    "source": "results/precision_hand/baseline.json",
+    "checkpoint_sha256": "295e2fdb2868069afd690e9b785815ef7256586e021d06e60107e32b0885282f",
+    "seeds": [
+      {
+        "seed": 101,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "drop_events": 1,
+        "mean_orientation_error_deg": 23.14303001283001,
+        "mean_torque_shortfall_fraction": 0.4898784840479493,
+        "max_winding_C": 68.9344253540039
+      },
+      {
+        "seed": 102,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "drop_events": 0,
+        "mean_orientation_error_deg": 23.14333502346513,
+        "mean_torque_shortfall_fraction": 0.49174805637449026,
+        "max_winding_C": 68.95825958251953
+      },
+      {
+        "seed": 103,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "drop_events": 2,
+        "mean_orientation_error_deg": 21.390195364478462,
+        "mean_torque_shortfall_fraction": 0.4963563485071063,
+        "max_winding_C": 68.95111083984375
+      }
+    ],
+    "total_complete_sequences": 0,
+    "total_trials": 96
+  }
+]

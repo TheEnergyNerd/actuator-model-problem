@@ -1,0 +1,6 @@
+{
+  "min_mass_eigenvalue": 1.9844326743623242e-05,
+  "max_damping_eigenvalue": 363.85882568359375,
+  "unconstrained_explicit_damping_dt_bound_s": 0.005496637430042028,
+  "physics_dt_s": 0.0020833333333333333
+}

@@ -1,0 +1,10 @@
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-G12-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_00-35-56_g12/model_299.pt", "episodes": 258, "mean_ep_reward": 3.26, "mean_ep_length": 992.7, "falls": 2, "timeouts": 256, "fall_rate_pct": 0.8}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-G6-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_00-26-17_g6/model_299.pt", "episodes": 257, "mean_ep_reward": 3.28, "mean_ep_length": 994.0, "falls": 3, "timeouts": 254, "fall_rate_pct": 1.2}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_00-31-15_g9/model_299.pt", "episodes": 265, "mean_ep_reward": 3.36, "mean_ep_length": 967.8, "falls": 9, "timeouts": 256, "fall_rate_pct": 3.4}
+--- final train rewards:
+g6: 1.76
+g9: 0.13
+g12: -0.11
+sweep_g12.mp4
+sweep_g6.mp4
+sweep_g9.mp4

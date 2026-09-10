@@ -1,0 +1,42 @@
+{
+  "criteria": "Six fixed rotation stages, including a physical push. Each needs 0.5 continuous seconds within 5.7\u00b0, angular speed below 0.5 rad/s, linear speed below 0.05 m/s, and position error below 0.12 m. All six holds and zero drops are required for a complete sequence. Each row uses 96 trials across seeds 201\u2013203, with 480 Hz physics and 30 Hz policy actions.",
+  "status": "All four matched comparisons completed. The precision video uses the original policy with terminal hold; fine-tuned weights are not used in that recording.",
+  "rows": [
+    {
+      "label": "Original policy \u00b7 damping 0.1",
+      "complete": 0,
+      "trials": 96,
+      "held_stages": 89,
+      "total_stages": 576,
+      "drops": 1,
+      "mean_error_deg": 35.066005974431604
+    },
+    {
+      "label": "Original policy \u00b7 damping 0.005",
+      "complete": 0,
+      "trials": 96,
+      "held_stages": 87,
+      "total_stages": 576,
+      "drops": 4,
+      "mean_error_deg": 33.12215055400171
+    },
+    {
+      "label": "Original policy + terminal hold \u00b7 damping 0.005",
+      "complete": 0,
+      "trials": 96,
+      "held_stages": 227,
+      "total_stages": 576,
+      "drops": 5,
+      "mean_error_deg": 37.832062189296536
+    },
+    {
+      "label": "Fine-tuned policy \u00b7 damping 0.005",
+      "complete": 0,
+      "trials": 96,
+      "held_stages": 3,
+      "total_stages": 576,
+      "drops": 19,
+      "mean_error_deg": 66.92574390549287
+    }
+  ]
+}

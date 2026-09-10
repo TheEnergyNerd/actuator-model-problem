@@ -1,0 +1,9 @@
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_01-11-52_ideal2/model_1499.pt", "episodes": 259, "mean_ep_reward": 24.49, "mean_ep_length": 972.8, "falls": 13, "timeouts": 246, "fall_rate_pct": 5.0}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_01-11-52_ideal2/model_1499.pt", "episodes": 259, "mean_ep_reward": 26.14, "mean_ep_length": 985.6, "falls": 5, "timeouts": 254, "fall_rate_pct": 1.9}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-09_01-30-29_atlas2/model_1499.pt", "episodes": 258, "mean_ep_reward": 25.89, "mean_ep_length": 984.9, "falls": 7, "timeouts": 251, "fall_rate_pct": 2.7}
+total 4348
+drwxr-xr-x 2 root root      75 Jul  9 01:51 .
+drwxr-xr-x 1 root root    4096 Jul  9 01:50 ..
+-rw-r--r-- 1 root root 1490187 Jul  9 01:50 A_foc.mp4
+-rw-r--r-- 1 root root 1430625 Jul  9 01:50 A_ideal.mp4
+-rw-r--r-- 1 root root 1521717 Jul  9 01:51 B_foc.mp4

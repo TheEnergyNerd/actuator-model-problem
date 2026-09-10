@@ -5,7 +5,22 @@ import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { NativeSelect, NativeSelectOption } from "@/components/ui/native-select";
 import { Play, Pause, RotateCcw, Hand, Target } from "lucide-react";
+type PrecisionStudy = {
+  criteria: string;
+  status: string;
+  rows: {
+    label: string;
+    complete: number;
+    trials: number;
+    held_stages: number;
+    total_stages: number;
+    drops: number;
+    mean_error_deg: number;
+  }[];
+};
 export default function DexterousHand() {
+  const [trial, setTrial] = useState("hand-precision");
+  const dataPath = `./data/${trial}`;
   const [run, setRun] = useState<Recording | null>(null),
     [scene, setScene] = useState<SceneData | null>(null),
     [error, setError] = useState(""),
@@ -14,10 +29,24 @@ export default function DexterousHand() {
     [speed, setSpeed] = useState(1),
     [mode, setMode] = useState("both"),
     [camera, setCamera] = useState("overview");
+  const [precision, setPrecision] = useState<PrecisionStudy | null>(null);
+  useEffect(() => {
+    fetch("./data/hand/precision-study.json")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => setPrecision(data as PrecisionStudy | null))
+      .catch(() => {});
+  }, []);
   const clock = useRef({ time: 0, playing: false, speed: 1 });
   useEffect(() => {
     let gone = false;
-    Promise.all([loadScene("./data/hand/scene.json"), loadRecording("./data/hand")])
+    setPlaying(false);
+    clock.current.playing = false;
+    clock.current.time = 0;
+    setTime(0);
+    setRun(null);
+    setScene(null);
+    setError("");
+    Promise.all([loadScene(`${dataPath}/scene.json`), loadRecording(dataPath)])
       .then(([s, r]) => {
         if (!gone) {
           setScene(s);
@@ -28,7 +57,7 @@ export default function DexterousHand() {
     return () => {
       gone = true;
     };
-  }, []);
+  }, [dataPath]);
   useEffect(() => {
     clock.current.playing = playing;
     clock.current.speed = speed;
@@ -76,6 +105,19 @@ export default function DexterousHand() {
   const milestones = run.samples.filter((s: any) => s.goal_reached) as any[];
   return (
     <>
+      <section className="hand-trial-selector">
+        <label htmlFor="hand-trial">Recorded trial</label>
+        <NativeSelect id="hand-trial" value={trial} onChange={(e) => setTrial(e.target.value)}>
+          <NativeSelectOption value="hand-precision">
+            Precision control · 60 seconds
+          </NativeSelectOption>
+          <NativeSelectOption value="hand">Original reorientation · 24 seconds</NativeSelectOption>
+        </NativeSelect>
+        <p className="micro">
+          The precision trial adds a terminal hold controller. Complete-sequence reliability is
+          reported below.
+        </p>
+      </section>
       <section className="motion-workbench hand-workbench">
         <div className="motion-stage">
           <div className="motion-heading">
@@ -90,7 +132,11 @@ export default function DexterousHand() {
           </div>
           <div className="motion-phase">
             <p className="eyebrow">LEARNED IN-HAND MANIPULATION</p>
-            <h2>Regrasp. Rotate. Reach the next target.</h2>
+            <h2>
+              {result.precision_sequence
+                ? "Rotate. Settle. Hold."
+                : "Regrasp. Rotate. Reach the next target."}
+            </h2>
             <p>
               Actual joint geometry and motion · orange wireframe shows the desired cube
               orientation.
@@ -109,7 +155,7 @@ export default function DexterousHand() {
             )}
             {mode !== "3d" && (
               <SyncedVideo
-                src="./data/hand/video.mp4"
+                src={`${dataPath}/video.mp4`}
                 clock={clock}
                 label="Corrected motor-trained policy"
               />
@@ -172,12 +218,20 @@ export default function DexterousHand() {
           <p className="eyebrow">DEXTERITY, MEASURED</p>
           <h2>Watch each finger do its work.</h2>
           <p>
-            The completed corrected policy operates the real-motor model. Finger articulation comes
-            directly from Isaac Lab.
+            Policy commands pass through modeled current, voltage and thermal limits. Finger
+            articulation comes directly from Isaac Lab.
           </p>
           <dl className="motion-values">
-            <dt>Completed targets</dt>
+            <dt>{result.precision_sequence ? "Stable stages reached" : "Brief target hits"}</dt>
             <dd>{sample.goals}</dd>
+            {result.precision_sequence && (
+              <>
+                <dt>Commanded stage</dt>
+                <dd>{sample.phase}</dd>
+                <dt>Current continuous hold</dt>
+                <dd>{(sample.hold_time_s ?? 0).toFixed(2)} s / 0.50 s</dd>
+              </>
+            )}
             <dt>Orientation error</dt>
             <dd>{sample.orientation_error_deg.toFixed(1)}°</dd>
             <dt>Drops / resets</dt>
@@ -186,15 +240,17 @@ export default function DexterousHand() {
             <dd>{sample.torque.toFixed(2)} Nm</dd>
             <dt>Maximum winding temperature</dt>
             <dd>{sample.temperature.toFixed(1)} °C</dd>
-            <dt>Torque shortfall</dt>
+            <dt>Joints with torque mismatch</dt>
             <dd>{(100 * sample.saturation).toFixed(0)}%</dd>
           </dl>
           <p className="micro">
-            A target counts when Isaac Lab registers success. The next target then changes. This is
-            continuous reorientation with a four-finger Allegro hand; two-hand transfer remains
-            unfinished.
+            {result.precision_sequence
+              ? "Each fixed target requires 0.5 seconds of stable alignment. The final target includes a physical push. All six holds and no drops are required to complete the sequence."
+              : "A brief hit counts when orientation error crosses the original threshold; the target then changes. This criterion does not require a stable hold."}
           </p>
-          <p className="eyebrow">REACHED TARGETS</p>
+          <p className="eyebrow">
+            {result.precision_sequence ? "SUSTAINED HOLDS" : "ORIENTATION THRESHOLD CROSSINGS"}
+          </p>
           <div className="hand-milestones">
             {milestones.length ? (
               milestones.map((s, i) => (
@@ -214,6 +270,54 @@ export default function DexterousHand() {
           </div>
         </aside>
       </section>
+      {precision && (
+        <section className="precision-results">
+          <p className="eyebrow">STRICTER CONTROL TEST</p>
+          <h2>Can it rotate, settle and hold?</h2>
+          <p>{precision.criteria}</p>
+          <p>
+            <a href="./data/hand-precision/benchmark.json" download>
+              Download per-trial benchmark data
+            </a>{" "}
+            ·{" "}
+            <a href="./data/hand-precision/benchmark.md" download>
+              Experiment report
+            </a>
+          </p>
+          <div className="precision-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Policy</th>
+                  <th>Complete sequences</th>
+                  <th>Stable stages</th>
+                  <th>Drops</th>
+                  <th>Mean error</th>
+                </tr>
+              </thead>
+              <tbody>
+                {precision.rows.map((r) => (
+                  <tr key={r.label}>
+                    <td>{r.label}</td>
+                    <td>
+                      {r.complete} / {r.trials}
+                    </td>
+                    <td>
+                      {r.held_stages} / {r.total_stages}
+                    </td>
+                    <td>{r.drops}</td>
+                    <td>{r.mean_error_deg.toFixed(1)}°</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="micro">
+            {precision.status} The original reorientation clip uses a different success criterion;
+            the precision clip illustrates this stricter test.
+          </p>
+        </section>
+      )}
       <section className="hand-joints">
         <div>
           <p className="eyebrow">LIVE JOINT DETAIL</p>
@@ -249,11 +353,23 @@ export default function DexterousHand() {
         <div>
           <p className="eyebrow">COMPLETE RECORDED TRIAL</p>
           <h2>
-            {result.goals} orientation targets. {result.drops} drops.
+            {result.goals} {result.precision_sequence ? "stable stages" : "brief orientation hits"}.{" "}
+            {result.drops} drops.
           </h2>
+          {result.precision_sequence && (
+            <p>
+              <strong>
+                {result.complete_sequence
+                  ? "Complete sequence passed."
+                  : "Complete sequence not passed."}
+              </strong>{" "}
+              {result.goals} of 6 stages met the sustained-hold criterion.
+            </p>
+          )}
           <p>
-            24 seconds, one seed, no cuts. Success markers let you inspect the approach to each
-            reached orientation. This is a learned policy, not a scripted finger animation.
+            {result.precision_sequence ? 60 : 24} seconds, one seed, no cuts. Event markers let you
+            inspect the approach to each reached orientation. This is a learned policy, not a
+            scripted finger animation.
           </p>
           <p>
             Rendered surfaces preserve the authored Allegro mesh geometry. Close-up cameras and
@@ -268,8 +384,9 @@ export default function DexterousHand() {
               "result.json",
               "scene.json",
               "source.zip",
+              ...(result.precision_sequence ? ["policy.pt"] : []),
             ].map((n) => (
-              <a key={n} href={`./data/hand/${n}`} download>
+              <a key={n} href={`${dataPath}/${n}`} download>
                 {n}
               </a>
             ))}
@@ -290,7 +407,9 @@ export default function DexterousHand() {
             <dd>{result.V_bus} V</dd>
           </dl>
           <p className="micro">
-            The policy was trained for 6,000 iterations against the corrected actuator model.
+            {result.precision_sequence
+              ? "This precision trial uses the checkpoint and controller settings in the downloadable result file; the benchmark reports measured performance."
+              : "The policy was trained for 6,000 iterations against the corrected actuator model."}
             Temperatures are model estimates. This demonstration does not reproduce the referenced
             Rubik's Cube solver or establish hardware performance.
           </p>

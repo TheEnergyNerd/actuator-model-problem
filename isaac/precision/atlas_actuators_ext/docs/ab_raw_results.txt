@@ -1,0 +1,6 @@
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-08_23-50-13_ideal/model_299.pt", "episodes": 259, "mean_ep_reward": -243.93, "mean_ep_length": 989.8, "falls": 4, "timeouts": 255, "fall_rate_pct": 1.5}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-08_23-50-13_ideal/model_299.pt", "episodes": 260, "mean_ep_reward": 24.54, "mean_ep_length": 978.9, "falls": 9, "timeouts": 251, "fall_rate_pct": 3.5}
+EVAL_RESULT {"task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0", "ckpt": "/opt/IsaacLab/logs/rsl_rl/anymal_c_flat/2026-07-08_23-54-30_atlasfoc/model_299.pt", "episodes": 264, "mean_ep_reward": 2.89, "mean_ep_length": 971.3, "falls": 8, "timeouts": 256, "fall_rate_pct": 3.0}
+--- final training lines
+                       Mean reward: 21.76
+                       Mean reward: 0.13

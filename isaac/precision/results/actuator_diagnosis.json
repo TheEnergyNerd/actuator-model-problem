@@ -1,0 +1,8 @@
+{
+  "reference": "dex_real03",
+  "n_samples": 720,
+  "mean_joint_shortfall_fraction": 0.4756944444444444,
+  "max_requested_joint_torque_Nm": 14.275811195373535,
+  "max_delivered_joint_torque_Nm": 1.8680589199066162,
+  "note": "Control-rate diagnostic of the previous policy. Requested peak and delivered peak need not be the same joint or instant. The motor model smoothly reduces its current ceiling from ambient temperature toward its hot continuous-current floor."
+}

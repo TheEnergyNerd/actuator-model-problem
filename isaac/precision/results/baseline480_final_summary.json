@@ -1,0 +1,61 @@
+[
+  {
+    "source": "atlas-actuator-isaac/results/precision_hand/baseline480_final.json",
+    "checkpoint_sha256": "295e2fdb2868069afd690e9b785815ef7256586e021d06e60107e32b0885282f",
+    "seeds": [
+      {
+        "seed": 201,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          3,
+          12,
+          4,
+          2,
+          4,
+          2
+        ],
+        "drop_events": 0,
+        "mean_orientation_error_deg": 34.73202136557739,
+        "mean_torque_shortfall_fraction": 0.38391277100890875,
+        "max_winding_C": 68.93132019042969
+      },
+      {
+        "seed": 202,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          6,
+          13,
+          4,
+          5,
+          5,
+          2
+        ],
+        "drop_events": 1,
+        "mean_orientation_error_deg": 32.625315256657714,
+        "mean_torque_shortfall_fraction": 0.37860678136348724,
+        "max_winding_C": 68.92201232910156
+      },
+      {
+        "seed": 203,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          3,
+          9,
+          4,
+          2,
+          3,
+          6
+        ],
+        "drop_events": 0,
+        "mean_orientation_error_deg": 37.84068130105971,
+        "mean_torque_shortfall_fraction": 0.3918185834772885,
+        "max_winding_C": 68.9309310913086
+      }
+    ],
+    "total_complete_sequences": 0,
+    "total_trials": 96
+  }
+]

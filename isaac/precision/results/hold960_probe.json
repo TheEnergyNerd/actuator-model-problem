@@ -1,0 +1,196 @@
+{
+  "goal_rate_rad_s": 0.0,
+  "terminal_hold": true,
+  "evaluation_seconds": 10.0,
+  "physics_dt_s": 0.0010416666666666667,
+  "finger_damping": 0.005,
+  "checkpoint_sha256": "295e2fdb2868069afd690e9b785815ef7256586e021d06e60107e32b0885282f",
+  "results": [
+    {
+      "seed": 101,
+      "stage_success": [
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        [
+          true,
+          false,
+          false,
+          false,
+          false,
+          false
+        ]
+      ],
+      "max_dwell_s": [
+        [
+          0.5666667222976685,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          4.066664218902588,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.13333334028720856,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          4.766663551330566,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.8000002503395081,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.13333334028720856,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          3.7999978065490723,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "complete": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "drops": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "mean_orientation_error_rad": [
+        0.3471062183380127,
+        0.31171420216560364,
+        1.864838719367981,
+        0.9104830026626587,
+        0.10900554805994034,
+        0.143506720662117,
+        0.1503283530473709,
+        0.13251738250255585
+      ],
+      "torque_shortfall_fraction": [
+        0.33020833134651184,
+        0.29104167222976685,
+        0.2954166829586029,
+        0.3412500023841858,
+        0.1693750023841858,
+        0.32895833253860474,
+        0.29354166984558105,
+        0.43166667222976685
+      ],
+      "peak_winding_C": [
+        63.63729476928711,
+        62.304927825927734,
+        63.84409713745117,
+        63.56074523925781,
+        61.914180755615234,
+        63.17015075683594,
+        63.8260383605957,
+        63.632530212402344
+      ]
+    }
+  ],
+  "protocol": "Six fixed 10-second stages: initial orientation, Y45, Y90, X90, Z90, return + physical 0.08 N cube-local-x pulse at 51s for 0.2s. Success requires 0.5 continuous seconds with error<0.1 rad, angular speed<0.5 rad/s, linear speed<0.05 m/s, position error<0.12m. Complete sequence requires all six stages and zero drops. Final stage dwell restarts at pulse. 32 environments per evaluation seed; normal drop resets counted."
+}

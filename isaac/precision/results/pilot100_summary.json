@@ -1,0 +1,27 @@
+[
+  {
+    "source": "results/precision_hand/pilot100.json",
+    "checkpoint_sha256": "23ca469dfb9259fa2732494bc810f61d65375f3f30df1093e5f29aa02db9b3c7",
+    "seeds": [
+      {
+        "seed": 101,
+        "trials": 32,
+        "complete_sequences": 0,
+        "stage_success_counts": [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        "drop_events": 2,
+        "mean_orientation_error_deg": 22.534448871961487,
+        "mean_torque_shortfall_fraction": 0.4561219671741128,
+        "max_winding_C": 68.95198059082031
+      }
+    ],
+    "total_complete_sequences": 0,
+    "total_trials": 32
+  }
+]

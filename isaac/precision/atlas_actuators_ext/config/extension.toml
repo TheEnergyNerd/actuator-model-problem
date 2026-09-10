@@ -1,0 +1,16 @@
+# Isaac Lab / Omniverse Kit extension metadata
+[package]
+version = "0.1.0"
+title = "Atlas Actuators"
+description = "Physics-grounded actuator models (envelope + FOC tiers) for Isaac Lab, parameterized from Atlas motor designs. Same numbers as the emitted drive firmware (sim == firmware parity 6e-7)."
+authors = ["Pranav Myana", "Claude"]
+repository = ""
+category = "robotics"
+keywords = ["actuator", "motor", "FOC", "field weakening", "sim-to-real", "isaaclab"]
+readme = "docs/README.md"
+
+[dependencies]
+"isaaclab" = {}
+
+[[python.module]]
+name = "atlas_actuators"
