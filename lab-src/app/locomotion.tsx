@@ -368,7 +368,7 @@ export default function Locomotion({ robot }: { robot: "g1" | "anymal" }) {
             ))}
           </NativeSelect>
           <div style={{ height: 260, width: "100%" }}>
-            <ResponsiveContainer>
+            <ResponsiveContainer initialDimension={{width:600,height:260}}>
               <LineChart data={chart}>
                 <XAxis dataKey="t" type="number" domain={[0, result.duration]} unit="s" />
                 <YAxis width={55} />
