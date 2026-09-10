@@ -1,0 +1,37 @@
+{
+  "robot": "ANYmal",
+  "variants": [
+    {
+      "id": "nominal",
+      "label": "Nominal motors",
+      "description": "Reference actuator model and unchanged trained policy."
+    },
+    {
+      "id": "gear_low",
+      "label": "Lower gearing",
+      "description": "Reduce gear ratio to two thirds of nominal. Less joint torque, more available joint speed."
+    },
+    {
+      "id": "torque_low",
+      "label": "Lower current limit",
+      "description": "Reduce peak current to 67% of nominal, reducing the available peak motor torque."
+    },
+    {
+      "id": "torque_very_low",
+      "label": "Current-limit stress test",
+      "description": "Only 15% of nominal peak current. This deliberately weak motor tests loss of torque authority."
+    },
+    {
+      "id": "kv_very_high",
+      "label": "Kv \u00d74 stress test",
+      "description": "Kv \u00d74 and Kt \u00f74, with resistance and inductance \u00f716. A deliberately extreme fixed-copper rewind at the same peak current."
+    }
+  ],
+  "physics_hz": 200,
+  "fps": 50.0,
+  "push_time": 9.0,
+  "description": "Paired Isaac Lab recordings with one trained policy, the same initial physical properties and commands, and a 0.2-second lateral force pulse. These short trials show design sensitivity, not robustness across seeds or hardware efficiency.",
+  "geometry_precision_m": 1e-05,
+  "video_fps": 16.666666666666668,
+  "video_first_physics_time_s": 0.02
+}

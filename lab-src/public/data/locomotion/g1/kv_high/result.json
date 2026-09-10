@@ -1,0 +1,230 @@
+{
+  "design": {
+    "name": "kv_high",
+    "axis": "rewind Kv",
+    "kv_factor": 1.5,
+    "peak_current_factor": 1.0,
+    "gear_factor": 1.0,
+    "voltage_factor": 1.0,
+    "resistance_factor": 1.0,
+    "cooling_resistance_factor": 1.0,
+    "thermal_capacity_factor": 1.0,
+    "added_mass_factor": 0.0,
+    "added_rotor_inertia_factor": 0.0
+  },
+  "groups": {
+    "legs": {
+      "name": "kv_high",
+      "axis": "rewind Kv",
+      "kv_factor": 1.5,
+      "peak_current_factor": 1.0,
+      "gear_factor": 1.0,
+      "voltage_factor": 1.0,
+      "resistance_factor": 1.0,
+      "cooling_resistance_factor": 1.0,
+      "thermal_capacity_factor": 1.0,
+      "added_mass_factor": 0.0,
+      "added_rotor_inertia_factor": 0.0,
+      "Kv_phase_peak_rpm_per_V": 85.94366926962348,
+      "Kt_Nm_per_peak_q_A": 0.16666666666666666,
+      "gear_ratio": 12.0,
+      "peak_current_A": 55.0,
+      "continuous_current_floor_A": 42.0,
+      "nominal_stall_peak_joint_Nm": 99.0,
+      "base_speed_joint_rad_s_ideal_no_field_weakening": 20.78460969082653,
+      "phase_R_ohm": 0.013333333333333332,
+      "V_bus_V": 48.0,
+      "thermal_R_K_per_W": 1.8,
+      "thermal_C_J_per_K": 80.0,
+      "added_mass_per_actuator_kg": 0.0,
+      "added_motor_rotor_inertia_kg_m2": 0.0,
+      "added_joint_armature_kg_m2": 0.0
+    },
+    "feet": {
+      "name": "kv_high",
+      "axis": "rewind Kv",
+      "kv_factor": 1.5,
+      "peak_current_factor": 1.0,
+      "gear_factor": 1.0,
+      "voltage_factor": 1.0,
+      "resistance_factor": 1.0,
+      "cooling_resistance_factor": 1.0,
+      "thermal_capacity_factor": 1.0,
+      "added_mass_factor": 0.0,
+      "added_rotor_inertia_factor": 0.0,
+      "Kv_phase_peak_rpm_per_V": 85.94366926962348,
+      "Kt_Nm_per_peak_q_A": 0.16666666666666666,
+      "gear_ratio": 2.0,
+      "peak_current_A": 55.0,
+      "continuous_current_floor_A": 42.0,
+      "nominal_stall_peak_joint_Nm": 16.5,
+      "base_speed_joint_rad_s_ideal_no_field_weakening": 124.70765814495918,
+      "phase_R_ohm": 0.013333333333333332,
+      "V_bus_V": 48.0,
+      "thermal_R_K_per_W": 1.8,
+      "thermal_C_J_per_K": 80.0,
+      "added_mass_per_actuator_kg": 0.0,
+      "added_motor_rotor_inertia_kg_m2": 0.0,
+      "added_joint_armature_kg_m2": 0.0
+    },
+    "arms": {
+      "name": "kv_high",
+      "axis": "rewind Kv",
+      "kv_factor": 1.5,
+      "peak_current_factor": 1.0,
+      "gear_factor": 1.0,
+      "voltage_factor": 1.0,
+      "resistance_factor": 1.0,
+      "cooling_resistance_factor": 1.0,
+      "thermal_capacity_factor": 1.0,
+      "added_mass_factor": 0.0,
+      "added_rotor_inertia_factor": 0.0,
+      "Kv_phase_peak_rpm_per_V": 85.94366926962348,
+      "Kt_Nm_per_peak_q_A": 0.16666666666666666,
+      "gear_ratio": 2.0,
+      "peak_current_A": 55.0,
+      "continuous_current_floor_A": 42.0,
+      "nominal_stall_peak_joint_Nm": 16.5,
+      "base_speed_joint_rad_s_ideal_no_field_weakening": 124.70765814495918,
+      "phase_R_ohm": 0.013333333333333332,
+      "V_bus_V": 48.0,
+      "thermal_R_K_per_W": 1.8,
+      "thermal_C_J_per_K": 80.0,
+      "added_mass_per_actuator_kg": 0.0,
+      "added_motor_rotor_inertia_kg_m2": 0.0,
+      "added_joint_armature_kg_m2": 0.0
+    }
+  },
+  "total_robot_mass_kg": 32.23892593383789,
+  "added_total_mass_kg": 0.0,
+  "fraction_without_failure": 1.0,
+  "failures": 0,
+  "peak_temperature_C": 36.37455749511719,
+  "failures_per_replica": [
+    0.0
+  ],
+  "failures_mean": 0.0,
+  "timeouts_per_replica": [
+    0.0
+  ],
+  "timeouts_mean": 0.0,
+  "velocity_error_squared_per_replica": [
+    0.017733251675963402
+  ],
+  "velocity_error_squared_mean": 0.017733251675963402,
+  "tracking_score_per_replica": [
+    0.9419341087341309
+  ],
+  "tracking_score_mean": 0.9419341087341309,
+  "forward_speed_m_s_per_replica": [
+    0.6246020793914795
+  ],
+  "forward_speed_m_s_mean": 0.6246020793914795,
+  "distance_m_per_replica": [
+    9.993635177612305
+  ],
+  "distance_m_mean": 9.993635177612305,
+  "speed_on_target_per_replica": [
+    0.9749999642372131
+  ],
+  "speed_on_target_mean": 0.9749999642372131,
+  "root_height_m_per_replica": [
+    0.7056971788406372
+  ],
+  "root_height_m_mean": 0.7056971788406372,
+  "forward_world_speed_m_s_per_replica": [
+    0.6085195541381836
+  ],
+  "forward_world_speed_m_s_mean": 0.6085195541381836,
+  "yaw_rate_abs_rad_s_per_replica": [
+    0.09875938296318054
+  ],
+  "yaw_rate_abs_rad_s_mean": 0.09875938296318054,
+  "torso_tilt_rad_per_replica": [
+    0.08299116045236588
+  ],
+  "torso_tilt_rad_mean": 0.08299116045236588,
+  "ankle_link_height_max_m_per_replica": [
+    0.09122543036937714
+  ],
+  "ankle_link_height_max_m_mean": 0.09122543036937714,
+  "left_ankle_height_m_per_replica": [
+    0.0653163343667984
+  ],
+  "left_ankle_height_m_mean": 0.0653163343667984,
+  "right_ankle_height_m_per_replica": [
+    0.06073255464434624
+  ],
+  "right_ankle_height_m_mean": 0.06073255464434624,
+  "left_contact_per_replica": [
+    0.5537499785423279
+  ],
+  "left_contact_mean": 0.5537499785423279,
+  "right_contact_per_replica": [
+    0.5575000047683716
+  ],
+  "right_contact_mean": 0.5575000047683716,
+  "contact_slip_m_s_per_replica": [
+    0.029607096686959267
+  ],
+  "contact_slip_m_s_mean": 0.029607096686959267,
+  "single_support_fraction_per_replica": [
+    0.8887499570846558
+  ],
+  "single_support_fraction_mean": 0.8887499570846558,
+  "flight_fraction_per_replica": [
+    0.0
+  ],
+  "flight_fraction_mean": 0.0,
+  "left_touchdowns_per_replica": [
+    18.0
+  ],
+  "left_touchdowns_mean": 18.0,
+  "right_touchdowns_per_replica": [
+    13.0
+  ],
+  "right_touchdowns_mean": 13.0,
+  "left_sustained_swing_landings_per_replica": [
+    18.0
+  ],
+  "left_sustained_swing_landings_mean": 18.0,
+  "right_sustained_swing_landings_per_replica": [
+    17.0
+  ],
+  "right_sustained_swing_landings_mean": 17.0,
+  "phase_contact_match_per_replica": [
+    0.9549999833106995
+  ],
+  "phase_contact_match_mean": 0.9549999833106995,
+  "copper_power_W_per_replica": [
+    385.594482421875
+  ],
+  "copper_power_W_mean": 385.594482421875,
+  "estimated_positive_motor_input_W_per_replica": [
+    433.72845458984375
+  ],
+  "estimated_positive_motor_input_W_mean": 433.72845458984375,
+  "energy_J_per_replica": [
+    6939.6513671875
+  ],
+  "energy_J_mean": 6939.6513671875,
+  "torque_shortfall_fraction_per_replica": [
+    0.1350332349538803
+  ],
+  "torque_shortfall_fraction_mean": 0.1350332349538803,
+  "temperature_C_per_replica": [
+    30.813528060913086
+  ],
+  "temperature_C_mean": 30.813528060913086,
+  "velocity_rmse_m_s": 0.13316625577060956,
+  "estimated_electrical_CoT": 2.195657471025415,
+  "frames": 800,
+  "bodies": 44,
+  "fps": 50.0,
+  "duration": 15.98,
+  "physics_dt_s": 0.0025,
+  "checkpoint_sha256": "16cd9f934f5129735d1be9c07386bc0f96ed0c07d93173c5af99cc898ab7783c",
+  "video_start_physics_s": 0.02,
+  "reset_policy": "Normal episode resets retained; failure counter is shown.",
+  "seed": 42
+}

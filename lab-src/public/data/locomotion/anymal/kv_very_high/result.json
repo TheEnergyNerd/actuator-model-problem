@@ -1,0 +1,108 @@
+{
+  "design": {
+    "name": "kv_very_high",
+    "axis": "rewind Kv stress",
+    "kv_factor": 4.0,
+    "peak_current_factor": 1.0,
+    "gear_factor": 1.0,
+    "voltage_factor": 1.0,
+    "resistance_factor": 1.0,
+    "cooling_resistance_factor": 1.0,
+    "thermal_capacity_factor": 1.0,
+    "added_mass_factor": 0.0,
+    "added_rotor_inertia_factor": 0.0
+  },
+  "groups": {
+    "legs": {
+      "name": "kv_very_high",
+      "axis": "rewind Kv stress",
+      "kv_factor": 4.0,
+      "peak_current_factor": 1.0,
+      "gear_factor": 1.0,
+      "voltage_factor": 1.0,
+      "resistance_factor": 1.0,
+      "cooling_resistance_factor": 1.0,
+      "thermal_capacity_factor": 1.0,
+      "added_mass_factor": 0.0,
+      "added_rotor_inertia_factor": 0.0,
+      "Kv_phase_peak_rpm_per_V": 229.1831180523293,
+      "Kt_Nm_per_peak_q_A": 0.0625,
+      "gear_ratio": 9.0,
+      "peak_current_A": 55.0,
+      "continuous_current_floor_A": 55.0,
+      "nominal_stall_peak_joint_Nm": 27.84375,
+      "base_speed_joint_rad_s_ideal_no_field_weakening": 73.90083445627211,
+      "phase_R_ohm": 0.001875,
+      "V_bus_V": 48.0,
+      "thermal_R_K_per_W": 1.8,
+      "thermal_C_J_per_K": 80.0,
+      "added_mass_per_actuator_kg": 0.0,
+      "added_motor_rotor_inertia_kg_m2": 0.0,
+      "added_joint_armature_kg_m2": 0.0
+    }
+  },
+  "total_robot_mass_kg": 48.6538200378418,
+  "added_total_mass_kg": 0.0,
+  "fraction_without_failure": 0.0,
+  "failures": 11,
+  "peak_temperature_C": 26.104328155517578,
+  "failures_per_replica": [
+    11.0
+  ],
+  "failures_mean": 11.0,
+  "timeouts_per_replica": [
+    0.0
+  ],
+  "timeouts_mean": 0.0,
+  "velocity_error_squared_per_replica": [
+    0.38675203919410706
+  ],
+  "velocity_error_squared_mean": 0.38675203919410706,
+  "tracking_score_per_replica": [
+    0.2692672312259674
+  ],
+  "tracking_score_mean": 0.2692672312259674,
+  "forward_speed_m_s_per_replica": [
+    0.47019824385643005
+  ],
+  "forward_speed_m_s_mean": 0.47019824385643005,
+  "distance_m_per_replica": [
+    7.524280071258545
+  ],
+  "distance_m_mean": 7.524280071258545,
+  "speed_on_target_per_replica": [
+    0.027499999850988388
+  ],
+  "speed_on_target_mean": 0.027499999850988388,
+  "copper_power_W_per_replica": [
+    40.875144958496094
+  ],
+  "copper_power_W_mean": 40.875144958496094,
+  "estimated_positive_motor_input_W_per_replica": [
+    259.1929016113281
+  ],
+  "estimated_positive_motor_input_W_mean": 259.1929016113281,
+  "energy_J_per_replica": [
+    4147.08642578125
+  ],
+  "energy_J_mean": 4147.08642578125,
+  "torque_shortfall_fraction_per_replica": [
+    0.27635422348976135
+  ],
+  "torque_shortfall_fraction_mean": 0.27635422348976135,
+  "temperature_C_per_replica": [
+    25.570228576660156
+  ],
+  "temperature_C_mean": 25.570228576660156,
+  "velocity_rmse_m_s": 0.6218939131347943,
+  "estimated_electrical_CoT": 1.154761196331702,
+  "frames": 800,
+  "bodies": 17,
+  "fps": 50.0,
+  "duration": 15.98,
+  "physics_dt_s": 0.005,
+  "checkpoint_sha256": "0a390f3cff1691c44d52d3fd78d6e36cad712d39c9c935a205f79173bfbac304",
+  "video_start_physics_s": 0.02,
+  "reset_policy": "Normal episode resets retained; failure counter is shown.",
+  "seed": 42
+}

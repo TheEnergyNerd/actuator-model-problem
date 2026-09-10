@@ -1,0 +1,256 @@
+{
+  "engine": "Isaac Lab 2.1 / Isaac Sim 4.5 / PhysX on RunPod L40S",
+  "control": "Scripted task-space poses, differential IK at 100 Hz, explicit Atlas FOC arm actuators at 400 Hz; physical implicit gripper drives capped at 30 N.",
+  "recording": "23 rigid-body poses at 50 Hz, float32 little-endian, frame-major/body-major, [x,y,z,qw,qx,qy,qz]. Linear position and quaternion slerp interpolation in the viewer.",
+  "replay_time": "Frame 0 is at 0.0025 seconds; successive frames are 0.02 seconds apart.",
+  "scope": "One fixed, continuous 30-second demonstration per variant. This is not a statistical robustness study, learned dexterous policy, Rubik solver or hardware validation.",
+  "source_of_motion": "Only robot joint targets and bounded feedforward efforts are commanded after initialization. The object has no actuator or attachment and no pose, velocity or state writes during the episode.",
+  "cube": {
+    "size_m": 0.06,
+    "mass_kg": 0.12,
+    "initial_position_m": [
+      0.45,
+      -0.3,
+      0.333
+    ],
+    "target_position_m": [
+      0.48,
+      0.3,
+      0.33
+    ]
+  },
+  "actuators": {
+    "shoulder_gear": 12,
+    "wrist_gear": 4,
+    "gear_efficiency": 0.9,
+    "shoulder_armature": 0.1,
+    "wrist_armature": 0.08,
+    "nominal_Kt_Nm_per_A": 0.25,
+    "nominal_Kv_phase_peak_rpm_per_V": 57.29577951308232,
+    "nominal_R_ohm": 0.03,
+    "nominal_Ld_Lq_H": 8.5e-05,
+    "current_limit_A": 55,
+    "thermal_R_Kper_W": 1.8,
+    "thermal_C_Jper_K": 80,
+    "thermal_derating_starts_C": 120,
+    "gripper_force_limit_N": 30
+  },
+  "design_rules": "Fixed-copper rewind: Kt inversely proportional to Kv; R and L inversely proportional to Kv squared. Added mass is distributed as 2 kg on each moving arm link, with inertia scaled by the same density factor; COM offsets and geometry stay fixed. The initial state, path, gains and gripper drives are shared across variants. Gravity compensation is recomputed from each variant\u2019s actual modeled mass; this is a model-aware controller, not a frozen nominal gravity model.",
+  "success_checks": "Lift: >=1 s above 0.5 m with left contact >0.5 N. Rotate: >=0.5 s within 0.15 rad of 90-degree yaw while left-supported. Handoff: >=0.5 s above 0.5 m, each right finger >0.15 N and left total <0.15 N between 18.5 and 23 s. Place: XY error <5 cm, Z within 2 cm of 0.33 m, max speed <3 cm/s over the final second, and both grippers contact-free over final 2 s.",
+  "current_telemetry": "current is the largest absolute q-axis torque current, Iq, across the arm motors; it is not the total current magnitude during field weakening.",
+  "contact_visualization": "Finger glows indicate measured normal force above 0.15 N against the cube; glow origins are finger body origins, not precise contact points.",
+  "limits": [
+    "The FOC fast model approximates closed-loop current response; it does not simulate every PWM cycle.",
+    "Temperature uses a lumped winding model; magnet temperature shares that state.",
+    "Arm electrical parameters are Atlas design scenarios on Franka geometry, not manufacturer-validated Franka motors.",
+    "Per-group ideal 48 V buses have no shared pack sag in the nominal case.",
+    "The browser shows a recorded simulation; motor selections load separate runs.",
+    "Meshes use a presentation material palette; rigid-body trajectories are unmodified."
+  ],
+  "attribution": {
+    "Isaac Lab": "https://github.com/isaac-sim/IsaacLab",
+    "presentation_reference": "https://dex-rubik-cube.yanjieze.com/"
+  },
+  "runs": {
+    "nominal": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 2.799993735588655,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 7.889767416746357,
+        "final_cube_speed_m_s": 0.00011003935892462992,
+        "right_only_hold_seconds": 4.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.011626158589276686,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 16.62914276123047
+      },
+      "sha256": {
+        "poses.bin": "18b98636564c2754ea1056187cd1a87aa0edd1dfbabd0890cca45ccf0ba76afc",
+        "telemetry.json": "09db177d2bff8fc8806c619e17474425c3b2400197f5238b48e477e5663cded4",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "dccb473ccb1bfe37e1bc2e33f5ca287f352f47fdaa3baf8ec5bb477317bf07fd"
+      }
+    },
+    "high_kv": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 2.799993735588655,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 7.889767416746357,
+        "final_cube_speed_m_s": 0.00011003935892462992,
+        "right_only_hold_seconds": 4.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.011626158589276686,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 33.25828552246094
+      },
+      "sha256": {
+        "poses.bin": "18b98636564c2754ea1056187cd1a87aa0edd1dfbabd0890cca45ccf0ba76afc",
+        "telemetry.json": "b2ebbbd92a3e1a678a334f1828e0c5de9f7fc05a38f0a76d1e48218c054ef5a6",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "8eaddcd8907f194e059f9ef13ca78244144a5483f3c2510c20bb4a04b11e83ec"
+      }
+    },
+    "very_high_kv": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 8.08195392863696,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 18.503586018629413,
+        "final_cube_speed_m_s": 5.371875534557475e-05,
+        "right_only_hold_seconds": 3.3200000000000003,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 184.72713444140183,
+        "mean_torque_shortfall_fraction": 0.06323809523809522,
+        "peak_abs_Iq_A": 54.998992919921875
+      },
+      "sha256": {
+        "poses.bin": "dd5f5e1d34fbece44a504ef8d62c89c8f7a79ff30fc2bc235bc78952b4354f0d",
+        "telemetry.json": "5a3207ef066899ded657b881bf8f17a8454f04d73cff5a73306e2b7b2086591a",
+        "transfer.py": "1d8beb90ea35d73a26c05fd5db731887ee8f27f1490b8cc6cfa43c9a67ee9798",
+        "result.json": "b0bc4ab22e878ccb8a0148891f42ed5ceeeb8de3276fef45d39060fae8919be1"
+      }
+    },
+    "low_kv": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 2.799993735588655,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 7.889767416746357,
+        "final_cube_speed_m_s": 0.00011003935892462992,
+        "right_only_hold_seconds": 4.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.011626158589276686,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 8.314571380615234
+      },
+      "sha256": {
+        "poses.bin": "18b98636564c2754ea1056187cd1a87aa0edd1dfbabd0890cca45ccf0ba76afc",
+        "telemetry.json": "0bf948fb83ddda6f4fafc6c635126b125ab6296dbabf6c235eca31392ff08686",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "f35c6164a701b9a9e9139ca3631e72703b89fcbbe5ea7856cebec57bdc61a983"
+      }
+    },
+    "low_current": {
+      "checks": {
+        "lifted": false,
+        "rotated_90_degrees": false,
+        "handoff_supported_by_right_only": false,
+        "placed_and_released": false,
+        "full_sequence_success": false,
+        "final_error_mm": 1222.6695648197608,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 0.0,
+        "final_cube_speed_m_s": 3.42608216202486e-05,
+        "right_only_hold_seconds": 0.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 442.28681535351444,
+        "mean_torque_shortfall_fraction": 0.3062857142857143,
+        "peak_abs_Iq_A": 6.599999904632568
+      },
+      "sha256": {
+        "poses.bin": "5ccfd0bea21f47b78e934973a1bba4f185a735ac273e0f53c5e577d71e8197f0",
+        "telemetry.json": "b80c2abcb58006897a9f5744da7cd182fdf6e4e6ed2e2fc1625382a4ac365ed8",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "3eeba9da4d6fbdd5bf72637a54f8cf3a047ca858727b67ce3c9334533f0963f1"
+      }
+    },
+    "heavy": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 3.1448465814638062,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 7.52566006976294,
+        "final_cube_speed_m_s": 0.00012159101445625609,
+        "right_only_hold_seconds": 3.98,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.01132754783886822,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 33.23974609375
+      },
+      "sha256": {
+        "poses.bin": "d46c38f12ddfa2806309ccb5471e9273a182f47594edccde2566270003d2e10c",
+        "telemetry.json": "70c631bfdaad71f99e46e4f9803aa9367178429f53f6a13a98b83976a7f65f47",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "e9a27df1215eabb08caa77de476bf8f8f72670cac390129cdf6d3e4c000f215a"
+      }
+    },
+    "hot": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 2.766997548887971,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 8.930798916629056,
+        "final_cube_speed_m_s": 0.00010935239734955242,
+        "right_only_hold_seconds": 4.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.011690508163077718,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 18.615127563476562
+      },
+      "sha256": {
+        "poses.bin": "efe95143b2710555ef9c805b49c3a55eff8234e4b8e6247100580d8b08b6c16e",
+        "telemetry.json": "42e8fa47a0dc538ff55ceda809f78c637b896996c7fbf9a7a00996d591a96311",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "9cb6b67afe8675f1b537f4ff70539f91acc93f4dcb0e7a50ee234750ca85f86f"
+      }
+    },
+    "low_voltage": {
+      "checks": {
+        "lifted": true,
+        "rotated_90_degrees": true,
+        "handoff_supported_by_right_only": true,
+        "placed_and_released": true,
+        "full_sequence_success": true,
+        "final_error_mm": 2.799993735588655,
+        "max_quaternion_norm_error": 2.384185791015625e-07,
+        "max_contact_force_N": 7.889767416746357,
+        "final_cube_speed_m_s": 0.00011003935892462992,
+        "right_only_hold_seconds": 4.0,
+        "replay_frames": 1500,
+        "body_count": 23,
+        "final_arm_pose_error_mm": 0.011626158589276686,
+        "mean_torque_shortfall_fraction": 0.0,
+        "peak_abs_Iq_A": 16.62914276123047
+      },
+      "sha256": {
+        "poses.bin": "fd8e3788dba38e22569af26f8eb9199dbf1882f3ed400971ef51fada363ff348",
+        "telemetry.json": "19fce0f67c403349806b6dca2c16afcda78dda49d611acb0c284b2ca1daa845e",
+        "transfer.py": "631c831f3cf8fce7bca4c88d308d47589b5bbf7ea8731b7c4384f38802e0541d",
+        "result.json": "7a1524f9c1134935a7ee8a7a64834e5e3605dd06375413949cabad57f397e754"
+      }
+    }
+  }
+}

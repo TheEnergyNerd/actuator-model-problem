@@ -1,0 +1,4367 @@
+{
+  "scene": "./data/scene.json?v=metric-1",
+  "protocol": "./data/protocol.json",
+  "source": "./data/source.zip",
+  "variants": [
+    {
+      "id": "nominal",
+      "label": "Nominal",
+      "short": "Nominal",
+      "description": "The reference motor: 48 V, 55 A, with the same task sequence used for every design.",
+      "kv": 57.29577951308232,
+      "kt": 0.25,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 148.5,
+      "resistance": 0.03,
+      "result": {
+        "variant": "nominal",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 480.4159038066864,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.47733888030052185,
+          0.3008708655834198,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 26.825176239013672,
+        "peak_torque": 44.818546295166016,
+        "kv_scale": 1.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 2.799993735588655,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 7.889767416746357,
+          "final_cube_speed_m_s": 0.00011003935892462992,
+          "right_only_hold_seconds": 4.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.011626158589276686,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 16.62914276123047
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 12.0,
+          "torque": 148.39036061631703
+        },
+        {
+          "speed": 12.25,
+          "torque": 147.50626521967882
+        },
+        {
+          "speed": 12.5,
+          "torque": 145.8602243016611
+        },
+        {
+          "speed": 12.75,
+          "torque": 143.61113052726574
+        },
+        {
+          "speed": 13.0,
+          "torque": 140.9135181157195
+        },
+        {
+          "speed": 13.25,
+          "torque": 137.90650659039596
+        },
+        {
+          "speed": 13.5,
+          "torque": 134.70807532696156
+        },
+        {
+          "speed": 13.75,
+          "torque": 131.413519683465
+        },
+        {
+          "speed": 14.0,
+          "torque": 128.09664408108898
+        },
+        {
+          "speed": 14.25,
+          "torque": 124.81241804674006
+        },
+        {
+          "speed": 14.5,
+          "torque": 121.60017221070241
+        },
+        {
+          "speed": 14.75,
+          "torque": 118.48676208300081
+        },
+        {
+          "speed": 15.0,
+          "torque": 115.48940037158756
+        },
+        {
+          "speed": 15.25,
+          "torque": 112.61804043769958
+        },
+        {
+          "speed": 15.5,
+          "torque": 109.87729988842302
+        },
+        {
+          "speed": 15.75,
+          "torque": 107.26796705991883
+        },
+        {
+          "speed": 16.0,
+          "torque": 104.78815427492313
+        },
+        {
+          "speed": 16.25,
+          "torque": 102.43416474656877
+        },
+        {
+          "speed": 16.5,
+          "torque": 100.20113414390329
+        },
+        {
+          "speed": 16.75,
+          "torque": 98.08349857023711
+        },
+        {
+          "speed": 17.0,
+          "torque": 96.07533093217394
+        },
+        {
+          "speed": 17.25,
+          "torque": 94.17057876165512
+        },
+        {
+          "speed": 17.5,
+          "torque": 92.36322900561899
+        },
+        {
+          "speed": 17.75,
+          "torque": 90.64741918684254
+        },
+        {
+          "speed": 18.0,
+          "torque": 89.0175095325435
+        },
+        {
+          "speed": 18.25,
+          "torque": 87.46812695954499
+        },
+        {
+          "speed": 18.5,
+          "torque": 85.9941889839743
+        },
+        {
+          "speed": 18.75,
+          "torque": 84.5909134985317
+        },
+        {
+          "speed": 19.0,
+          "torque": 83.25381877124876
+        },
+        {
+          "speed": 19.25,
+          "torque": 81.978716837769
+        },
+        {
+          "speed": 19.5,
+          "torque": 80.76170258397121
+        },
+        {
+          "speed": 19.75,
+          "torque": 79.59914016998026
+        },
+        {
+          "speed": 20.0,
+          "torque": 78.4876479716885
+        },
+        {
+          "speed": 20.25,
+          "torque": 77.42408286776647
+        },
+        {
+          "speed": 20.5,
+          "torque": 76.40552444583277
+        },
+        {
+          "speed": 20.75,
+          "torque": 75.42925951644811
+        },
+        {
+          "speed": 21.0,
+          "torque": 74.49276718968844
+        },
+        {
+          "speed": 21.25,
+          "torque": 73.593704672744
+        },
+        {
+          "speed": 21.5,
+          "torque": 72.72989387831034
+        },
+        {
+          "speed": 21.75,
+          "torque": 71.8993088850986
+        },
+        {
+          "speed": 22.0,
+          "torque": 71.10006425815469
+        },
+        {
+          "speed": 22.25,
+          "torque": 70.33040421381732
+        },
+        {
+          "speed": 22.5,
+          "torque": 69.5886925990986
+        },
+        {
+          "speed": 22.75,
+          "torque": 68.87340364585356
+        },
+        {
+          "speed": 23.0,
+          "torque": 68.18311345471346
+        },
+        {
+          "speed": 23.25,
+          "torque": 67.51649216120693
+        },
+        {
+          "speed": 23.5,
+          "torque": 66.8722967359247
+        },
+        {
+          "speed": 23.75,
+          "torque": 66.24936437136326
+        },
+        {
+          "speed": 24.0,
+          "torque": 65.64660640975245
+        },
+        {
+          "speed": 24.25,
+          "torque": 65.06300276840508
+        },
+        {
+          "speed": 24.5,
+          "torque": 64.49759682167765
+        },
+        {
+          "speed": 24.75,
+          "torque": 63.949490701342434
+        },
+        {
+          "speed": 25.0,
+          "torque": 63.41784097991639
+        },
+        {
+          "speed": 25.25,
+          "torque": 62.90185470419694
+        },
+        {
+          "speed": 25.5,
+          "torque": 62.400785748863896
+        },
+        {
+          "speed": 25.75,
+          "torque": 61.913931462486175
+        },
+        {
+          "speed": 26.0,
+          "torque": 61.44062958060461
+        },
+        {
+          "speed": 26.25,
+          "torque": 60.98025538273488
+        },
+        {
+          "speed": 26.5,
+          "torque": 60.5322190721494
+        },
+        {
+          "speed": 26.75,
+          "torque": 60.09596335915193
+        },
+        {
+          "speed": 27.0,
+          "torque": 59.670961230262414
+        },
+        {
+          "speed": 27.25,
+          "torque": 59.256713887286956
+        },
+        {
+          "speed": 27.5,
+          "torque": 58.85274884167007
+        },
+        {
+          "speed": 27.75,
+          "torque": 58.458618150819994
+        },
+        {
+          "speed": 28.0,
+          "torque": 58.07389678427452
+        },
+        {
+          "speed": 28.25,
+          "torque": 57.69818110864137
+        },
+        {
+          "speed": 28.5,
+          "torque": 57.33108748121506
+        },
+        {
+          "speed": 28.75,
+          "torque": 56.9722509430463
+        },
+        {
+          "speed": 29.0,
+          "torque": 56.62132400303259
+        },
+        {
+          "speed": 29.25,
+          "torque": 56.27797550531155
+        },
+        {
+          "speed": 29.5,
+          "torque": 55.941889572883895
+        },
+        {
+          "speed": 29.75,
+          "torque": 55.61276462097136
+        },
+        {
+          "speed": 30.0,
+          "torque": 55.290312434137206
+        }
+      ],
+      "observed": "The reference passes all four measured stages, including a right-only handoff and contact-free placement."
+    },
+    {
+      "id": "high_kv",
+      "label": "High Kv rewind",
+      "short": "Kv \u00d72",
+      "description": "Twice the Kv, half the Kt. Fewer turns reduce winding resistance and inductance; the inverter current limit stays fixed.",
+      "kv": 114.59155902616465,
+      "kt": 0.125,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 74.25,
+      "resistance": 0.0075,
+      "result": {
+        "variant": "high_kv",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 480.84998512268066,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.47733888030052185,
+          0.3008708655834198,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 26.825176239013672,
+        "peak_torque": 44.818546295166016,
+        "kv_scale": 2.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 2.799993735588655,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 7.889767416746357,
+          "final_cube_speed_m_s": 0.00011003935892462992,
+          "right_only_hold_seconds": 4.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.011626158589276686,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 33.25828552246094
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 0.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 0.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 0.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 1.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 1.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 1.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 1.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 2.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 2.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 2.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 2.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 3.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 3.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 3.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 3.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 4.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 4.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 4.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 4.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 5.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 5.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 5.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 5.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 6.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 6.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 6.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 6.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 7.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 7.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 7.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 7.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 8.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 8.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 8.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 8.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 9.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 9.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 9.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 9.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 10.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 10.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 10.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 10.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 11.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 11.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 11.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 11.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 12.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 12.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 12.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 12.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 13.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 13.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 13.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 13.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 14.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 14.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 14.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 14.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 15.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 15.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 15.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 15.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 16.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 16.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 16.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 16.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 17.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 17.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 17.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 17.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 18.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 18.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 18.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 18.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 19.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 19.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 19.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 19.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 20.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 20.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 20.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 20.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 21.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 21.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 21.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 21.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 22.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 22.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 22.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 22.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 23.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 23.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 23.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 23.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 24.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 24.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 24.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 24.75,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 25.0,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 25.25,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 25.5,
+          "torque": 74.24999999864832
+        },
+        {
+          "speed": 25.75,
+          "torque": 74.22786438459003
+        },
+        {
+          "speed": 26.0,
+          "torque": 73.92338034325809
+        },
+        {
+          "speed": 26.25,
+          "torque": 73.28892716593626
+        },
+        {
+          "speed": 26.5,
+          "torque": 72.36750590305056
+        },
+        {
+          "speed": 26.75,
+          "torque": 71.20768368793154
+        },
+        {
+          "speed": 27.0,
+          "torque": 69.85937514672158
+        },
+        {
+          "speed": 27.25,
+          "torque": 68.37044676186842
+        },
+        {
+          "speed": 27.5,
+          "torque": 66.78436622885823
+        },
+        {
+          "speed": 27.75,
+          "torque": 65.13887245812315
+        },
+        {
+          "speed": 28.0,
+          "torque": 63.465490579774695
+        },
+        {
+          "speed": 28.25,
+          "torque": 61.78965768106664
+        },
+        {
+          "speed": 28.5,
+          "torque": 60.131232050466416
+        },
+        {
+          "speed": 28.75,
+          "torque": 58.50520025029273
+        },
+        {
+          "speed": 29.0,
+          "torque": 56.92244822097068
+        },
+        {
+          "speed": 29.25,
+          "torque": 55.390510517024694
+        },
+        {
+          "speed": 29.5,
+          "torque": 53.91424953703334
+        },
+        {
+          "speed": 29.75,
+          "torque": 52.496443242372166
+        },
+        {
+          "speed": 30.0,
+          "torque": 51.13827690318346
+        }
+      ],
+      "observed": "The task stays inside this motor's limits. Peak torque current is 33.3 A; the cube trajectory matches the nominal recording."
+    },
+    {
+      "id": "very_high_kv",
+      "label": "Very high Kv rewind",
+      "short": "Kv \u00d74",
+      "description": "Four times the Kv, one quarter of the Kt. The fixed 55 A inverter now provides only a quarter of nominal peak torque.",
+      "kv": 229.1831180523293,
+      "kt": 0.0625,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 37.125,
+      "resistance": 0.001875,
+      "result": {
+        "variant": "very_high_kv",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 489.0944812297821,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.4719202518463135,
+          0.300188809633255,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 27.279172897338867,
+        "peak_torque": 37.117218017578125,
+        "kv_scale": 4.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 8.08195392863696,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 18.503586018629413,
+          "final_cube_speed_m_s": 5.371875534557475e-05,
+          "right_only_hold_seconds": 3.3200000000000003,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 184.72713444140183,
+          "mean_torque_shortfall_fraction": 0.06323809523809522,
+          "peak_abs_Iq_A": 54.998992919921875
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 0.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 0.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 0.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 1.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 1.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 1.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 1.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 2.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 2.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 2.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 2.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 3.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 3.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 3.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 3.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 4.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 4.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 4.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 4.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 5.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 5.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 5.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 5.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 6.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 6.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 6.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 6.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 7.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 7.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 7.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 7.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 8.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 8.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 8.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 8.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 9.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 9.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 9.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 9.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 10.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 10.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 10.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 10.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 11.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 11.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 11.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 11.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 12.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 12.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 12.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 12.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 13.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 13.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 13.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 13.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 14.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 14.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 14.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 14.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 15.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 15.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 15.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 15.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 16.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 16.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 16.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 16.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 17.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 17.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 17.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 17.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 18.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 18.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 18.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 18.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 19.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 19.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 19.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 19.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 20.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 20.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 20.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 20.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 21.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 21.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 21.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 21.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 22.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 22.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 22.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 22.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 23.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 23.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 23.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 23.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 24.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 24.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 24.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 24.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 25.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 25.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 25.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 25.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 26.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 26.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 26.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 26.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 27.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 27.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 27.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 27.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 28.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 28.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 28.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 28.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 29.0,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 29.25,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 29.5,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 29.75,
+          "torque": 37.12499999932416
+        },
+        {
+          "speed": 30.0,
+          "torque": 37.12499999932416
+        }
+      ],
+      "observed": "The cube is placed, but the worst final arm pose misses its command by 185 mm. Peak current reaches 55.0 A."
+    },
+    {
+      "id": "low_kv",
+      "label": "Low Kv rewind",
+      "short": "Kv \u00d70.5",
+      "description": "Half the Kv, twice the Kt. More turns increase winding resistance and inductance and reduce the available speed.",
+      "kv": 28.64788975654116,
+      "kt": 0.5,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 297.0,
+      "resistance": 0.12,
+      "result": {
+        "variant": "low_kv",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 476.9378433227539,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.47733888030052185,
+          0.3008708655834198,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 26.825176239013672,
+        "peak_torque": 44.818546295166016,
+        "kv_scale": 0.5,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 2.799993735588655,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 7.889767416746357,
+          "final_cube_speed_m_s": 0.00011003935892462992,
+          "right_only_hold_seconds": 4.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.011626158589276686,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 8.314571380615234
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 0.25,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 0.5,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 0.75,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 1.0,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 1.25,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 1.5,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 1.75,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 2.0,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 2.25,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 2.5,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 2.75,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 3.0,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 3.25,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 3.5,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 3.75,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 4.0,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 4.25,
+          "torque": 296.9999999945933
+        },
+        {
+          "speed": 4.5,
+          "torque": 295.3974651941439
+        },
+        {
+          "speed": 4.75,
+          "torque": 289.743778725209
+        },
+        {
+          "speed": 5.0,
+          "torque": 281.49961134702374
+        },
+        {
+          "speed": 5.25,
+          "torque": 271.9055745092586
+        },
+        {
+          "speed": 5.5,
+          "torque": 261.8108031781885
+        },
+        {
+          "speed": 5.75,
+          "torque": 251.73825622913503
+        },
+        {
+          "speed": 6.0,
+          "torque": 241.97817896178591
+        },
+        {
+          "speed": 6.25,
+          "torque": 232.66889491533323
+        },
+        {
+          "speed": 6.5,
+          "torque": 223.85483997102085
+        },
+        {
+          "speed": 6.75,
+          "torque": 215.52418470209045
+        },
+        {
+          "speed": 7.0,
+          "torque": 207.63124775476064
+        },
+        {
+          "speed": 7.25,
+          "torque": 200.10809935899448
+        },
+        {
+          "speed": 7.5,
+          "torque": 192.86781546699794
+        },
+        {
+          "speed": 7.75,
+          "torque": 185.79910138956623
+        },
+        {
+          "speed": 8.0,
+          "torque": 178.74651423913608
+        },
+        {
+          "speed": 8.25,
+          "torque": 171.45252534322043
+        },
+        {
+          "speed": 8.5,
+          "torque": 163.3412586206971
+        },
+        {
+          "speed": 8.75,
+          "torque": 151.54269331234167
+        },
+        {
+          "speed": 9.0,
+          "torque": 142.72516203792043
+        },
+        {
+          "speed": 9.25,
+          "torque": 139.7307291106975
+        },
+        {
+          "speed": 9.5,
+          "torque": 136.84248221648383
+        },
+        {
+          "speed": 9.75,
+          "torque": 134.05600183789508
+        },
+        {
+          "speed": 10.0,
+          "torque": 131.3670002880788
+        },
+        {
+          "speed": 10.25,
+          "torque": 128.7713328989669
+        },
+        {
+          "speed": 10.5,
+          "torque": 126.26500528123157
+        },
+        {
+          "speed": 10.75,
+          "torque": 123.84417744803477
+        },
+        {
+          "speed": 11.0,
+          "torque": 121.50516545504492
+        },
+        {
+          "speed": 11.25,
+          "torque": 119.24444109230834
+        },
+        {
+          "speed": 11.5,
+          "torque": 117.05863006608705
+        },
+        {
+          "speed": 11.75,
+          "torque": 114.9445090277617
+        },
+        {
+          "speed": 12.0,
+          "torque": 112.89900173976407
+        },
+        {
+          "speed": 12.25,
+          "torque": 110.91917461302549
+        },
+        {
+          "speed": 12.5,
+          "torque": 109.00223180468886
+        },
+        {
+          "speed": 12.75,
+          "torque": 107.1455100272152
+        },
+        {
+          "speed": 13.0,
+          "torque": 105.34647318914996
+        },
+        {
+          "speed": 13.25,
+          "torque": 103.60270696254264
+        },
+        {
+          "speed": 13.5,
+          "torque": 101.91191335137702
+        },
+        {
+          "speed": 13.75,
+          "torque": 100.27190531855713
+        },
+        {
+          "speed": 14.0,
+          "torque": 98.6806015153379
+        },
+        {
+          "speed": 14.25,
+          "torque": 97.13602114603368
+        },
+        {
+          "speed": 14.5,
+          "torque": 95.63627899191378
+        },
+        {
+          "speed": 14.75,
+          "torque": 94.17958061102907
+        },
+        {
+          "speed": 15.0,
+          "torque": 92.76421772498196
+        },
+        {
+          "speed": 15.25,
+          "torque": 91.38856379909923
+        },
+        {
+          "speed": 15.5,
+          "torque": 90.05106981887363
+        },
+        {
+          "speed": 15.75,
+          "torque": 88.75026026273149
+        },
+        {
+          "speed": 16.0,
+          "torque": 87.48472926901101
+        },
+        {
+          "speed": 16.25,
+          "torque": 86.25313699338133
+        },
+        {
+          "speed": 16.5,
+          "torque": 85.05420615169584
+        },
+        {
+          "speed": 16.75,
+          "torque": 83.88671874237401
+        },
+        {
+          "speed": 17.0,
+          "torque": 82.74951294177822
+        },
+        {
+          "speed": 17.25,
+          "torque": 81.64148016563908
+        },
+        {
+          "speed": 17.5,
+          "torque": 80.5615622893444
+        },
+        {
+          "speed": 17.75,
+          "torque": 79.50874901980104
+        },
+        {
+          "speed": 18.0,
+          "torque": 78.48207541158136
+        },
+        {
+          "speed": 18.25,
+          "torque": 77.48061952014854
+        },
+        {
+          "speed": 18.5,
+          "torque": 76.50350018510174
+        },
+        {
+          "speed": 18.75,
+          "torque": 75.54987493657251
+        },
+        {
+          "speed": 19.0,
+          "torque": 74.61893801813069
+        },
+        {
+          "speed": 19.25,
+          "torque": 73.70991851980669
+        },
+        {
+          "speed": 19.5,
+          "torque": 72.82207861510105
+        },
+        {
+          "speed": 19.75,
+          "torque": 71.95471189612584
+        },
+        {
+          "speed": 20.0,
+          "torque": 71.10714180129817
+        },
+        {
+          "speed": 20.25,
+          "torque": 70.27872013028328
+        },
+        {
+          "speed": 20.5,
+          "torque": 69.46882564115681
+        },
+        {
+          "speed": 20.75,
+          "torque": 68.67686272502308
+        },
+        {
+          "speed": 21.0,
+          "torque": 67.90226015358543
+        },
+        {
+          "speed": 21.25,
+          "torque": 67.14446989541543
+        },
+        {
+          "speed": 21.5,
+          "torque": 66.40296599690873
+        },
+        {
+          "speed": 21.75,
+          "torque": 65.67724352414578
+        },
+        {
+          "speed": 22.0,
+          "torque": 64.9668175620957
+        },
+        {
+          "speed": 22.25,
+          "torque": 64.27122226781144
+        },
+        {
+          "speed": 22.5,
+          "torque": 63.59000997446275
+        },
+        {
+          "speed": 22.75,
+          "torque": 62.92275034324181
+        },
+        {
+          "speed": 23.0,
+          "torque": 62.269029560354696
+        },
+        {
+          "speed": 23.25,
+          "torque": 61.62844957647975
+        },
+        {
+          "speed": 23.5,
+          "torque": 61.000627386232075
+        },
+        {
+          "speed": 23.75,
+          "torque": 60.38519434532365
+        },
+        {
+          "speed": 24.0,
+          "torque": 59.781795523247595
+        },
+        {
+          "speed": 24.25,
+          "torque": 59.19008908944856
+        },
+        {
+          "speed": 24.5,
+          "torque": 58.60974573106425
+        },
+        {
+          "speed": 24.75,
+          "torque": 58.04044810043999
+        },
+        {
+          "speed": 25.0,
+          "torque": 57.48189029072783
+        },
+        {
+          "speed": 25.25,
+          "torque": 56.93377733798354
+        },
+        {
+          "speed": 25.5,
+          "torque": 56.39582474827199
+        },
+        {
+          "speed": 25.75,
+          "torque": 55.867758048380374
+        },
+        {
+          "speed": 26.0,
+          "torque": 55.34931235882481
+        },
+        {
+          "speed": 26.25,
+          "torque": 54.84023198791366
+        },
+        {
+          "speed": 26.5,
+          "torque": 54.34027004570588
+        },
+        {
+          "speed": 26.75,
+          "torque": 53.84918807677248
+        },
+        {
+          "speed": 27.0,
+          "torque": 53.36675571073377
+        },
+        {
+          "speed": 27.25,
+          "torque": 52.89275032960671
+        },
+        {
+          "speed": 27.5,
+          "torque": 52.42695675105358
+        },
+        {
+          "speed": 27.75,
+          "torque": 51.9691669266773
+        },
+        {
+          "speed": 28.0,
+          "torque": 51.519179654558485
+        },
+        {
+          "speed": 28.25,
+          "torque": 51.0768003052767
+        },
+        {
+          "speed": 28.5,
+          "torque": 50.641840560702995
+        },
+        {
+          "speed": 28.75,
+          "torque": 50.21411816489147
+        },
+        {
+          "speed": 29.0,
+          "torque": 49.793456686437004
+        },
+        {
+          "speed": 29.25,
+          "torque": 49.379685291702735
+        },
+        {
+          "speed": 29.5,
+          "torque": 48.97263852835486
+        },
+        {
+          "speed": 29.75,
+          "torque": 48.57215611867444
+        },
+        {
+          "speed": 30.0,
+          "torque": 48.17808276214624
+        }
+      ],
+      "observed": "The task stays inside this motor's limits. Peak torque current is 8.3 A; the cube trajectory matches the nominal recording."
+    },
+    {
+      "id": "low_current",
+      "label": "Current-limited motor",
+      "short": "Low current",
+      "description": "A 6.6 A inverter limit gives only 12% of nominal peak joint torque. This deliberately tests inadequate torque authority.",
+      "kv": 57.29577951308232,
+      "kt": 0.25,
+      "current": 6.6,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 17.819999999999997,
+      "resistance": 0.03,
+      "result": {
+        "variant": "low_current",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 530.923347234726,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          1.1733450889587402,
+          -0.7070717215538025,
+          0.029999813064932823
+        ],
+        "placement_success": false,
+        "peak_temperature": 25.625638961791992,
+        "peak_torque": 17.81999969482422,
+        "kv_scale": 1.0,
+        "current_scale": 0.12,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": false,
+          "rotated_90_degrees": false,
+          "handoff_supported_by_right_only": false,
+          "placed_and_released": false,
+          "full_sequence_success": false,
+          "final_error_mm": 1222.6695648197608,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 0.0,
+          "final_cube_speed_m_s": 3.42608216202486e-05,
+          "right_only_hold_seconds": 0.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 442.28681535351444,
+          "mean_torque_shortfall_fraction": 0.3062857142857143,
+          "peak_abs_Iq_A": 6.599999904632568
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 0.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 0.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 0.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 1.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 1.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 1.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 1.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 2.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 2.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 2.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 2.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 3.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 3.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 3.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 3.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 4.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 4.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 4.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 4.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 5.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 5.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 5.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 5.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 6.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 6.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 6.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 6.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 7.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 7.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 7.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 7.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 8.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 8.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 8.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 8.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 9.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 9.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 9.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 9.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 10.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 10.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 10.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 10.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 11.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 11.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 11.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 11.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 12.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 12.25,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 12.5,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 12.75,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 13.0,
+          "torque": 17.819999997299593
+        },
+        {
+          "speed": 13.25,
+          "torque": 16.353994013232715
+        },
+        {
+          "speed": 13.5,
+          "torque": 12.755346189715047
+        },
+        {
+          "speed": 13.75,
+          "torque": 9.8909021692656
+        },
+        {
+          "speed": 14.0,
+          "torque": 7.9596464128165625
+        },
+        {
+          "speed": 14.25,
+          "torque": 6.6416458939984615
+        },
+        {
+          "speed": 14.5,
+          "torque": 5.704119264594294
+        },
+        {
+          "speed": 14.75,
+          "torque": 5.009621632181993
+        },
+        {
+          "speed": 15.0,
+          "torque": 4.477094875225114
+        },
+        {
+          "speed": 15.25,
+          "torque": 4.056960616667342
+        },
+        {
+          "speed": 15.5,
+          "torque": 3.7176086792225997
+        },
+        {
+          "speed": 15.75,
+          "torque": 3.4380886086879374
+        },
+        {
+          "speed": 16.0,
+          "torque": 3.2040304834087174
+        },
+        {
+          "speed": 16.25,
+          "torque": 3.0052789646969957
+        },
+        {
+          "speed": 16.5,
+          "torque": 2.834468264196193
+        },
+        {
+          "speed": 16.75,
+          "torque": 2.6861334511531916
+        },
+        {
+          "speed": 17.0,
+          "torque": 2.5561385847632825
+        },
+        {
+          "speed": 17.25,
+          "torque": 2.441298253709032
+        },
+        {
+          "speed": 17.5,
+          "torque": 2.339120756210945
+        },
+        {
+          "speed": 17.75,
+          "torque": 2.2476298714934773
+        },
+        {
+          "speed": 18.0,
+          "torque": 2.1652386568116535
+        },
+        {
+          "speed": 18.25,
+          "torque": 2.090658447746686
+        },
+        {
+          "speed": 18.5,
+          "torque": 2.0228321567013405
+        },
+        {
+          "speed": 18.75,
+          "torque": 1.9608846479059254
+        },
+        {
+          "speed": 19.0,
+          "torque": 1.9040853125055068
+        },
+        {
+          "speed": 19.25,
+          "torque": 1.8518194917967623
+        },
+        {
+          "speed": 19.5,
+          "torque": 1.803566406667238
+        },
+        {
+          "speed": 19.75,
+          "torque": 1.75888193220497
+        },
+        {
+          "speed": 20.0,
+          "torque": 1.7173850229663572
+        },
+        {
+          "speed": 20.25,
+          "torque": 1.6787469188170303
+        },
+        {
+          "speed": 20.5,
+          "torque": 1.642682490008601
+        },
+        {
+          "speed": 20.75,
+          "torque": 1.6089432435217772
+        },
+        {
+          "speed": 21.0,
+          "torque": 1.577311630781175
+        },
+        {
+          "speed": 21.25,
+          "torque": 1.547596383141895
+        },
+        {
+          "speed": 21.5,
+          "torque": 1.5196286652762012
+        },
+        {
+          "speed": 21.75,
+          "torque": 1.4932588841130134
+        },
+        {
+          "speed": 22.0,
+          "torque": 1.4683540267492836
+        },
+        {
+          "speed": 22.25,
+          "torque": 1.4447954279025013
+        },
+        {
+          "speed": 22.5,
+          "torque": 1.422476888251026
+        },
+        {
+          "speed": 22.75,
+          "torque": 1.4013030810315292
+        },
+        {
+          "speed": 23.0,
+          "torque": 1.3811881967084016
+        },
+        {
+          "speed": 23.25,
+          "torque": 1.3620547852634497
+        },
+        {
+          "speed": 23.5,
+          "torque": 1.3438327633161111
+        },
+        {
+          "speed": 23.75,
+          "torque": 1.3264585593528735
+        },
+        {
+          "speed": 24.0,
+          "torque": 1.3098743751791895
+        },
+        {
+          "speed": 24.25,
+          "torque": 1.2940275455802819
+        },
+        {
+          "speed": 24.5,
+          "torque": 1.278869981296524
+        },
+        {
+          "speed": 24.75,
+          "torque": 1.264357682944074
+        },
+        {
+          "speed": 25.0,
+          "torque": 1.250450315565137
+        },
+        {
+          "speed": 25.25,
+          "torque": 1.237110835170435
+        },
+        {
+          "speed": 25.5,
+          "torque": 1.2243051600138055
+        },
+        {
+          "speed": 25.75,
+          "torque": 1.2120018804740962
+        },
+        {
+          "speed": 26.0,
+          "torque": 1.200172002359015
+        },
+        {
+          "speed": 26.25,
+          "torque": 1.188788719226089
+        },
+        {
+          "speed": 26.5,
+          "torque": 1.1778272099667442
+        },
+        {
+          "speed": 26.75,
+          "torque": 1.167264458444198
+        },
+        {
+          "speed": 27.0,
+          "torque": 1.1570790924332477
+        },
+        {
+          "speed": 27.25,
+          "torque": 1.1472512394954355
+        },
+        {
+          "speed": 27.5,
+          "torque": 1.1377623977487856
+        },
+        {
+          "speed": 27.75,
+          "torque": 1.12859531976751
+        },
+        {
+          "speed": 28.0,
+          "torque": 1.1197339080819029
+        },
+        {
+          "speed": 28.25,
+          "torque": 1.1111631209489294
+        },
+        {
+          "speed": 28.5,
+          "torque": 1.102868887235287
+        },
+        {
+          "speed": 28.75,
+          "torque": 1.0948380294015372
+        },
+        {
+          "speed": 29.0,
+          "torque": 1.0870581937021868
+        },
+        {
+          "speed": 29.25,
+          "torque": 1.0795177868253405
+        },
+        {
+          "speed": 29.5,
+          "torque": 1.0722059182895651
+        },
+        {
+          "speed": 29.75,
+          "torque": 1.0651123479969582
+        },
+        {
+          "speed": 30.0,
+          "torque": 1.0582274384120534
+        }
+      ],
+      "observed": "The arm loses control before grasping and knocks the cube off the table. Cooling is not the limiting factor in this run."
+    },
+    {
+      "id": "heavy",
+      "label": "Heavier arm hardware",
+      "short": "Heavy",
+      "description": "Adds 2 kg to each of seven moving arm links: 14 kg per arm. Rigid-body mass and inertia both change.",
+      "kv": 57.29577951308232,
+      "kt": 0.25,
+      "current": 55.0,
+      "mass": 14,
+      "voltage": 48,
+      "temperature": 25,
+      "peakTorque": 148.5,
+      "resistance": 0.03,
+      "result": {
+        "variant": "heavy",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 529.4528794288635,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.4768623113632202,
+          0.2997879385948181,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 33.0278205871582,
+        "peak_torque": 89.05614471435547,
+        "kv_scale": 1.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 14,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 3.1448465814638062,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 7.52566006976294,
+          "final_cube_speed_m_s": 0.00012159101445625609,
+          "right_only_hold_seconds": 3.98,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.01132754783886822,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 33.23974609375
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 2.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 3.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 4.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 5.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 6.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 7.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 8.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 9.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 10.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 11.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 12.0,
+          "torque": 148.39036061631703
+        },
+        {
+          "speed": 12.25,
+          "torque": 147.50626521967882
+        },
+        {
+          "speed": 12.5,
+          "torque": 145.8602243016611
+        },
+        {
+          "speed": 12.75,
+          "torque": 143.61113052726574
+        },
+        {
+          "speed": 13.0,
+          "torque": 140.9135181157195
+        },
+        {
+          "speed": 13.25,
+          "torque": 137.90650659039596
+        },
+        {
+          "speed": 13.5,
+          "torque": 134.70807532696156
+        },
+        {
+          "speed": 13.75,
+          "torque": 131.413519683465
+        },
+        {
+          "speed": 14.0,
+          "torque": 128.09664408108898
+        },
+        {
+          "speed": 14.25,
+          "torque": 124.81241804674006
+        },
+        {
+          "speed": 14.5,
+          "torque": 121.60017221070241
+        },
+        {
+          "speed": 14.75,
+          "torque": 118.48676208300081
+        },
+        {
+          "speed": 15.0,
+          "torque": 115.48940037158756
+        },
+        {
+          "speed": 15.25,
+          "torque": 112.61804043769958
+        },
+        {
+          "speed": 15.5,
+          "torque": 109.87729988842302
+        },
+        {
+          "speed": 15.75,
+          "torque": 107.26796705991883
+        },
+        {
+          "speed": 16.0,
+          "torque": 104.78815427492313
+        },
+        {
+          "speed": 16.25,
+          "torque": 102.43416474656877
+        },
+        {
+          "speed": 16.5,
+          "torque": 100.20113414390329
+        },
+        {
+          "speed": 16.75,
+          "torque": 98.08349857023711
+        },
+        {
+          "speed": 17.0,
+          "torque": 96.07533093217394
+        },
+        {
+          "speed": 17.25,
+          "torque": 94.17057876165512
+        },
+        {
+          "speed": 17.5,
+          "torque": 92.36322900561899
+        },
+        {
+          "speed": 17.75,
+          "torque": 90.64741918684254
+        },
+        {
+          "speed": 18.0,
+          "torque": 89.0175095325435
+        },
+        {
+          "speed": 18.25,
+          "torque": 87.46812695954499
+        },
+        {
+          "speed": 18.5,
+          "torque": 85.9941889839743
+        },
+        {
+          "speed": 18.75,
+          "torque": 84.5909134985317
+        },
+        {
+          "speed": 19.0,
+          "torque": 83.25381877124876
+        },
+        {
+          "speed": 19.25,
+          "torque": 81.978716837769
+        },
+        {
+          "speed": 19.5,
+          "torque": 80.76170258397121
+        },
+        {
+          "speed": 19.75,
+          "torque": 79.59914016998026
+        },
+        {
+          "speed": 20.0,
+          "torque": 78.4876479716885
+        },
+        {
+          "speed": 20.25,
+          "torque": 77.42408286776647
+        },
+        {
+          "speed": 20.5,
+          "torque": 76.40552444583277
+        },
+        {
+          "speed": 20.75,
+          "torque": 75.42925951644811
+        },
+        {
+          "speed": 21.0,
+          "torque": 74.49276718968844
+        },
+        {
+          "speed": 21.25,
+          "torque": 73.593704672744
+        },
+        {
+          "speed": 21.5,
+          "torque": 72.72989387831034
+        },
+        {
+          "speed": 21.75,
+          "torque": 71.8993088850986
+        },
+        {
+          "speed": 22.0,
+          "torque": 71.10006425815469
+        },
+        {
+          "speed": 22.25,
+          "torque": 70.33040421381732
+        },
+        {
+          "speed": 22.5,
+          "torque": 69.5886925990986
+        },
+        {
+          "speed": 22.75,
+          "torque": 68.87340364585356
+        },
+        {
+          "speed": 23.0,
+          "torque": 68.18311345471346
+        },
+        {
+          "speed": 23.25,
+          "torque": 67.51649216120693
+        },
+        {
+          "speed": 23.5,
+          "torque": 66.8722967359247
+        },
+        {
+          "speed": 23.75,
+          "torque": 66.24936437136326
+        },
+        {
+          "speed": 24.0,
+          "torque": 65.64660640975245
+        },
+        {
+          "speed": 24.25,
+          "torque": 65.06300276840508
+        },
+        {
+          "speed": 24.5,
+          "torque": 64.49759682167765
+        },
+        {
+          "speed": 24.75,
+          "torque": 63.949490701342434
+        },
+        {
+          "speed": 25.0,
+          "torque": 63.41784097991639
+        },
+        {
+          "speed": 25.25,
+          "torque": 62.90185470419694
+        },
+        {
+          "speed": 25.5,
+          "torque": 62.400785748863896
+        },
+        {
+          "speed": 25.75,
+          "torque": 61.913931462486175
+        },
+        {
+          "speed": 26.0,
+          "torque": 61.44062958060461
+        },
+        {
+          "speed": 26.25,
+          "torque": 60.98025538273488
+        },
+        {
+          "speed": 26.5,
+          "torque": 60.5322190721494
+        },
+        {
+          "speed": 26.75,
+          "torque": 60.09596335915193
+        },
+        {
+          "speed": 27.0,
+          "torque": 59.670961230262414
+        },
+        {
+          "speed": 27.25,
+          "torque": 59.256713887286956
+        },
+        {
+          "speed": 27.5,
+          "torque": 58.85274884167007
+        },
+        {
+          "speed": 27.75,
+          "torque": 58.458618150819994
+        },
+        {
+          "speed": 28.0,
+          "torque": 58.07389678427452
+        },
+        {
+          "speed": 28.25,
+          "torque": 57.69818110864137
+        },
+        {
+          "speed": 28.5,
+          "torque": 57.33108748121506
+        },
+        {
+          "speed": 28.75,
+          "torque": 56.9722509430463
+        },
+        {
+          "speed": 29.0,
+          "torque": 56.62132400303259
+        },
+        {
+          "speed": 29.25,
+          "torque": 56.27797550531155
+        },
+        {
+          "speed": 29.5,
+          "torque": 55.941889572883895
+        },
+        {
+          "speed": 29.75,
+          "torque": 55.61276462097136
+        },
+        {
+          "speed": 30.0,
+          "torque": 55.290312434137206
+        }
+      ],
+      "observed": "The task still completes. Peak torque rises to 89.1 N\u00b7m and the hottest winding reaches 33.0 \u00b0C."
+    },
+    {
+      "id": "hot",
+      "label": "Hot start",
+      "short": "Hot start",
+      "description": "The same motor starts at 125 \u00b0C. Copper resistance, magnet strength and thermal current derating change together.",
+      "kv": 57.29577951308232,
+      "kt": 0.25,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 48,
+      "temperature": 125,
+      "peakTorque": 148.5,
+      "resistance": 0.03,
+      "result": {
+        "variant": "hot",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 454.15390944480896,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.4773346781730652,
+          0.3007431924343109,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 124.99840545654297,
+        "peak_torque": 44.80906677246094,
+        "kv_scale": 1.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 125,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 2.766997548887971,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 8.930798916629056,
+          "final_cube_speed_m_s": 0.00010935239734955242,
+          "right_only_hold_seconds": 4.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.011690508163077718,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 18.615127563476562
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 0.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 0.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 0.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 1.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 1.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 1.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 1.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 2.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 2.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 2.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 2.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 3.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 3.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 3.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 3.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 4.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 4.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 4.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 4.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 5.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 5.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 5.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 5.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 6.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 6.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 6.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 6.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 7.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 7.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 7.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 7.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 8.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 8.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 8.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 8.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 9.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 9.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 9.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 9.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 10.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 10.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 10.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 10.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 11.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 11.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 11.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 11.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 12.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 12.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 12.5,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 12.75,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 13.0,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 13.25,
+          "torque": 66.52799999762249
+        },
+        {
+          "speed": 13.5,
+          "torque": 66.52393468317163
+        },
+        {
+          "speed": 13.75,
+          "torque": 66.00706285572782
+        },
+        {
+          "speed": 14.0,
+          "torque": 64.73965482676765
+        },
+        {
+          "speed": 14.25,
+          "torque": 62.91726316966267
+        },
+        {
+          "speed": 14.5,
+          "torque": 60.737916011740786
+        },
+        {
+          "speed": 14.75,
+          "torque": 58.371728405253215
+        },
+        {
+          "speed": 15.0,
+          "torque": 55.948541863028545
+        },
+        {
+          "speed": 15.25,
+          "torque": 53.55841506795477
+        },
+        {
+          "speed": 15.5,
+          "torque": 51.25840794648624
+        },
+        {
+          "speed": 15.75,
+          "torque": 49.080959341067754
+        },
+        {
+          "speed": 16.0,
+          "torque": 47.041448376266224
+        },
+        {
+          "speed": 16.25,
+          "torque": 45.14411527234204
+        },
+        {
+          "speed": 16.5,
+          "torque": 43.3863309000213
+        },
+        {
+          "speed": 16.75,
+          "torque": 41.761512129670884
+        },
+        {
+          "speed": 17.0,
+          "torque": 40.261032864513965
+        },
+        {
+          "speed": 17.25,
+          "torque": 38.87543293000776
+        },
+        {
+          "speed": 17.5,
+          "torque": 37.59515465340814
+        },
+        {
+          "speed": 17.75,
+          "torque": 36.41097050828768
+        },
+        {
+          "speed": 18.0,
+          "torque": 35.31421332480248
+        },
+        {
+          "speed": 18.25,
+          "torque": 34.29688316484026
+        },
+        {
+          "speed": 18.5,
+          "torque": 33.35167917888857
+        },
+        {
+          "speed": 18.75,
+          "torque": 32.47198747254483
+        },
+        {
+          "speed": 19.0,
+          "torque": 31.65184462424533
+        },
+        {
+          "speed": 19.25,
+          "torque": 30.885889091172572
+        },
+        {
+          "speed": 19.5,
+          "torque": 30.16930797248026
+        },
+        {
+          "speed": 19.75,
+          "torque": 29.49778355655253
+        },
+        {
+          "speed": 20.0,
+          "torque": 28.867442156417216
+        },
+        {
+          "speed": 20.25,
+          "torque": 28.274806537150624
+        },
+        {
+          "speed": 20.5,
+          "torque": 27.71675250220314
+        },
+        {
+          "speed": 20.75,
+          "torque": 27.190469764202142
+        },
+        {
+          "speed": 21.0,
+          "torque": 26.69342697154712
+        },
+        {
+          "speed": 21.25,
+          "torque": 26.223340625195515
+        },
+        {
+          "speed": 21.5,
+          "torque": 25.778147555639812
+        },
+        {
+          "speed": 21.75,
+          "torque": 25.355980609550414
+        },
+        {
+          "speed": 22.0,
+          "torque": 24.955147200702402
+        },
+        {
+          "speed": 22.25,
+          "torque": 24.574110399141112
+        },
+        {
+          "speed": 22.5,
+          "torque": 24.211472258932353
+        },
+        {
+          "speed": 22.75,
+          "torque": 23.86595911392674
+        },
+        {
+          "speed": 23.0,
+          "torque": 23.536408600156467
+        },
+        {
+          "speed": 23.25,
+          "torque": 23.22175819131757
+        },
+        {
+          "speed": 23.5,
+          "torque": 22.921035059511507
+        },
+        {
+          "speed": 23.75,
+          "torque": 22.633347096706743
+        },
+        {
+          "speed": 24.0,
+          "torque": 22.357874953169706
+        },
+        {
+          "speed": 24.25,
+          "torque": 22.093864967493335
+        },
+        {
+          "speed": 24.5,
+          "torque": 21.84062287898961
+        },
+        {
+          "speed": 24.75,
+          "torque": 21.597508227312456
+        },
+        {
+          "speed": 25.0,
+          "torque": 21.363929356457696
+        },
+        {
+          "speed": 25.25,
+          "torque": 21.139338950955803
+        },
+        {
+          "speed": 25.5,
+          "torque": 20.92323004132999
+        },
+        {
+          "speed": 25.75,
+          "torque": 20.7151324239172
+        },
+        {
+          "speed": 26.0,
+          "torque": 20.514609447103524
+        },
+        {
+          "speed": 26.25,
+          "torque": 20.321255122052886
+        },
+        {
+          "speed": 26.5,
+          "torque": 20.134691521232885
+        },
+        {
+          "speed": 26.75,
+          "torque": 19.95456643257472
+        },
+        {
+          "speed": 27.0,
+          "torque": 19.780551241039138
+        },
+        {
+          "speed": 27.25,
+          "torque": 19.61233901278025
+        },
+        {
+          "speed": 27.5,
+          "torque": 19.449642760073417
+        },
+        {
+          "speed": 27.75,
+          "torque": 19.292193867764286
+        },
+        {
+          "speed": 28.0,
+          "torque": 19.139740664254756
+        },
+        {
+          "speed": 28.25,
+          "torque": 18.99204712201367
+        },
+        {
+          "speed": 28.5,
+          "torque": 18.848891674324165
+        },
+        {
+          "speed": 28.75,
+          "torque": 18.710066136488457
+        },
+        {
+          "speed": 29.0,
+          "torque": 18.575374721033928
+        },
+        {
+          "speed": 29.25,
+          "torque": 18.444633137625093
+        },
+        {
+          "speed": 29.5,
+          "torque": 18.317667769407134
+        },
+        {
+          "speed": 29.75,
+          "torque": 18.194314918404455
+        },
+        {
+          "speed": 30.0,
+          "torque": 18.07442011338999
+        }
+      ],
+      "observed": "Starts at 125 \u00b0C and still completes this task. Peak torque current rises to 18.6 A as the hotter motor's magnet flux falls."
+    },
+    {
+      "id": "low_voltage",
+      "label": "Low bus voltage",
+      "short": "Low voltage",
+      "description": "A 6 V supply reduces voltage headroom and available torque at speed. This is an undervoltage stress test.",
+      "kv": 57.29577951308232,
+      "kt": 0.25,
+      "current": 55.0,
+      "mass": 0,
+      "voltage": 6,
+      "temperature": 25,
+      "peakTorque": 148.5,
+      "resistance": 0.03,
+      "result": {
+        "variant": "low_voltage",
+        "physics": "Isaac Lab 2.1 / PhysX",
+        "dt": 0.0025,
+        "fps": 50,
+        "frames": 1500,
+        "bodies": 23,
+        "duration": 30.0,
+        "wall_seconds": 455.089647769928,
+        "object_state_writes_during_episode": 0,
+        "object_attachments": 0,
+        "resets": 0,
+        "controller": "Differential IK with bounded FOC arm actuators; 30 N implicit linear gripper drives",
+        "final_position": [
+          0.47733888030052185,
+          0.3008708655834198,
+          0.32999998331069946
+        ],
+        "placement_success": true,
+        "peak_temperature": 26.825176239013672,
+        "peak_torque": 44.818546295166016,
+        "kv_scale": 1.0,
+        "current_scale": 1.0,
+        "added_mass_per_arm_kg": 0,
+        "initial_winding_C": 25,
+        "source": "transfer.py",
+        "checks": {
+          "lifted": true,
+          "rotated_90_degrees": true,
+          "handoff_supported_by_right_only": true,
+          "placed_and_released": true,
+          "full_sequence_success": true,
+          "final_error_mm": 2.799993735588655,
+          "max_quaternion_norm_error": 2.384185791015625e-07,
+          "max_contact_force_N": 7.889767416746357,
+          "final_cube_speed_m_s": 0.00011003935892462992,
+          "right_only_hold_seconds": 4.0,
+          "replay_frames": 1500,
+          "body_count": 23,
+          "final_arm_pose_error_mm": 0.011626158589276686,
+          "mean_torque_shortfall_fraction": 0.0,
+          "peak_abs_Iq_A": 16.62914276123047
+        }
+      },
+      "envelope": [
+        {
+          "speed": 0.0,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.25,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.5,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 0.75,
+          "torque": 148.49999999729664
+        },
+        {
+          "speed": 1.0,
+          "torque": 115.03492636576668
+        },
+        {
+          "speed": 1.25,
+          "torque": 84.32623976310934
+        },
+        {
+          "speed": 1.5,
+          "torque": 69.41971581599887
+        },
+        {
+          "speed": 1.75,
+          "torque": 60.857261710659074
+        },
+        {
+          "speed": 2.0,
+          "torque": 55.191447945146315
+        },
+        {
+          "speed": 2.25,
+          "torque": 51.003721815444884
+        },
+        {
+          "speed": 2.5,
+          "torque": 47.56253190645681
+        },
+        {
+          "speed": 2.75,
+          "torque": 44.25940619826206
+        },
+        {
+          "speed": 3.0,
+          "torque": 39.17364859970628
+        },
+        {
+          "speed": 3.25,
+          "torque": 36.347859250420036
+        },
+        {
+          "speed": 3.5,
+          "torque": 33.891727754462316
+        },
+        {
+          "speed": 3.75,
+          "torque": 31.73899878384368
+        },
+        {
+          "speed": 4.0,
+          "torque": 29.837952467693924
+        },
+        {
+          "speed": 4.25,
+          "torque": 28.14773431329734
+        },
+        {
+          "speed": 4.5,
+          "torque": 26.635709731444702
+        },
+        {
+          "speed": 4.75,
+          "torque": 25.275536316036202
+        },
+        {
+          "speed": 5.0,
+          "torque": 24.04574296629042
+        },
+        {
+          "speed": 5.25,
+          "torque": 22.928670508461895
+        },
+        {
+          "speed": 5.5,
+          "torque": 21.90967296072782
+        },
+        {
+          "speed": 5.75,
+          "torque": 20.976508811889346
+        },
+        {
+          "speed": 6.0,
+          "torque": 20.118872345734005
+        },
+        {
+          "speed": 6.25,
+          "torque": 19.32802928408314
+        },
+        {
+          "speed": 6.5,
+          "torque": 18.596530931869363
+        },
+        {
+          "speed": 6.75,
+          "torque": 17.9179879740209
+        },
+        {
+          "speed": 7.0,
+          "torque": 17.286890021268892
+        },
+        {
+          "speed": 7.25,
+          "torque": 16.698460551169838
+        },
+        {
+          "speed": 7.5,
+          "torque": 16.148539462059453
+        },
+        {
+          "speed": 7.75,
+          "torque": 15.633487338580835
+        },
+        {
+          "speed": 8.0,
+          "torque": 15.150106915988884
+        },
+        {
+          "speed": 8.25,
+          "torque": 14.695578264590885
+        },
+        {
+          "speed": 8.5,
+          "torque": 14.267404992414598
+        },
+        {
+          "speed": 8.75,
+          "torque": 13.863369352297706
+        },
+        {
+          "speed": 9.0,
+          "torque": 13.481494588307772
+        },
+        {
+          "speed": 9.25,
+          "torque": 13.120013201284866
+        },
+        {
+          "speed": 9.5,
+          "torque": 12.777340080235275
+        },
+        {
+          "speed": 9.75,
+          "torque": 12.452049654292255
+        },
+        {
+          "speed": 10.0,
+          "torque": 12.14285638305081
+        },
+        {
+          "speed": 10.25,
+          "torque": 11.84859803174769
+        },
+        {
+          "speed": 10.5,
+          "torque": 11.568221279852763
+        },
+        {
+          "speed": 10.75,
+          "torque": 11.300769293099929
+        },
+        {
+          "speed": 11.0,
+          "torque": 11.045370954330176
+        },
+        {
+          "speed": 11.25,
+          "torque": 10.801231501201137
+        },
+        {
+          "speed": 11.5,
+          "torque": 10.567624361497208
+        },
+        {
+          "speed": 11.75,
+          "torque": 10.343884011511987
+        },
+        {
+          "speed": 12.0,
+          "torque": 10.129399711374582
+        },
+        {
+          "speed": 12.25,
+          "torque": 9.923609994509208
+        },
+        {
+          "speed": 12.5,
+          "torque": 9.725997807641452
+        },
+        {
+          "speed": 12.75,
+          "torque": 9.536086213676064
+        },
+        {
+          "speed": 13.0,
+          "torque": 9.353434582991099
+        },
+        {
+          "speed": 13.25,
+          "torque": 9.177635209716723
+        },
+        {
+          "speed": 13.5,
+          "torque": 9.008310298791734
+        },
+        {
+          "speed": 13.75,
+          "torque": 8.845109277336167
+        },
+        {
+          "speed": 14.0,
+          "torque": 8.687706390402894
+        },
+        {
+          "speed": 14.25,
+          "torque": 8.535798546684468
+        },
+        {
+          "speed": 14.5,
+          "torque": 8.389103384424763
+        },
+        {
+          "speed": 14.75,
+          "torque": 8.247357531757379
+        },
+        {
+          "speed": 15.0,
+          "torque": 8.110315039079463
+        },
+        {
+          "speed": 15.25,
+          "torque": 7.977745963964446
+        },
+        {
+          "speed": 15.5,
+          "torque": 7.849435091598409
+        },
+        {
+          "speed": 15.75,
+          "torque": 7.72518077585684
+        },
+        {
+          "speed": 16.0,
+          "torque": 7.6047938879750925
+        },
+        {
+          "speed": 16.25,
+          "torque": 7.488096861351596
+        },
+        {
+          "speed": 16.5,
+          "torque": 7.3749228223955345
+        },
+        {
+          "speed": 16.75,
+          "torque": 7.265114798521079
+        },
+        {
+          "speed": 17.0,
+          "torque": 7.15852499542538
+        },
+        {
+          "speed": 17.25,
+          "torque": 7.055014136689096
+        },
+        {
+          "speed": 17.5,
+          "torque": 6.954450859525399
+        },
+        {
+          "speed": 17.75,
+          "torque": 6.856711161191831
+        },
+        {
+          "speed": 18.0,
+          "torque": 6.761677891182877
+        },
+        {
+          "speed": 18.25,
+          "torque": 6.669240284850835
+        },
+        {
+          "speed": 18.5,
+          "torque": 6.579293534568734
+        },
+        {
+          "speed": 18.75,
+          "torque": 6.491738394959714
+        },
+        {
+          "speed": 19.0,
+          "torque": 6.406480819079881
+        },
+        {
+          "speed": 19.25,
+          "torque": 6.323431622762262
+        },
+        {
+          "speed": 19.5,
+          "torque": 6.242506174613411
+        },
+        {
+          "speed": 19.75,
+          "torque": 6.163624109406222
+        },
+        {
+          "speed": 20.0,
+          "torque": 6.086709062836235
+        },
+        {
+          "speed": 20.25,
+          "torque": 6.011688425807998
+        },
+        {
+          "speed": 20.5,
+          "torque": 5.938493116595469
+        },
+        {
+          "speed": 20.75,
+          "torque": 5.867057369378944
+        },
+        {
+          "speed": 21.0,
+          "torque": 5.7973185378025285
+        },
+        {
+          "speed": 21.25,
+          "torque": 5.729216912322902
+        },
+        {
+          "speed": 21.5,
+          "torque": 5.662695550233682
+        },
+        {
+          "speed": 21.75,
+          "torque": 5.5977001173516
+        },
+        {
+          "speed": 22.0,
+          "torque": 5.534178740442241
+        },
+        {
+          "speed": 22.25,
+          "torque": 5.472081869545464
+        },
+        {
+          "speed": 22.5,
+          "torque": 5.411362149434812
+        },
+        {
+          "speed": 22.75,
+          "torque": 5.351974299512138
+        },
+        {
+          "speed": 23.0,
+          "torque": 5.2938750014990035
+        },
+        {
+          "speed": 23.25,
+          "torque": 5.237022794341101
+        },
+        {
+          "speed": 23.5,
+          "torque": 5.181377975791248
+        },
+        {
+          "speed": 23.75,
+          "torque": 5.126902510181324
+        },
+        {
+          "speed": 24.0,
+          "torque": 5.073559941934055
+        },
+        {
+          "speed": 24.25,
+          "torque": 5.021315314402425
+        },
+        {
+          "speed": 24.5,
+          "torque": 4.970135093657926
+        },
+        {
+          "speed": 24.75,
+          "torque": 4.919987096879348
+        },
+        {
+          "speed": 25.0,
+          "torque": 4.870840425021496
+        },
+        {
+          "speed": 25.25,
+          "torque": 4.8226653994685265
+        },
+        {
+          "speed": 25.5,
+          "torque": 4.775433502399617
+        },
+        {
+          "speed": 25.75,
+          "torque": 4.729117320615729
+        },
+        {
+          "speed": 26.0,
+          "torque": 4.6836904925955025
+        },
+        {
+          "speed": 26.25,
+          "torque": 4.639127658565829
+        },
+        {
+          "speed": 26.5,
+          "torque": 4.595404413388864
+        },
+        {
+          "speed": 26.75,
+          "torque": 4.552497262081916
+        },
+        {
+          "speed": 27.0,
+          "torque": 4.510383577800212
+        },
+        {
+          "speed": 27.25,
+          "torque": 4.469041562124995
+        },
+        {
+          "speed": 27.5,
+          "torque": 4.428450207510766
+        },
+        {
+          "speed": 27.75,
+          "torque": 4.388589261756005
+        },
+        {
+          "speed": 28.0,
+          "torque": 4.349439194371377
+        },
+        {
+          "speed": 28.25,
+          "torque": 4.310981164728244
+        },
+        {
+          "speed": 28.5,
+          "torque": 4.273196991878597
+        },
+        {
+          "speed": 28.75,
+          "torque": 4.236069125944963
+        },
+        {
+          "speed": 29.0,
+          "torque": 4.199580620985901
+        },
+        {
+          "speed": 29.25,
+          "torque": 4.163715109249047
+        },
+        {
+          "speed": 29.5,
+          "torque": 4.128456776729707
+        },
+        {
+          "speed": 29.75,
+          "torque": 4.093790339958411
+        },
+        {
+          "speed": 30.0,
+          "torque": 4.059701023945957
+        }
+      ],
+      "observed": "At this slow motion, even the 6 V bus stays within its voltage limit. The recorded trajectory matches nominal; high-speed capability is not established."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "robot": "G1",
+  "variants": [
+    {
+      "id": "nominal",
+      "label": "Nominal motors",
+      "description": "Reference actuator model and unchanged trained policy."
+    },
+    {
+      "id": "mass_added_double",
+      "label": "Heavier actuators",
+      "description": "Add 0.5 kg per actuator: 18.5 kg across G1. Added carrier mass and inertia enter the physical simulation."
+    },
+    {
+      "id": "kv_high",
+      "label": "Higher Kv winding",
+      "description": "Kv \u00d71.5, Kt \u00f71.5, resistance and inductance \u00f72.25 for a fixed-copper rewind. Current and torque-speed behavior change together."
+    }
+  ],
+  "physics_hz": 400,
+  "fps": 50.0,
+  "push_time": 9.0,
+  "description": "Paired Isaac Lab recordings with one trained policy, the same initial physical properties and commands, and a 0.2-second lateral force pulse. These short trials show design sensitivity, not robustness across seeds or hardware efficiency.",
+  "geometry_precision_m": 1e-05,
+  "video_fps": 16.666666666666668,
+  "video_first_physics_time_s": 0.02
+}

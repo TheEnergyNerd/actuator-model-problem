@@ -1,0 +1,21 @@
+...................................                                      [100%]
+=============================== warnings summary ===============================
+tests/test_residual.py::test_pt_state_dict_roundtrip
+  /root/atlas/atlas-actuator-isaac/atlas_actuators_ext/atlas_actuators/residual.py:78: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+    self.blocks = nn.TransformerEncoder(layer, num_layers=n_layers)
+
+tests/test_residual.py::test_pt_state_dict_roundtrip
+tests/test_residual.py::test_torchscript_roundtrip
+  /root/atlas/.venv/lib/python3.12/site-packages/torch/jit/_serialization.py:176: FutureWarning: `torch.jit.load` is deprecated. Please switch to `torch.export`.
+    warnings.warn(
+
+tests/test_residual.py::test_torchscript_roundtrip
+  /root/atlas/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1006: FutureWarning: `torch.jit.trace` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_residual.py::test_torchscript_roundtrip
+  /root/atlas/.venv/lib/python3.12/site-packages/torch/jit/_trace.py:1145: FutureWarning: `torch.jit.trace_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+35 passed, 5 warnings in 6.68s

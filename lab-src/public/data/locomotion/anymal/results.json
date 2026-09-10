@@ -1,0 +1,790 @@
+{
+  "robot": "anymal",
+  "task": "Isaac-Velocity-Flat-Anymal-C-AtlasFOC-v0",
+  "policy_checkpoint": "/workspace/atlas-design-checkpoints/Isaac-Velocity-Flat-Anymal-C-v0.pt",
+  "checkpoint_sha256": "0a390f3cff1691c44d52d3fd78d6e36cad712d39c9c935a205f79173bfbac304",
+  "physics_substeps": 1,
+  "physics_dt_s": 0.005,
+  "speed_override": 1.0,
+  "push_time_s": 9.0,
+  "g1_explicit_gains": false,
+  "seed": 42,
+  "replicas_per_design": 1,
+  "seconds": 16.0,
+  "records": [
+    {
+      "design": {
+        "name": "nominal",
+        "axis": "baseline",
+        "kv_factor": 1.0,
+        "peak_current_factor": 1.0,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0
+      },
+      "groups": {
+        "legs": {
+          "name": "nominal",
+          "axis": "baseline",
+          "kv_factor": 1.0,
+          "peak_current_factor": 1.0,
+          "gear_factor": 1.0,
+          "voltage_factor": 1.0,
+          "resistance_factor": 1.0,
+          "cooling_resistance_factor": 1.0,
+          "thermal_capacity_factor": 1.0,
+          "added_mass_factor": 0.0,
+          "added_rotor_inertia_factor": 0.0,
+          "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+          "Kt_Nm_per_peak_q_A": 0.25,
+          "gear_ratio": 9.0,
+          "peak_current_A": 55.0,
+          "continuous_current_floor_A": 28.0,
+          "nominal_stall_peak_joint_Nm": 111.375,
+          "base_speed_joint_rad_s_ideal_no_field_weakening": 18.475208614068027,
+          "phase_R_ohm": 0.03,
+          "V_bus_V": 48.0,
+          "thermal_R_K_per_W": 1.8,
+          "thermal_C_J_per_K": 80.0,
+          "added_mass_per_actuator_kg": 0.0,
+          "added_motor_rotor_inertia_kg_m2": 0.0,
+          "added_joint_armature_kg_m2": 0.0
+        }
+      },
+      "total_robot_mass_kg": 48.6538200378418,
+      "added_total_mass_kg": 0.0,
+      "fraction_without_failure": 1.0,
+      "failures": 0,
+      "peak_temperature_C": 26.816509246826172,
+      "failures_per_replica": [
+        0.0
+      ],
+      "failures_mean": 0.0,
+      "timeouts_per_replica": [
+        0.0
+      ],
+      "timeouts_mean": 0.0,
+      "velocity_error_squared_per_replica": [
+        0.017655933275818825
+      ],
+      "velocity_error_squared_mean": 0.017655933275818825,
+      "tracking_score_per_replica": [
+        0.9447429180145264
+      ],
+      "tracking_score_mean": 0.9447429180145264,
+      "forward_speed_m_s_per_replica": [
+        0.9968274235725403
+      ],
+      "forward_speed_m_s_mean": 0.9968274235725403,
+      "distance_m_per_replica": [
+        15.949240684509277
+      ],
+      "distance_m_mean": 15.949240684509277,
+      "speed_on_target_per_replica": [
+        0.9649999737739563
+      ],
+      "speed_on_target_mean": 0.9649999737739563,
+      "copper_power_W_per_replica": [
+        36.52369689941406
+      ],
+      "copper_power_W_mean": 36.52369689941406,
+      "estimated_positive_motor_input_W_per_replica": [
+        141.54847717285156
+      ],
+      "estimated_positive_motor_input_W_mean": 141.54847717285156,
+      "energy_J_per_replica": [
+        2264.775146484375
+      ],
+      "energy_J_mean": 2264.775146484375,
+      "torque_shortfall_fraction_per_replica": [
+        0.0
+      ],
+      "torque_shortfall_fraction_mean": 0.0,
+      "temperature_C_per_replica": [
+        25.939165115356445
+      ],
+      "temperature_C_mean": 25.939165115356445,
+      "velocity_rmse_m_s": 0.13287563085765133,
+      "estimated_electrical_CoT": 0.29750832769310315
+    },
+    {
+      "design": {
+        "name": "gear_low",
+        "axis": "gear ratio",
+        "kv_factor": 1.0,
+        "peak_current_factor": 1.0,
+        "gear_factor": 0.6666666666666666,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0
+      },
+      "groups": {
+        "legs": {
+          "name": "gear_low",
+          "axis": "gear ratio",
+          "kv_factor": 1.0,
+          "peak_current_factor": 1.0,
+          "gear_factor": 0.6666666666666666,
+          "voltage_factor": 1.0,
+          "resistance_factor": 1.0,
+          "cooling_resistance_factor": 1.0,
+          "thermal_capacity_factor": 1.0,
+          "added_mass_factor": 0.0,
+          "added_rotor_inertia_factor": 0.0,
+          "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+          "Kt_Nm_per_peak_q_A": 0.25,
+          "gear_ratio": 6.0,
+          "peak_current_A": 55.0,
+          "continuous_current_floor_A": 28.0,
+          "nominal_stall_peak_joint_Nm": 74.25,
+          "base_speed_joint_rad_s_ideal_no_field_weakening": 27.712812921102042,
+          "phase_R_ohm": 0.03,
+          "V_bus_V": 48.0,
+          "thermal_R_K_per_W": 1.8,
+          "thermal_C_J_per_K": 80.0,
+          "added_mass_per_actuator_kg": 0.0,
+          "added_motor_rotor_inertia_kg_m2": 0.0,
+          "added_joint_armature_kg_m2": 0.0
+        }
+      },
+      "total_robot_mass_kg": 48.6538200378418,
+      "added_total_mass_kg": 0.0,
+      "fraction_without_failure": 1.0,
+      "failures": 0,
+      "peak_temperature_C": 29.145549774169922,
+      "failures_per_replica": [
+        0.0
+      ],
+      "failures_mean": 0.0,
+      "timeouts_per_replica": [
+        0.0
+      ],
+      "timeouts_mean": 0.0,
+      "velocity_error_squared_per_replica": [
+        0.0176535714417696
+      ],
+      "velocity_error_squared_mean": 0.0176535714417696,
+      "tracking_score_per_replica": [
+        0.9448671340942383
+      ],
+      "tracking_score_mean": 0.9448671340942383,
+      "forward_speed_m_s_per_replica": [
+        0.9952707290649414
+      ],
+      "forward_speed_m_s_mean": 0.9952707290649414,
+      "distance_m_per_replica": [
+        15.924330711364746
+      ],
+      "distance_m_mean": 15.924330711364746,
+      "speed_on_target_per_replica": [
+        0.9624999761581421
+      ],
+      "speed_on_target_mean": 0.9624999761581421,
+      "copper_power_W_per_replica": [
+        82.8141860961914
+      ],
+      "copper_power_W_mean": 82.8141860961914,
+      "estimated_positive_motor_input_W_per_replica": [
+        172.4093780517578
+      ],
+      "estimated_positive_motor_input_W_mean": 172.4093780517578,
+      "energy_J_per_replica": [
+        2758.5517578125
+      ],
+      "energy_J_mean": 2758.5517578125,
+      "torque_shortfall_fraction_per_replica": [
+        0.0
+      ],
+      "torque_shortfall_fraction_mean": 0.0,
+      "temperature_C_per_replica": [
+        27.134145736694336
+      ],
+      "temperature_C_mean": 27.134145736694336,
+      "velocity_rmse_m_s": 0.1328667431743911,
+      "estimated_electrical_CoT": 0.36293929960732785
+    },
+    {
+      "design": {
+        "name": "torque_low",
+        "axis": "peak current",
+        "kv_factor": 1.0,
+        "peak_current_factor": 0.67,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0
+      },
+      "groups": {
+        "legs": {
+          "name": "torque_low",
+          "axis": "peak current",
+          "kv_factor": 1.0,
+          "peak_current_factor": 0.67,
+          "gear_factor": 1.0,
+          "voltage_factor": 1.0,
+          "resistance_factor": 1.0,
+          "cooling_resistance_factor": 1.0,
+          "thermal_capacity_factor": 1.0,
+          "added_mass_factor": 0.0,
+          "added_rotor_inertia_factor": 0.0,
+          "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+          "Kt_Nm_per_peak_q_A": 0.25,
+          "gear_ratio": 9.0,
+          "peak_current_A": 36.85,
+          "continuous_current_floor_A": 28.0,
+          "nominal_stall_peak_joint_Nm": 74.62125,
+          "base_speed_joint_rad_s_ideal_no_field_weakening": 18.475208614068027,
+          "phase_R_ohm": 0.03,
+          "V_bus_V": 48.0,
+          "thermal_R_K_per_W": 1.8,
+          "thermal_C_J_per_K": 80.0,
+          "added_mass_per_actuator_kg": 0.0,
+          "added_motor_rotor_inertia_kg_m2": 0.0,
+          "added_joint_armature_kg_m2": 0.0
+        }
+      },
+      "total_robot_mass_kg": 48.6538200378418,
+      "added_total_mass_kg": 0.0,
+      "fraction_without_failure": 1.0,
+      "failures": 0,
+      "peak_temperature_C": 26.822294235229492,
+      "failures_per_replica": [
+        0.0
+      ],
+      "failures_mean": 0.0,
+      "timeouts_per_replica": [
+        0.0
+      ],
+      "timeouts_mean": 0.0,
+      "velocity_error_squared_per_replica": [
+        0.01698252372443676
+      ],
+      "velocity_error_squared_mean": 0.01698252372443676,
+      "tracking_score_per_replica": [
+        0.9469459056854248
+      ],
+      "tracking_score_mean": 0.9469459056854248,
+      "forward_speed_m_s_per_replica": [
+        0.9976550936698914
+      ],
+      "forward_speed_m_s_mean": 0.9976550936698914,
+      "distance_m_per_replica": [
+        15.962475776672363
+      ],
+      "distance_m_mean": 15.962475776672363,
+      "speed_on_target_per_replica": [
+        0.9637500047683716
+      ],
+      "speed_on_target_mean": 0.9637500047683716,
+      "copper_power_W_per_replica": [
+        36.49305725097656
+      ],
+      "copper_power_W_mean": 36.49305725097656,
+      "estimated_positive_motor_input_W_per_replica": [
+        140.74383544921875
+      ],
+      "estimated_positive_motor_input_W_mean": 140.74383544921875,
+      "energy_J_per_replica": [
+        2251.89990234375
+      ],
+      "energy_J_mean": 2251.89990234375,
+      "torque_shortfall_fraction_per_replica": [
+        0.0
+      ],
+      "torque_shortfall_fraction_mean": 0.0,
+      "temperature_C_per_replica": [
+        25.94578742980957
+      ],
+      "temperature_C_mean": 25.94578742980957,
+      "velocity_rmse_m_s": 0.13031701241371657,
+      "estimated_electrical_CoT": 0.2955717201343293
+    },
+    {
+      "design": {
+        "name": "torque_very_low",
+        "axis": "peak current stress",
+        "kv_factor": 1.0,
+        "peak_current_factor": 0.15,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0
+      },
+      "groups": {
+        "legs": {
+          "name": "torque_very_low",
+          "axis": "peak current stress",
+          "kv_factor": 1.0,
+          "peak_current_factor": 0.15,
+          "gear_factor": 1.0,
+          "voltage_factor": 1.0,
+          "resistance_factor": 1.0,
+          "cooling_resistance_factor": 1.0,
+          "thermal_capacity_factor": 1.0,
+          "added_mass_factor": 0.0,
+          "added_rotor_inertia_factor": 0.0,
+          "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+          "Kt_Nm_per_peak_q_A": 0.25,
+          "gear_ratio": 9.0,
+          "peak_current_A": 8.25,
+          "continuous_current_floor_A": 8.25,
+          "nominal_stall_peak_joint_Nm": 16.70625,
+          "base_speed_joint_rad_s_ideal_no_field_weakening": 18.475208614068027,
+          "phase_R_ohm": 0.03,
+          "V_bus_V": 48.0,
+          "thermal_R_K_per_W": 1.8,
+          "thermal_C_J_per_K": 80.0,
+          "added_mass_per_actuator_kg": 0.0,
+          "added_motor_rotor_inertia_kg_m2": 0.0,
+          "added_joint_armature_kg_m2": 0.0
+        }
+      },
+      "total_robot_mass_kg": 48.6538200378418,
+      "added_total_mass_kg": 0.0,
+      "fraction_without_failure": 0.0,
+      "failures": 35,
+      "peak_temperature_C": 25.54191017150879,
+      "failures_per_replica": [
+        35.0
+      ],
+      "failures_mean": 35.0,
+      "timeouts_per_replica": [
+        0.0
+      ],
+      "timeouts_mean": 0.0,
+      "velocity_error_squared_per_replica": [
+        0.5800429582595825
+      ],
+      "velocity_error_squared_mean": 0.5800429582595825,
+      "tracking_score_per_replica": [
+        0.14807620644569397
+      ],
+      "tracking_score_mean": 0.14807620644569397,
+      "forward_speed_m_s_per_replica": [
+        0.47385314106941223
+      ],
+      "forward_speed_m_s_mean": 0.47385314106941223,
+      "distance_m_per_replica": [
+        7.7958526611328125
+      ],
+      "distance_m_mean": 7.7958526611328125,
+      "speed_on_target_per_replica": [
+        0.19749999046325684
+      ],
+      "speed_on_target_mean": 0.19749999046325684,
+      "copper_power_W_per_replica": [
+        17.432037353515625
+      ],
+      "copper_power_W_mean": 17.432037353515625,
+      "estimated_positive_motor_input_W_per_replica": [
+        106.94973754882812
+      ],
+      "estimated_positive_motor_input_W_mean": 106.94973754882812,
+      "energy_J_per_replica": [
+        1711.1947021484375
+      ],
+      "energy_J_mean": 1711.1947021484375,
+      "torque_shortfall_fraction_per_replica": [
+        0.3317703306674957
+      ],
+      "torque_shortfall_fraction_mean": 0.3317703306674957,
+      "temperature_C_per_replica": [
+        25.27806854248047
+      ],
+      "temperature_C_mean": 25.27806854248047,
+      "velocity_rmse_m_s": 0.761605513543319,
+      "estimated_electrical_CoT": 0.45988564402771304
+    },
+    {
+      "design": {
+        "name": "kv_very_high",
+        "axis": "rewind Kv stress",
+        "kv_factor": 4.0,
+        "peak_current_factor": 1.0,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0
+      },
+      "groups": {
+        "legs": {
+          "name": "kv_very_high",
+          "axis": "rewind Kv stress",
+          "kv_factor": 4.0,
+          "peak_current_factor": 1.0,
+          "gear_factor": 1.0,
+          "voltage_factor": 1.0,
+          "resistance_factor": 1.0,
+          "cooling_resistance_factor": 1.0,
+          "thermal_capacity_factor": 1.0,
+          "added_mass_factor": 0.0,
+          "added_rotor_inertia_factor": 0.0,
+          "Kv_phase_peak_rpm_per_V": 229.1831180523293,
+          "Kt_Nm_per_peak_q_A": 0.0625,
+          "gear_ratio": 9.0,
+          "peak_current_A": 55.0,
+          "continuous_current_floor_A": 55.0,
+          "nominal_stall_peak_joint_Nm": 27.84375,
+          "base_speed_joint_rad_s_ideal_no_field_weakening": 73.90083445627211,
+          "phase_R_ohm": 0.001875,
+          "V_bus_V": 48.0,
+          "thermal_R_K_per_W": 1.8,
+          "thermal_C_J_per_K": 80.0,
+          "added_mass_per_actuator_kg": 0.0,
+          "added_motor_rotor_inertia_kg_m2": 0.0,
+          "added_joint_armature_kg_m2": 0.0
+        }
+      },
+      "total_robot_mass_kg": 48.6538200378418,
+      "added_total_mass_kg": 0.0,
+      "fraction_without_failure": 0.0,
+      "failures": 11,
+      "peak_temperature_C": 26.104328155517578,
+      "failures_per_replica": [
+        11.0
+      ],
+      "failures_mean": 11.0,
+      "timeouts_per_replica": [
+        0.0
+      ],
+      "timeouts_mean": 0.0,
+      "velocity_error_squared_per_replica": [
+        0.38675203919410706
+      ],
+      "velocity_error_squared_mean": 0.38675203919410706,
+      "tracking_score_per_replica": [
+        0.2692672312259674
+      ],
+      "tracking_score_mean": 0.2692672312259674,
+      "forward_speed_m_s_per_replica": [
+        0.47019824385643005
+      ],
+      "forward_speed_m_s_mean": 0.47019824385643005,
+      "distance_m_per_replica": [
+        7.524280071258545
+      ],
+      "distance_m_mean": 7.524280071258545,
+      "speed_on_target_per_replica": [
+        0.027499999850988388
+      ],
+      "speed_on_target_mean": 0.027499999850988388,
+      "copper_power_W_per_replica": [
+        40.875144958496094
+      ],
+      "copper_power_W_mean": 40.875144958496094,
+      "estimated_positive_motor_input_W_per_replica": [
+        259.1929016113281
+      ],
+      "estimated_positive_motor_input_W_mean": 259.1929016113281,
+      "energy_J_per_replica": [
+        4147.08642578125
+      ],
+      "energy_J_mean": 4147.08642578125,
+      "torque_shortfall_fraction_per_replica": [
+        0.27635422348976135
+      ],
+      "torque_shortfall_fraction_mean": 0.27635422348976135,
+      "temperature_C_per_replica": [
+        25.570228576660156
+      ],
+      "temperature_C_mean": 25.570228576660156,
+      "velocity_rmse_m_s": 0.6218939131347943,
+      "estimated_electrical_CoT": 1.154761196331702
+    }
+  ],
+  "time_samples": [
+    {
+      "failures": [
+        0.0,
+        0.0,
+        0.0,
+        10.0,
+        3.0
+      ],
+      "timeouts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "velocity_error_squared": [
+        0.032396916300058365,
+        0.03317493945360184,
+        0.032461706548929214,
+        0.5990420579910278,
+        0.4116142690181732
+      ],
+      "tracking_score": [
+        0.913156270980835,
+        0.910264790058136,
+        0.912927508354187,
+        0.1429339051246643,
+        0.2339049130678177
+      ],
+      "forward_speed_m_s": [
+        0.9548153281211853,
+        0.9564738869667053,
+        0.9554079174995422,
+        0.45087292790412903,
+        0.4366183578968048
+      ],
+      "distance_m": [
+        4.774075031280518,
+        4.782369613647461,
+        4.777040481567383,
+        2.332778215408325,
+        2.184020519256592
+      ],
+      "speed_on_target": [
+        0.8880000710487366,
+        0.8840000629425049,
+        0.8840000629425049,
+        0.17600001394748688,
+        0.0
+      ],
+      "copper_power_W": [
+        37.44049835205078,
+        85.3084487915039,
+        37.582576751708984,
+        17.489896774291992,
+        41.13808822631836
+      ],
+      "estimated_positive_motor_input_W": [
+        145.40255737304688,
+        178.15509033203125,
+        145.6729278564453,
+        110.08056640625,
+        267.88970947265625
+      ],
+      "energy_J": [
+        727.0131225585938,
+        890.7752075195312,
+        728.364501953125,
+        550.4027709960938,
+        1339.448974609375
+      ],
+      "torque_shortfall_fraction": [
+        0.0,
+        0.0,
+        0.0,
+        0.33466672897338867,
+        0.2873331308364868
+      ],
+      "temperature_C": [
+        25.320789337158203,
+        25.723373413085938,
+        25.325172424316406,
+        25.09111213684082,
+        25.185287475585938
+      ],
+      "time_s": 5.0
+    },
+    {
+      "failures": [
+        0.0,
+        0.0,
+        0.0,
+        11.0,
+        3.0
+      ],
+      "timeouts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "velocity_error_squared": [
+        0.014447779394686222,
+        0.014112550765275955,
+        0.0122225945815444,
+        0.5716629028320312,
+        0.35488396883010864
+      ],
+      "tracking_score": [
+        0.9473018050193787,
+        0.9489102363586426,
+        0.9545906782150269,
+        0.1499462127685547,
+        0.30537956953048706
+      ],
+      "forward_speed_m_s": [
+        1.0161340236663818,
+        1.014303207397461,
+        1.0173745155334473,
+        0.4773660898208618,
+        0.49345195293426514
+      ],
+      "distance_m": [
+        5.080669403076172,
+        5.071516036987305,
+        5.086872577667236,
+        2.446571111679077,
+        2.467442035675049
+      ],
+      "speed_on_target": [
+        1.0,
+        0.9960000514984131,
+        1.0,
+        0.20000000298023224,
+        0.06000000238418579
+      ],
+      "copper_power_W": [
+        36.09400939941406,
+        81.91626739501953,
+        35.90184783935547,
+        17.44247817993164,
+        42.57876205444336
+      ],
+      "estimated_positive_motor_input_W": [
+        141.27877807617188,
+        170.98300170898438,
+        137.60977172851562,
+        105.18771362304688,
+        266.1426086425781
+      ],
+      "energy_J": [
+        706.393798828125,
+        854.9148559570312,
+        688.0491333007812,
+        525.938232421875,
+        1330.7125244140625
+      ],
+      "torque_shortfall_fraction": [
+        0.0,
+        0.0,
+        0.0,
+        0.33299997448921204,
+        0.2809999883174896
+      ],
+      "temperature_C": [
+        25.88833236694336,
+        27.020069122314453,
+        25.897113800048828,
+        25.263269424438477,
+        25.545696258544922
+      ],
+      "time_s": 10.0
+    },
+    {
+      "failures": [
+        0.0,
+        0.0,
+        0.0,
+        11.0,
+        4.0
+      ],
+      "timeouts": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "velocity_error_squared": [
+        0.007743509486317635,
+        0.007537411991506815,
+        0.007845019921660423,
+        0.5913751125335693,
+        0.3814662992954254
+      ],
+      "tracking_score": [
+        0.9700733423233032,
+        0.9708342552185059,
+        0.9696865677833557,
+        0.14590658247470856,
+        0.27756261825561523
+      ],
+      "forward_speed_m_s": [
+        1.013717770576477,
+        1.0101052522659302,
+        1.0142427682876587,
+        0.4699142575263977,
+        0.48941561579704285
+      ],
+      "distance_m": [
+        5.0685882568359375,
+        5.0505266189575195,
+        5.07121467590332,
+        2.425612688064575,
+        2.4470784664154053
+      ],
+      "speed_on_target": [
+        1.0,
+        1.0,
+        1.0,
+        0.19600000977516174,
+        0.02800000086426735
+      ],
+      "copper_power_W": [
+        36.29552459716797,
+        82.11216735839844,
+        36.27714157104492,
+        17.474748611450195,
+        38.71582794189453
+      ],
+      "estimated_positive_motor_input_W": [
+        138.48316955566406,
+        168.98690795898438,
+        139.04263305664062,
+        110.25737762451172,
+        250.26596069335938
+      ],
+      "energy_J": [
+        692.4157104492188,
+        844.9345092773438,
+        695.2131958007812,
+        551.28662109375,
+        1251.330078125
+      ],
+      "torque_shortfall_fraction": [
+        0.0,
+        0.0,
+        0.0,
+        0.3310001492500305,
+        0.2570001482963562
+      ],
+      "temperature_C": [
+        26.442214965820312,
+        28.280357360839844,
+        26.449119567871094,
+        25.430055618286133,
+        25.876888275146484
+      ],
+      "time_s": 15.0
+    }
+  ],
+  "carrier_mapping": {
+    "LF_HAA": "base",
+    "LH_HAA": "base",
+    "RF_HAA": "base",
+    "RH_HAA": "base",
+    "LF_HFE": "LF_HIP",
+    "LF_KFE": "LF_THIGH",
+    "LH_HFE": "LH_HIP",
+    "LH_KFE": "LH_THIGH",
+    "RF_HFE": "RF_HIP",
+    "RF_KFE": "RF_THIGH",
+    "RH_HFE": "RH_HIP",
+    "RH_KFE": "RH_THIGH"
+  },
+  "extension_path": "/workspace/atlas-g1-gait-20260910/atlas_actuators_ext/atlas_actuators/__init__.py",
+  "protocol": "Fixed policy; paired startup mass/inertia/COM/friction/gains; observation noise and unrelated pushes disabled. Normal episode resets remain. Locomotion commands 0.5 m/s for 20s, 2 m/s for 20s, then 1 m/s. Physical local-y force pulse at 45s for 0.2s. Allegro uses paired seeded orientation goal sequences consumed on success/reset. Added actuator housing mass is placed at parent-link COM with spherical-equivalent inertia. Added rotor inertia is reflected by gear ratio squared. Existing asset motor mass/inertia are not subtracted. Electrical power is a control-rate estimate from motor shaft power and copper loss, excluding auxiliary loads. Kv is phase-peak back-EMF rpm/V, not an unverified catalog convention. Hypothetical design sensitivities, not hardware validation."
+}
