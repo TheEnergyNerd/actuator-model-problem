@@ -1,0 +1,32 @@
+{
+  "rigid": {
+    "passed": true,
+    "reasons": [],
+    "contact_fraction": {
+      "left": 1.0,
+      "right": 1.0
+    },
+    "max_position_error_m": 0.0023175733410016478,
+    "max_rotation_error_deg": 1.2878890359892121,
+    "source_sha256": {
+      "poses.bin": "5c23c059c4f9476388ed59df73759827d57ab9c897a95246acf93379868a7922",
+      "telemetry.json": "1a1e46dbbfc0307789a5e920db5a5ca2de95e05d3c84706272f3f084412a799f",
+      "result.json": "d3a90fee4c34c53fb2f7ecbdea040dc21ed8b53bbbc489c82dd3dfcf421dec84"
+    }
+  },
+  "articulated": {
+    "passed": true,
+    "reasons": [],
+    "contact_fraction": {
+      "left": 1.0,
+      "right": 1.0
+    },
+    "max_position_error_m": 0.0023945575336247376,
+    "max_rotation_error_deg": 1.6840503845158017,
+    "source_sha256": {
+      "poses.bin": "b4b460fe32d1731262c3599c944656564cecbabf8d5422b7dbcbdc46f5c8a519",
+      "telemetry.json": "a55b55ebc03d3da3f571dcbd91001c310d66d75661bc3ebbe22fc13e04de38bf",
+      "result.json": "092f0220b5648ff3f53012111614bc00c943b849fa8da349de010ed0e533a6b1"
+    }
+  }
+}

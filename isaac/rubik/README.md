@@ -99,3 +99,25 @@ live capture instead. Keep video and replay from the same run.
 - Reference fixed scramble: `R U F' L2 D B R' U2 F D'`.
   Its inverse is `D F' U2 R B' D' L2 F U' R'`.
   Verifying this algebra is not a physical manipulation result.
+
+## Isolate grasping from face turning
+
+```sh
+./isaaclab.sh -p /workspace/atlas-rubik/bimanual.py --headless --device cpu \
+  --hold-only --closure .009 --support-closure .009 --contact-profile rigid \
+  --duration 10 --output /workspace/atlas-rubik/new-hold
+```
+
+Add `--locked-cube` for a single rigid body with identical exterior geometry,
+aggregate mass and inertia. The world support is still removed; only the
+internal mechanism is locked. This mode cannot be used for a face-turn task.
+The hold validator requires a continuous unsupported interval, small core
+motion, connected anchors, sustained contact from both hands, and actuator
+headroom. Missing/non-finite measurements and early termination fail.
+
+`screen_support.py --output /path/to/candidates.json` performs a conservative
+static convex-hull screen. It needs usd-core, NumPy and SciPy and does not
+run a simulator. `--third-support --support-finger ring_finger --support-point
+-.024 0 -.012 --prepared-support` selects the tested experimental prepared
+ring contact in the bimanual runner. That turn **failed**; a clear final robot
+pose is not proof of a collision-free approach or a useful grasp.

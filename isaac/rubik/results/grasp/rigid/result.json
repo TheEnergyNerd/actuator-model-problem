@@ -1,0 +1,100 @@
+{
+  "task": "Unsupported stationary grasp",
+  "engine": "Isaac Lab / PhysX",
+  "fixture": false,
+  "locked_cube": true,
+  "grasp_validation": {
+    "passed": true,
+    "reasons": [],
+    "contact_fraction": {
+      "left": 1.0,
+      "right": 1.0
+    },
+    "max_position_error_m": 0.0023175733410016478,
+    "max_rotation_error_deg": 1.2878890359892121
+  },
+  "initial_fixture_seconds": 2.0,
+  "cube_actuators": 0,
+  "contact_model": {
+    "profile": "rigid",
+    "colliders": 21,
+    "native_collision_exclusions": 10,
+    "static_friction": 2.0,
+    "dynamic_friction": 1.5,
+    "friction_combine": "max",
+    "contact_offset_m": 0.0002,
+    "torsional_patch_radius_m": 0.004,
+    "minimum_torsional_patch_radius_m": 0.002,
+    "pad_stiffness_n_m": 0.0,
+    "pad_damping_ns_m": 0.0
+  },
+  "cube_state_writes_during_rollout": 0,
+  "frames": 500,
+  "bodies": 53,
+  "fps": 50,
+  "duration": 9.98,
+  "physics_dt_s": 0.001,
+  "passed": true,
+  "configuration": {
+    "output": "/workspace/atlas-rubik/hold-rigid-02",
+    "video": false,
+    "closure": 0.009,
+    "support_closure": 0.009,
+    "fixture_warmup": 2.0,
+    "third_support": false,
+    "hold_only": true,
+    "locked_cube": true,
+    "duration": 10.0,
+    "contact_profile": "rigid",
+    "device": "cpu",
+    "cpu": false,
+    "verbose": false,
+    "info": false,
+    "rendering_mode": null,
+    "kit_args": "",
+    "headless": true,
+    "hide_ui": true,
+    "create_new_stage": false,
+    "physics_gpu": 0,
+    "active_gpu": 0
+  },
+  "final": {
+    "t": 9.98,
+    "net_hand_contact_n": {
+      "left": 5.297929763793945,
+      "right": 5.821145534515381
+    },
+    "contact_loads_n": {
+      "left": [
+        5.297929763793945
+      ],
+      "right": [
+        5.821145534515381
+      ]
+    },
+    "core_euler_deg": [
+      54.83643678962259,
+      2.0332411637250365,
+      -49.35959948169718
+    ],
+    "core_rotation_error_deg": 1.1931763561472206,
+    "phase": "Free grasp",
+    "move": "U",
+    "decoded": {
+      "aligned": null,
+      "solved": null,
+      "facelets": null
+    },
+    "anchors_connected": true,
+    "max_anchor_error_m": 0.0,
+    "expected_facelets": "UUUUUUUUURRRRRRRRRFFFFFFFFFDDDDDDDDDLLLLLLLLLBBBBBBBBB",
+    "max_target_error_deg": 0.0,
+    "cube": [
+      0.00022952993458602577,
+      0.0016383867477998137,
+      0.5003119111061096
+    ],
+    "core_position_error_m": 0.0016835330897703323,
+    "joint_torque_max_nm": 0.1979394108057022
+  }
+}

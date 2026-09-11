@@ -81,3 +81,40 @@ adding a fingertip target can introduce self-collision, as bimanual19 shows.
 
 The next substantive requirement is a collision-aware supporting grasp and
 turn control that generalizes across all faces in a full sequence. Existing failed trials must remain marked failed.
+
+## Unsupported grasp diagnosis
+
+The new stationary test holds the wrist targets in world coordinates. After
+2 seconds the temporary core fixture is disabled, and the hands must support
+the object for the remainder of a 10-second recording. With 9 mm commanded
+closure on both hands and the explicit rigid contact profile, both cases pass:
+
+| Case | Unsupported interval | Maximum core drift | Maximum core rotation |
+| --- | --- | --- | --- |
+| Single rigid body, same exterior geometry and aggregate mass/inertia | 7.98 s | 2.318 mm | 1.288° |
+| Articulated cube | 7.98 s | 2.395 mm | 1.684° |
+
+Both hands maintain measured cube contact throughout the sampled unsupported
+intervals. Independent pose checks and the recorded data are in
+`results/grasp/`. These are stationary grasp results, not face turns.
+
+A first rigid control assembled with 26 fixed joints became numerically
+unstable after support removal. It was rejected as a control model and
+replaced with one rigid body carrying the 26 collision shapes. That body has
+the same 93 g aggregate mass and inertia computed by the parallel-axis rule;
+its internal faces cannot move. No inference about hand quality uses the
+rejected welded-joint run.
+
+The same two-finger-per-hand grasp failed a free U turn: the core rolled and
+the cube dropped at 7.40 s. A prepared ring-finger contact on the supporting
+hand kept the cube in the workspace for 11.98 s but produced large contact
+loads and failed the face turn. Neither result is promoted to the browser.
+
+`screen_support.py` screens native collision-mesh convex hulls against other
+hand links. It finds several non-overlapping prepared finger poses, but the
+straight interpolation from the parked finger crosses the index finger.
+The ring test therefore initializes a prepared pose explicitly. This screen
+does not check cube contact feasibility, certify a continuous approach, or
+establish force closure. Its limitations are visible in the failed ring test.
+The unresolved work is supporting rotational load without obstructing face
+motion, together with improving/calibrating the articulated mechanism.

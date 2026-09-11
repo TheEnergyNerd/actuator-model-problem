@@ -14,13 +14,25 @@ from contact_model import configure_hand_contacts
 
 
 class MountedHand:
-    def __init__(self, stage, side, layer, frame, closure, cube_pos=(0, 0, 0.5)):
+    def __init__(
+        self,
+        stage,
+        side,
+        layer,
+        frame,
+        closure,
+        cube_pos=(0, 0, 0.5),
+        contact_profile="pad",
+        initial_joints=None,
+    ):
         self.hand = Hand(side, layer)
         self.frame = frame
         self.q, self.ik_error = self.hand.grasp(closure)
         if side == "left":
             for finger in ("middle_finger", "ring_finger", "pinky"):
                 self.q[f"l_{finger}_mcp_flex"] = -0.65
+        if initial_joints:
+            self.q.update(initial_joints)
         self.pos, self.rot = self.hand.wrist_pose(cube_pos, frame)
         self.quat = Rotation.from_matrix(self.rot).as_quat()[[3, 0, 1, 2]]
         self.path = "/World/" + side.title() + "Hand"
@@ -75,7 +87,9 @@ class MountedHand:
                     float(np.rad2deg(self.q.get(prim.GetName(), 0.0)))
                 )
                 state.CreateVelocityAttr(0.0)
-        self.contact_model = configure_hand_contacts(stage, self.path, profile="pad")
+        self.contact_model = configure_hand_contacts(
+            stage, self.path, profile=contact_profile
+        )
 
     def initialize(self, device):
         self.robot.reset()

@@ -16,7 +16,9 @@ COLORS = [
 ]
 
 
-def make_cube(stage, center=(0, 0, 0.5), fixture=True, scramble="", orientation=None):
+def make_cube(
+    stage, center=(0, 0, 0.5), fixture=True, scramble="", orientation=None, locked=False
+):
     frame = np.eye(3) if orientation is None else np.asarray(orientation)
     initial = state_after(scramble)
     root = "/World/Cube"
@@ -28,26 +30,32 @@ def make_cube(stage, center=(0, 0, 0.5), fixture=True, scramble="", orientation=
     physics.CreateRestitutionAttr(0.0)
     names = ["core"] + [f"cubie_{i:02d}" for i in range(26)]
     for i, name in enumerate(names):
-        path = root + "/" + name
+        path = root + ("/core/" if locked and i else "/") + name
         body = UsdGeom.Xform.Define(stage, path)
-        body.AddTranslateOp().Set(Gf.Vec3d(*center))
+        body.AddTranslateOp().Set(Gf.Vec3d(*((0, 0, 0) if locked and i else center)))
         q = (
             Rotation.from_matrix(frame).as_quat()
             if i == 0
-            else Rotation.from_matrix(frame @ initial[i - 1]).as_quat()
+            else Rotation.from_matrix(
+                initial[i - 1] if locked else frame @ initial[i - 1]
+            ).as_quat()
         )
         body.AddOrientOp().Set(Gf.Quatf(float(q[3]), Gf.Vec3f(*q[:3])))
-        UsdPhysics.RigidBodyAPI.Apply(body.GetPrim())
-        PhysxSchema.PhysxContactReportAPI.Apply(body.GetPrim()).CreateThresholdAttr(0.0)
-        phys = PhysxSchema.PhysxRigidBodyAPI.Apply(body.GetPrim())
-        phys.CreateSolverPositionIterationCountAttr(32)
-        phys.CreateSolverVelocityIterationCountAttr(8)
-        phys.CreateMaxDepenetrationVelocityAttr(0.2)
-        mass = UsdPhysics.MassAPI.Apply(body.GetPrim())
-        mass.CreateMassAttr(0.015 if i == 0 else 0.003)
         coord = np.zeros(3) if i == 0 else COORDS[i - 1] * PITCH
-        mass.CreateCenterOfMassAttr(Gf.Vec3f(*coord))
-        mass.CreateDiagonalInertiaAttr(Gf.Vec3f(*([2e-7] * 3)))
+        if not locked or i == 0:
+            UsdPhysics.RigidBodyAPI.Apply(body.GetPrim())
+            PhysxSchema.PhysxContactReportAPI.Apply(body.GetPrim()).CreateThresholdAttr(
+                0.0
+            )
+            phys = PhysxSchema.PhysxRigidBodyAPI.Apply(body.GetPrim())
+            phys.CreateSolverPositionIterationCountAttr(32)
+            phys.CreateSolverVelocityIterationCountAttr(8)
+            phys.CreateMaxDepenetrationVelocityAttr(0.2)
+            mass = UsdPhysics.MassAPI.Apply(body.GetPrim())
+            mass.CreateMassAttr(0.093 if locked else 0.015 if i == 0 else 0.003)
+            mass.CreateCenterOfMassAttr(Gf.Vec3f(*coord))
+            inertia = 27 * 2e-7 + 36 * 0.003 * PITCH**2 if locked else 2e-7
+            mass.CreateDiagonalInertiaAttr(Gf.Vec3f(*([inertia] * 3)))
         if i == 0:
             continue
         shape = UsdGeom.Cube.Define(stage, path + "/plastic")
@@ -73,6 +81,8 @@ def make_cube(stage, center=(0, 0, 0.5), fixture=True, scramble="", orientation=
             size[np.argmax(abs(n))] = 0.00015
             sticker.AddScaleOp().Set(Gf.Vec3f(*size))
             sticker.CreateDisplayColorAttr([Gf.Vec3f(*COLORS[f])])
+        if locked:
+            continue
         jp = root + f"/joint_{i-1:02d}"
         if np.count_nonzero(c) == 1:
             joint = UsdPhysics.RevoluteJoint.Define(stage, jp)
@@ -90,4 +100,4 @@ def make_cube(stage, center=(0, 0, 0.5), fixture=True, scramble="", orientation=
         joint.CreateLocalPos0Attr(Gf.Vec3f(*center))
         fq = Rotation.from_matrix(frame).as_quat()
         joint.CreateLocalRot0Attr(Gf.Quatf(float(fq[3]), Gf.Vec3f(*fq[:3])))
-    return names
+    return ["core"] if locked else names

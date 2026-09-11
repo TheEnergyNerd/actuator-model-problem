@@ -11,8 +11,25 @@ p.add_argument("--closure", type=float, default=0.004)
 p.add_argument("--support-closure", type=float, default=0.012)
 p.add_argument("--fixture-warmup", type=float, default=2.0)
 p.add_argument("--third-support", action="store_true")
+p.add_argument("--prepared-support", action="store_true")
+p.add_argument(
+    "--support-finger",
+    choices=("middle_finger", "ring_finger", "pinky"),
+    default="middle_finger",
+)
+p.add_argument("--support-point", type=float, nargs=3, default=(0, 0.015, -0.025))
+p.add_argument("--hold-only", action="store_true")
+p.add_argument("--locked-cube", action="store_true")
+p.add_argument("--duration", type=float, default=10.0)
+p.add_argument("--contact-profile", choices=("stock", "rigid", "pad"), default="pad")
 AppLauncher.add_app_launcher_args(p)
 a = p.parse_args()
+if a.prepared_support and not a.third_support:
+    p.error("--prepared-support requires --third-support")
+if a.locked_cube and not a.hold_only:
+    p.error("A locked cube is only a grasp diagnostic; use --hold-only")
+if a.duration < a.fixture_warmup + 5:
+    p.error("Record at least five seconds after fixture release")
 a.enable_cameras = a.video
 app = AppLauncher(a).app
 import numpy as np, torch
@@ -26,8 +43,10 @@ from isaaclab.assets import (
 )
 from isaaclab.utils.math import matrix_from_quat
 from native_hand import MountedHand
+from wuji_kinematics import Hand
 from passive import local_torques
 from validation import measure_cube, stable_match
+from grasp_validation import evaluate_hold
 from cube_scene import make_cube
 from cube_state import decode, state_after
 from export_replay import export_geometry
@@ -61,7 +80,11 @@ def main():
     Sl = np.array(grasp_config["Sl"])
     Sr = np.array(grasp_config["Sr"])
     names = make_cube(
-        stage, fixture=a.fixture_warmup > 0, scramble="U'", orientation=reference_R
+        stage,
+        fixture=a.fixture_warmup > 0,
+        scramble="U'",
+        orientation=reference_R,
+        locked=a.locked_cube,
     )
     cube = RigidObjectCollection(
         RigidObjectCollectionCfg(
@@ -71,12 +94,23 @@ def main():
             }
         )
     )
+    support = {}
+    if a.third_support:
+        support, error = Hand("left", 0).support_finger(
+            a.support_finger,
+            reference_R @ np.array(a.support_point),
+            reference_R @ Sl,
+        )
+        if error > 0.0001:
+            raise ValueError("Support fingertip IK cannot reach the requested point")
     left = MountedHand(
         stage,
         "left",
         0.0,
         reference_R @ Sl,
         min(0.003, a.support_closure),
+        contact_profile=a.contact_profile,
+        initial_joints=support if a.prepared_support else None,
     )
     right_frame = reference_R @ Sr
     right_origin = np.array([0, 0, 0.5]) + 0.01905 * (
@@ -89,17 +123,11 @@ def main():
         right_frame,
         min(0.003, a.closure),
         cube_pos=right_origin,
+        contact_profile=a.contact_profile,
     )
     hands = [left, right]
     left_goal = left.q | left.hand.grasp(a.support_closure)[0]
     if a.third_support:
-        support, error = left.hand.support_finger(
-            "middle_finger",
-            reference_R @ np.array([0, 0.015, -0.025]),
-            reference_R @ Sl,
-        )
-        if error > 0.0001:
-            raise ValueError("Support fingertip IK cannot reach the requested point")
         left_goal.update(support)
     right_goal = right.q | right.hand.grasp(a.closure)[0]
     camera = None
@@ -127,7 +155,9 @@ def main():
     contact_views = [
         h.robot._physics_sim_view.create_rigid_contact_view(
             h.path + "/" + h.hand.prefix + "*",
-            filter_patterns=["/World/Cube/" + n for n in names[1:]],
+            filter_patterns=[
+                "/World/Cube/" + n for n in (names if a.locked_cube else names[1:])
+            ],
         )
         for h in hands
     ]
@@ -144,13 +174,14 @@ def main():
         dtype=torch.float,
     )
     initial[:, :, 7:] = 0
-    initial[0, 1:, 3:7] = torch.tensor(
-        Rotation.from_matrix(reference_R @ state_after("U'")).as_quat()[
-            :, [3, 0, 1, 2]
-        ],
-        device=sim.device,
-        dtype=torch.float,
-    )
+    if not a.locked_cube:
+        initial[0, 1:, 3:7] = torch.tensor(
+            Rotation.from_matrix(reference_R @ state_after("U'")).as_quat()[
+                :, [3, 0, 1, 2]
+            ],
+            device=sim.device,
+            dtype=torch.float,
+        )
     cube.write_object_state_to_sim(initial)
     allnames = names + left.robot.body_names + right.robot.body_names
     export_geometry(stage, allnames, a.output)
@@ -166,15 +197,17 @@ def main():
         )
     records = []
     samples = []
+    expected_state = state_after("U'" if a.hold_only else "")
     device = sim.device
-    for step in range(9000):
+    turn_start = a.fixture_warmup + 1.5
+    for step in range(round(a.duration / 0.001)):
         if a.fixture_warmup > 0 and step == round(a.fixture_warmup / 0.001):
             UsdPhysics.Joint(
                 stage.GetPrimAtPath("/World/Cube/fixture")
             ).GetJointEnabledAttr().Set(False)
             print("FIXTURE RELEASED", flush=True)
         t = step * 0.001
-        u = np.clip((t - 2.5) / 4, 0, 1)
+        u = 0.0 if a.hold_only else np.clip((t - turn_start) / 4, 0, 1)
         angle = -np.pi / 2 * u * u * (3 - 2 * u)
         core_pose = cube.data.object_state_w[0, 0, :7].cpu().numpy()
         core_rotation = Rotation.from_quat(core_pose[[4, 5, 6, 3]]).as_matrix()
@@ -194,12 +227,18 @@ def main():
         virtual_center = core_pose[:3] + 0.01905 * (
             core_rotation[:, 2] - right_frame[:, 2]
         )
+        if a.hold_only:
+            right_frame, virtual_center = reference_R @ Sr, right_origin
         right.command(
             right_frame, joints=close(right, right_goal), cube_pos=virtual_center
         )
         states = cube.data.object_state_w
         rots = matrix_from_quat(states[0, :, 3:7])
-        local = local_torques(rots, states[0, :, 10:13])[None]
+        local = (
+            torch.zeros((1, len(names), 3), device=device)
+            if a.locked_cube
+            else local_torques(rots, states[0, :, 10:13])[None]
+        )
         cube.set_external_force_and_torque(torch.zeros_like(local), local)
         cube.write_data_to_sim()
         sim.step(render=a.video and step % 20 == 0)
@@ -210,8 +249,20 @@ def main():
             s = cube.data.object_state_w[0].cpu().numpy()
             r = Rotation.from_quat(s[:, [4, 5, 6, 3]]).as_matrix()
             rel = r[0].T @ r[1:]
-            decoded = decode(rel)
-            errors = Rotation.from_matrix(rel).magnitude() * 180 / np.pi
+            decoded = (
+                decode(rel)
+                if not a.locked_cube
+                else dict(aligned=None, solved=None, facelets=None)
+            )
+            errors = (
+                Rotation.from_matrix(
+                    rel @ expected_state.transpose(0, 2, 1)
+                ).magnitude()
+                * 180
+                / np.pi
+                if not a.locked_cube
+                else np.array([0.0])
+            )
             samples.append(
                 dict(
                     t=round(t, 3),
@@ -232,16 +283,33 @@ def main():
                     core_euler_deg=Rotation.from_matrix(r[0])
                     .as_euler("xyz", degrees=True)
                     .tolist(),
+                    core_rotation_error_deg=float(
+                        np.rad2deg(
+                            Rotation.from_matrix(r[0] @ reference_R.T).magnitude()
+                        )
+                    ),
                     phase=(
                         "Prepare grasp"
                         if t < a.fixture_warmup
                         else (
-                            "Free grasp" if t < 2.5 else "Turn" if t < 6.5 else "Verify"
+                            "Free grasp"
+                            if a.hold_only or t < turn_start
+                            else "Turn" if t < turn_start + 4 else "Verify"
                         )
                     ),
-                    move="U",
-                    **measure_cube(s),
-                    expected_facelets=decode(state_after(""))["facelets"],
+                    move="Hold" if a.hold_only else "U",
+                    **(
+                        measure_cube(s)
+                        if not a.locked_cube
+                        else dict(
+                            decoded=decoded,
+                            anchors_connected=True,
+                            max_anchor_error_m=0.0,
+                        )
+                    ),
+                    expected_facelets=(
+                        None if a.locked_cube else decode(expected_state)["facelets"]
+                    ),
                     max_target_error_deg=float(errors.max()),
                     cube=s[0, :3].tolist(),
                     core_position_error_m=float(np.linalg.norm(s[0, :3] - [0, 0, 0.5])),
@@ -270,10 +338,19 @@ def main():
         a.output / "poses.npz", states=np.array(records), names=np.array(allnames)
     )
     (a.output / "telemetry.json").write_text(json.dumps(samples))
+    hold_result = (
+        evaluate_hold(samples, a.fixture_warmup, a.duration) if a.hold_only else None
+    )
     result = dict(
-        task="Bimanual U inverse solve",
+        task=(
+            "Unsupported stationary grasp"
+            if a.hold_only
+            else "Bimanual U inverse solve"
+        ),
         engine="Isaac Lab / PhysX",
         fixture=False,
+        locked_cube=a.locked_cube,
+        grasp_validation=hold_result,
         initial_fixture_seconds=a.fixture_warmup,
         cube_actuators=0,
         contact_model=right.contact_model,
@@ -283,9 +360,13 @@ def main():
         fps=50,
         duration=(len(records) - 1) * 0.02,
         physics_dt_s=0.001,
-        passed=bool(
-            stable_match(samples, decode(state_after(""))["facelets"])
-            and samples[-1]["core_position_error_m"] < 0.02
+        passed=(
+            hold_result["passed"]
+            if a.hold_only
+            else bool(
+                stable_match(samples, decode(state_after(""))["facelets"])
+                and samples[-1]["core_position_error_m"] < 0.02
+            )
         ),
         configuration=vars(a),
         final=samples[-1],
