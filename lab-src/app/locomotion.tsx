@@ -64,8 +64,8 @@ export function SyncedVideo({
     const sync = () => {
       const v = ref.current,
         c = clock.current;
-      if (v && v.readyState >= 2) {
-        if (Math.abs(v.currentTime - c.time) > 0.12) v.currentTime = c.time;
+      if (v && v.readyState >= 1) {
+        if (!v.seeking && Math.abs(v.currentTime - c.time) > 0.12) v.currentTime = c.time;
         v.playbackRate = c.speed;
         if (c.playing && v.paused) void v.play().catch(() => {});
         if (!c.playing && !v.paused) v.pause();

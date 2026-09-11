@@ -11,7 +11,7 @@ The agreed scope includes all three tracks below, plus actuator design optimizat
 
 ## Current evidence
 
-Flat-ground ANYmal/G1 and Allegro recordings already exist. Wuji supports an independently checked unsupported stationary hold; free cube turning still fails. The fixed-core quarter-turn recording is a separate fixture experiment. None of these results establish parkour, tool use or assembly performance.
+Flat-ground ANYmal/G1 and Allegro recordings already exist. Wuji supports an independently checked unsupported stationary hold; one free-cube quarter-turn now passes independent pose validation, while multi-face sequences fail. The fixed-core quarter-turn recording is a separate fixture experiment. None of these results establish parkour, tool use or assembly performance.
 
 `smoke.py` checks native task creation, reset and finite stepping on the installed Isaac Lab version. Zero actions are deliberately labelled as an infrastructure test. A passing smoke test does not validate a policy, obstacle course or assembly operation. It records all early terminations and never assigns task success.
 
@@ -48,7 +48,7 @@ The stock-policy pilot ran eight environments for 20 seconds each on seed 201, w
 
 The fixed-policy Atlas transfer pilot also completed. It recorded one failure termination, versus zero for stock, and mean per-environment planar tracking error of 0.167 m/s versus 0.118 m/s. The Atlas run changes the native learned ANYdrive actuator model to explicit FOC dynamics with PD gains; this is not an isolated Kv or gearing intervention. Native heading feedback produces different yaw commands as trajectories diverge. Planar commands first diverged at 5.86 seconds after the Atlas failure/reset. Do not treat the aggregate as a fully paired causal hardware estimate.
 
-Both pilots retain all 1,000 measured frames for eight robots (17 bodies each) in `results/anymal-stock` and `results/anymal-atlas`, with telemetry, result metadata and SHA256 manifests. Pose shape, finiteness, quaternion norms, 50 Hz timestamps and termination counts were independently checked. Terrain meshes and synchronized video are not exported by this evaluator, so these files are not yet browser demonstrations.
+Both pilots retain all 1,000 measured frames for eight robots (17 bodies each) in `results/anymal-stock` and `results/anymal-atlas`, with telemetry, result metadata and SHA256 manifests. Pose shape, finiteness, quaternion norms, 50 Hz timestamps and termination counts were independently checked. The current evaluator additionally exports native terrain meshes, body poses and synchronized Isaac renders with `--record`; the browser includes environment 0 of the stock pilot.
 
 ```bash
 "$ISAACLAB/isaaclab.sh" -p isaac/suite/eval_anymal.py --headless --device cuda:0 \
@@ -59,7 +59,7 @@ PYTHONPATH=isaac/precision/atlas_actuators_ext "$ISAACLAB/isaaclab.sh" \
   --checkpoint /path/to/checkpoint.pt --output /path/to/new-atlas-baseline
 ```
 
-The native Factory checkpoint URLs constructed by the installed Isaac Lab helper returned HTTP 404 for all three assembly tasks. This does not prove no compatible checkpoint exists elsewhere; no assembly policy is currently loaded in this project.
+The native Factory checkpoint URLs constructed by the installed Isaac Lab helper returned HTTP 404 for all three assembly tasks. This does not prove no compatible checkpoint exists elsewhere; we trained a native peg-insertion policy locally on RunPod. A development checkpoint passed sustained insertion in 42/48 trials (seed 201, 16 environments, three episodes). See `results/peg-pilot/result.json`; this retains native prepared grasps and does not establish gear-meshing or nut-threading competence.
 
 ## Shared experiment protocol
 
@@ -71,3 +71,23 @@ The native Factory checkpoint URLs constructed by the installed Isaac Lab helper
 6. Optimize only after this evaluation is reliable. Keep real mass/inertia and thermal parameters; artificial accelerated heating is a separately labelled experiment.
 
 The first progression is native environment validation → stock-policy baseline → actuator integration → held-out evaluation → published video/replay. This applies to each track independently so a polished interface cannot conceal an unfinished controller.
+
+## Complete course recordings
+
+`lab-src/public/data/course/manifest.json` lists all six matched development runs. Native ANYdrive and Atlas nominal passed. Higher Kv, lower gearing and +6 kg added carrier mass reached the finish but left the obstacle corridor. Reduced current produced a failure termination. The corridor criterion was added during post-run auditing, not specified before these development runs. The original finish flag remains in `source-result.json`; `audit.json` records the stricter result, geometry checks and artifact hashes.
+
+```bash
+PYTHONPATH=isaac/precision/atlas_actuators_ext "$ISAACLAB/isaaclab.sh" -p isaac/suite/eval_anymal.py --headless --device cuda:0 --course --record --num-envs 1 --atlas --design nominal --checkpoint /path/to/checkpoint.pt --output /path/to/new-course
+"$ISAACLAB/isaaclab.sh" -p isaac/suite/render_recording.py --headless --device cpu --recording /path/to/new-course
+python3 isaac/suite/audit_course.py lab-src/public/data/course/nominal
+```
+
+The winding variant changes Kt, resistance and inductance consistently with Kv. Gear changes affect the motor model; native armature is retained. The mass experiment adds 0.5 kg per actuator at its carrier COM with spherical-equivalent inertia (0.04 m radius), and checks PhysX mass readback. These are controlled simulation interventions, not manufacturer-qualified designs.
+
+For a local preview use `python3 tools/serve_lab.py`. Its HTTP byte-range support is necessary for reliable video seeking.
+
+## Assembly recordings and queue
+
+The first recorded peg episode uses the same evaluated checkpoint (SHA256 `3e3600aa8f01ea9c551cfcec1c99b72aae545400bfff20c66de02e13869820e8`). It was chosen before evaluation: environment 0, episode 0. The recorder captures robot, fixture and peg bodies in the reward hook, before the native terminal reset. The complete episode is retained at the native 15 Hz control rate; physics runs at 120 Hz. The repeat evaluation reproduced 42/48 successes.
+
+`train_assembly.py` runs gear meshing followed by nut threading after this session's peg trainer finishes. Each training process has a two-hour limit and a 200-iteration cap, followed by a separate deterministic evaluation and first-episode recording. A timeout is recorded explicitly; reaching the cap does not itself establish competence. Checkpoints remain on RunPod and are copied with ZIP integrity and concurrent-write checks before evaluation. This queue is running at `/workspace/atlas-suite/assembly-queue-20260911`; it has not completed. The existing pod shutdown watcher retains its deadline and waits for the additional queue process before treating the original hand job's completion as a reason to stop.

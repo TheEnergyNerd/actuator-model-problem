@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "checks": [
+    "149 finite normalized body-pose frames",
+    "15 Hz uniform timestamps",
+    "Final eight samples satisfy native task success",
+    "149 decoded video frames"
+  ],
+  "sha256": {
+    "scene.json": "8b6d13bc7e6066180831ceaf18808c27f4a63eead241957da59dc729fd19c9c9",
+    "poses.bin": "bd0af39b14475840a981a03afe8ca0c68fea0c0e71f02984ce9f8c51e63501ab",
+    "telemetry.json": "72a7f6f2f28878d9dc00622f548226cc81d2a4eba7d7d56cfafcadd43173fc48",
+    "result.json": "9367d8aaa5d649db1c406e733ffc704ed3e6e9555cc8e180a3b1732593bba282",
+    "video.mp4": "8925ab5019f1cd521024be014565d2146ad62a019e0a57a22c22d58fffbb36bb"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "frames": 874,
+  "bodies": 17,
+  "fps": 50.0,
+  "duration": 17.46,
+  "physics_hz": 200.0,
+  "source_first_timestamp_s": 0.02,
+  "seed": 201,
+  "checkpoint_sha256": "7efbaef126790c3f985d80b674712678636fe7c9a3a09ad887a69f5674f7adaf",
+  "failure_terminations": 1,
+  "episode_resets": 1,
+  "actuator_model": "atlas_foc",
+  "environment_index": 0,
+  "task_success": false,
+  "terrain": "Authored stairs, platform and block course",
+  "design": {
+    "name": "torque_low",
+    "specifications": {
+      "legs": {
+        "name": "torque_low",
+        "axis": "peak current",
+        "kv_factor": 1.0,
+        "peak_current_factor": 0.67,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0,
+        "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+        "Kt_Nm_per_peak_q_A": 0.25,
+        "gear_ratio": 9.0,
+        "peak_current_A": 36.85,
+        "continuous_current_floor_A": 28.0,
+        "nominal_stall_peak_joint_Nm": 74.62125,
+        "base_speed_joint_rad_s_ideal_no_field_weakening": 18.475208614068027,
+        "phase_R_ohm": 0.03,
+        "V_bus_V": 48.0,
+        "thermal_R_K_per_W": 1.8,
+        "thermal_C_J_per_K": 80.0,
+        "added_mass_per_actuator_kg": 0.0,
+        "added_motor_rotor_inertia_kg_m2": 0.0,
+        "added_joint_armature_kg_m2": 0.0
+      }
+    },
+    "measured_added_mass_kg": [
+      0.0
+    ],
+    "carrier_mapping": {
+      "LF_HAA": "base",
+      "LH_HAA": "base",
+      "RF_HAA": "base",
+      "RH_HAA": "base",
+      "LF_HFE": "LF_HIP",
+      "LF_KFE": "LF_THIGH",
+      "LH_HFE": "LH_HIP",
+      "LH_KFE": "LH_THIGH",
+      "RF_HFE": "RF_HIP",
+      "RF_KFE": "RF_THIGH",
+      "RH_HFE": "RH_HIP",
+      "RH_KFE": "RH_THIGH"
+    },
+    "placement": "Added spherical-equivalent stator mass at each carrier COM, radius 0.04 m; native COM unchanged"
+  },
+  "source": "Measured native Isaac Lab rough-terrain rollout"
+}

@@ -5,6 +5,8 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 export type SceneData = {
   kind?: string;
   follow_body?: number;
+  overview_camera?: {eye: [number, number, number]; target: [number, number, number]};
+  static_meshes?: { vertices: number[]; indices: number[]; color: number[] }[];
   bodies: string[];
   meshes: {
     body: number;
@@ -76,7 +78,7 @@ export function Replay({
     }
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#e6e9e1");
-    scene.fog = new THREE.Fog("#e6e9e1", 5, 13);
+    scene.fog = sceneData.overview_camera ? new THREE.Fog("#e6e9e1", 25, 70) : new THREE.Fog("#e6e9e1", 5, 13);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFShadowMap;
@@ -84,7 +86,7 @@ export function Replay({
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.15;
     host.current.appendChild(renderer.domElement);
-    const camera = new THREE.PerspectiveCamera(36, 1, 0.02, 30);
+    const camera = new THREE.PerspectiveCamera(36, 1, 0.02, 100);
     camera.up.set(0, 0, 1);
     camera.position.set(1.95, 1.8, 1.55);
     const controls = new OrbitControls(camera, renderer.domElement);
@@ -92,7 +94,7 @@ export function Replay({
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
     controls.minDistance = sceneData.kind === "rubik" ? 0.08 : 0.25;
-    controls.maxDistance = 5;
+    controls.maxDistance = sceneData.overview_camera ? 35 : 5;
     controls.maxPolarAngle = Math.PI * (sceneData.kind === "rubik" ? 0.99 : 0.49);
     controls.update();
     scene.add(new THREE.HemisphereLight("#f6f9ed", "#738171", 2.2));
@@ -116,7 +118,7 @@ export function Replay({
     });
     const geometries: THREE.BufferGeometry[] = [];
     const materials: THREE.Material[] = [];
-    for (const m of sceneData.meshes) {
+    for (const m of [...sceneData.meshes, ...(sceneData.static_meshes || []).map(m => ({...m, body: -1}))]) {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.Float32BufferAttribute(m.vertices, 3));
       geo.setIndex(m.indices);
@@ -126,7 +128,7 @@ export function Replay({
       const joint = m.body % 11 === 7;
       const material = new THREE.MeshStandardMaterial({
         color:
-          sceneData.kind === "locomotion" || sceneData.kind === "hand" || sceneData.kind === "rubik"
+          sceneData.kind === "locomotion" || sceneData.kind === "hand" || sceneData.kind === "rubik" || sceneData.kind === "assembly"
             ? new THREE.Color(...(m.color as [number, number, number]))
             : finger
               ? "#343b36"
@@ -135,14 +137,16 @@ export function Replay({
                 : m.body < 11
                   ? "#ced4c4"
                   : "#f3f0e4",
-        metalness: finger ? 0.25 : 0.3,
-        roughness: 0.36,
+        metalness: m.body < 0 ? 0 : finger ? 0.25 : 0.3,
+        roughness: m.body < 0 ? 0.95 : 0.36,
       });
       materials.push(material);
       const mesh = new THREE.Mesh(geo, material);
+      if (m.body < 0) material.flatShading = true;
       mesh.castShadow = true;
       mesh.receiveShadow = true;
-      bodies[m.body].add(mesh);
+      if (m.body < 0) scene.add(mesh);
+      else bodies[m.body].add(mesh);
     }
     if (sceneData.cube_size > 0) {
       const cubeGeo = new THREE.BoxGeometry(
@@ -181,11 +185,11 @@ export function Replay({
       return b;
     }
     if (sceneData.table) box(sceneData.table.size, sceneData.table.position, "#b7c1b1");
-    box([30, 30, 0.03], [0, 0, -0.03], "#e6e9e1");
+    if (!sceneData.static_meshes?.length) box([30, 30, 0.03], [0, 0, -0.03], "#e6e9e1");
     const grid = new THREE.GridHelper(40, 200, "#a8b7a4", "#cbd3c5");
     grid.rotation.x = Math.PI / 2;
     grid.position.z = 0.002;
-    scene.add(grid);
+    if (!sceneData.static_meshes?.length) scene.add(grid);
     if (!sceneData.kind)
       for (const [x, y, c] of [
         [0.45, -0.3, "#e1c17e"],
@@ -412,6 +416,24 @@ export function Replay({
             : views[cameraView] || views.overview;
     s.camera.position.set(...v[0]);
     s.controls.target.set(...v[1]);
+    if (sceneData.kind === "locomotion") {
+      const c = current.current;
+      const frame = Math.min(c.recording.result.frames - 1, Math.floor(c.playback.current.time * (c.recording.result.fps || 50)));
+      const offset = (frame * sceneData.bodies.length + (sceneData.follow_body ?? 0)) * 7;
+      const target = new THREE.Vector3(...Array.from(c.recording.poses.slice(offset, offset + 3)) as [number, number, number]);
+      s.camera.position.add(target.clone().sub(s.controls.target));
+      s.controls.target.copy(target);
+    }
+    if (sceneData.kind === "assembly") {
+      const offset = (sceneData.follow_body ?? 0) * 7;
+      const target = new THREE.Vector3(...Array.from(current.current.recording.poses.slice(offset, offset + 3)) as [number, number, number]);
+      s.controls.target.copy(target);
+      s.camera.position.copy(target).add(new THREE.Vector3(.14, -.18, .12));
+    }
+    if (cameraView === "overview" && sceneData.overview_camera) {
+      s.camera.position.set(...sceneData.overview_camera.eye);
+      s.controls.target.set(...sceneData.overview_camera.target);
+    }
     s.controls.update();
   }, [cameraView, sceneData]);
   return (

@@ -1,0 +1,398 @@
+{
+  "task": "Isaac-Factory-PegInsert-Direct-v0",
+  "seed": 201,
+  "checkpoint_sha256": "3e3600aa8f01ea9c551cfcec1c99b72aae545400bfff20c66de02e13869820e8",
+  "num_envs": 16,
+  "episodes": 3,
+  "completed": true,
+  "trials": [
+    {
+      "environment": 0,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.933333333333325,
+      "keypoint_error_m": 0.0006403857260011137
+    },
+    {
+      "environment": 1,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.533333333333326,
+      "keypoint_error_m": 0.0010795125272125006
+    },
+    {
+      "environment": 2,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.666666666666659,
+      "keypoint_error_m": 0.0013436765875667334
+    },
+    {
+      "environment": 3,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0008440746460109949
+    },
+    {
+      "environment": 4,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.666666666666659,
+      "keypoint_error_m": 0.0011614428367465734
+    },
+    {
+      "environment": 5,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.933333333333328,
+      "keypoint_error_m": 0.0007415602449327707
+    },
+    {
+      "environment": 6,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.199999999999994,
+      "keypoint_error_m": 0.000688656116835773
+    },
+    {
+      "environment": 7,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 5.933333333333332,
+      "keypoint_error_m": 0.0008187107741832733
+    },
+    {
+      "environment": 8,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.53333333333333,
+      "keypoint_error_m": 0.001037790672853589
+    },
+    {
+      "environment": 9,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.533333333333323,
+      "keypoint_error_m": 0.000682585989125073
+    },
+    {
+      "environment": 10,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0008612902602180839
+    },
+    {
+      "environment": 11,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.999999999999995,
+      "keypoint_error_m": 0.0011304882355034351
+    },
+    {
+      "environment": 12,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.866666666666662,
+      "keypoint_error_m": 0.0010124685941264033
+    },
+    {
+      "environment": 13,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.866666666666662,
+      "keypoint_error_m": 0.0006142939091660082
+    },
+    {
+      "environment": 14,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.933333333333325,
+      "keypoint_error_m": 0.0005910770851187408
+    },
+    {
+      "environment": 15,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.199999999999994,
+      "keypoint_error_m": 0.0013728986959904432
+    },
+    {
+      "environment": 0,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.266666666666657,
+      "keypoint_error_m": 0.0008903817506507039
+    },
+    {
+      "environment": 1,
+      "episode": 1,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.0250498428940773
+    },
+    {
+      "environment": 2,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 3.466666666666671,
+      "keypoint_error_m": 0.0009471143712289631
+    },
+    {
+      "environment": 3,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.46666666666666,
+      "keypoint_error_m": 0.0013737969566136599
+    },
+    {
+      "environment": 4,
+      "episode": 1,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.02564128488302231
+    },
+    {
+      "environment": 5,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.466666666666663,
+      "keypoint_error_m": 0.0015427307225763798
+    },
+    {
+      "environment": 6,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.466666666666656,
+      "keypoint_error_m": 0.000759930640924722
+    },
+    {
+      "environment": 7,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.19999999999999,
+      "keypoint_error_m": 0.001198314712382853
+    },
+    {
+      "environment": 8,
+      "episode": 1,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.024055935442447662
+    },
+    {
+      "environment": 9,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.333333333333323,
+      "keypoint_error_m": 0.0005170152289792895
+    },
+    {
+      "environment": 10,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 5.000000000000002,
+      "keypoint_error_m": 0.0006288827280513942
+    },
+    {
+      "environment": 11,
+      "episode": 1,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.025264907628297806
+    },
+    {
+      "environment": 12,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.599999999999996,
+      "keypoint_error_m": 0.000545005954336375
+    },
+    {
+      "environment": 13,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.599999999999989,
+      "keypoint_error_m": 0.0006619481137022376
+    },
+    {
+      "environment": 14,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.933333333333328,
+      "keypoint_error_m": 0.0008265475044026971
+    },
+    {
+      "environment": 15,
+      "episode": 1,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.19999999999999,
+      "keypoint_error_m": 0.0007071269210428
+    },
+    {
+      "environment": 0,
+      "episode": 2,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.02422960475087166
+    },
+    {
+      "environment": 1,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.933333333333325,
+      "keypoint_error_m": 0.000650503789074719
+    },
+    {
+      "environment": 2,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.466666666666656,
+      "keypoint_error_m": 0.0007266991888172925
+    },
+    {
+      "environment": 3,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 4.000000000000005,
+      "keypoint_error_m": 0.0006925656925886869
+    },
+    {
+      "environment": 4,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0007162162801250815
+    },
+    {
+      "environment": 5,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 5.4,
+      "keypoint_error_m": 0.0008306255913339555
+    },
+    {
+      "environment": 6,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 6.999999999999995,
+      "keypoint_error_m": 0.0007141157402656972
+    },
+    {
+      "environment": 7,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.799999999999988,
+      "keypoint_error_m": 0.0006776490481570363
+    },
+    {
+      "environment": 8,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.133333333333324,
+      "keypoint_error_m": 0.000545920804142952
+    },
+    {
+      "environment": 9,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.39999999999999,
+      "keypoint_error_m": 0.0007301667938008904
+    },
+    {
+      "environment": 10,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.19999999999999,
+      "keypoint_error_m": 0.0005980449495837092
+    },
+    {
+      "environment": 11,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 5.7333333333333325,
+      "keypoint_error_m": 0.0009045865153893828
+    },
+    {
+      "environment": 12,
+      "episode": 2,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.025731798261404037
+    },
+    {
+      "environment": 13,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.26666666666666,
+      "keypoint_error_m": 0.001364025752991438
+    },
+    {
+      "environment": 14,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.466666666666656,
+      "keypoint_error_m": 0.0006162371719256043
+    },
+    {
+      "environment": 15,
+      "episode": 2,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0007352703250944614
+    }
+  ],
+  "successes": 42,
+  "native_successes": 42,
+  "criterion": "Native task success continuously true for the final 0.5 seconds, measured before automatic reset",
+  "reset_policy": "Native task resets and prepared initial grasp retained"
+}

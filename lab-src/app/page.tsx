@@ -1,5 +1,7 @@
 "use client";
 import Rubik from "./rubik";
+import RoughTerrain from "./rough";
+import Assembly from "./assembly";
 import Locomotion from "./locomotion";
 import DexterousHand from "./hand";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -100,7 +102,7 @@ export default function Home() {
     [path, setPath] = useState(true),
     [metric, setMetric] = useState("torque"),
     [task, setTask] = useState(() =>
-      ["transfer", "g1", "anymal", "allegro", "rubik"].includes(window.location.hash.slice(1))
+      ["transfer", "g1", "anymal", "allegro", "rubik", "terrain", "assembly"].includes(window.location.hash.slice(1))
         ? window.location.hash.slice(1)
         : "g1",
     );
@@ -111,7 +113,7 @@ export default function Home() {
   useEffect(() => {
     const navigate = () => {
       const next = window.location.hash.slice(1);
-      if (["transfer", "g1", "anymal", "allegro", "rubik"].includes(next)) {
+      if (["transfer", "g1", "anymal", "allegro", "rubik", "terrain", "assembly"].includes(next)) {
         setTask(next);
         setPlaying(false);
       }
@@ -266,7 +268,7 @@ export default function Home() {
                 ? "IN-HAND REORIENTATION"
                 : task === "rubik"
                   ? "DEXTEROUS RUBIK MANIPULATION"
-                  : "LEARNED LOCOMOTION / ACTUATOR DESIGN"}
+                  : task === "assembly" ? "LEARNED PRECISION ASSEMBLY" : "LEARNED LOCOMOTION / ACTUATOR DESIGN"}
           </p>
           <h1>
             {task === "rubik" ? (
@@ -274,6 +276,8 @@ export default function Home() {
                 A different hand.
                 <br />A physical cube.
               </>
+            ) : task === "assembly" ? (
+              <>Small clearances.<br />Measured control.</>
             ) : (
               <>
                 Every motor choice
@@ -291,6 +295,8 @@ export default function Home() {
                 <br />
                 Video and measured 3D replay.
               </>
+            ) : task === "assembly" ? (
+              <>A trained insertion policy.<br />Every evaluation trial reported.</>
             ) : (
               <>
                 One task. The same controller.
@@ -304,6 +310,8 @@ export default function Home() {
               ["transfer", "Bimanual transfer"],
               ["g1", "G1 walking"],
               ["anymal", "ANYmal"],
+              ["terrain", "Rough terrain"],
+              ["assembly", "Peg insertion"],
               ["allegro", "Dexterous hand"],
               ["rubik", "Rubik · Wuji"],
             ].map(([v, l]) => (
@@ -845,6 +853,10 @@ export default function Home() {
         </>
       ) : task === "g1" || task === "anymal" ? (
         <Locomotion key={task} robot={task} />
+      ) : task === "assembly" ? (
+        <Assembly />
+      ) : task === "terrain" ? (
+        <RoughTerrain />
       ) : task === "rubik" ? (
         <Rubik />
       ) : task === "allegro" ? (

@@ -15,24 +15,25 @@ type RubikSample = Sample & {
   joint_torque_max_nm: number;
 };
 export default function Rubik() {
-  const [selected, setSelected] = useState("single");
-  const path = selected === "single" ? "./data/rubik" : "./data/rubik/full-attempt";
+  const [selected, setSelected] = useState("free");
+  const path = selected === "free" ? "./data/rubik/free-turn" : selected === "single" ? "./data/rubik" : "./data/rubik/full-attempt";
   return (
     <>
       <div className="hand-trial-selector" role="group" aria-label="Rubik recording">
+        <Button variant={selected === "free" ? "default" : "outline"} onClick={() => setSelected("free")} aria-pressed={selected === "free"}>Two-hand free-cube turn</Button>
         <Button
           variant={selected === "single" ? "default" : "outline"}
           onClick={() => setSelected("single")}
           aria-pressed={selected === "single"}
         >
-          Validated quarter-turn
+          Fixture quarter-turn
         </Button>
         <Button
           variant={selected === "full" ? "default" : "outline"}
           onClick={() => setSelected("full")}
           aria-pressed={selected === "full"}
         >
-          Full scramble attempt
+          Fixture scramble attempt
         </Button>
       </div>
       <RubikRecording key={path} path={path} />
@@ -49,7 +50,7 @@ function RubikRecording({ path }: { path: string }) {
   const clock = useRef({ time: 0, playing: false, speed: 1 });
   useEffect(() => {
     let gone = false;
-    Promise.all([loadScene("./data/rubik/scene.json"), loadRecording(path)])
+    Promise.all([loadScene(path.endsWith("free-turn") ? `${path}/scene.json` : "./data/rubik/scene.json"), loadRecording(path)])
       .then(([s, r]) => {
         if (!gone) {
           setScene(s);
@@ -229,7 +230,7 @@ function RubikRecording({ path }: { path: string }) {
         </h2>
         <p>
           Measured stickers must match the expected legal state within 3°, with joint anchor error
-          below 0.5 mm, for 0.4 seconds after release.
+          below 0.5 mm, for a continuous 0.4-second final hold{run.result.fixture ? " after hand release" : " while supported by the hands"}.
         </p>
         <dl className="rubik-metrics">
           <div>
@@ -275,7 +276,7 @@ function RubikRecording({ path }: { path: string }) {
         <p>
           {run.result.fixture
             ? "The core is fixed for this test. This is not yet a free, two-hand scramble-and-solve demonstration."
-            : "The cube is supported through hand contact."}
+            : "A fixture prepares the grasp for the first two seconds, then releases. The turn and final hold are supported through hand contact, with no cube motors or pose resets. This is one quarter-turn, not a full-scramble solve."}
         </p>
         <p>
           Finger position control and bounded wrist force/torque servos. Passive cube detents depend

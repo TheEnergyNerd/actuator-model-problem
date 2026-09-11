@@ -1,0 +1,13 @@
+{
+  "anymal-stock": {
+    "mean_environment_tracking_error_m_s": 0.11820939367217886,
+    "failure_terminations": 0
+  },
+  "anymal-atlas": {
+    "mean_environment_tracking_error_m_s": 0.16657048011611122,
+    "failure_terminations": 1
+  },
+  "first_command_divergence_s": 0.04,
+  "interpretation": "One development seed, eight environments, same checkpoint and task sampling configuration. Native heading feedback changes yaw commands with robot state. Resets can change later sampled commands. This is not a held-out design ranking.",
+  "first_planar_command_divergence_s": 5.86
+}

@@ -1,0 +1,47 @@
+{
+  "variants": [
+    {
+      "id": "stock",
+      "label": "Native ANYdrive reference",
+      "description": "Reached the finish and stopped within the route.",
+      "passed": true,
+      "duration": 17.94
+    },
+    {
+      "id": "nominal",
+      "label": "Atlas nominal",
+      "description": "Reached the finish and stopped within the route.",
+      "passed": true,
+      "duration": 18.62
+    },
+    {
+      "id": "kv_high",
+      "label": "Higher Kv \u00b7 1.5\u00d7",
+      "description": "Reached the finish but left the obstacle corridor.",
+      "passed": false,
+      "duration": 18.8
+    },
+    {
+      "id": "gear_low",
+      "label": "Lower gearing \u00b7 6:1",
+      "description": "Reached the finish but left the obstacle corridor.",
+      "passed": false,
+      "duration": 19.8
+    },
+    {
+      "id": "torque_low",
+      "label": "Reduced current \u00b7 36.85 A",
+      "description": "A failure termination ended this run.",
+      "passed": false,
+      "duration": 17.48
+    },
+    {
+      "id": "mass_added_double",
+      "label": "Added actuator mass \u00b7 +6 kg",
+      "description": "Reached the finish but left the obstacle corridor.",
+      "passed": false,
+      "duration": 19.54
+    }
+  ],
+  "protocol": "Single development seed; fixed policy; post-run corridor audit"
+}

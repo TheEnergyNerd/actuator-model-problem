@@ -1,0 +1,16 @@
+{
+  "passed": false,
+  "corridor_passed": false,
+  "first_corridor_exit_s": 15.4,
+  "stopped_hold_passed": true,
+  "reset_count": 0,
+  "online_finish_flag": true,
+  "criterion": "Root stays within \u00b11.3 m for x=2..10.7 m and \u00b12.3 m elsewhere; final second beyond x=12.5 m at <0.1 m/s, with 0.001 m/s finite-difference tolerance; no reset",
+  "limitations": "Development seed 201; corridor criterion audited after these runs; no held-out reliability estimate",
+  "sha256": {
+    "source-result.json": "a53167eafd79040be1b2d60456ee0e2708fe9087daa865952ac946d9c8a9202d",
+    "poses.bin": "38c5fba81644b7a7e603edd60d403365b5b9272e69a7a16d0de076f9a8c33891",
+    "telemetry.json": "3da73816690b97e9c36678b1a9eadf768ba47295cb5381165d30e12cfbd1579b",
+    "video.mp4": "3a028e41a04402864e399a5204649c8388a0d2def5aa0551a91da8813f27e994"
+  }
+}

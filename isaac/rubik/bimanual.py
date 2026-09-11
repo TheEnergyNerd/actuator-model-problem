@@ -19,11 +19,29 @@ p.add_argument(
 )
 p.add_argument("--support-point", type=float, nargs=3, default=(0, 0.015, -0.025))
 p.add_argument("--hold-only", action="store_true")
+p.add_argument("--second-face", choices=("F", "B", "R", "L", "D"), default="F")
+p.add_argument("--regrasp-roll", type=float, default=0)
+p.add_argument(
+    "--front-sequence",
+    action="store_true",
+    help="Test a physical regrasp between U and the selected second face",
+)
+p.add_argument(
+    "--world-turn-frame",
+    action="store_true",
+    help="Keep the turn trajectory in the initial world frame instead of following core rotation",
+)
 p.add_argument("--locked-cube", action="store_true")
 p.add_argument("--duration", type=float, default=10.0)
 p.add_argument("--contact-profile", choices=("stock", "rigid", "pad"), default="pad")
 AppLauncher.add_app_launcher_args(p)
 a = p.parse_args()
+if a.front_sequence and (a.hold_only or not a.world_turn_frame or a.duration < 20):
+    p.error(
+        "Front sequence requires --world-turn-frame, turn mode, and at least 20 seconds"
+    )
+if a.front_sequence and a.fixture_warmup != 2.0:
+    p.error("The sequence timeline requires a two-second fixture preparation")
 if a.prepared_support and not a.third_support:
     p.error("--prepared-support requires --third-support")
 if a.locked_cube and not a.hold_only:
@@ -79,10 +97,11 @@ def main():
     reference_R = np.array(grasp_config["R"])
     Sl = np.array(grasp_config["Sl"])
     Sr = np.array(grasp_config["Sr"])
+    scramble = f"{a.second_face}' U'" if a.front_sequence else "U'"
     names = make_cube(
         stage,
         fixture=a.fixture_warmup > 0,
-        scramble="U'",
+        scramble=scramble,
         orientation=reference_R,
         locked=a.locked_cube,
     )
@@ -176,7 +195,7 @@ def main():
     initial[:, :, 7:] = 0
     if not a.locked_cube:
         initial[0, 1:, 3:7] = torch.tensor(
-            Rotation.from_matrix(reference_R @ state_after("U'")).as_quat()[
+            Rotation.from_matrix(reference_R @ state_after(scramble)).as_quat()[
                 :, [3, 0, 1, 2]
             ],
             device=sim.device,
@@ -221,17 +240,35 @@ def main():
             }
 
         left.command(joints=close(left, left_goal))
+        turn_rotation = reference_R if a.world_turn_frame else core_rotation
+        turn_center = np.array([0, 0, 0.5]) if a.world_turn_frame else core_pose[:3]
         right_frame = (
-            core_rotation @ Rotation.from_rotvec([0, 0, angle]).as_matrix() @ Sr
+            turn_rotation @ Rotation.from_rotvec([0, 0, angle]).as_matrix() @ Sr
         )
-        virtual_center = core_pose[:3] + 0.01905 * (
-            core_rotation[:, 2] - right_frame[:, 2]
+        virtual_center = turn_center + 0.01905 * (
+            turn_rotation[:, 2] - right_frame[:, 2]
         )
         if a.hold_only:
             right_frame, virtual_center = reference_R @ Sr, right_origin
-        right.command(
-            right_frame, joints=close(right, right_goal), cube_pos=virtual_center
-        )
+        right_joints = close(right, right_goal)
+        sequence_phase = None
+        if a.front_sequence and t >= 8.5:
+            if step == 8500:
+                from regrasp import FrontRegrasp
+
+                regrasp = FrontRegrasp(
+                    right,
+                    reference_R,
+                    Sr,
+                    virtual_center.copy(),
+                    a.closure,
+                    a.regrasp_roll,
+                    a.second_face,
+                )
+            right_frame, virtual_center, right_joints, sequence_phase = regrasp.command(
+                t, core_pose
+            )
+        right.command(right_frame, joints=right_joints, cube_pos=virtual_center)
         states = cube.data.object_state_w
         rots = matrix_from_quat(states[0, :, 3:7])
         local = (
@@ -246,6 +283,11 @@ def main():
         for h in hands:
             h.robot.update(0.001)
         if step % 20 == 0:
+            current_target = (
+                state_after(scramble + " U")
+                if a.front_sequence and t < 14.5
+                else expected_state
+            )
             s = cube.data.object_state_w[0].cpu().numpy()
             r = Rotation.from_quat(s[:, [4, 5, 6, 3]]).as_matrix()
             rel = r[0].T @ r[1:]
@@ -256,7 +298,7 @@ def main():
             )
             errors = (
                 Rotation.from_matrix(
-                    rel @ expected_state.transpose(0, 2, 1)
+                    rel @ current_target.transpose(0, 2, 1)
                 ).magnitude()
                 * 180
                 / np.pi
@@ -288,7 +330,8 @@ def main():
                             Rotation.from_matrix(r[0] @ reference_R.T).magnitude()
                         )
                     ),
-                    phase=(
+                    phase=sequence_phase
+                    or (
                         "Prepare grasp"
                         if t < a.fixture_warmup
                         else (
@@ -297,7 +340,11 @@ def main():
                             else "Turn" if t < turn_start + 4 else "Verify"
                         )
                     ),
-                    move="Hold" if a.hold_only else "U",
+                    move=(
+                        "Hold"
+                        if a.hold_only
+                        else a.second_face if a.front_sequence and t >= 14.5 else "U"
+                    ),
                     **(
                         measure_cube(s)
                         if not a.locked_cube
@@ -308,7 +355,7 @@ def main():
                         )
                     ),
                     expected_facelets=(
-                        None if a.locked_cube else decode(expected_state)["facelets"]
+                        None if a.locked_cube else decode(current_target)["facelets"]
                     ),
                     max_target_error_deg=float(errors.max()),
                     cube=s[0, :3].tolist(),
@@ -345,11 +392,18 @@ def main():
         task=(
             "Unsupported stationary grasp"
             if a.hold_only
-            else "Bimanual U inverse solve"
+            else (
+                f"Bimanual U/{a.second_face} sequence"
+                if a.front_sequence
+                else "Bimanual U inverse solve"
+            )
         ),
         engine="Isaac Lab / PhysX",
         fixture=False,
         locked_cube=a.locked_cube,
+        turn_frame="initial_world" if a.world_turn_frame else "measured_core",
+        scramble=scramble,
+        moves=["U", a.second_face] if a.front_sequence else ["U"],
         grasp_validation=hold_result,
         initial_fixture_seconds=a.fixture_warmup,
         cube_actuators=0,

@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "audit": "independent pose-derived facelets, anchors and continuous final 0.4-second solved hold",
+  "frames": 600,
+  "max_anchor_error_m": 1.4086343981034588e-05,
+  "final_sticker_error_deg": 2.365586039264102,
+  "fixture_release_s": 2.0,
+  "cube_state_writes_during_rollout": 0,
+  "hashes": {
+    "poses.bin": "7be1f950dd08eaf8a0071337926f2fb55150f4f9102c803b7495059f7530b32a",
+    "telemetry.json": "878a5f930d766a494e507676b5ee222cd3800fd478b43aaade506d9de3ed6b1c",
+    "result.json": "f00f6053b84a36ef635242e4f5fdd34c429304a07c93d2f3ce6c87e4996c371c"
+  }
+}

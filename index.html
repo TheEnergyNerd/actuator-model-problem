@@ -5,7 +5,7 @@
 <meta name="description" content="Every RL policy trains against an actuator model, and the industry default is fiction. A/B experiments on a quadruped and a humanoid, from Atlas Motion Systems.">
 <meta property="og:title" content="The Actuator Model Problem: Why Sim-to-Real Fails at the Motor">
 <meta property="og:description" content="A humanoid trained on stock simulation actuators falls in 4,554 of 4,554 episodes on real motor physics. Trained on a design-derived model, it walks with zero falls.">
-<meta property="og:image" content="https://pranavatlas.github.io/actuator-model-problem/assets/fig-anatomy.png">
+<meta property="og:image" content="https://TheEnergyNerd.github.io/actuator-model-problem/assets/fig-anatomy.png">
 <meta property="og:type" content="article">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 <meta charset="utf-8">
@@ -130,7 +130,25 @@ the truth is 10.</li>
 <p class="eyebrow">INTERACTIVE ISAAC LAB EXPERIMENTS</p>
 <h2 style="margin:0 0 12px">Watch actuator design change the motion.</h2>
 <p>Orbit the recorded robot, watch the matching video, and compare motor designs on a shared timeline. G1 and ANYmal use trained locomotion policies; the two-arm transfer uses a scripted controller.</p>
-<p style="margin:0"><a href="lab/#g1">G1 walking →</a> &nbsp; <a href="lab/#anymal">ANYmal →</a> &nbsp; <a href="lab/#transfer">Two-arm transfer →</a> &nbsp; <a href="lab/#allegro">Dexterous hand →</a></p>
+<p style="margin:0"><a href="lab/#g1">G1 walking →</a> &nbsp; <a href="lab/#anymal">ANYmal →</a> &nbsp; <a href="lab/#terrain">Rough terrain →</a> &nbsp; <a href="lab/#assembly">Peg insertion →</a> &nbsp; <a href="lab/#transfer">Two-arm transfer →</a> &nbsp; <a href="lab/#allegro">Dexterous hand →</a> &nbsp; <a href="lab/#rubik">Wuji cube experiments →</a></p>
+</section>
+<section id="demo-update">
+<p class="eyebrow">Experiment update · September 11, 2026</p>
+<h2>Harder tasks, with the evidence attached.</h2>
+<p>The interactive lab now pairs video with orbitable, measured body trajectories. The complete ANYmal obstacle-course runs extend this format to stairs and uneven blocks. Two-hand manipulation and precision assembly have separate, explicitly reported milestones. All of this work runs in Isaac Lab and PhysX. These are simulation experiments; they do not establish performance on physical robots.</p>
+<h3>A complete course, with actuator differences visible</h3>
+<p>ANYmal traversed a 12.5 m route with five steps up, a raised platform, five steps down and uneven blocks, then stopped for one second. The native ANYdrive reference finished in 17.94 seconds; Atlas nominal finished in 18.62 seconds. The comparison includes a higher-Kv winding, lower gearing, reduced current limit, and 6 kg of physically added actuator carrier mass and inertia. The reduced-current run had a failure termination. Higher Kv, lower gearing and added mass reached the finish but failed the post-run corridor audit; only the native reference and Atlas nominal satisfied the complete course criterion. Every run remains selectable with its matching video, measured 3D poses and telemetry.</p>
+<p>These are fixed-policy, single-seed development demonstrations. They do not measure general reliability or the performance achievable after retraining. Stock-to-Atlas also changes controller behavior; the Atlas design variants isolate the stated motor-model interventions.</p>
+<h3>The earlier random-terrain pilot</h3>
+<p>We tested NVIDIA’s pretrained rough-terrain ANYmal policy in eight environments for 20 seconds each. With the native ANYdrive model, there were zero failure terminations. With Atlas FOC legs, the same policy had one failure termination. Mean planar velocity tracking error increased from 0.118 to 0.167 m/s.</p>
+<p>This is a development pilot with one seed. It changes the actuator model and controller behavior together, so it does not isolate Kv, gearing, or mass. The native heading controller responds to each robot’s actual heading; after the Atlas reset, subsequent planar commands also diverged. Per-design retraining and held-out course trials are still needed.</p>
+<p><a href="lab/#terrain">Watch the rough-terrain video and 3D replay →</a> &nbsp; <a href="isaac/suite/results/comparison.json">Read the pilot comparison</a></p>
+<h3>Dexterity needs more than a good-looking hand</h3>
+<p>The Wuji Hand 2 experiments use native detailed geometry and measured contact motion. A fixed-core fixture completed one validated cube quarter-turn. A longer fixture attempt completed six of twelve quarter-turns before failing. The corrected two-hand controller subsequently completed a free-cube quarter-turn and a continuous solved hold. A fixture prepared the grasp for two seconds, then released; the turn used only hand contact, with no cube motors or physical-state resets. Independent pose validation measured a final sticker error of 2.37 degrees. These results do not constitute a working Rubik solver.</p>
+<p>The stricter Allegro experiment also measures sustained target holds, rather than counting brief crossings as completed manipulation. Failed trials remain visible alongside the successful portions.</p>
+<h3>What must work before the next release</h3>
+<p>The assembly track starts with peg insertion, gear meshing and nut threading. A trained peg-insertion checkpoint achieved sustained insertion in 42 of 48 deterministic evaluation trials across 16 environments and three episodes, using development seed 201. Success had to remain true for the final half-second, measured before automatic reset. The native prepared grasp was retained. Training continues; gear meshing and nut threading currently have startup checks only. <a href="isaac/suite/results/peg-pilot/result.json">All peg-insertion trial outcomes</a>. <a href="lab/#assembly">Watch the complete first episode with video and 3D replay</a>. The tool workshop needs a reliable grasp and controlled object motion. Across all tracks, the design comparison will report task completion, energy, heat, and failure modes, with motor mass represented in the physical robot’s mass and inertia.</p>
+<p><a href="isaac/suite/README.md">Experiment protocol and reproduction commands →</a></p>
 </section>
 <h2>So first, let's break down an actuator</h2>
 
