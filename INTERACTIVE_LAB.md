@@ -2,6 +2,8 @@
 
 The existing research report remains at `index.html`. The new static application is in `lab/`, linked from the report. It is compatible with GitHub Pages project subpaths, with no server or private service required.
 
+The expanded scope includes ANYmal obstacle courses, a two-hand tool workshop, precision assembly, and actuator optimization across all three. Implementation stages and measured readiness checks live in [isaac/suite/README.md](isaac/suite/README.md). These new tracks are not yet published demonstrations.
+
 - `lab/#g1`: corrected G1 walking policy, video and orbitable replay.
 - `lab/#anymal`: ANYmal walking, video and orbitable replay.
 - `lab/#transfer`: eight existing two-Franka actuator variants.

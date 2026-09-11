@@ -1,0 +1,63 @@
+{
+  "kind": "stock_policy_baseline",
+  "actuator_model": "atlas_foc",
+  "task": "Isaac-Velocity-Rough-Anymal-C-Play-v0",
+  "task_success": null,
+  "seed": 201,
+  "num_envs": 8,
+  "duration_s": 20.0,
+  "frames": 1000,
+  "bodies": [
+    "base",
+    "LF_HIP",
+    "LH_HIP",
+    "RF_HIP",
+    "RH_HIP",
+    "LF_THIGH",
+    "LH_THIGH",
+    "RF_THIGH",
+    "RH_THIGH",
+    "LF_SHANK",
+    "LH_SHANK",
+    "RF_SHANK",
+    "RH_SHANK",
+    "LF_FOOT",
+    "LH_FOOT",
+    "RF_FOOT",
+    "RH_FOOT"
+  ],
+  "physics_dt": 0.005,
+  "checkpoint_sha256": "7efbaef126790c3f985d80b674712678636fe7c9a3a09ad887a69f5674f7adaf",
+  "termination_count": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+  ],
+  "timeout_count": [
+    1,
+    1,
+    1,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "mean_xy_tracking_error_m_s": [
+    0.16144671395268434,
+    0.14228635132905396,
+    0.26344840011730414,
+    0.16783653233136878,
+    0.15805823514715464,
+    0.14546696488854655,
+    0.14911154133083118,
+    0.1449091018319462
+  ],
+  "reset_policy": "Native resets retained; terminated and time_out flags mark discontinuities.",
+  "terrain": "Native 5x5 PLAY terrain; not an authored obstacle course."
+}

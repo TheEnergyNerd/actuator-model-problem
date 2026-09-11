@@ -1,0 +1,18 @@
+{
+  "task": "Isaac-Factory-PegInsert-Direct-v0",
+  "seed": 201,
+  "kind": "environment_smoke",
+  "controller": "zero_actions",
+  "task_success": null,
+  "passed": true,
+  "steps_completed": 60,
+  "num_envs": 2,
+  "physics_dt": 0.008333333333333333,
+  "decimation": 8,
+  "action_shape": [
+    2,
+    6
+  ],
+  "episode_terminations": 0,
+  "wall_seconds": 51.01078176125884
+}

@@ -1,0 +1,147 @@
+[
+  {
+    "name": "gear",
+    "task": "Isaac-Factory-GearMesh-Direct-v0",
+    "passed": true,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "/workspace/atlas-suite/smoke.py",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--task",
+      "Isaac-Factory-GearMesh-Direct-v0",
+      "--output",
+      "/workspace/atlas-suite/native-01/gear"
+    ],
+    "exit_code": 0,
+    "result": {
+      "task": "Isaac-Factory-GearMesh-Direct-v0",
+      "seed": 201,
+      "kind": "environment_smoke",
+      "controller": "zero_actions",
+      "task_success": null,
+      "passed": true,
+      "steps_completed": 60,
+      "num_envs": 2,
+      "physics_dt": 0.008333333333333333,
+      "decimation": 8,
+      "action_shape": [
+        2,
+        6
+      ],
+      "episode_terminations": 0,
+      "wall_seconds": 53.474700023420155
+    }
+  },
+  {
+    "name": "nut",
+    "task": "Isaac-Factory-NutThread-Direct-v0",
+    "passed": true,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "/workspace/atlas-suite/smoke.py",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--task",
+      "Isaac-Factory-NutThread-Direct-v0",
+      "--output",
+      "/workspace/atlas-suite/native-01/nut"
+    ],
+    "exit_code": 0,
+    "result": {
+      "task": "Isaac-Factory-NutThread-Direct-v0",
+      "seed": 201,
+      "kind": "environment_smoke",
+      "controller": "zero_actions",
+      "task_success": null,
+      "passed": true,
+      "steps_completed": 60,
+      "num_envs": 2,
+      "physics_dt": 0.008333333333333333,
+      "decimation": 8,
+      "action_shape": [
+        2,
+        6
+      ],
+      "episode_terminations": 0,
+      "wall_seconds": 49.19559361319989
+    }
+  },
+  {
+    "name": "anymal",
+    "task": "Isaac-Velocity-Rough-Anymal-C-Play-v0",
+    "passed": true,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "/workspace/atlas-suite/smoke.py",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--task",
+      "Isaac-Velocity-Rough-Anymal-C-Play-v0",
+      "--output",
+      "/workspace/atlas-suite/native-01/anymal"
+    ],
+    "exit_code": 0,
+    "result": {
+      "task": "Isaac-Velocity-Rough-Anymal-C-Play-v0",
+      "seed": 201,
+      "kind": "environment_smoke",
+      "controller": "zero_actions",
+      "task_success": null,
+      "passed": true,
+      "steps_completed": 60,
+      "num_envs": 2,
+      "physics_dt": 0.005,
+      "decimation": 4,
+      "action_shape": [
+        2,
+        12
+      ],
+      "episode_terminations": 0,
+      "wall_seconds": 24.430530201643705
+    }
+  },
+  {
+    "name": "anymal-atlas",
+    "task": "Isaac-Velocity-Rough-Anymal-C-AtlasFOC-v0",
+    "passed": true,
+    "command": [
+      "/workspace/IsaacLab/isaaclab.sh",
+      "-p",
+      "/workspace/atlas-suite/smoke.py",
+      "--headless",
+      "--device",
+      "cuda:0",
+      "--task",
+      "Isaac-Velocity-Rough-Anymal-C-AtlasFOC-v0",
+      "--output",
+      "/workspace/atlas-suite/native-01/anymal-atlas",
+      "--atlas"
+    ],
+    "exit_code": 0,
+    "result": {
+      "task": "Isaac-Velocity-Rough-Anymal-C-AtlasFOC-v0",
+      "seed": 201,
+      "kind": "environment_smoke",
+      "controller": "zero_actions",
+      "task_success": null,
+      "passed": true,
+      "steps_completed": 60,
+      "num_envs": 2,
+      "physics_dt": 0.005,
+      "decimation": 4,
+      "action_shape": [
+        2,
+        12
+      ],
+      "episode_terminations": 0,
+      "wall_seconds": 30.148992379195988
+    }
+  }
+]

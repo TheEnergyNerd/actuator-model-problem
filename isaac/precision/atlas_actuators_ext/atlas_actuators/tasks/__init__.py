@@ -108,6 +108,12 @@ _ENTRIES.append((
 
 _ENTRIES.append(("Isaac-Repose-Cube-Allegro-Precision-v1", "atlas_actuators.tasks.allegro_precision:AllegroPrecisionEnvCfg", _RSL_ALLEGRO))
 
+_ENTRIES.append((
+    "Isaac-Velocity-Rough-Anymal-C-AtlasFOC-v0",
+    "atlas_actuators.tasks.anymal_rough_atlas:AnymalCRoughAtlasFOCEnvCfg",
+    "isaaclab_tasks.manager_based.locomotion.velocity.config.anymal_c.agents.rsl_rl_ppo_cfg:AnymalCRoughPPORunnerCfg",
+))
+
 if gym is not None:
     for task_id, config, agent in _ENTRIES:
         gym.register(
