@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/wuji-technology/wuji-description",
+  "revision": "4c1073d0a3ad1daaf6546d219db751d8448d3888",
+  "sha256": {
+    "LICENSE": "38b27e3155e0c1c8d6f3e909e7a00359a302085dfd9ae963b52a91cbbe25afa3",
+    "hand2/hand2_beta1/body/urdf/left.urdf": "cec0a7eb6a34fd82e200def7b75c1d477fad790b2de903aec58e59991994c471",
+    "hand2/hand2_beta1/body/usd/left/.asset_hash": "740034f161e3256eca508f23d7a6202f02df1fd073777e91f774918149181c37",
+    "hand2/hand2_beta1/body/usd/left/config.yaml": "5d2c56f3f950b459d6830e5ed06494ec1ede85837864d893f1e870ea43c552da",
+    "hand2/hand2_beta1/body/usd/left/configuration/wujihand2_base.usd": "617dae4183595265d8db42c7cadd6ca949ca99a0a4f6950172d7c162a6ed1784",
+    "hand2/hand2_beta1/body/usd/left/configuration/wujihand2_physics.usd": "aadcc334872856171ef184a97b63d0d6a04e48aefba795acd494240a0e61cecd",
+    "hand2/hand2_beta1/body/usd/left/configuration/wujihand2_robot.usd": "a576e04623283b83a905f64db67b1ed926eb8f2c14506c39cc383e7c1bd70d1b",
+    "hand2/hand2_beta1/body/usd/left/configuration/wujihand2_sensor.usd": "c352992e7ed04c79a1488442b356b208b19e0ae44b34073738fee6abad6aa5db",
+    "hand2/hand2_beta1/body/usd/left/textures/wuji_logo_official_hires.png": "367455d13ec66b223c6c2225f56cb306b8cc9f5bbe229e3d498c339df54e828f",
+    "hand2/hand2_beta1/body/usd/left/wujihand2.usd": "8d1b83a6130b64fd759ea3c0720d6b255da8c1e76abe5a4226788183058dbfda",
+    "hand2/hand2_beta1/body/urdf/right.urdf": "5093e4de1e36e2840720f7c2154339c870a060825ef2aac29b023f5b814e86b8",
+    "hand2/hand2_beta1/body/usd/right/.asset_hash": "dab628520b7900a7905b1ab7f00d3dd2af2f24af719c419109d86a2df0e93966",
+    "hand2/hand2_beta1/body/usd/right/config.yaml": "71162271d50b5e1bc2f330116c66777ebf0f9d80f6c3ebe0983cbd7eb93a61da",
+    "hand2/hand2_beta1/body/usd/right/configuration/wujihand2_base.usd": "3270f04c6a47535125d14d52a88528c644c7af03a073b213da3044b05538152e",
+    "hand2/hand2_beta1/body/usd/right/configuration/wujihand2_physics.usd": "bc6ecbad5ae1c9dbb982872808aba28291bc60f6cd791df8931988d85e6ad730",
+    "hand2/hand2_beta1/body/usd/right/configuration/wujihand2_robot.usd": "e3a0ae0a49abab141626a195857c62957711e65a42f0c8f507c2d4ad63bfb208",
+    "hand2/hand2_beta1/body/usd/right/configuration/wujihand2_sensor.usd": "9d33266fccd219914e80f8f4808a46209dba97d027749a35c9025aa29a2b6180",
+    "hand2/hand2_beta1/body/usd/right/textures/wuji_logo_official_hires.png": "367455d13ec66b223c6c2225f56cb306b8cc9f5bbe229e3d498c339df54e828f",
+    "hand2/hand2_beta1/body/usd/right/wujihand2.usd": "22600d3f0aeb185552bb6eeb454b5b7199966a60fc844d4a4b5e4791ec77f0ed"
+  }
+}

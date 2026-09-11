@@ -1,0 +1,62 @@
+{
+  "initial_state_matches": true,
+  "completed_quarter_turns": 6,
+  "requested_quarter_turns": 12,
+  "passed": false,
+  "final_solved": false,
+  "checkpoints": [
+    {
+      "quarter_turn": 1,
+      "move": "D",
+      "end_time_s": 13.0,
+      "passed": true
+    },
+    {
+      "quarter_turn": 2,
+      "move": "F'",
+      "end_time_s": 24.48,
+      "passed": true
+    },
+    {
+      "quarter_turn": 3,
+      "move": "U",
+      "end_time_s": 35.74,
+      "passed": true
+    },
+    {
+      "quarter_turn": 4,
+      "move": "U",
+      "end_time_s": 47.08,
+      "passed": true
+    },
+    {
+      "quarter_turn": 5,
+      "move": "R",
+      "end_time_s": 58.42,
+      "passed": true
+    },
+    {
+      "quarter_turn": 6,
+      "move": "B'",
+      "end_time_s": 71.4,
+      "passed": true
+    },
+    {
+      "quarter_turn": 7,
+      "move": "D'",
+      "end_time_s": 134.26,
+      "passed": false
+    }
+  ],
+  "max_anchor_error_m": 0.0006174992886371911,
+  "thresholds": {
+    "sticker_degrees": 3,
+    "anchor_metres": 0.0005,
+    "hold_seconds": 0.4
+  },
+  "source_sha256": {
+    "poses.bin": "ec1e45a0122e921b7dfc0c92002868c7523a9f7f80302ff77d9622816312018c",
+    "telemetry.json": "1732fd84494d0bc888f78cba2e065c4fdd3c2acc6652c2e958ad7a8ab0238947",
+    "result.json": "16a49822254cc5c9e5b59e6bce1d92cfe97e835b0c9ffeefebfa86be047959e2"
+  }
+}

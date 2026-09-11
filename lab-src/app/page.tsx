@@ -1,4 +1,5 @@
 "use client";
+import Rubik from "./rubik";
 import Locomotion from "./locomotion";
 import DexterousHand from "./hand";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -99,7 +100,7 @@ export default function Home() {
     [path, setPath] = useState(true),
     [metric, setMetric] = useState("torque"),
     [task, setTask] = useState(() =>
-      ["transfer", "g1", "anymal", "allegro"].includes(window.location.hash.slice(1))
+      ["transfer", "g1", "anymal", "allegro", "rubik"].includes(window.location.hash.slice(1))
         ? window.location.hash.slice(1)
         : "g1",
     );
@@ -107,6 +108,17 @@ export default function Home() {
   clock.current.playing = playing;
   clock.current.speed = speed;
   clock.current.duration = run?.result.duration || 30;
+  useEffect(() => {
+    const navigate = () => {
+      const next = window.location.hash.slice(1);
+      if (["transfer", "g1", "anymal", "allegro", "rubik"].includes(next)) {
+        setTask(next);
+        setPlaying(false);
+      }
+    };
+    window.addEventListener("hashchange", navigate);
+    return () => window.removeEventListener("hashchange", navigate);
+  }, []);
   useEffect(() => {
     let disposed = false;
     Promise.all([
@@ -252,19 +264,40 @@ export default function Home() {
               ? "CONTACT-DRIVEN MANIPULATION"
               : task === "allegro"
                 ? "IN-HAND REORIENTATION"
-                : "LEARNED LOCOMOTION / ACTUATOR DESIGN"}
+                : task === "rubik"
+                  ? "DEXTEROUS RUBIK MANIPULATION"
+                  : "LEARNED LOCOMOTION / ACTUATOR DESIGN"}
           </p>
           <h1>
-            Every motor choice
-            <br />
-            has a consequence.
+            {task === "rubik" ? (
+              <>
+                A different hand.
+                <br />A physical cube.
+              </>
+            ) : (
+              <>
+                Every motor choice
+                <br />
+                has a consequence.
+              </>
+            )}
           </h1>
         </div>
         <div className="intro-right">
           <p className="lede">
-            One task. The same controller.
-            <br />
-            Different hardware, visible consequences.
+            {task === "rubik" ? (
+              <>
+                Wuji Hand 2 in Isaac Lab.
+                <br />
+                Video and measured 3D replay.
+              </>
+            ) : (
+              <>
+                One task. The same controller.
+                <br />
+                Different hardware, visible consequences.
+              </>
+            )}
           </p>
           <div className="task-switch" role="group" aria-label="Experiment">
             {[
@@ -272,6 +305,7 @@ export default function Home() {
               ["g1", "G1 walking"],
               ["anymal", "ANYmal"],
               ["allegro", "Dexterous hand"],
+              ["rubik", "Rubik · Wuji"],
             ].map(([v, l]) => (
               <Button
                 key={v}
@@ -811,6 +845,8 @@ export default function Home() {
         </>
       ) : task === "g1" || task === "anymal" ? (
         <Locomotion key={task} robot={task} />
+      ) : task === "rubik" ? (
+        <Rubik />
       ) : task === "allegro" ? (
         <DexterousHand />
       ) : (

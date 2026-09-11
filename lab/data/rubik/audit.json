@@ -1,0 +1,26 @@
+{
+  "initial_state_matches": true,
+  "completed_quarter_turns": 1,
+  "requested_quarter_turns": 1,
+  "passed": true,
+  "final_solved": true,
+  "checkpoints": [
+    {
+      "quarter_turn": 1,
+      "move": "U",
+      "end_time_s": 13.0,
+      "passed": true
+    }
+  ],
+  "max_anchor_error_m": 0.00018800261022988707,
+  "thresholds": {
+    "sticker_degrees": 3,
+    "anchor_metres": 0.0005,
+    "hold_seconds": 0.4
+  },
+  "source_sha256": {
+    "poses.bin": "4fabb7a34346d690d63951417a315f23316338668e315f832294bd781f64c457",
+    "telemetry.json": "333596f2fe89bfbc16f2de4567fbb8f79dc6aaf20d31428dc1f743a2cf7876d9",
+    "result.json": "9b2f9354d1a0e21ebbbc093dfebc8b9657e681bfb0d7572e01aa8d7ac2692a6c"
+  }
+}

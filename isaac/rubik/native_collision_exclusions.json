@@ -1,0 +1,89 @@
+{
+  "source": "https://github.com/wuji-technology/wuji-description",
+  "revision": "4c1073d0a3ad1daaf6546d219db751d8448d3888",
+  "note": "Native hand collision exclusions, translated into USD filtered pairs. No MuJoCo execution.",
+  "left": [
+    {
+      "body1": "l_thumb_proximal",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_thumb_proximal_abd",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_index_finger_proximal",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_index_finger_proximal_abd",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_middle_finger_proximal",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_middle_finger_proximal_abd",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_ring_finger_proximal",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_ring_finger_proximal_abd",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_pinky_proximal",
+      "body2": "l_wrist"
+    },
+    {
+      "body1": "l_pinky_proximal_abd",
+      "body2": "l_wrist"
+    }
+  ],
+  "right": [
+    {
+      "body1": "r_thumb_proximal",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_thumb_proximal_abd",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_index_finger_proximal",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_index_finger_proximal_abd",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_middle_finger_proximal",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_middle_finger_proximal_abd",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_ring_finger_proximal",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_ring_finger_proximal_abd",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_pinky_proximal",
+      "body2": "r_wrist"
+    },
+    {
+      "body1": "r_pinky_proximal_abd",
+      "body2": "r_wrist"
+    }
+  ]
+}

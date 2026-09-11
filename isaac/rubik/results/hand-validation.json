@@ -1,0 +1,34 @@
+[
+  {
+    "hand": "left",
+    "max_joint_error_rad": 2.0381893950371932e-09,
+    "max_torque_nm": 6.417786124757185e-08,
+    "passed": true,
+    "contact_model": {
+      "colliders": 21,
+      "native_collision_exclusions": 10,
+      "static_friction": 2.0,
+      "dynamic_friction": 1.5,
+      "friction_combine": "max",
+      "contact_offset_m": 0.0002,
+      "torsional_patch_radius_m": 0.004,
+      "minimum_torsional_patch_radius_m": 0.002
+    }
+  },
+  {
+    "hand": "right",
+    "max_joint_error_rad": 7.956854730650775e-09,
+    "max_torque_nm": 2.0739580719464357e-08,
+    "passed": true,
+    "contact_model": {
+      "colliders": 21,
+      "native_collision_exclusions": 10,
+      "static_friction": 2.0,
+      "dynamic_friction": 1.5,
+      "friction_combine": "max",
+      "contact_offset_m": 0.0002,
+      "torsional_patch_radius_m": 0.004,
+      "minimum_torsional_patch_radius_m": 0.002
+    }
+  }
+]

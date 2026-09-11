@@ -1,0 +1,63 @@
+{
+  "task": "fixture Rubik sequence",
+  "engine": "Isaac Lab / PhysX",
+  "controller": "URDF fingertip IK + bounded floating wrist PD",
+  "cube_actuators": 0,
+  "cube_state_writes_during_rollout": 0,
+  "fixture": true,
+  "ik_error_m": 1.6702573010015047e-09,
+  "frames": 3885,
+  "bodies": 53,
+  "fps": 50,
+  "duration": 77.68,
+  "physics_dt_s": 0.001,
+  "passed": false,
+  "configuration": {
+    "output": "/workspace/atlas-rubik/sequence15",
+    "seconds": 144.0,
+    "closure": 0.004,
+    "detent": 0.02,
+    "guide": 0.2,
+    "joint_damping": 0.0001,
+    "feedback": true,
+    "scramble": "R U F' L2 D B R' U2 F D'",
+    "moves": "D F' U2 R B' D' L2 F U' R'",
+    "video": false,
+    "device": "cpu",
+    "cpu": false,
+    "verbose": false,
+    "info": false,
+    "rendering_mode": null,
+    "kit_args": "",
+    "headless": true,
+    "hide_ui": true,
+    "create_new_stage": false,
+    "physics_gpu": 0,
+    "active_gpu": 0
+  },
+  "final": {
+    "t": 77.68,
+    "cube": [
+      8.806670374029925e-17,
+      -5.115093266823607e-16,
+      0.5
+    ],
+    "phase": "Turn",
+    "move_index": 5,
+    "move": "B'",
+    "expected_facelets": "DUUDUUDRRBBBDRRLFFBDDBFFFFFUUUDDLBBLFLLFLLUBRLLRUBRDRR",
+    "command_angle_deg": 51.058597498439255,
+    "max_target_error_deg": 90.96586138522073,
+    "controller_time_s": 66.47999999995338,
+    "grip_closure_m": 0.012,
+    "progress_limited": true,
+    "mean_target_error_deg": 35.8141497379745,
+    "decoded": {
+      "aligned": false,
+      "solved": false,
+      "facelets": null
+    },
+    "wrist_position_error_m": 0.007864743898227475,
+    "joint_torque_max_nm": 0.28710970282554626
+  }
+}

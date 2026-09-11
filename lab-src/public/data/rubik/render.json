@@ -1,0 +1,8 @@
+{
+  "source": "poses.npz",
+  "renderer": "Isaac Sim 4.5",
+  "method": "Offline render of measured physics states; physics disabled during rendering",
+  "camera": "Smooth framing of measured body bounds; no change to body motion",
+  "video_fps": 25,
+  "physics_replay_fps": 50
+}

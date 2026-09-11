@@ -91,9 +91,9 @@ export function Replay({
     controls.target.set(0.37, 0, 0.5);
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
-    controls.minDistance = 0.25;
+    controls.minDistance = sceneData.kind === "rubik" ? 0.08 : 0.25;
     controls.maxDistance = 5;
-    controls.maxPolarAngle = Math.PI * 0.49;
+    controls.maxPolarAngle = Math.PI * (sceneData.kind === "rubik" ? 0.99 : 0.49);
     controls.update();
     scene.add(new THREE.HemisphereLight("#f6f9ed", "#738171", 2.2));
     const light = new THREE.DirectionalLight("#fff6e5", 4.2);
@@ -126,7 +126,7 @@ export function Replay({
       const joint = m.body % 11 === 7;
       const material = new THREE.MeshStandardMaterial({
         color:
-          sceneData.kind === "locomotion" || sceneData.kind === "hand"
+          sceneData.kind === "locomotion" || sceneData.kind === "hand" || sceneData.kind === "rubik"
             ? new THREE.Color(...(m.color as [number, number, number]))
             : finger
               ? "#343b36"
@@ -374,37 +374,42 @@ export function Replay({
       ],
     };
     const v =
-      sceneData.kind === "hand"
-        ? cameraView === "top"
-          ? [
-              [0, -0.12, 1.05],
-              [0, -0.12, 0.49],
-            ]
-          : cameraView === "front"
-            ? [
-                [0, 0.48, 0.57],
-                [0, -0.12, 0.49],
-              ]
-            : [
-                [0.26, 0.08, 0.68],
-                [0, -0.12, 0.5],
-              ]
-        : sceneData.kind === "locomotion"
+      sceneData.kind === "rubik"
+        ? [
+            [0.4, -0.5, 0.95],
+            [0, 0, 0.58],
+          ]
+        : sceneData.kind === "hand"
           ? cameraView === "top"
             ? [
-                [0, 0.01, 4],
-                [0, 0, 0.5],
+                [0, -0.12, 1.05],
+                [0, -0.12, 0.49],
               ]
             : cameraView === "front"
               ? [
-                  [3, 0, 1.2],
-                  [0, 0, 0.65],
+                  [0, 0.48, 0.57],
+                  [0, -0.12, 0.49],
                 ]
               : [
-                  [2.4, 2.4, 1.8],
-                  [0, 0, 0.65],
+                  [0.26, 0.08, 0.68],
+                  [0, -0.12, 0.5],
                 ]
-          : views[cameraView] || views.overview;
+          : sceneData.kind === "locomotion"
+            ? cameraView === "top"
+              ? [
+                  [0, 0.01, 4],
+                  [0, 0, 0.5],
+                ]
+              : cameraView === "front"
+                ? [
+                    [3, 0, 1.2],
+                    [0, 0, 0.65],
+                  ]
+                : [
+                    [2.4, 2.4, 1.8],
+                    [0, 0, 0.65],
+                  ]
+            : views[cameraView] || views.overview;
     s.camera.position.set(...v[0]);
     s.controls.target.set(...v[1]);
     s.controls.update();

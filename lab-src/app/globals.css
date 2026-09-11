@@ -1016,3 +1016,7 @@ footer span {
 .hand-trial-selector .micro {flex:1;min-width:240px;}
 
 .precision-table {overflow-x:auto;}
+.rubik-metrics { margin: 1.5rem 0; }
+.rubik-metrics > div { display:flex; justify-content:space-between; gap:1rem; border-bottom:1px solid #d5dcd0; padding:1rem 0; }
+.rubik-metrics dd { margin:0; font-family:monospace; }
+.rubik-moves {padding:0 24px 20px;}

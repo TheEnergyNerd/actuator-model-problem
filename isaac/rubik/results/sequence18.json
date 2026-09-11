@@ -1,0 +1,83 @@
+{
+  "task": "fixture Rubik sequence",
+  "engine": "Isaac Lab / PhysX",
+  "controller": "URDF fingertip IK + bounded floating wrist PD",
+  "cube_actuators": 0,
+  "contact_model": {
+    "profile": "stock",
+    "colliders": 21,
+    "native_collision_exclusions": 10,
+    "static_friction": 0.5,
+    "dynamic_friction": 0.5,
+    "friction_combine": "average",
+    "contact_offset_m": 0.02,
+    "torsional_patch_radius_m": 0.0,
+    "minimum_torsional_patch_radius_m": 0.0,
+    "pad_stiffness_n_m": 0.0,
+    "pad_damping_ns_m": 0.0
+  },
+  "cube_state_writes_during_rollout": 0,
+  "fixture": true,
+  "ik_error_m": 1.6702573010015047e-09,
+  "frames": 6099,
+  "bodies": 53,
+  "fps": 50,
+  "duration": 121.96000000000001,
+  "physics_dt_s": 0.001,
+  "completed_moves": 2,
+  "attempts": {
+    "1": 1,
+    "2": 3
+  },
+  "passed": false,
+  "configuration": {
+    "output": "/workspace/atlas-rubik/sequence18",
+    "seconds": 156.0,
+    "closure": 0.004,
+    "detent": 0.02,
+    "guide": 0.2,
+    "joint_damping": 0.0001,
+    "feedback": true,
+    "scramble": "R U F' L2 D B R' U2 F D'",
+    "moves": "D F' U2 R B' D' L2 F U' R'",
+    "video": false,
+    "device": "cpu",
+    "cpu": false,
+    "verbose": false,
+    "info": false,
+    "rendering_mode": null,
+    "kit_args": "",
+    "headless": true,
+    "hide_ui": true,
+    "create_new_stage": false,
+    "physics_gpu": 0,
+    "active_gpu": 0
+  },
+  "final": {
+    "t": 121.96,
+    "cube": [
+      8.806670374029925e-17,
+      -5.115093266823607e-16,
+      0.5
+    ],
+    "phase": "Settle",
+    "move_index": 2,
+    "attempt": 4,
+    "move": "U",
+    "expected_facelets": "RRDRURBDDBDFBRFBDLULLBFUFFRUUDDDFFFFUULULLDBRLBBLBLURR",
+    "command_angle_deg": -90.0,
+    "max_target_error_deg": 90.04032692386255,
+    "controller_time_s": 38.99799999999102,
+    "grip_closure_m": 0.012,
+    "progress_limited": false,
+    "mean_target_error_deg": 31.265446172527145,
+    "decoded": {
+      "aligned": true,
+      "solved": false,
+      "facelets": "DRDRUDRRBULLBRFBDLUULBFUFFRUUDDDFFFFLBBULLDBRBDFLBLURR",
+      "max_sticker_error_deg": 0.34152800162942537
+    },
+    "wrist_position_error_m": 0.0007883068488804587,
+    "joint_torque_max_nm": 0.15230797231197357
+  }
+}
