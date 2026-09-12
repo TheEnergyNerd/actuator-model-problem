@@ -14,6 +14,11 @@ class FactoryRecording:
         self.output.mkdir()
         self.env = env
         self.assets = [env._robot, env._fixed_asset, env._held_asset]
+        # GearMesh has two additional physical flanking gears.
+        for name in ("_small_gear_asset", "_large_gear_asset"):
+            asset = getattr(env, name, None)
+            if asset is not None:
+                self.assets.append(asset)
         self.frames, self.samples = [], []
         stage = omni.usd.get_context().get_stage()
         meshes, names = [], []
@@ -99,6 +104,9 @@ class FactoryRecording:
             cube_size=0,
             table=None,
             follow_body=len(env._robot.body_names),
+            camera_offset=(
+                [0.22, -0.28, 0.22] if len(self.assets) > 3 else [0.14, -0.18, 0.12]
+            ),
         )
         (self.output / "scene.json").write_text(
             json.dumps(self.scene, separators=(",", ":"))
@@ -124,7 +132,16 @@ class FactoryRecording:
         self.samples.append(
             dict(
                 t=(len(self.frames) - 1) * self.env.step_dt,
-                phase="Insertion achieved" if row["success"][0] else "Align and insert",
+                phase=(
+                    "Side push"
+                    if row.get("push_force_n", 0) > 0
+                    else (
+                        "Insertion achieved"
+                        if row["success"][0]
+                        else "Align and insert"
+                    )
+                ),
+                push_force_n=row.get("push_force_n", 0),
                 cube=state[self.scene["follow_body"], :3].tolist(),
                 tips=[],
                 grip=[],
@@ -154,6 +171,7 @@ class FactoryRecording:
             physics_hz=1 / self.env.cfg.sim.dt,
             task_success=trial["sustained_final_success"],
             task=evaluation["task"],
+            perturbation=evaluation.get("perturbation"),
             checkpoint_sha256=evaluation["checkpoint_sha256"],
             seed=evaluation["seed"],
             environment_index=0,

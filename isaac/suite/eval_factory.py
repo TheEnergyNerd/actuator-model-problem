@@ -19,12 +19,20 @@ p.add_argument("--num-envs", type=int, default=16)
 p.add_argument("--episodes", type=int, default=3)
 p.add_argument("--seed", type=int, default=201)
 p.add_argument(
+    "--push-force",
+    type=float,
+    default=0,
+    help="Held-asset local Y force in N, first episode at 0.4–0.7 s",
+)
+p.add_argument(
     "--record",
     action="store_true",
     help="Record env 0, episode 0 before automatic reset",
 )
 AppLauncher.add_app_launcher_args(p)
 a = p.parse_args()
+if not 0 <= a.push_force <= 3:
+    p.error("Push force must be in [0, 3] N")
 if a.num_envs < 1 or a.episodes < 1:
     p.error("Positive environments and episodes required")
 with zipfile.ZipFile(a.checkpoint) as archive:
@@ -83,6 +91,7 @@ try:
     recorder = FactoryRecording(a.output, raw) if a.record else None
     original_rewards = raw._get_rewards
     snapshots = []
+    applied_push = 0.0
 
     def measured_rewards():
         reward = original_rewards()
@@ -92,6 +101,7 @@ try:
         )
         snapshots.append(
             {
+                "push_force_n": applied_push,
                 "success": passed.detach().cpu().tolist(),
                 "keypoint_error_m": raw.keypoint_dist.detach().cpu().tolist(),
                 "held_position": raw.held_pos.detach().cpu().tolist(),
@@ -113,6 +123,12 @@ try:
     trials = []
     with torch.inference_mode():
         for step in range(raw.max_episode_length * a.episodes + 1):
+            applied_push = a.push_force if 0.4 <= step * raw.step_dt < 0.7 else 0.0
+            force = torch.zeros((a.num_envs, 1, 3), device=a.device)
+            force[:, :, 1] = applied_push
+            raw._held_asset.set_external_force_and_torque(
+                force, torch.zeros_like(force), body_ids=[0]
+            )
             actions = player.get_action(player.obs_to_torch(obs), is_deterministic=True)
             if not torch.isfinite(actions).all():
                 raise ValueError("Non-finite policy action")
@@ -145,6 +161,13 @@ try:
                 break
     result = dict(
         task=task,
+        perturbation=dict(
+            force_n=a.push_force,
+            start_s=0.4,
+            duration_s=0.3,
+            frame="Held-asset local Y",
+            application="Physical external force, first episode only",
+        ),
         seed=a.seed,
         checkpoint_sha256=hashlib.sha256(a.checkpoint.read_bytes()).hexdigest(),
         num_envs=a.num_envs,

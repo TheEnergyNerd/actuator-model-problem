@@ -1,3 +1,4 @@
+import ReplayChapters from "./replay-chapters";
 import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type SceneData, type Recording, type Sample } from "./replay";
@@ -168,7 +169,7 @@ function RubikRecording({ path }: { path: string }) {
             </Button>
           ))}
         </div>
-        <div className="transport">
+        <ReplayChapters samples={run.samples} seek={seek}/><div className="transport">
           <Button
             aria-label={playing ? "Pause" : "Play"}
             onClick={() => {

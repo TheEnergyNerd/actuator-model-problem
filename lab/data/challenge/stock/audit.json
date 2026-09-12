@@ -1,0 +1,21 @@
+{
+  "finite_states": true,
+  "normalized_quaternions": true,
+  "regular_timestamps": true,
+  "route_corridor_ok": true,
+  "clearance_ok": true,
+  "reset_free": true,
+  "reached_finish": true,
+  "final_second_max_pose_speed_m_s": 0.09078747034072876,
+  "applied_push_impulse_N_s": 18.2,
+  "minimum_gap_base_height_m": 0.8148409724235535,
+  "minimum_bridge_base_height_m": 0.6561129093170166,
+  "clearance_note": "Additional post-run audit: base height at least 0.55 m over the gap and 0.4 m over the bridge.",
+  "hashes": {
+    "poses.bin": "6ec7077d319f69b811df2bc29d9e192847c8e749e5c0dfb219cdd8e2131e3ecd",
+    "telemetry.json": "9332bb81a7303be714bbe8b61a6a57a86e6a803b40d3b0fd53ba053448d19780",
+    "result.json": "84cfd5c4d5ed8c0298df00bb54c568dd71dd4fa5947cb12f4b63d354a72a3c4c",
+    "video.mp4": "83ed9bd5dea96424a772a1785e28c5c3ed86ff345cda13bdbfe01ee81c85ce06"
+  },
+  "decoded_video_frames": 652
+}

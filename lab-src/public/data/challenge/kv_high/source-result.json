@@ -1,0 +1,152 @@
+{
+  "kind": "course_evaluation",
+  "actuator_model": "atlas_foc",
+  "design": {
+    "name": "kv_high",
+    "inertia_policy": "Added carrier mass changes body inertia; native joint armature remains fixed; no added rotor inertia in this course intervention",
+    "specifications": {
+      "legs": {
+        "name": "kv_high",
+        "axis": "rewind Kv",
+        "kv_factor": 1.5,
+        "peak_current_factor": 1.0,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.0,
+        "added_rotor_inertia_factor": 0.0,
+        "Kv_phase_peak_rpm_per_V": 85.94366926962348,
+        "Kt_Nm_per_peak_q_A": 0.16666666666666666,
+        "gear_ratio": 9.0,
+        "peak_current_A": 55.0,
+        "continuous_current_floor_A": 42.0,
+        "nominal_stall_peak_joint_Nm": 74.25,
+        "base_speed_joint_rad_s_ideal_no_field_weakening": 27.712812921102042,
+        "phase_R_ohm": 0.013333333333333332,
+        "V_bus_V": 48.0,
+        "thermal_R_K_per_W": 1.8,
+        "thermal_C_J_per_K": 80.0,
+        "added_mass_per_actuator_kg": 0.0,
+        "added_motor_rotor_inertia_kg_m2": 0.0,
+        "added_joint_armature_kg_m2": 0.0
+      }
+    },
+    "measured_added_mass_kg": [
+      0.0
+    ],
+    "carrier_mapping": {
+      "LF_HAA": "base",
+      "LH_HAA": "base",
+      "RF_HAA": "base",
+      "RH_HAA": "base",
+      "LF_HFE": "LF_HIP",
+      "LF_KFE": "LF_THIGH",
+      "LH_HFE": "LH_HIP",
+      "LH_KFE": "LH_THIGH",
+      "RF_HFE": "RF_HIP",
+      "RF_KFE": "RF_THIGH",
+      "RH_HFE": "RH_HIP",
+      "RH_KFE": "RH_THIGH"
+    },
+    "placement": "Added spherical-equivalent stator mass at each carrier COM, radius 0.04 m; native COM unchanged"
+  },
+  "course_layout": "challenge",
+  "stages": [
+    {
+      "id": "stairs",
+      "name": "Climb the staircase",
+      "start": 2.0,
+      "end": 3.6
+    },
+    {
+      "id": "gap",
+      "name": "Cross the gap",
+      "start": 4.6,
+      "end": 4.82
+    },
+    {
+      "id": "bridge",
+      "name": "Balance on the raised crossing",
+      "start": 8.2,
+      "end": 10.2
+    },
+    {
+      "id": "rubble",
+      "name": "Pick through irregular rubble",
+      "start": 10.6,
+      "end": 14.0
+    },
+    {
+      "id": "slope",
+      "name": "Traverse the side slope",
+      "start": 14.0,
+      "end": 16.0
+    },
+    {
+      "id": "push",
+      "name": "Recover from a sideways push",
+      "start": 17.0,
+      "end": 18.0
+    },
+    {
+      "id": "finish",
+      "name": "Stop inside the finish zone",
+      "start": 19.0,
+      "end": 19.6
+    }
+  ],
+  "passed_stage_ids": [
+    "bridge",
+    "finish",
+    "gap",
+    "push",
+    "rubble",
+    "slope",
+    "stairs"
+  ],
+  "push_start_s": 24.54,
+  "navigation": "World-forward command with lateral/yaw feedback; recomputed observations before policy action",
+  "task": "Isaac-Velocity-Rough-Anymal-C-Play-v0",
+  "task_success": true,
+  "seed": 201,
+  "num_envs": 1,
+  "duration_s": 28.68,
+  "frames": 1434,
+  "bodies": [
+    "base",
+    "LF_HIP",
+    "LH_HIP",
+    "RF_HIP",
+    "RH_HIP",
+    "LF_THIGH",
+    "LH_THIGH",
+    "RF_THIGH",
+    "RH_THIGH",
+    "LF_SHANK",
+    "LH_SHANK",
+    "RF_SHANK",
+    "RH_SHANK",
+    "LF_FOOT",
+    "LH_FOOT",
+    "RF_FOOT",
+    "RH_FOOT"
+  ],
+  "physics_dt": 0.005,
+  "checkpoint_sha256": "7efbaef126790c3f985d80b674712678636fe7c9a3a09ad887a69f5674f7adaf",
+  "termination_count": [
+    0
+  ],
+  "timeout_count": [
+    0
+  ],
+  "mean_xy_tracking_error_m_s": [
+    0.14282320003700533
+  ],
+  "reset_policy": "Native resets retained; terminated and time_out flags mark discontinuities.",
+  "terrain": "Gap, raised crossing, rubble, slope and lateral push",
+  "course_finish_x_m": 19.0,
+  "course_finish_hold_s": 1.0000000000000004,
+  "course_violation": null
+}

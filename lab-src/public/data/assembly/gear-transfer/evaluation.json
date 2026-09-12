@@ -1,0 +1,149 @@
+{
+  "task": "Isaac-Factory-GearMesh-Direct-v0",
+  "perturbation": {
+    "force_n": 0,
+    "start_s": 0.4,
+    "duration_s": 0.3,
+    "frame": "Held-asset local Y",
+    "application": "Physical external force, first episode only"
+  },
+  "seed": 201,
+  "checkpoint_sha256": "fcdc6014741a8b4ef9173b5d92471bbe979522873f1294013df6d9c6be6c2559",
+  "num_envs": 16,
+  "episodes": 1,
+  "completed": true,
+  "trials": [
+    {
+      "environment": 0,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.012710509821772575
+    },
+    {
+      "environment": 1,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.0051214005798101425
+    },
+    {
+      "environment": 2,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 15.199999999999966,
+      "keypoint_error_m": 0.0011351951397955418
+    },
+    {
+      "environment": 3,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.021124884486198425
+    },
+    {
+      "environment": 4,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.013846728950738907
+    },
+    {
+      "environment": 5,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.010910558514297009
+    },
+    {
+      "environment": 6,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.019668802618980408
+    },
+    {
+      "environment": 7,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.0104824872687459
+    },
+    {
+      "environment": 8,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.025900639593601227
+    },
+    {
+      "environment": 9,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 14.399999999999968,
+      "keypoint_error_m": 0.0006244654068723321
+    },
+    {
+      "environment": 10,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.012152038514614105
+    },
+    {
+      "environment": 11,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.010354897007346153
+    },
+    {
+      "environment": 12,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 17.39999999999996,
+      "keypoint_error_m": 0.0011830104049295187
+    },
+    {
+      "environment": 13,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.009537364356219769
+    },
+    {
+      "environment": 14,
+      "episode": 0,
+      "native_final_success": false,
+      "sustained_final_success": false,
+      "final_hold_s": 0.0,
+      "keypoint_error_m": 0.010076038539409637
+    },
+    {
+      "environment": 15,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 17.333333333333293,
+      "keypoint_error_m": 0.000689627428073436
+    }
+  ],
+  "successes": 4,
+  "native_successes": 4,
+  "criterion": "Native task success continuously true for the final 0.5 seconds, measured before automatic reset",
+  "reset_policy": "Native task resets and prepared initial grasp retained"
+}

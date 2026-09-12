@@ -1,0 +1,15 @@
+{
+  "finite_states": true,
+  "normalized_quaternions": true,
+  "video_frames": 149,
+  "success_sustained_final_half_second": true,
+  "applied_impulse_N_s": 0.6666666666666666,
+  "checkpoint_sha256": "fcdc6014741a8b4ef9173b5d92471bbe979522873f1294013df6d9c6be6c2559",
+  "hashes": {
+    "poses.bin": "259b883e7f11646b04f0d66a6468758bb94b026669f763e28218bbc55bed6dca",
+    "result.json": "b42f8f08d2d455ee80c7b17b01d7da7381815b2c039fd8cf31b19ce74d8d9c62",
+    "telemetry.json": "073e7d52fa887e5dcf062208f5dba283aee2f943ee0e369d06fe121eb9f813db",
+    "video.mp4": "27a773fd035258a06c3a47e7798b989fa9a84390782bd6e165bc5f2cf3f36315",
+    "evaluation.json": "d5022e68908fd5436fe7e2364ff5257611b0ee56d57178dd93e33a54d63300c8"
+  }
+}

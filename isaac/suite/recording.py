@@ -31,6 +31,8 @@ def export_recording(output, env, frames, rows, summary):
         if not prim.IsA(UsdGeom.Mesh):
             continue
         mesh = UsdGeom.Mesh(prim)
+        if mesh.ComputeVisibility() == UsdGeom.Tokens.invisible:
+            continue
         points = mesh.GetPointsAttr().Get()
         if not points:
             continue
@@ -62,12 +64,18 @@ def export_recording(output, env, frames, rows, summary):
             dict(
                 vertices=np.round(vertices[used], 6).ravel().tolist(),
                 indices=remap.tolist(),
-                color=[0.55, 0.60, 0.52],
+                color=(
+                    list(mesh.GetDisplayColorAttr().Get()[0])
+                    if mesh.GetDisplayColorAttr().Get()
+                    else [0.55, 0.60, 0.52]
+                ),
             )
         )
     if not static:
         raise ValueError("No native terrain geometry exported")
     scene["static_meshes"] = static
+    if summary.get("course_layout") == "challenge":
+        scene["overview_camera"] = dict(eye=[16, -27, 21], target=[9, 0, 0.3])
     (dest / "scene.json").write_text(
         json.dumps(scene, separators=(",", ":"), allow_nan=False)
     )
@@ -80,7 +88,13 @@ def export_recording(output, env, frames, rows, summary):
         samples.append(
             dict(
                 t=i * env.step_dt,
-                phase="Episode reset" if row["time_out"][0] else "Rough terrain",
+                phase=(
+                    "Episode reset"
+                    if row["time_out"][0]
+                    else row.get("phase", "Rough terrain")
+                ),
+                push_force_body_y_N=row.get("push_force_body_y_N", 0),
+                peak_joint_rpm=row.get("peak_joint_rpm"),
                 cube=states[i, 0, :3].tolist(),
                 tips=[],
                 grip=[],
@@ -112,6 +126,11 @@ def export_recording(output, env, frames, rows, summary):
         task_success=summary["task_success"],
         terrain=summary["terrain"],
         design=summary.get("design"),
+        course_layout=summary.get("course_layout"),
+        stages=summary.get("stages", []),
+        passed_stage_ids=summary.get("passed_stage_ids", []),
+        push_start_s=summary.get("push_start_s"),
+        navigation=summary.get("navigation"),
         source="Measured native Isaac Lab rough-terrain rollout",
     )
     (dest / "result.json").write_text(json.dumps(result, indent=2) + "\n")

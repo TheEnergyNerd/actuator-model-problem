@@ -65,7 +65,7 @@ def main():
         shade = (
             mesh["color"]
             if scene.get("kind") == "assembly"
-            else [0.24, 0.29, 0.25] if mesh["body"] >= 0 else [0.50, 0.55, 0.47]
+            else [0.24, 0.29, 0.25] if mesh["body"] >= 0 else mesh["color"]
         )
         shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(
             Gf.Vec3f(*shade)
@@ -93,7 +93,7 @@ def main():
     )
     stride = int(result["fps"] / a.fps)
     offset = (
-        np.array([0.14, -0.18, 0.12])
+        np.array(scene.get("camera_offset", [0.14, -0.18, 0.12]))
         if scene.get("kind") == "assembly"
         else np.array([1.8, -2.4, 1.6])
     )

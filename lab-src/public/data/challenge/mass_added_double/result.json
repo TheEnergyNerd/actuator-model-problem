@@ -1,0 +1,118 @@
+{
+  "frames": 373,
+  "bodies": 17,
+  "fps": 50.0,
+  "duration": 7.44,
+  "physics_hz": 200.0,
+  "source_first_timestamp_s": 0.02,
+  "seed": 201,
+  "checkpoint_sha256": "7efbaef126790c3f985d80b674712678636fe7c9a3a09ad887a69f5674f7adaf",
+  "failure_terminations": 1,
+  "episode_resets": 1,
+  "actuator_model": "atlas_foc",
+  "environment_index": 0,
+  "task_success": false,
+  "terrain": "Gap, raised crossing, rubble, slope and lateral push",
+  "design": {
+    "name": "mass_added_double",
+    "inertia_policy": "Added carrier mass changes body inertia; native joint armature remains fixed; no added rotor inertia in this course intervention",
+    "specifications": {
+      "legs": {
+        "name": "mass_added_double",
+        "axis": "actuator mass",
+        "kv_factor": 1.0,
+        "peak_current_factor": 1.0,
+        "gear_factor": 1.0,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 2.0,
+        "added_rotor_inertia_factor": 0.0,
+        "Kv_phase_peak_rpm_per_V": 57.29577951308232,
+        "Kt_Nm_per_peak_q_A": 0.25,
+        "gear_ratio": 9.0,
+        "peak_current_A": 55.0,
+        "continuous_current_floor_A": 28.0,
+        "nominal_stall_peak_joint_Nm": 111.375,
+        "base_speed_joint_rad_s_ideal_no_field_weakening": 18.475208614068027,
+        "phase_R_ohm": 0.03,
+        "V_bus_V": 48.0,
+        "thermal_R_K_per_W": 1.8,
+        "thermal_C_J_per_K": 80.0,
+        "added_mass_per_actuator_kg": 0.5,
+        "added_motor_rotor_inertia_kg_m2": 0.0,
+        "added_joint_armature_kg_m2": 0.0
+      }
+    },
+    "measured_added_mass_kg": [
+      6.0
+    ],
+    "carrier_mapping": {
+      "LF_HAA": "base",
+      "LH_HAA": "base",
+      "RF_HAA": "base",
+      "RH_HAA": "base",
+      "LF_HFE": "LF_HIP",
+      "LF_KFE": "LF_THIGH",
+      "LH_HFE": "LH_HIP",
+      "LH_KFE": "LH_THIGH",
+      "RF_HFE": "RF_HIP",
+      "RF_KFE": "RF_THIGH",
+      "RH_HFE": "RH_HIP",
+      "RH_KFE": "RH_THIGH"
+    },
+    "placement": "Added spherical-equivalent stator mass at each carrier COM, radius 0.04 m; native COM unchanged"
+  },
+  "course_layout": "challenge",
+  "stages": [
+    {
+      "id": "stairs",
+      "name": "Climb the staircase",
+      "start": 2.0,
+      "end": 3.6
+    },
+    {
+      "id": "gap",
+      "name": "Cross the gap",
+      "start": 4.6,
+      "end": 4.82
+    },
+    {
+      "id": "bridge",
+      "name": "Balance on the raised crossing",
+      "start": 8.2,
+      "end": 10.2
+    },
+    {
+      "id": "rubble",
+      "name": "Pick through irregular rubble",
+      "start": 10.6,
+      "end": 14.0
+    },
+    {
+      "id": "slope",
+      "name": "Traverse the side slope",
+      "start": 14.0,
+      "end": 16.0
+    },
+    {
+      "id": "push",
+      "name": "Recover from a sideways push",
+      "start": 17.0,
+      "end": 18.0
+    },
+    {
+      "id": "finish",
+      "name": "Stop inside the finish zone",
+      "start": 19.0,
+      "end": 19.6
+    }
+  ],
+  "passed_stage_ids": [
+    "stairs"
+  ],
+  "push_start_s": null,
+  "navigation": "World-forward command with lateral/yaw feedback; recomputed observations before policy action",
+  "source": "Measured native Isaac Lab rough-terrain rollout"
+}

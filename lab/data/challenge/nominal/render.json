@@ -1,0 +1,8 @@
+{
+  "renderer": "Isaac Sim 4.5",
+  "method": "Native exported mesh geometry at measured body poses; display colors and studio lighting; physics disabled during rendering",
+  "source": "poses.bin",
+  "video_fps": 25,
+  "replay_fps": 50.0,
+  "video_frames": 313
+}

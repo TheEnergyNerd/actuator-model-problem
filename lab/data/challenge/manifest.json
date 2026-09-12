@@ -1,0 +1,97 @@
+{
+  "variants": [
+    {
+      "id": "stock",
+      "label": "Native ANYdrive",
+      "passed": true,
+      "duration": 26.080000000000002,
+      "description": "Completed the course and stopped in the finish zone."
+    },
+    {
+      "id": "nominal",
+      "label": "Atlas nominal",
+      "passed": false,
+      "duration": 12.52,
+      "description": "Run ended without completing the course. Passed stages: Climb the staircase, Cross the gap.",
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 111.375,
+        "rpm": 176.42524653497347,
+        "mass": 0.0
+      }
+    },
+    {
+      "id": "kv_high",
+      "label": "Higher Kv \u00b7 1.5\u00d7",
+      "passed": true,
+      "duration": 28.68,
+      "description": "Completed the course and stopped in the finish zone.",
+      "parameters": {
+        "kv": 85.94366926962348,
+        "gear": 9.0,
+        "torque": 74.25,
+        "rpm": 264.6378698024602,
+        "mass": 0.0
+      }
+    },
+    {
+      "id": "mass_added_double",
+      "label": "Added actuator mass \u00b7 +6 kg",
+      "passed": false,
+      "duration": 7.46,
+      "description": "Run ended without completing the course. Passed stages: Climb the staircase.",
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 111.375,
+        "rpm": 176.42524653497347,
+        "mass": 6.0
+      }
+    },
+    {
+      "id": "gear_low",
+      "label": "Lower gearing \u00b7 6:1",
+      "passed": true,
+      "duration": 29.52,
+      "description": "Completed the course and stopped in the finish zone.",
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 6.0,
+        "torque": 74.25,
+        "rpm": 264.6378698024602,
+        "mass": 0.0
+      }
+    },
+    {
+      "id": "torque_low",
+      "label": "Reduced current \u00b7 36.85 A",
+      "passed": true,
+      "duration": 28.86,
+      "description": "Completed the course and stopped in the finish zone.",
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 74.62125,
+        "rpm": 176.42524653497347,
+        "mass": 0.0
+      }
+    },
+    {
+      "id": "torque_focused",
+      "label": "Torque-focused candidate",
+      "passed": true,
+      "duration": 29.34,
+      "description": "Completed the course and stopped in the finish zone.",
+      "parameters": {
+        "kv": 45.83662361046586,
+        "gear": 10.799999999999999,
+        "torque": 167.06249999999997,
+        "rpm": 117.61683102331567,
+        "mass": 1.2000198364257812
+      }
+    }
+  ],
+  "seed": 201,
+  "criterion": "Same 19 m course, navigation rule and frozen policy. Native ANYdrive is a separate controller baseline. All completed evaluations retained."
+}

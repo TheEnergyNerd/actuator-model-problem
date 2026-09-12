@@ -1,0 +1,23 @@
+{
+  "frames": 149,
+  "bodies": 15,
+  "fps": 15.0,
+  "duration": 9.866666666666667,
+  "physics_hz": 120.0,
+  "task_success": true,
+  "task": "Isaac-Factory-PegInsert-Direct-v0",
+  "perturbation": {
+    "force_n": 0,
+    "start_s": 0.4,
+    "duration_s": 0.3,
+    "frame": "Held-asset local Y",
+    "application": "Physical external force, first episode only"
+  },
+  "checkpoint_sha256": "fcdc6014741a8b4ef9173b5d92471bbe979522873f1294013df6d9c6be6c2559",
+  "seed": 201,
+  "environment_index": 0,
+  "episode_index": 0,
+  "selection": "First environment, first episode; selected before evaluation",
+  "reset_policy": "Native prepared grasp; terminal body state captured before automatic reset",
+  "source": "Measured native Isaac Lab Factory policy rollout"
+}

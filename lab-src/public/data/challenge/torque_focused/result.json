@@ -1,0 +1,133 @@
+{
+  "frames": 1467,
+  "bodies": 17,
+  "fps": 50.0,
+  "duration": 29.32,
+  "physics_hz": 200.0,
+  "source_first_timestamp_s": 0.02,
+  "seed": 201,
+  "checkpoint_sha256": "7efbaef126790c3f985d80b674712678636fe7c9a3a09ad887a69f5674f7adaf",
+  "failure_terminations": 0,
+  "episode_resets": 0,
+  "actuator_model": "atlas_foc",
+  "environment_index": 0,
+  "task_success": true,
+  "terrain": "Gap, raised crossing, rubble, slope and lateral push",
+  "design": {
+    "name": "torque_focused",
+    "inertia_policy": "Added carrier mass changes body inertia; native joint armature remains fixed; no added rotor inertia in this course intervention",
+    "specifications": {
+      "legs": {
+        "name": "torque_focused",
+        "axis": "custom winding, gearing, current and carrier mass",
+        "kv_factor": 0.8,
+        "peak_current_factor": 1,
+        "gear_factor": 1.2,
+        "voltage_factor": 1.0,
+        "resistance_factor": 1.0,
+        "cooling_resistance_factor": 1.0,
+        "thermal_capacity_factor": 1.0,
+        "added_mass_factor": 0.4,
+        "added_rotor_inertia_factor": 0.0,
+        "Kv_phase_peak_rpm_per_V": 45.83662361046586,
+        "Kt_Nm_per_peak_q_A": 0.3125,
+        "gear_ratio": 10.799999999999999,
+        "peak_current_A": 55.0,
+        "continuous_current_floor_A": 22.400000000000002,
+        "nominal_stall_peak_joint_Nm": 167.06249999999997,
+        "base_speed_joint_rad_s_ideal_no_field_weakening": 12.316805742712019,
+        "phase_R_ohm": 0.046874999999999986,
+        "V_bus_V": 48.0,
+        "thermal_R_K_per_W": 1.8,
+        "thermal_C_J_per_K": 80.0,
+        "added_mass_per_actuator_kg": 0.1,
+        "added_motor_rotor_inertia_kg_m2": 0.0,
+        "added_joint_armature_kg_m2": 0.0
+      }
+    },
+    "measured_added_mass_kg": [
+      1.2000198364257812
+    ],
+    "carrier_mapping": {
+      "LF_HAA": "base",
+      "LH_HAA": "base",
+      "RF_HAA": "base",
+      "RH_HAA": "base",
+      "LF_HFE": "LF_HIP",
+      "LF_KFE": "LF_THIGH",
+      "LH_HFE": "LH_HIP",
+      "LH_KFE": "LH_THIGH",
+      "RF_HFE": "RF_HIP",
+      "RF_KFE": "RF_THIGH",
+      "RH_HFE": "RH_HIP",
+      "RH_KFE": "RH_THIGH"
+    },
+    "placement": "Added spherical-equivalent stator mass at each carrier COM, radius 0.04 m; native COM unchanged",
+    "candidate": {
+      "name": "torque_focused",
+      "axis": "custom winding, gearing, current and carrier mass",
+      "kv_factor": 0.8,
+      "gear_factor": 1.2,
+      "peak_current_factor": 1,
+      "added_mass_factor": 0.4
+    },
+    "candidate_sha256": "a8a7072b253617e45a2e4c39acddad4974d0c5a48c6df8e8312430c4ea07f6ea"
+  },
+  "course_layout": "challenge",
+  "stages": [
+    {
+      "id": "stairs",
+      "name": "Climb the staircase",
+      "start": 2.0,
+      "end": 3.6
+    },
+    {
+      "id": "gap",
+      "name": "Cross the gap",
+      "start": 4.6,
+      "end": 4.82
+    },
+    {
+      "id": "bridge",
+      "name": "Balance on the raised crossing",
+      "start": 8.2,
+      "end": 10.2
+    },
+    {
+      "id": "rubble",
+      "name": "Pick through irregular rubble",
+      "start": 10.6,
+      "end": 14.0
+    },
+    {
+      "id": "slope",
+      "name": "Traverse the side slope",
+      "start": 14.0,
+      "end": 16.0
+    },
+    {
+      "id": "push",
+      "name": "Recover from a sideways push",
+      "start": 17.0,
+      "end": 18.0
+    },
+    {
+      "id": "finish",
+      "name": "Stop inside the finish zone",
+      "start": 19.0,
+      "end": 19.6
+    }
+  ],
+  "passed_stage_ids": [
+    "bridge",
+    "finish",
+    "gap",
+    "push",
+    "rubble",
+    "slope",
+    "stairs"
+  ],
+  "push_start_s": 24.94,
+  "navigation": "World-forward command with lateral/yaw feedback; recomputed observations before policy action",
+  "source": "Measured native Isaac Lab rough-terrain rollout"
+}

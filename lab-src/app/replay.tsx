@@ -5,6 +5,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 export type SceneData = {
   kind?: string;
   follow_body?: number;
+  camera_offset?: [number, number, number];
   overview_camera?: {eye: [number, number, number]; target: [number, number, number]};
   static_meshes?: { vertices: number[]; indices: number[]; color: number[] }[];
   bodies: string[];
@@ -428,7 +429,7 @@ export function Replay({
       const offset = (sceneData.follow_body ?? 0) * 7;
       const target = new THREE.Vector3(...Array.from(current.current.recording.poses.slice(offset, offset + 3)) as [number, number, number]);
       s.controls.target.copy(target);
-      s.camera.position.copy(target).add(new THREE.Vector3(.14, -.18, .12));
+      s.camera.position.copy(target).add(new THREE.Vector3(...(sceneData.camera_offset ?? [.14, -.18, .12]) as [number,number,number]));
     }
     if (cameraView === "overview" && sceneData.overview_camera) {
       s.camera.position.set(...sceneData.overview_camera.eye);

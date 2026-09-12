@@ -1,0 +1,18 @@
+{
+  "finite_states": true,
+  "normalized_quaternions": true,
+  "recorded_bodies": 17,
+  "flanking_gears_included": true,
+  "decoded_video_frames": 299,
+  "selected_episode_succeeded": false,
+  "all_trial_successes": 4,
+  "total_trials": 16,
+  "policy_transfer": "PegInsert checkpoint without GearMesh retraining",
+  "hashes": {
+    "poses.bin": "9899c8569b8ffe604760b47b3a05647b5149009744fd9c1193a2cd9c8404602b",
+    "result.json": "f12598861ce5f692e1a74ee2f37568ab3df5e078350ab1f2704bf09e0a8acf75",
+    "telemetry.json": "7821391e41ac236517af12beb626721f08b662fa8dc643b70a4d78c267dfd136",
+    "video.mp4": "cedfcda33e7e161e78a605141e56eda6b9c6f5d65d260087ffe49149fd9f5ebb",
+    "evaluation.json": "5d2876b7b5327f170fb6db918c1b84a6b7e06b2cd51ae8b6abc45442f695bfb9"
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "task": "Isaac-Factory-PegInsert-Direct-v0",
+  "perturbation": {
+    "force_n": 0,
+    "start_s": 0.4,
+    "duration_s": 0.3,
+    "frame": "Held-asset local Y",
+    "application": "Physical external force, first episode only"
+  },
+  "seed": 201,
+  "checkpoint_sha256": "fcdc6014741a8b4ef9173b5d92471bbe979522873f1294013df6d9c6be6c2559",
+  "num_envs": 16,
+  "episodes": 1,
+  "completed": true,
+  "trials": [
+    {
+      "environment": 0,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0013442239724099636
+    },
+    {
+      "environment": 1,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.999999999999991,
+      "keypoint_error_m": 0.002033555880188942
+    },
+    {
+      "environment": 2,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.333333333333323,
+      "keypoint_error_m": 0.001682305010035634
+    },
+    {
+      "environment": 3,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.533333333333323,
+      "keypoint_error_m": 0.0015981208998709917
+    },
+    {
+      "environment": 4,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.5999999999999925,
+      "keypoint_error_m": 0.0015146881341934204
+    },
+    {
+      "environment": 5,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.599999999999989,
+      "keypoint_error_m": 0.0006059510633349419
+    },
+    {
+      "environment": 6,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.666666666666659,
+      "keypoint_error_m": 0.0008439361117780209
+    },
+    {
+      "environment": 7,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.133333333333324,
+      "keypoint_error_m": 0.0008230390376411378
+    },
+    {
+      "environment": 8,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.333333333333323,
+      "keypoint_error_m": 0.0007601598044857383
+    },
+    {
+      "environment": 9,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.19999999999999,
+      "keypoint_error_m": 0.000796860083937645
+    },
+    {
+      "environment": 10,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.533333333333323,
+      "keypoint_error_m": 0.0008139423443935812
+    },
+    {
+      "environment": 11,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.733333333333325,
+      "keypoint_error_m": 0.0007837797747924924
+    },
+    {
+      "environment": 12,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.066666666666658,
+      "keypoint_error_m": 0.0016011388506740332
+    },
+    {
+      "environment": 13,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 7.999999999999991,
+      "keypoint_error_m": 0.000690144079271704
+    },
+    {
+      "environment": 14,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.266666666666657,
+      "keypoint_error_m": 0.0007171445759013295
+    },
+    {
+      "environment": 15,
+      "episode": 0,
+      "native_final_success": true,
+      "sustained_final_success": true,
+      "final_hold_s": 8.466666666666656,
+      "keypoint_error_m": 0.0016610859893262386
+    }
+  ],
+  "successes": 16,
+  "native_successes": 16,
+  "criterion": "Native task success continuously true for the final 0.5 seconds, measured before automatic reset",
+  "reset_policy": "Native task resets and prepared initial grasp retained"
+}

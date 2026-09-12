@@ -148,16 +148,19 @@ the truth is 10.</li>
 <button type="button" data-demo="rubik" aria-pressed="false">Wuji cube</button>
 <button type="button" data-demo="assembly" aria-pressed="false">Peg insertion</button>
 </nav>
-<p class="demo-description" id="demo-description" aria-live="polite">Six actuator configurations on a complete stairs-and-blocks route. The viewer includes both successful runs and failures.</p>
+<p class="demo-description" id="demo-description" aria-live="polite">A 19 m course with a gap, narrow crossing, rubble, a side slope and a physical push. Jump between obstacles and compare recorded actuator designs.</p>
 <p><a id="demo-full" href="lab/#terrain" target="_blank" rel="noopener">Open ANYmal obstacle course in a full window ↗</a></p>
 <iframe class="demo-frame" id="demo-frame" src="lab/#terrain" title="Interactive ANYmal obstacle course: synchronized video and measured 3D replay" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
-<p class="demo-description" style="margin-top:14px">Available now: the seven recordings above. Full Rubik solving, the tool workshop, gear meshing and nut threading are not finished interactive demos. <a href="#experiment-notes">Read the outcomes and limitations below ↓</a></p>
+<p class="demo-description" style="margin-top:14px">Available now: the seven recordings above. Full Rubik solving, the tool workshop and reliable gear-meshing/nut-threading policies remain unfinished. The assembly viewer includes a failed gear-meshing transfer episode. <a href="#experiment-notes">Read the outcomes and limitations below ↓</a></p>
 </section>
 <section id="experiment-notes">
-<p class="eyebrow">Experiment update · September 11, 2026</p>
+<p class="eyebrow">Experiment update · September 12, 2026</p>
 <h2>Harder tasks, with the evidence attached.</h2>
 <p>The interactive lab now pairs video with orbitable, measured body trajectories. The complete ANYmal obstacle-course runs extend this format to stairs and uneven blocks. Two-hand manipulation and precision assembly have separate, explicitly reported milestones. All of this work runs in Isaac Lab and PhysX. These are simulation experiments; they do not establish performance on physical robots.</p>
-<h3>A complete course, with actuator differences visible</h3>
+<h3>A harder course, with actuator differences visible</h3>
+<p>The new 19 m challenge adds a real 22 cm gap, a 1.05 m wide raised crossing, irregular rubble, an 8° side slope and a 70 N body-side push. The native ANYdrive policy completed it in 26.08 seconds. With the same policy, the higher-Kv Atlas winding completed it in 28.68 seconds; a new torque-focused candidate completed it in 29.34 seconds. Nominal Atlas and the +6 kg actuator-mass intervention terminated earlier. These outcomes show task-specific tradeoffs, not a universal winning motor. The candidate changes Kv, gearing and added mass together; its 167 Nm ideal stall rating does not by itself explain the outcome.</p>
+<p>Obstacle buttons seek to the actual recorded crossings. Video and orbitable replay share a clock, with measured joint RPM, torque, current and winding temperature beside the motion. The push is applied for 13 control steps (0.26 s, 18.2 N·s). Native terrain sensing and collision geometry agree; an independent pose audit checks corridor, gap and bridge clearance, resets and stopping. <a href="lab/data/challenge/manifest.json">All new course outcomes</a>.</p>
+<h3>The earlier stairs-and-blocks course</h3>
 <p>ANYmal traversed a 12.5 m route with five steps up, a raised platform, five steps down and uneven blocks, then stopped for one second. The native ANYdrive reference finished in 17.94 seconds; Atlas nominal finished in 18.62 seconds. The comparison includes a higher-Kv winding, lower gearing, reduced current limit, and 6 kg of physically added actuator carrier mass and inertia. The reduced-current run had a failure termination. Higher Kv, lower gearing and added mass reached the finish but failed the post-run corridor audit; only the native reference and Atlas nominal satisfied the complete course criterion. Every run remains selectable with its matching video, measured 3D poses and telemetry.</p>
 <p>These are fixed-policy, single-seed development demonstrations. They do not measure general reliability or the performance achievable after retraining. Stock-to-Atlas also changes controller behavior; the Atlas design variants isolate the stated motor-model interventions.</p>
 <h3>The earlier random-terrain pilot</h3>
@@ -167,8 +170,10 @@ the truth is 10.</li>
 <h3>Dexterity needs more than a good-looking hand</h3>
 <p>The Wuji Hand 2 experiments use native detailed geometry and measured contact motion. A fixed-core fixture completed one validated cube quarter-turn. A longer fixture attempt completed six of twelve quarter-turns before failing. The corrected two-hand controller subsequently completed a free-cube quarter-turn and a continuous solved hold. A fixture prepared the grasp for two seconds, then released; the turn used only hand contact, with no cube motors or physical-state resets. Independent pose validation measured a final sticker error of 2.37 degrees. These results do not constitute a working Rubik solver.</p>
 <p>The stricter Allegro experiment also measures sustained target holds, rather than counting brief crossings as completed manipulation. Failed trials remain visible alongside the successful portions.</p>
+<h3>Assembly under disturbance</h3>
+<p>A newer insertion checkpoint completed 16/16 unperturbed trials and 13/16 trials with a physical 2 N side push. The checkpoint, seed and initial recorded poses match. The push acts for five control steps (one third of a second) along the held part’s local Y axis. The selected first episode recovers successfully; all three failed trials remain in the downloadable evaluation. Switch between both videos and measured replays, slow them down, and inspect alignment error through the disturbance. <a href="lab/#assembly">Open the recovery challenge</a>.</p>
 <h3>What must work before the next release</h3>
-<p>The assembly track starts with peg insertion, gear meshing and nut threading. A trained peg-insertion checkpoint achieved sustained insertion in 42 of 48 deterministic evaluation trials across 16 environments and three episodes, using development seed 201. Success had to remain true for the final half-second, measured before automatic reset. The native prepared grasp was retained. Training continues; gear meshing and nut threading currently have startup checks only. <a href="isaac/suite/results/peg-pilot/result.json">All peg-insertion trial outcomes</a>. <a href="lab/#assembly">Watch the complete first episode with video and 3D replay</a>. The tool workshop needs a reliable grasp and controlled object motion. Across all tracks, the design comparison will report task completion, energy, heat, and failure modes, with motor mass represented in the physical robot’s mass and inertia.</p>
+<p>The assembly track starts with peg insertion, gear meshing and nut threading. A trained peg-insertion checkpoint achieved sustained insertion in 42 of 48 deterministic evaluation trials across 16 environments and three episodes, using development seed 201. Success had to remain true for the final half-second, measured before automatic reset. The native prepared grasp was retained. Dedicated gear-meshing training is running, with nut threading queued. A separate zero-retraining transfer of the newer insertion policy to gear meshing achieved 4/16 sustained successes; the preselected first episode failed and is available in the assembly viewer. The recorder includes the two physical flanking gears as well as the held gear and fixture. <a href="isaac/suite/results/peg-pilot/result.json">All peg-insertion trial outcomes</a>. <a href="lab/#assembly">Watch the complete first episode with video and 3D replay</a>. The tool workshop needs a reliable grasp and controlled object motion. Across all tracks, the design comparison will report task completion, energy, heat, and failure modes, with motor mass represented in the physical robot’s mass and inertia.</p>
 <p><a href="isaac/suite/README.md">Experiment protocol and reproduction commands →</a></p>
 </section>
 <h2>So first, let's break down an actuator</h2>
@@ -709,13 +714,13 @@ window.addEventListener("message", function (e) {
 <script>
 (function () {
   var descriptions = {
-    terrain: "Six actuator configurations on a complete stairs-and-blocks route. The viewer includes both successful runs and failures.",
+    terrain: "A 19 m course with a gap, narrow crossing, rubble, a side slope and a physical push. Jump between obstacles and compare recorded actuator designs.",
     g1: "Recorded G1 walking trials with actuator comparisons. This is the existing walking experiment, not a parkour policy.",
     anymal: "Recorded ANYmal locomotion with motor-design comparisons, video, and measured body trajectories.",
     transfer: "Two arms perform a continuous transfer sequence under a scripted controller. Compare the actuator designs and object motion.",
     allegro: "Detailed Allegro hand reorientation trials, including sustained-hold results and failed trials.",
     rubik: "Detailed Wuji hands: one validated free-cube quarter-turn, a fixture quarter-turn, and a failed longer fixture attempt. Not a full Rubik solver.",
-    assembly: "The complete first peg-insertion episode from a trained policy. The separate evaluation passed 42 of 48 trials; the task starts with a prepared grasp."
+    assembly: "Insertion under a physical side push: 13/16 successes versus 16/16 without the disturbance. Paired videos, measured replays and alignment telemetry."
   };
   document.querySelectorAll("[data-demo]").forEach(function (button) {
     button.addEventListener("click", function () {

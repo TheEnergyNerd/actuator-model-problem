@@ -101,3 +101,62 @@ PYTHONPATH=isaac/precision/atlas_actuators_ext "$ISAACLAB/isaaclab.sh" -p isaac/
 ```
 
 The parser rejects non-finite or unsupported parameters before launching Isaac. Current changes use the existing FOC parameter batch, winding changes update Kt/R/L together, and added mass changes carrier mass and inertia with readback verification. This course importer retains native joint armature and does not add rotor inertia. A packaging/rotor-inertia co-design requires a more complete mechanical model. Actual motor RPM was not exported in existing public recordings: the UI's calculated unloaded RPM must not be read as measured shaft speed. Candidate importer validation is tested locally; these new combined candidates have not been run in Isaac.
+
+## September 12: challenge course and insertion recovery
+
+`challenge_course.py` authors a 19 m route with stairs, a 22 cm gap, a 1.05 m
+wide raised crossing, seeded rubble, an 8 degree side slope, and a physical
+70 N body-local Y disturbance after reaching x=17 m. At 50 Hz the push spans
+13 steps (0.26 s, 18.2 N s). The native rough-terrain policy receives a world-forward
+velocity target with lateral and yaw feedback. Each variant uses the same navigation
+rule, geometry, seed and checkpoint; feedback commands can differ with motion.
+Success requires the route corridor, no reset, x>=19 m, and a one-second stop.
+The bridge corridor is |base y|<=0.35 m. This is a step-over gap, not a jump policy.
+
+Isaac Lab 2.1's ray caster reads only its first mesh. The authored invisible
+`SensorSurface` concatenates exactly the colored physical collision zones;
+`test_challenge_course.py` verifies this equality. It has no collision API and is
+excluded from rendering. The earlier `challenge-stock-01` development rollout had
+an incomplete height scan and is retained under results, excluded from comparisons.
+
+```bash
+./isaaclab.sh -p /workspace/atlas-suite/eval_anymal.py --headless \
+  --course --course-layout challenge --record --num-envs 1 --seconds 45 \
+  --checkpoint /workspace/atlas-suite/anymal-rough-stock.pt \
+  --output /workspace/atlas-suite/challenge-stock
+# Add --atlas --design kv_high (or nominal, gear_low, torque_low,
+# mass_added_double), or --atlas --design-file candidates/torque_focused.json.
+python isaac/suite/audit_challenge.py path/to/exported/replay
+```
+
+Public `lab/data/challenge` preserves original evaluations in `source-result.json`,
+measured body poses and telemetry, independent audit results, and full videos.
+The extra audit checks base clearance above the pit floor and finite-difference
+speed during the final second; those clearance thresholds are explicitly post-run.
+All design results are single-seed development examples. The torque-focused
+candidate changes multiple parameters together, so it is not a single-axis ablation.
+Native ANYdrive also changes the actuator/controller, so it is a separate reference.
+
+The paired Factory insertion trials use checkpoint
+`fcdc6014741a8b4ef9173b5d92471bbe979522873f1294013df6d9c6be6c2559`,
+seed 201, 16 environments, one episode. Both first recorded initial poses match
+exactly. Unperturbed: 16/16 sustained successes. With `--push-force 2`: 13/16.
+The nominal [0.4,0.7) second command window yields five control steps at 15 Hz,
+1/3 second and 2/3 N s. It acts on the held asset's local Y axis. It is an applied
+external force, not a measured contact force. Environment 0, episode 0 was selected
+before outcomes; both examples succeed. All 16 outcomes accompany each recording.
+The task still prepares the grasp, and these experiments do not test actuator
+variants or physical LeKiwi hardware.
+
+A separate GearMesh probe transfers the same insertion checkpoint without
+retraining: 4/16 sustained successes; preselected environment 0 fails. The
+exporter includes both physical flanking gears (17 recorded bodies total).
+`gear-transfer-02` repeats the evaluation with complete geometry capture and
+matches the initial 4/16 result. This is not the dedicated GearMesh training run.
+That training continues in the existing bounded assembly supervisor, followed by
+NutThread. Both keep their iteration caps and the RunPod hard deadline.
+
+Publication uses `.github/workflows/pages.yml`: deploy the reviewed `lab/` build,
+article and research artifacts, excluding the duplicate `lab-src/` source assets.
+Run `npm --prefix lab-src run typecheck` and `npm --prefix lab-src run build`
+before committing. GitHub Pages remains at the original repository URL.

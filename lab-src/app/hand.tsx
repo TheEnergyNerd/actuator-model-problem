@@ -1,3 +1,4 @@
+import ReplayChapters from "./replay-chapters";
 import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type SceneData, type Recording } from "./replay";
@@ -184,7 +185,7 @@ export default function DexterousHand() {
               </Button>
             ))}
           </div>
-          <div className="transport">
+          <ReplayChapters samples={run.samples} seek={seek}/><div className="transport">
             <Button aria-label={playing ? "Pause" : "Play"} onClick={() => setPlaying(!playing)}>
               {playing ? <Pause /> : <Play />}
             </Button>
