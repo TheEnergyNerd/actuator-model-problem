@@ -1,0 +1,11 @@
+{
+  "schema": "atlas-course-design-v1",
+  "design": {
+    "name": "torque_focused",
+    "axis": "custom winding, gearing, current and carrier mass",
+    "kv_factor": 0.8,
+    "gear_factor": 1.2,
+    "peak_current_factor": 1,
+    "added_mass_factor": 0.4
+  }
+}

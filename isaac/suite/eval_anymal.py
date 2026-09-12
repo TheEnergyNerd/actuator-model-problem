@@ -21,6 +21,9 @@ parser.add_argument("--seconds", type=float, default=20)
 parser.add_argument("--num-envs", type=int, default=8)
 parser.add_argument("--seed", type=int, default=201)
 parser.add_argument(
+    "--design-file", type=Path, help="Exported atlas-course-design-v1 candidate"
+)
+parser.add_argument(
     "--design",
     choices=(
         "nominal",
@@ -56,6 +59,16 @@ if args.seconds <= 0 or args.num_envs < 1 or not args.checkpoint.is_file():
     )
 if args.course and args.num_envs != 1:
     parser.error("The authored course requires --num-envs 1")
+candidate = None
+if args.design_file:
+    if not args.atlas or not args.course or args.design != "nominal":
+        parser.error("--design-file requires --atlas --course and no preset --design")
+    from design_candidate import load_candidate
+
+    try:
+        candidate = load_candidate(args.design_file)
+    except (ValueError, OSError) as error:
+        parser.error(str(error))
 if args.design != "nominal" and not args.atlas:
     parser.error("Design interventions require --atlas")
 args.output.mkdir(parents=True, exist_ok=False)
@@ -99,7 +112,12 @@ try:
     if args.atlas:
         from designs import apply_design
 
-        design = apply_design(robot, args.design)
+        design = apply_design(robot, args.design, candidate)
+        if candidate is not None:
+            design["candidate"] = candidate
+            design["candidate_sha256"] = hashlib.sha256(
+                args.design_file.read_bytes()
+            ).hexdigest()
     dt = raw.step_dt
     frames, rows = [], []
     finish_hold = 0.0
@@ -144,7 +162,9 @@ try:
                 route_x = float(robot.data.root_pos_w[0, 0])
                 lateral_limit = 1.3 if 2 <= route_x <= 10.7 else 2.3
                 if abs(float(robot.data.root_pos_w[0, 1])) > lateral_limit:
-                    course_violation = "Left the obstacle corridor or approach/finish floor"
+                    course_violation = (
+                        "Left the obstacle corridor or approach/finish floor"
+                    )
                     failed = True
                 stopped = (
                     float(robot.data.root_pos_w[0, 0]) >= FINISH_X

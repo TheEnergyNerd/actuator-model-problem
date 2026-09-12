@@ -3,8 +3,9 @@
 import torch
 
 
-def apply_design(robot, name):
+def apply_design(robot, name, candidate=None):
     from atlas_actuators.design_study import (
+        Design,
         designs,
         parameter_batch,
         describe,
@@ -13,7 +14,11 @@ def apply_design(robot, name):
     import omni.usd
     from pxr import Usd, UsdPhysics
 
-    case = next(d for d in designs() if d.name == name)
+    case = (
+        Design(**candidate)
+        if candidate
+        else next(d for d in designs() if d.name == name)
+    )
     specifications = {}
     for key, actuator in robot.actuators.items():
         specifications[key] = describe(actuator._p, case, 0.25, 1e-4)
@@ -47,7 +52,8 @@ def apply_design(robot, name):
         added, increments * robot.num_joints, atol=1e-4, rtol=1e-4
     )
     return dict(
-        name=name,
+        name=case.name,
+        inertia_policy="Added carrier mass changes body inertia; native joint armature remains fixed; no added rotor inertia in this course intervention",
         specifications=specifications,
         measured_added_mass_kg=added.tolist(),
         carrier_mapping={j: robot.body_names[b] for j, b in carriers.items()},

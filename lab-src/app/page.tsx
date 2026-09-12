@@ -1,5 +1,6 @@
 "use client";
 import Rubik from "./rubik";
+import ActuatorDesign from "./actuator-design";
 import RoughTerrain from "./rough";
 import Assembly from "./assembly";
 import Locomotion from "./locomotion";
@@ -275,7 +276,8 @@ export default function Home() {
               <>
                 A different hand.
                 <br />A physical cube.
-              </>
+
+        </>
             ) : task === "assembly" ? (
               <>Small clearances.<br />Measured control.</>
             ) : (
@@ -850,6 +852,7 @@ export default function Home() {
               </table>
             </div>
           </section>
+                {selected && <ActuatorDesign groups={{arms:{Kv_phase_peak_rpm_per_V:selected.kv,Kt_Nm_per_peak_q_A:selected.kt,gear_ratio:12,peak_current_A:selected.current,V_bus_V:selected.voltage,phase_R_ohm:selected.resistance,initial_winding_C:selected.temperature,nominal_stall_peak_joint_Nm:selected.peakTorque}}} baseline={manifest?.variants[0] ? {arms:{Kv_phase_peak_rpm_per_V:manifest.variants[0].kv,Kt_Nm_per_peak_q_A:manifest.variants[0].kt,gear_ratio:12,peak_current_A:manifest.variants[0].current,V_bus_V:manifest.variants[0].voltage,phase_R_ohm:manifest.variants[0].resistance,initial_winding_C:manifest.variants[0].temperature,nominal_stall_peak_joint_Nm:manifest.variants[0].peakTorque}} : undefined} addedMass={selected.mass*2} notice="Two-arm transfer: 12:1 arm gearing; added mass is reported across both arms. Linear grippers use a separate drive."/>}
         </>
       ) : task === "g1" || task === "anymal" ? (
         <Locomotion key={task} robot={task} />

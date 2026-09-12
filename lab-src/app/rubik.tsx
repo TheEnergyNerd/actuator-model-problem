@@ -1,3 +1,4 @@
+import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type SceneData, type Recording, type Sample } from "./replay";
 import { SyncedVideo, loadRecording } from "./locomotion";
@@ -115,6 +116,7 @@ function RubikRecording({ path }: { path: string }) {
       row.attempt !== rows[index - 1].attempt,
   );
   return (
+    <>
     <section className="motion-workbench hand-workbench">
       <div className="motion-stage">
         <div className="motion-heading">
@@ -295,5 +297,7 @@ function RubikRecording({ path }: { path: string }) {
         </a>
       </aside>
     </section>
+    <ActuatorDesign notice="The Wuji recordings test grasp and turning controllers. A matched Atlas winding, gearing or mass sweep has not been recorded for these hands."/>
+    </>
   );
 }

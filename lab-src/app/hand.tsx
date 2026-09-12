@@ -1,3 +1,4 @@
+import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type SceneData, type Recording } from "./replay";
 import { SyncedVideo, loadRecording } from "./locomotion";
@@ -270,8 +271,10 @@ export default function DexterousHand() {
           </div>
         </aside>
       </section>
+        <ActuatorDesign groups={{fingers:{Kv_phase_peak_rpm_per_V:result.Kv,Kt_Nm_per_peak_q_A:result.Kt,gear_ratio:result.gear,peak_current_A:result.I_peak,V_bus_V:result.V_bus}}} notice="These hand videos compare task/controller protocols at one actuator design. Their motion difference does not isolate a motor-design change."/>
       {precision && (
-        <section className="precision-results">
+
+      <section className="precision-results">
           <p className="eyebrow">STRICTER CONTROL TEST</p>
           <h2>Can it rotate, settle and hold?</h2>
           <p>{precision.criteria}</p>

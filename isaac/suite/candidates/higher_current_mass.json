@@ -1,0 +1,11 @@
+{
+  "schema": "atlas-course-design-v1",
+  "design": {
+    "name": "higher_current_mass",
+    "axis": "custom winding, gearing, current and carrier mass",
+    "kv_factor": 1,
+    "gear_factor": 1,
+    "peak_current_factor": 1.2,
+    "added_mass_factor": 1
+  }
+}

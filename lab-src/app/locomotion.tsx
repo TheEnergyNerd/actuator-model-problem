@@ -1,3 +1,4 @@
+import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type SceneData, type Recording } from "./replay";
 import { Button } from "@/components/ui/button";
@@ -352,6 +353,7 @@ export default function Locomotion({ robot }: { robot: "g1" | "anymal" }) {
           </Button>
         </aside>
       </section>
+      <ActuatorDesign groups={result.groups} baseline={baseline?.result.groups} addedMass={result.added_total_mass_kg} baselineMass={baseline?.result.added_total_mass_kg ?? 0}/>
       <section className="motion-analysis" id="method">
         <div>
           <p className="eyebrow">SYNCHRONIZED TELEMETRY</p>

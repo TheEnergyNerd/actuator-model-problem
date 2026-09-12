@@ -1,3 +1,4 @@
+import ActuatorDesign from "./actuator-design";
 import { useEffect, useRef, useState } from "react";
 import { Replay, loadScene, type Recording, type SceneData } from "./replay";
 import { loadRecording, SyncedVideo } from "./locomotion";
@@ -6,9 +7,11 @@ import { Slider } from "@/components/ui/slider";
 import { Play, Pause, RotateCcw } from "lucide-react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
 
-type Case = {id: string; label: string; description: string; passed: boolean; duration: number};
+type Case = {id: string; label: string; description: string; passed: boolean; duration: number; parameters?: {kv:number;gear:number;torque:number;rpm:number;mass:number}};
 export default function RoughTerrain() {
   const [track, setTrack] = useState("course"), [variant, setVariant] = useState("stock");
+  const [nominal, setNominal] = useState<Recording | null>(null);
+  useEffect(() => {loadRecording("./data/course/nominal").then(setNominal).catch(()=>{});}, []);
   const [cases, setCases] = useState<Case[]>([]);
   const root = track === "course" ? `./data/course/${variant}` : "./data/rough-terrain";
   const [recording, setRecording] = useState<Recording | null>(null), [scene, setScene] = useState<SceneData | null>(null);
@@ -75,7 +78,8 @@ export default function RoughTerrain() {
         <p>Video is rendered in Isaac Sim from the recorded body states and mesh geometry. Materials and lighting are presentation choices.</p>
       </aside>
     </section>
+    <ActuatorDesign groups={recording.result.design?.specifications} baseline={nominal?.result.design?.specifications} addedMass={recording.result.design?.measured_added_mass_kg?.[0]} builder={track === "course"} notice={track === "course" && variant === "stock" ? "Native ANYdrive is a separate actuator/controller baseline. Select an Atlas design to inspect winding, gearing and mass differences." : undefined}/>
     <section className="motion-analysis"><div><h2>Measured through the route</h2><label>Signal <select value={metric} onChange={e=>setMetric(e.target.value)}><option value="speed">Forward speed · m/s</option>{sample?.torque != null && <option value="torque">Peak joint torque · Nm</option>}{design && <><option value="current">Peak motor current · A</option><option value="temperature">Hottest winding · °C</option></>}</select></label><ResponsiveContainer width="100%" height={240}><LineChart data={recording.samples}><XAxis dataKey="t" type="number" domain={[0,recording.result.duration]} tickFormatter={v=>`${v}s`}/><YAxis width={45}/><Tooltip/><Line dataKey={chartKey} dot={false} stroke="#177960" strokeWidth={2} isAnimationActive={false}/>{metric === "speed" && <Line dataKey="target_speed" dot={false} stroke="#a48043" strokeDasharray="4 4" isAnimationActive={false}/>}<ReferenceLine x={time} stroke="#314f42"/></LineChart></ResponsiveContainer></div><div><h2>What the comparison holds fixed</h2><p>The course, command, checkpoint, and development seed stay fixed. Atlas variants change one design axis: winding, gearing, current limit, or physical carrier mass and inertia. The native ANYdrive reference also changes controller behavior, so it is a separate baseline.</p><p>Different winding designs change Kt, resistance and inductance with Kv. Motor constants use the model’s phase-peak convention. Added mass is a stated simulation intervention, not a manufacturer-qualified motor.</p><div className="motion-downloads"><a href={`${root}/result.json`}>Recording metadata</a><a href={`${root}/telemetry.json`}>Measured telemetry</a><a href="./data/course/manifest.json">Course comparisons</a></div></div></section>
-    {track === "course" && <section className="precision-results"><h2>Every recorded design</h2><table><thead><tr><th>Actuator design</th><th>Recorded outcome</th><th>Run duration</th></tr></thead><tbody>{cases.map(c=><tr key={c.id}><td><button onClick={()=>setVariant(c.id)}>{c.label}</button></td><td>{c.passed ? "Completed" : "Not completed"}</td><td>{c.duration.toFixed(2)} s</td></tr>)}</tbody></table></section>}
+    {track === "course" && <section className="precision-results"><h2>Every recorded design</h2><p>Model parameters beside measured outcomes. RPM is ideal unloaded joint speed; mass is total added actuator mass.</p><div className="actuator-table"><table><thead><tr><th>Actuator design</th><th>Kv · rpm/V</th><th>Gearing</th><th>Peak stall · Nm</th><th>Ideal RPM</th><th>Added kg</th><th>Recorded outcome</th><th>Run duration</th></tr></thead><tbody>{cases.map(c=><tr key={c.id}><td><button onClick={()=>setVariant(c.id)}>{c.label}</button></td><td>{c.parameters?.kv.toFixed(1) ?? "—"}</td><td>{c.parameters?.gear.toFixed(1) ?? "—"}</td><td>{c.parameters?.torque.toFixed(1) ?? "—"}</td><td>{c.parameters?.rpm.toFixed(1) ?? "—"}</td><td>{c.parameters?.mass.toFixed(1) ?? "—"}</td><td>{c.passed ? "Completed" : "Not completed"}</td><td>{c.duration.toFixed(2)} s</td></tr>)}</tbody></table></div></section>}
   </>;
 }

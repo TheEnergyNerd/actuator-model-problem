@@ -12,35 +12,70 @@
       "label": "Atlas nominal",
       "description": "Reached the finish and stopped within the route.",
       "passed": true,
-      "duration": 18.62
+      "duration": 18.62,
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 111.375,
+        "rpm": 176.42524653497347,
+        "mass": 0.0
+      }
     },
     {
       "id": "kv_high",
       "label": "Higher Kv \u00b7 1.5\u00d7",
       "description": "Reached the finish but left the obstacle corridor.",
       "passed": false,
-      "duration": 18.8
+      "duration": 18.8,
+      "parameters": {
+        "kv": 85.94366926962348,
+        "gear": 9.0,
+        "torque": 74.25,
+        "rpm": 264.6378698024602,
+        "mass": 0.0
+      }
     },
     {
       "id": "gear_low",
       "label": "Lower gearing \u00b7 6:1",
       "description": "Reached the finish but left the obstacle corridor.",
       "passed": false,
-      "duration": 19.8
+      "duration": 19.8,
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 6.0,
+        "torque": 74.25,
+        "rpm": 264.6378698024602,
+        "mass": 0.0
+      }
     },
     {
       "id": "torque_low",
       "label": "Reduced current \u00b7 36.85 A",
       "description": "A failure termination ended this run.",
       "passed": false,
-      "duration": 17.48
+      "duration": 17.48,
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 74.62125,
+        "rpm": 176.42524653497347,
+        "mass": 0.0
+      }
     },
     {
       "id": "mass_added_double",
       "label": "Added actuator mass \u00b7 +6 kg",
       "description": "Reached the finish but left the obstacle corridor.",
       "passed": false,
-      "duration": 19.54
+      "duration": 19.54,
+      "parameters": {
+        "kv": 57.29577951308232,
+        "gear": 9.0,
+        "torque": 111.375,
+        "rpm": 176.42524653497347,
+        "mass": 6.0
+      }
     }
   ],
   "protocol": "Single development seed; fixed policy; post-run corridor audit"
