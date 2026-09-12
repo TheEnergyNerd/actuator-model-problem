@@ -74,6 +74,15 @@
   footer{margin-top:60px;padding-top:14px;border-top:1px solid var(--line);
     color:var(--faint);font-size:12.5px;display:flex;justify-content:space-between;
     flex-wrap:wrap;gap:6px;}
+  .demo-hub{width:min(1280px,calc(100vw - 40px));margin:36px 0 36px 50%;transform:translateX(-50%);padding:20px;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  .demo-hub h2{margin:0 0 12px}
+  .demo-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+  .demo-nav button{font:inherit;font-size:14px;padding:9px 13px;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:transparent;cursor:pointer}
+  .demo-nav button[aria-pressed="true"]{background:var(--acc);color:var(--bg)}
+  .demo-nav button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+  .demo-frame{display:block;width:100%;height:1080px;border:0;border-radius:8px;background:#f3f2ed}
+  .demo-description{color:var(--dim);font-size:14px}
+  @media(max-width:600px){.demo-hub{padding:12px}.demo-frame{height:1150px}}
   .explorer-box{position:relative;width:100%;height:620px;
     border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#101116;}
 </style>
@@ -126,13 +135,25 @@ is the saturation gap: the default model tells the policy that 6 of 16 joints ar
 the truth is 10.</li>
 </ol>
 
-<section style="margin:32px 0;padding:24px;border:1px solid rgba(255,253,224,.35);border-radius:8px">
-<p class="eyebrow">INTERACTIVE ISAAC LAB EXPERIMENTS</p>
-<h2 style="margin:0 0 12px">Watch actuator design change the motion.</h2>
-<p>Orbit the recorded robot, watch the matching video, and compare motor designs on a shared timeline. G1 and ANYmal use trained locomotion policies; the two-arm transfer uses a scripted controller.</p>
-<p style="margin:0"><a href="lab/#g1">G1 walking →</a> &nbsp; <a href="lab/#anymal">ANYmal →</a> &nbsp; <a href="lab/#terrain">Rough terrain →</a> &nbsp; <a href="lab/#assembly">Peg insertion →</a> &nbsp; <a href="lab/#transfer">Two-arm transfer →</a> &nbsp; <a href="lab/#allegro">Dexterous hand →</a> &nbsp; <a href="lab/#rubik">Wuji cube experiments →</a></p>
+<section class="demo-hub" id="demo-update" aria-labelledby="demo-title">
+<p class="eyebrow">Interactive Isaac Lab experiments</p>
+<h2 id="demo-title">Explore the motion. Compare the actuators.</h2>
+<p>Play the video beside the measured 3D replay, drag to orbit, scrub the timeline, and select recorded actuator designs. These controls explore simulation recordings; changing a design selects another measured run.</p>
+<nav class="demo-nav" aria-label="Choose an interactive experiment">
+<button type="button" data-demo="terrain" aria-pressed="true">ANYmal obstacle course</button>
+<button type="button" data-demo="g1" aria-pressed="false">G1 walking</button>
+<button type="button" data-demo="anymal" aria-pressed="false">ANYmal walking</button>
+<button type="button" data-demo="transfer" aria-pressed="false">Two-arm transfer</button>
+<button type="button" data-demo="allegro" aria-pressed="false">Allegro hand</button>
+<button type="button" data-demo="rubik" aria-pressed="false">Wuji cube</button>
+<button type="button" data-demo="assembly" aria-pressed="false">Peg insertion</button>
+</nav>
+<p class="demo-description" id="demo-description" aria-live="polite">Six actuator configurations on a complete stairs-and-blocks route. The viewer includes both successful runs and failures.</p>
+<p><a id="demo-full" href="lab/#terrain" target="_blank" rel="noopener">Open ANYmal obstacle course in a full window ↗</a></p>
+<iframe class="demo-frame" id="demo-frame" src="lab/#terrain" title="Interactive ANYmal obstacle course: synchronized video and measured 3D replay" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+<p class="demo-description" style="margin-top:14px">Available now: the seven recordings above. Full Rubik solving, the tool workshop, gear meshing and nut threading are not finished interactive demos. <a href="#experiment-notes">Read the outcomes and limitations below ↓</a></p>
 </section>
-<section id="demo-update">
+<section id="experiment-notes">
 <p class="eyebrow">Experiment update · September 11, 2026</p>
 <h2>Harder tasks, with the evidence attached.</h2>
 <p>The interactive lab now pairs video with orbitable, measured body trajectories. The complete ANYmal obstacle-course runs extend this format to stairs and uneven blocks. Two-hand manipulation and precision assembly have separate, explicitly reported milestones. All of this work runs in Isaac Lab and PhysX. These are simulation experiments; they do not establish performance on physical robots.</p>
@@ -684,6 +705,32 @@ window.addEventListener("message", function (e) {
   var box = document.getElementById("explorer-box");
   if (box && typeof h === "number" && h > 400 && h < 4000) box.style.height = h + "px";
 });
+</script>
+<script>
+(function () {
+  var descriptions = {
+    terrain: "Six actuator configurations on a complete stairs-and-blocks route. The viewer includes both successful runs and failures.",
+    g1: "Recorded G1 walking trials with actuator comparisons. This is the existing walking experiment, not a parkour policy.",
+    anymal: "Recorded ANYmal locomotion with motor-design comparisons, video, and measured body trajectories.",
+    transfer: "Two arms perform a continuous transfer sequence under a scripted controller. Compare the actuator designs and object motion.",
+    allegro: "Detailed Allegro hand reorientation trials, including sustained-hold results and failed trials.",
+    rubik: "Detailed Wuji hands: one validated free-cube quarter-turn, a fixture quarter-turn, and a failed longer fixture attempt. Not a full Rubik solver.",
+    assembly: "The complete first peg-insertion episode from a trained policy. The separate evaluation passed 42 of 48 trials; the task starts with a prepared grasp."
+  };
+  document.querySelectorAll("[data-demo]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var task = button.dataset.demo;
+      document.querySelectorAll("[data-demo]").forEach(function (b) { b.setAttribute("aria-pressed", String(b === button)); });
+      var frame = document.getElementById("demo-frame");
+      frame.src = "lab/#" + task;
+      frame.title = "Interactive " + button.textContent + ": video and measured 3D replay";
+      document.getElementById("demo-description").textContent = descriptions[task];
+      var full = document.getElementById("demo-full");
+      full.href = "lab/#" + task;
+      full.textContent = "Open " + button.textContent + " in a full window ↗";
+    });
+  });
+})();
 </script>
 </body>
 </html>
