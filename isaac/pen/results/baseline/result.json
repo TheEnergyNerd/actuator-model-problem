@@ -1,0 +1,77 @@
+{
+  "frames": 720,
+  "bodies": 34,
+  "fps": 60,
+  "physics_hz": 240,
+  "duration": 11.983333333333333,
+  "source_time_offset_s": 0.016666666666666666,
+  "trial": 0,
+  "seed": 41000000,
+  "task_success": true,
+  "outcome": {
+    "turn_times": [
+      1.6833333333333333,
+      3.4166666666666665,
+      5.15
+    ],
+    "turns_ok": true,
+    "timing_ok": true,
+    "net_turns": 3.028980044894034,
+    "hold_ok": true,
+    "drop": false,
+    "max_limit_violation_rad": 4.172325134277344e-07,
+    "limits_ok": true,
+    "max_penetration_mm": 0.4365309178829193,
+    "penetration_ok": true,
+    "participation": [
+      [
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      [
+        "middle",
+        "ring",
+        "pinky"
+      ],
+      [
+        "middle",
+        "ring",
+        "pinky"
+      ]
+    ],
+    "participation_ok": true,
+    "all_fingers_revolutions": {
+      "index": 3,
+      "middle": 3,
+      "ring": 3,
+      "pinky": 3
+    },
+    "all_fingers_ok": true,
+    "thumb_release_ok": false,
+    "best_thumb_free_rotation_deg": 0.0,
+    "trial": 0,
+    "seed": 41000000,
+    "unsettled": false,
+    "motion_passed": true,
+    "native_contact_gate_passed": false
+  },
+  "provenance": {
+    "repository": "https://github.com/jianglongye/dexterous-astra",
+    "revision": "a1c93b3ab814995b0c75bae51595417caa91c34b",
+    "checkpoint_sha256": "cc88085343402380b07df560a874b7784e05ed9fb8f75e0b19c575c7e08bf4cc",
+    "changes": [
+      "weights-only checkpoint loading",
+      "measured body and torque recording"
+    ],
+    "selected_trial": 0,
+    "selection": "fixed before evaluation",
+    "penetration_method": "PhysX contact separation; different from upstream MuJoCo hull check"
+  },
+  "actuation": "Native Sharpa implicit position control; optional torque-ceiling or hand-mass intervention",
+  "intervention": {
+    "effort_scale": 1.0,
+    "hand_mass_scale": 1.0
+  },
+  "poses_sha256": "65de184d9be34b7c9423c38bb70719f050d22bc37bf83ff4947c553f54718b18"
+}

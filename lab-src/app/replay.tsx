@@ -232,7 +232,7 @@ export function Replay({
     });
     materials.push(goalMat);
     const goal = new THREE.LineSegments(goalGeo, goalMat);
-    goal.visible = sceneData.kind === "hand";
+    goal.visible = sceneData.kind === "hand" && !!recording.samples[0]?.target;
     scene.add(goal);
     const glows = (sceneData.kind ? [] : [9, 10, 20, 21]).map((i) => {
       const g = new THREE.SphereGeometry(0.011, 12, 8);
@@ -302,6 +302,7 @@ export function Replay({
       );
       if (sceneData.kind === "hand") {
         const target = c.recording.samples[f0]?.target;
+        goal.visible = !!target;
         goal.position
           .copy(bodies[bodies.length - 1].position)
           .add(new THREE.Vector3(0.11, 0, 0.035));

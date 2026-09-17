@@ -1,0 +1,47 @@
+{
+  "rows": [
+    {
+      "id": "baseline",
+      "motion_successes": 31,
+      "native_contact_successes": 5,
+      "trials": 32,
+      "selected_trial_third_turn_s": 5.15,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    },
+    {
+      "id": "weak",
+      "motion_successes": 28,
+      "native_contact_successes": 2,
+      "trials": 32,
+      "selected_trial_third_turn_s": 5.15,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    },
+    {
+      "id": "heavy",
+      "motion_successes": 32,
+      "native_contact_successes": 7,
+      "trials": 32,
+      "selected_trial_third_turn_s": 5.5,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    }
+  ],
+  "protocol": "Same checkpoint, seeds 41000000\u201341000031 and prepared-grasp setup. Interventions applied after settling. All outcomes are development trials, not held-out reliability estimates."
+}

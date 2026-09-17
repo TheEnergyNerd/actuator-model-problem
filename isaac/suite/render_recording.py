@@ -37,11 +37,12 @@ def main():
     sim = sim_utils.SimulationContext(sim_utils.SimulationCfg(dt=0.02, device="cpu"))
     stage = sim.stage
     light = sim_utils.DomeLightCfg(
-        intensity=180 if scene.get("kind") == "assembly" else 700, color=(0.85, 0.90, 1)
+        intensity=180 if scene.get("kind") in ("assembly", "hand") else 700,
+        color=(0.85, 0.90, 1),
     )
     light.func("/World/Light", light)
     sun = sim_utils.DistantLightCfg(
-        intensity=300 if scene.get("kind") == "assembly" else 1200,
+        intensity=300 if scene.get("kind") in ("assembly", "hand") else 1200,
         color=(1, 0.96, 0.85),
     )
     sun.func("/World/Sun", sun, orientation=(0.92388, 0.38268, 0, 0))
@@ -64,7 +65,7 @@ def main():
         shader.CreateIdAttr("UsdPreviewSurface")
         shade = (
             mesh["color"]
-            if scene.get("kind") == "assembly"
+            if scene.get("kind") in ("assembly", "hand")
             else [0.24, 0.29, 0.25] if mesh["body"] >= 0 else mesh["color"]
         )
         shader.CreateInput("diffuseColor", Sdf.ValueTypeNames.Color3f).Set(
@@ -94,7 +95,7 @@ def main():
     stride = int(result["fps"] / a.fps)
     offset = (
         np.array(scene.get("camera_offset", [0.14, -0.18, 0.12]))
-        if scene.get("kind") == "assembly"
+        if scene.get("kind") in ("assembly", "hand")
         else np.array([1.8, -2.4, 1.6])
     )
     try:
@@ -122,7 +123,7 @@ def main():
     (root / "render.json").write_text(
         json.dumps(
             dict(
-                renderer="Isaac Sim 4.5",
+                renderer="Isaac Sim",
                 method="Native exported mesh geometry at measured body poses; display colors and studio lighting; physics disabled during rendering",
                 source="poses.bin",
                 video_fps=a.fps,

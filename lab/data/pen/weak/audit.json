@@ -1,0 +1,9 @@
+{
+  "video_frames": 720,
+  "video_fps": 60.0,
+  "replay_frames": 720,
+  "recorded_bodies": 34,
+  "video_sha256": "4f372d28980d99c3b38a629c129e669723fd38fa76555df6a95871fbb0067d1e",
+  "poses_sha256": "6cab075e0e471b460c73e2ff9d18d87a5c89d91859a91407b27a981295302ec7",
+  "full_decode": true
+}

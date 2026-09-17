@@ -1,0 +1,10 @@
+{
+  "python": "3.11.13 (tags/v3.11.13-dirty:498b971, Jun  9 2025, 16:37:36) [GCC 7.3.1 20180303 (Red Hat 7.3.1-5)]",
+  "packages": {
+    "isaaclab": "0.54.2",
+    "rsl-rl-lib": "3.0.1",
+    "torch": "2.7.0+cu128",
+    "numpy": "1.26.0",
+    "tensordict": "0.10.0"
+  }
+}
