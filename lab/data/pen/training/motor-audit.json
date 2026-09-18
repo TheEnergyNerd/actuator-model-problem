@@ -1,0 +1,53 @@
+{
+  "note": "Audit of 60 Hz recorded samples. Pre-update winding temperature reconstructed from the known Euler thermal step for current-reference checking. No switching-transient validation.",
+  "conditions": {
+    "frozen-motor-hot": {
+      "peak_current_A": 1.0000001192092896,
+      "min_temperature_C": 89.55401611328125,
+      "max_temperature_C": 99.9852294921875,
+      "current_ceiling_excess_A": 1.1920928955078125e-07,
+      "peak_steady_phase_voltage_V": 3.698672900504141,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "motor-motor": {
+      "peak_current_A": 1.9978264570236206,
+      "min_temperature_C": 25.0,
+      "max_temperature_C": 37.10044479370117,
+      "current_ceiling_excess_A": 1.1920928955078125e-07,
+      "peak_steady_phase_voltage_V": 6.55162460935169,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "ideal-motor": {
+      "peak_current_A": 1.9981402158737183,
+      "min_temperature_C": 25.0,
+      "max_temperature_C": 38.8160285949707,
+      "current_ceiling_excess_A": 1.1920928955078125e-07,
+      "peak_steady_phase_voltage_V": 4.9592434502987475,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "motor-motor-hot": {
+      "peak_current_A": 1.0000001192092896,
+      "min_temperature_C": 89.5545883178711,
+      "max_temperature_C": 99.98523712158203,
+      "current_ceiling_excess_A": 1.1920928955078125e-07,
+      "peak_steady_phase_voltage_V": 4.01109103498951,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "ideal-motor-hot": {
+      "peak_current_A": 1.0000001192092896,
+      "min_temperature_C": 89.55437469482422,
+      "max_temperature_C": 99.98524475097656,
+      "current_ceiling_excess_A": 1.1920928955078125e-07,
+      "peak_steady_phase_voltage_V": 3.7006406372683376,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "frozen-motor": {
+      "peak_current_A": 1.4208800792694092,
+      "min_temperature_C": 25.0,
+      "max_temperature_C": 27.716806411743164,
+      "current_ceiling_excess_A": -0.5770248174667358,
+      "peak_steady_phase_voltage_V": 3.2557309594348203,
+      "steady_voltage_exceeded_fraction": 0.0
+    }
+  }
+}

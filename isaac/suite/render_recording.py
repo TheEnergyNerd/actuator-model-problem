@@ -10,6 +10,7 @@ from isaaclab.app import AppLauncher
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("--recording", type=Path, required=True)
 parser.add_argument("--fps", type=int, default=25)
+parser.add_argument("--resolution", type=int, default=1080)
 AppLauncher.add_app_launcher_args(parser)
 a = parser.parse_args()
 a.enable_cameras = True
@@ -80,8 +81,8 @@ def main():
     camera = Camera(
         CameraCfg(
             prim_path="/World/Camera",
-            height=1080,
-            width=1080,
+            height=a.resolution,
+            width=a.resolution,
             data_types=["rgb"],
             spawn=sim_utils.PinholeCameraCfg(
                 focal_length=24, horizontal_aperture=20, clipping_range=(0.05, 100)
@@ -129,6 +130,7 @@ def main():
                 video_fps=a.fps,
                 replay_fps=result["fps"],
                 video_frames=len(range(0, len(states), stride)),
+                resolution=a.resolution,
             ),
             indent=2,
         )

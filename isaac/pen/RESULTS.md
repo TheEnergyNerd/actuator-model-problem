@@ -74,3 +74,29 @@ Both trial 0 and trial 1 have video and measured body-state replay. Trial 1 was
 chosen as the first simplified success before inspecting motor outcomes, not as
 a selected motor failure. Default comparison is cold versus fixed torque; hot
 is available in the selector. Parameter and selection provenance accompany each replay.
+
+## Equal-budget policy fine-tuning — September 18
+
+524,288 training transitions per condition, a common external checkpoint, separate
+training seeds 43000000–43000127 and test seeds 42000000–42000063.
+The final iteration-64 checkpoint was fixed before evaluation. One training seed.
+
+| Policy | Fixed torque | Cold motor | 100°C motor |
+|---|---:|---:|---:|
+| Original frozen policy | 48/64 | 47/64 | 47/64 |
+| Simplified-model fine-tuning | 56/64 | 56/64 | 56/64 |
+| Motor-model fine-tuning | 47/64 | 50/64 | 52/64 |
+
+The motor-trained policy completed 4 fewer hot-start trials than the simplified-trained policy in this batch; more detailed training dynamics did not automatically improve this skill. This pilot does not establish a benefit across training seeds.
+
+All nine conditions have bitwise-identical initial joint angles, pen poses, pen
+mass and friction for each test seed. Actor weights changed in both fine-tunes;
+observation normalizers remained identical to the reference checkpoint. Training
+reward is an Atlas surrogate, not the unavailable upstream training implementation.
+The stricter contact gate remains separately reported. No hardware calibration or
+training from scratch is claimed. See TRAINING.md and the public training manifest.
+
+Raw trajectories, motor traces and final checkpoints are retained in the local
+`/root/atlas/sharpa-training-run/` workspace. Public artifacts include every test
+outcome, trial-0 measured poses/telemetry/video, learning logs, parameter provenance
+and checkpoint/raw-data hashes. Rendered videos are 720×720, 60 FPS; physics is 240 Hz.

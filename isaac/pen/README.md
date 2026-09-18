@@ -61,3 +61,24 @@ view uses trial 1, the first ideal-model success selected before inspecting moto
 outcomes. All 32 trials remain in evaluation.json. Motor traces sample the final
 physics substep at 60 Hz; the actuator runs at 240 Hz. Copper energy accumulates at
 240 Hz and is a model loss integral, not measured battery consumption.
+
+## Compare model-aware policy training
+
+`train_matched.py` fine-tunes two copies of the supplied checkpoint with an Atlas
+reward and equal PPO budgets. Read [TRAINING.md](TRAINING.md) for the fixed protocol,
+training/test split and limitations. This is separate from the frozen-policy test.
+
+```
+./isaaclab.sh -p /path/to/isaac/pen/train_matched.py \
+  --reference /path/to/dexterous-astra --out /path/to/train-motor \
+  --model motor --num-envs 128 --iterations 64 --rollout-steps 64 \
+  --headless --device cuda:0
+./isaaclab.sh -p /path/to/isaac/pen/run_reference.py \
+  --reference /path/to/dexterous-astra --out /path/to/test-motor-hot \
+  --checkpoint /path/to/train-motor/policy-0064.pt --model motor-hot \
+  --trials 64 --seed0 42000000 --headless --device cuda:0
+```
+
+Repeat the same training budget with `--model ideal`; evaluate both policies and
+the original checkpoint under all three actuation conditions. The public training
+comparison retains every test outcome, measured trial-0 replay and checkpoint hashes.

@@ -346,6 +346,7 @@ export function Replay({
       observer.disconnect();
       controls.dispose();
       renderer.dispose();
+      renderer.forceContextLoss();
       geometries.forEach((x) => x.dispose());
       trace.geometry.dispose();
       materials.forEach((x) => x.dispose());

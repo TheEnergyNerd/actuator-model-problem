@@ -15,7 +15,12 @@ CHECKPOINT = "cc88085343402380b07df560a874b7784e05ed9fb8f75e0b19c575c7e08bf4cc"
 
 
 def prepare(
-    reference: Path, output: Path, effort_scale=1.0, mass_scale=1.0, model="native"
+    reference: Path,
+    output: Path,
+    effort_scale=1.0,
+    mass_scale=1.0,
+    model="native",
+    policy_checkpoint: Path | None = None,
 ):
     import json
 
@@ -30,6 +35,8 @@ def prepare(
     checkpoint = pen / "checkpoints/best_policy.pt"
     if hashlib.sha256(checkpoint.read_bytes()).hexdigest() != CHECKPOINT:
         raise ValueError("Reference checkpoint hash mismatch")
+    evaluated_checkpoint = policy_checkpoint or checkpoint
+    evaluated_hash = hashlib.sha256(evaluated_checkpoint.read_bytes()).hexdigest()
     source = (pen / "policy/evaluate.py").read_text()
     replacements = {
         "weights_only=False": "weights_only=True",
@@ -49,7 +56,13 @@ def prepare(
             {
                 "repository": "https://github.com/jianglongye/dexterous-astra",
                 "revision": REVISION,
-                "checkpoint_sha256": CHECKPOINT,
+                "checkpoint_sha256": evaluated_hash,
+                "initial_reference_checkpoint_sha256": CHECKPOINT,
+                "policy_origin": (
+                    "Atlas fine-tuned checkpoint"
+                    if policy_checkpoint
+                    else "Supplied reference policy"
+                ),
                 "changes": [
                     "weights-only checkpoint loading",
                     "measured body and torque recording",
@@ -73,6 +86,7 @@ if __name__ == "__main__":
     p.add_argument("--out", type=Path, required=True)
     p.add_argument("--trials", type=int, default=32)
     p.add_argument("--seed0", type=int, default=41000000)
+    p.add_argument("--checkpoint", type=Path)
     p.add_argument("--effort-scale", type=float, default=1.0)
     p.add_argument("--hand-mass-scale", type=float, default=1.0)
     p.add_argument(
@@ -85,11 +99,16 @@ if __name__ == "__main__":
         args.effort_scale,
         args.hand_mass_scale,
         args.model,
+        args.checkpoint.resolve() if args.checkpoint else None,
     )
     sys.argv = [
         str(pen / "policy/evaluate.py"),
         "--ckpt",
-        str(pen / "checkpoints/best_policy.pt"),
+        str(
+            args.checkpoint.resolve()
+            if args.checkpoint
+            else pen / "checkpoints/best_policy.pt"
+        ),
         "--run_cfg",
         str(pen / "checkpoints/env_cfg.json"),
         "--out",

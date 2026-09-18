@@ -1,0 +1,1579 @@
+{
+  "rows": [
+    {
+      "policy": "frozen",
+      "model": "ideal",
+      "motion_successes": 48,
+      "native_contact_successes": 3,
+      "trials": 64,
+      "wilson95": [
+        0.6318349082561628,
+        0.8398520802582591
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "761185eb6be5508e410776d80670d226a185c5a8ad214e131bfa77a9af7e68a2",
+        "motor_traces.npz": "b688b538e7b23b9df4231a537afe64a1ec62b93210ec09b66fcdcdbdf462467a"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.0
+    },
+    {
+      "policy": "frozen",
+      "model": "motor",
+      "motion_successes": 47,
+      "native_contact_successes": 2,
+      "trials": 64,
+      "wilson95": [
+        0.615168937427648,
+        0.8270376143046224
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "73cd6d08114dbaef35c14413e1ea4ffaaf10b12ffb63a896bd042853a0dcbc13",
+        "motor_traces.npz": "688d62581a99936c5ac4787baf728b66f909877e9999f80a8e28450e61e0850e"
+      },
+      "max_recorded_torque_shortfall_Nm": 6.854534149169922e-07
+    },
+    {
+      "policy": "frozen",
+      "model": "motor-hot",
+      "motion_successes": 47,
+      "native_contact_successes": 9,
+      "trials": 64,
+      "wilson95": [
+        0.615168937427648,
+        0.8270376143046224
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "7861cbef1531c951ba42b0b3d54c2fb49b4dcf6ec731fdd31e7e131e71c1a8b5",
+        "motor_traces.npz": "e5e04f95e55a8aa2244712365252fd33d7dc51e952e430a8d317b2dea7ac5005"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.9319999814033508
+    },
+    {
+      "policy": "ideal",
+      "model": "ideal",
+      "motion_successes": 56,
+      "native_contact_successes": 4,
+      "trials": 64,
+      "wilson95": [
+        0.7722521366978408,
+        0.9352783460737919
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "ea1f5c6328aac15798be30a58c73bd7ee720348cef215a52ecbd25712af2f051",
+        "motor_traces.npz": "bbeab8011f33bb0b4b54124877f5a64816e55ebb1669597ae7841b0fa0a8cd9d"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.0
+    },
+    {
+      "policy": "ideal",
+      "model": "motor",
+      "motion_successes": 56,
+      "native_contact_successes": 8,
+      "trials": 64,
+      "wilson95": [
+        0.7722521366978408,
+        0.9352783460737919
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "d96c35afba75dec4372809ede2a8f1246daba3c423601d71aa0515f662bead11",
+        "motor_traces.npz": "3844ef8abaca04f31228a11bba612d84bb2ed9279f2c6eb7c022e35eab679774"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.1926867961883545
+    },
+    {
+      "policy": "ideal",
+      "model": "motor-hot",
+      "motion_successes": 56,
+      "native_contact_successes": 10,
+      "trials": 64,
+      "wilson95": [
+        0.7722521366978408,
+        0.9352783460737919
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "1fbfc6f369a7ce1bab007fe11daee6c4cdc8d6e97869de8291645195a01d8a1d",
+        "motor_traces.npz": "6f06ccb08a2920732c95867ff6fce72f304ec17b8b1a211cc2167e25ea8d83dd"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.9319999814033508
+    },
+    {
+      "policy": "motor",
+      "model": "ideal",
+      "motion_successes": 47,
+      "native_contact_successes": 6,
+      "trials": 64,
+      "wilson95": [
+        0.615168937427648,
+        0.8270376143046224
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "b477b1c3530a630bf793cb79f4425a568cf3a58e87b138f49ea1f1fdb80c7622",
+        "motor_traces.npz": "abd205bfdc5416b8e8baec846d226c70d930dce394be33360dbe347db06d2427"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.0
+    },
+    {
+      "policy": "motor",
+      "model": "motor",
+      "motion_successes": 50,
+      "native_contact_successes": 4,
+      "trials": 64,
+      "wilson95": [
+        0.665669836692222,
+        0.8649780253865025
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "81922aa9946f2280b5a231a7a0dd4fcbce1b04d1ddffe8956c244f468dc772b8",
+        "motor_traces.npz": "1403ba90b9605ef7ace6eb12386e5567a06e30c495826639c46485340f294e14"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.18788790702819824
+    },
+    {
+      "policy": "motor",
+      "model": "motor-hot",
+      "motion_successes": 52,
+      "native_contact_successes": 5,
+      "trials": 64,
+      "wilson95": [
+        0.7002540844522482,
+        0.889354651190779
+      ],
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      },
+      "raw_sha256": {
+        "trajectories.npz": "62d8f07e5a1261bcf3fa8cbb0e023858413ec5125a07c90d8fc2800865f4a6ff",
+        "motor_traces.npz": "123a4781c37b414a73ac8f48fd9255235a4c863249bbb38575f1b54dee6842ff"
+      },
+      "max_recorded_torque_shortfall_Nm": 0.9319999814033508
+    }
+  ],
+  "training": {
+    "ideal": [
+      {
+        "iteration": 1,
+        "transitions": 8192,
+        "reward_mean": 0.5077762603759766,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 303.3685607910156,
+        "elapsed_s": 3.296761419158429
+      },
+      {
+        "iteration": 2,
+        "transitions": 16384,
+        "reward_mean": 0.5018075108528137,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 550.7761840820312,
+        "elapsed_s": 6.650888743344694
+      },
+      {
+        "iteration": 3,
+        "transitions": 24576,
+        "reward_mean": 0.5049269199371338,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 194.88845825195312,
+        "elapsed_s": 9.752238073386252
+      },
+      {
+        "iteration": 4,
+        "transitions": 32768,
+        "reward_mean": 0.510204553604126,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 131.5979766845703,
+        "elapsed_s": 13.126492822077125
+      },
+      {
+        "iteration": 5,
+        "transitions": 40960,
+        "reward_mean": 0.3947560787200928,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 84.53775024414062,
+        "elapsed_s": 16.50564333703369
+      },
+      {
+        "iteration": 6,
+        "transitions": 49152,
+        "reward_mean": 0.11868444830179214,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 135.82107543945312,
+        "elapsed_s": 19.866749477107078
+      },
+      {
+        "iteration": 7,
+        "transitions": 57344,
+        "reward_mean": 0.10892359912395477,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 270.293212890625,
+        "elapsed_s": 23.44352349732071
+      },
+      {
+        "iteration": 8,
+        "transitions": 65536,
+        "reward_mean": 0.09967564046382904,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 89.6669692993164,
+        "elapsed_s": 26.742669714149088
+      },
+      {
+        "iteration": 9,
+        "transitions": 73728,
+        "reward_mean": 0.09610925614833832,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 87.72058868408203,
+        "elapsed_s": 30.015808931086212
+      },
+      {
+        "iteration": 10,
+        "transitions": 81920,
+        "reward_mean": 0.10107657313346863,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 143.28515625,
+        "elapsed_s": 33.26925839530304
+      },
+      {
+        "iteration": 11,
+        "transitions": 90112,
+        "reward_mean": 0.1042589545249939,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 63.590206146240234,
+        "elapsed_s": 36.49194349301979
+      },
+      {
+        "iteration": 12,
+        "transitions": 98304,
+        "reward_mean": 0.4078364968299866,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 123,
+        "loss": 1389.19677734375,
+        "elapsed_s": 39.710655451286584
+      },
+      {
+        "iteration": 13,
+        "transitions": 106496,
+        "reward_mean": 0.4767058789730072,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 127.5253677368164,
+        "elapsed_s": 42.891616105102
+      },
+      {
+        "iteration": 14,
+        "transitions": 114688,
+        "reward_mean": 0.48999321460723877,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 79.85948944091797,
+        "elapsed_s": 46.19996760599315
+      },
+      {
+        "iteration": 15,
+        "transitions": 122880,
+        "reward_mean": 0.4895685017108917,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 49.29194259643555,
+        "elapsed_s": 49.57125805132091
+      },
+      {
+        "iteration": 16,
+        "transitions": 131072,
+        "reward_mean": 0.4860892593860626,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 65.82023620605469,
+        "elapsed_s": 52.91364971315488
+      },
+      {
+        "iteration": 17,
+        "transitions": 139264,
+        "reward_mean": 0.13466614484786987,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 16.257278442382812,
+        "elapsed_s": 56.2751913620159
+      },
+      {
+        "iteration": 18,
+        "transitions": 147456,
+        "reward_mean": 0.1184467077255249,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 9.768404960632324,
+        "elapsed_s": 59.64141687611118
+      },
+      {
+        "iteration": 19,
+        "transitions": 155648,
+        "reward_mean": 0.11388739198446274,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 8.412436485290527,
+        "elapsed_s": 63.01390186930075
+      },
+      {
+        "iteration": 20,
+        "transitions": 163840,
+        "reward_mean": 0.10667693614959717,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 2.707035779953003,
+        "elapsed_s": 66.32177004916593
+      },
+      {
+        "iteration": 21,
+        "transitions": 172032,
+        "reward_mean": 0.10992049425840378,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 5.831619739532471,
+        "elapsed_s": 69.60996247595176
+      },
+      {
+        "iteration": 22,
+        "transitions": 180224,
+        "reward_mean": 0.1092345267534256,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 4.15712833404541,
+        "elapsed_s": 72.90613811928779
+      },
+      {
+        "iteration": 23,
+        "transitions": 188416,
+        "reward_mean": 0.30835992097854614,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 120,
+        "loss": 42.58332061767578,
+        "elapsed_s": 76.18413965124637
+      },
+      {
+        "iteration": 24,
+        "transitions": 196608,
+        "reward_mean": 0.4729340672492981,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 3,
+        "loss": 25.365102767944336,
+        "elapsed_s": 79.56564482813701
+      },
+      {
+        "iteration": 25,
+        "transitions": 204800,
+        "reward_mean": 0.46994274854660034,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 15.739638328552246,
+        "elapsed_s": 82.99165664799511
+      },
+      {
+        "iteration": 26,
+        "transitions": 212992,
+        "reward_mean": 0.4771004319190979,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 8.046425819396973,
+        "elapsed_s": 86.47429251018912
+      },
+      {
+        "iteration": 27,
+        "transitions": 221184,
+        "reward_mean": 0.46701037883758545,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 8.051656723022461,
+        "elapsed_s": 90.04813287220895
+      },
+      {
+        "iteration": 28,
+        "transitions": 229376,
+        "reward_mean": 0.21995985507965088,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 6.293495178222656,
+        "elapsed_s": 93.5653170440346
+      },
+      {
+        "iteration": 29,
+        "transitions": 237568,
+        "reward_mean": 0.12042605876922607,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 1.216664433479309,
+        "elapsed_s": 97.0944720231928
+      },
+      {
+        "iteration": 30,
+        "transitions": 245760,
+        "reward_mean": 0.1062960997223854,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 1.1307320594787598,
+        "elapsed_s": 100.57754972297698
+      },
+      {
+        "iteration": 31,
+        "transitions": 253952,
+        "reward_mean": 0.10467831790447235,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 0.9871408939361572,
+        "elapsed_s": 103.76159505313262
+      },
+      {
+        "iteration": 32,
+        "transitions": 262144,
+        "reward_mean": 0.1018626019358635,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 1.268782138824463,
+        "elapsed_s": 107.16174340713769
+      },
+      {
+        "iteration": 33,
+        "transitions": 270336,
+        "reward_mean": 0.11240417510271072,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 0.7125875353813171,
+        "elapsed_s": 110.61769575439394
+      },
+      {
+        "iteration": 34,
+        "transitions": 278528,
+        "reward_mean": 0.23239904642105103,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 116,
+        "loss": 3.4684293270111084,
+        "elapsed_s": 114.07514482503757
+      },
+      {
+        "iteration": 35,
+        "transitions": 286720,
+        "reward_mean": 0.4544195532798767,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 15.232012748718262,
+        "elapsed_s": 117.58576355921105
+      },
+      {
+        "iteration": 36,
+        "transitions": 294912,
+        "reward_mean": 0.4638577401638031,
+        "successes": 0,
+        "drops": 4,
+        "episodes": 7,
+        "loss": 12.335047721862793,
+        "elapsed_s": 121.18555050995201
+      },
+      {
+        "iteration": 37,
+        "transitions": 303104,
+        "reward_mean": 0.46383559703826904,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 3.7503662109375,
+        "elapsed_s": 124.69059651624411
+      },
+      {
+        "iteration": 38,
+        "transitions": 311296,
+        "reward_mean": 0.471910685300827,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 3.7593235969543457,
+        "elapsed_s": 128.1815188890323
+      },
+      {
+        "iteration": 39,
+        "transitions": 319488,
+        "reward_mean": 0.3002068102359772,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 2.7741894721984863,
+        "elapsed_s": 131.6885947752744
+      },
+      {
+        "iteration": 40,
+        "transitions": 327680,
+        "reward_mean": 0.14629079401493073,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 1.0943208932876587,
+        "elapsed_s": 135.05310582835227
+      },
+      {
+        "iteration": 41,
+        "transitions": 335872,
+        "reward_mean": 0.1259004920721054,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 3,
+        "loss": 0.6156617403030396,
+        "elapsed_s": 138.46388430520892
+      },
+      {
+        "iteration": 42,
+        "transitions": 344064,
+        "reward_mean": 0.11962965130805969,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 0.7842212319374084,
+        "elapsed_s": 141.82834410108626
+      },
+      {
+        "iteration": 43,
+        "transitions": 352256,
+        "reward_mean": 0.11948570609092712,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 0.44392332434654236,
+        "elapsed_s": 145.17893693130463
+      },
+      {
+        "iteration": 44,
+        "transitions": 360448,
+        "reward_mean": 0.12153992056846619,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 0.5989392399787903,
+        "elapsed_s": 148.56491903122514
+      },
+      {
+        "iteration": 45,
+        "transitions": 368640,
+        "reward_mean": 0.13477401435375214,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 110,
+        "loss": 0.9799545407295227,
+        "elapsed_s": 151.98153143329546
+      },
+      {
+        "iteration": 46,
+        "transitions": 376832,
+        "reward_mean": 0.46505844593048096,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 6.471010208129883,
+        "elapsed_s": 155.40131362900138
+      },
+      {
+        "iteration": 47,
+        "transitions": 385024,
+        "reward_mean": 0.42820078134536743,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 7,
+        "loss": 6.1441521644592285,
+        "elapsed_s": 158.9008099003695
+      },
+      {
+        "iteration": 48,
+        "transitions": 393216,
+        "reward_mean": 0.4650665819644928,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 4,
+        "loss": 3.83903169631958,
+        "elapsed_s": 162.41378810396418
+      },
+      {
+        "iteration": 49,
+        "transitions": 401408,
+        "reward_mean": 0.46536123752593994,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 2.132075786590576,
+        "elapsed_s": 165.86046250723302
+      },
+      {
+        "iteration": 50,
+        "transitions": 409600,
+        "reward_mean": 0.38348931074142456,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 2.3124029636383057,
+        "elapsed_s": 169.199677858036
+      },
+      {
+        "iteration": 51,
+        "transitions": 417792,
+        "reward_mean": 0.16767388582229614,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 0.8787538409233093,
+        "elapsed_s": 172.73586047114804
+      },
+      {
+        "iteration": 52,
+        "transitions": 425984,
+        "reward_mean": 0.15786269307136536,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 5,
+        "loss": 1.098252773284912,
+        "elapsed_s": 176.29077435610816
+      },
+      {
+        "iteration": 53,
+        "transitions": 434176,
+        "reward_mean": 0.14378949999809265,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 0.3678763806819916,
+        "elapsed_s": 179.8058568830602
+      },
+      {
+        "iteration": 54,
+        "transitions": 442368,
+        "reward_mean": 0.13040223717689514,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 1.6536918878555298,
+        "elapsed_s": 183.37375423731282
+      },
+      {
+        "iteration": 55,
+        "transitions": 450560,
+        "reward_mean": 0.1289396584033966,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 0.4867599904537201,
+        "elapsed_s": 186.93948172032833
+      },
+      {
+        "iteration": 56,
+        "transitions": 458752,
+        "reward_mean": 0.1318928748369217,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 1.200782299041748,
+        "elapsed_s": 190.50509462924674
+      },
+      {
+        "iteration": 57,
+        "transitions": 466944,
+        "reward_mean": 0.3909285068511963,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 104,
+        "loss": 2.171111822128296,
+        "elapsed_s": 193.99233583314344
+      },
+      {
+        "iteration": 58,
+        "transitions": 475136,
+        "reward_mean": 0.44348669052124023,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 10,
+        "loss": 2.7469935417175293,
+        "elapsed_s": 197.6203206651844
+      },
+      {
+        "iteration": 59,
+        "transitions": 483328,
+        "reward_mean": 0.4657137989997864,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 4,
+        "loss": 2.842468738555908,
+        "elapsed_s": 201.0276474012062
+      },
+      {
+        "iteration": 60,
+        "transitions": 491520,
+        "reward_mean": 0.4686541259288788,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 2.100240707397461,
+        "elapsed_s": 204.48858859436586
+      },
+      {
+        "iteration": 61,
+        "transitions": 499712,
+        "reward_mean": 0.434512734413147,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 1.5977226495742798,
+        "elapsed_s": 207.91426212107763
+      },
+      {
+        "iteration": 62,
+        "transitions": 507904,
+        "reward_mean": 0.16715006530284882,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 0.6528400778770447,
+        "elapsed_s": 211.36018593935296
+      },
+      {
+        "iteration": 63,
+        "transitions": 516096,
+        "reward_mean": 0.161497101187706,
+        "successes": 4,
+        "drops": 1,
+        "episodes": 10,
+        "loss": 0.35285747051239014,
+        "elapsed_s": 214.93581740232185
+      },
+      {
+        "iteration": 64,
+        "transitions": 524288,
+        "reward_mean": 0.1549515426158905,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 0.5086169242858887,
+        "elapsed_s": 218.42361329495907
+      }
+    ],
+    "motor": [
+      {
+        "iteration": 1,
+        "transitions": 8192,
+        "reward_mean": 0.5079957842826843,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 58.80427932739258,
+        "elapsed_s": 3.097392041236162
+      },
+      {
+        "iteration": 2,
+        "transitions": 16384,
+        "reward_mean": 0.4852735996246338,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 2,
+        "loss": 470.1631774902344,
+        "elapsed_s": 6.296900361310691
+      },
+      {
+        "iteration": 3,
+        "transitions": 24576,
+        "reward_mean": 0.4955594539642334,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 303.3882141113281,
+        "elapsed_s": 9.356761412229389
+      },
+      {
+        "iteration": 4,
+        "transitions": 32768,
+        "reward_mean": 0.5102037191390991,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 110.87671661376953,
+        "elapsed_s": 12.44664680911228
+      },
+      {
+        "iteration": 5,
+        "transitions": 40960,
+        "reward_mean": 0.40161919593811035,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 75.51647186279297,
+        "elapsed_s": 15.445442161988467
+      },
+      {
+        "iteration": 6,
+        "transitions": 49152,
+        "reward_mean": 0.12365686893463135,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 145.56307983398438,
+        "elapsed_s": 18.464882883243263
+      },
+      {
+        "iteration": 7,
+        "transitions": 57344,
+        "reward_mean": 0.11364374309778214,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 198.4441375732422,
+        "elapsed_s": 21.887802705168724
+      },
+      {
+        "iteration": 8,
+        "transitions": 65536,
+        "reward_mean": 0.10008777678012848,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 90.74415588378906,
+        "elapsed_s": 25.4849047139287
+      },
+      {
+        "iteration": 9,
+        "transitions": 73728,
+        "reward_mean": 0.09302346408367157,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 101.28606414794922,
+        "elapsed_s": 29.088775320909917
+      },
+      {
+        "iteration": 10,
+        "transitions": 81920,
+        "reward_mean": 0.09765362739562988,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 64.96852111816406,
+        "elapsed_s": 32.61916552297771
+      },
+      {
+        "iteration": 11,
+        "transitions": 90112,
+        "reward_mean": 0.10342804342508316,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 58.790306091308594,
+        "elapsed_s": 36.112300222273916
+      },
+      {
+        "iteration": 12,
+        "transitions": 98304,
+        "reward_mean": 0.40871208906173706,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 124,
+        "loss": 1377.3206787109375,
+        "elapsed_s": 39.70179934101179
+      },
+      {
+        "iteration": 13,
+        "transitions": 106496,
+        "reward_mean": 0.4820921719074249,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 3,
+        "loss": 192.3740997314453,
+        "elapsed_s": 43.243897842243314
+      },
+      {
+        "iteration": 14,
+        "transitions": 114688,
+        "reward_mean": 0.5001540780067444,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 56.846832275390625,
+        "elapsed_s": 46.744311260059476
+      },
+      {
+        "iteration": 15,
+        "transitions": 122880,
+        "reward_mean": 0.4881100058555603,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 2,
+        "loss": 61.09196472167969,
+        "elapsed_s": 50.228382610250264
+      },
+      {
+        "iteration": 16,
+        "transitions": 131072,
+        "reward_mean": 0.487191379070282,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 2,
+        "loss": 72.66615295410156,
+        "elapsed_s": 53.22288106428459
+      },
+      {
+        "iteration": 17,
+        "transitions": 139264,
+        "reward_mean": 0.1565871238708496,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 20.322526931762695,
+        "elapsed_s": 56.223213823046535
+      },
+      {
+        "iteration": 18,
+        "transitions": 147456,
+        "reward_mean": 0.15874159336090088,
+        "successes": 6,
+        "drops": 0,
+        "episodes": 6,
+        "loss": 26.040973663330078,
+        "elapsed_s": 59.32964835129678
+      },
+      {
+        "iteration": 19,
+        "transitions": 155648,
+        "reward_mean": 0.15905389189720154,
+        "successes": 5,
+        "drops": 0,
+        "episodes": 5,
+        "loss": 28.447425842285156,
+        "elapsed_s": 62.42289740405977
+      },
+      {
+        "iteration": 20,
+        "transitions": 163840,
+        "reward_mean": 0.14924761652946472,
+        "successes": 1,
+        "drops": 2,
+        "episodes": 3,
+        "loss": 26.719430923461914,
+        "elapsed_s": 65.72450486011803
+      },
+      {
+        "iteration": 21,
+        "transitions": 172032,
+        "reward_mean": 0.14971889555454254,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 6.579744815826416,
+        "elapsed_s": 68.8584123631008
+      },
+      {
+        "iteration": 22,
+        "transitions": 180224,
+        "reward_mean": 0.14759397506713867,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 4.919247150421143,
+        "elapsed_s": 72.07035528309643
+      },
+      {
+        "iteration": 23,
+        "transitions": 188416,
+        "reward_mean": 0.31677505373954773,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 107,
+        "loss": 43.11111068725586,
+        "elapsed_s": 75.62216539308429
+      },
+      {
+        "iteration": 24,
+        "transitions": 196608,
+        "reward_mean": 0.44108664989471436,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 3,
+        "loss": 43.804710388183594,
+        "elapsed_s": 79.46630330802873
+      },
+      {
+        "iteration": 25,
+        "transitions": 204800,
+        "reward_mean": 0.41300588846206665,
+        "successes": 0,
+        "drops": 5,
+        "episodes": 6,
+        "loss": 19.14543342590332,
+        "elapsed_s": 82.85448726825416
+      },
+      {
+        "iteration": 26,
+        "transitions": 212992,
+        "reward_mean": 0.42361658811569214,
+        "successes": 0,
+        "drops": 4,
+        "episodes": 6,
+        "loss": 22.60686492919922,
+        "elapsed_s": 86.28294869232923
+      },
+      {
+        "iteration": 27,
+        "transitions": 221184,
+        "reward_mean": 0.4217904210090637,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 4,
+        "loss": 19.265100479125977,
+        "elapsed_s": 89.82691906532273
+      },
+      {
+        "iteration": 28,
+        "transitions": 229376,
+        "reward_mean": 0.2782863676548004,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 2,
+        "loss": 6.41525936126709,
+        "elapsed_s": 92.91362582333386
+      },
+      {
+        "iteration": 29,
+        "transitions": 237568,
+        "reward_mean": 0.1797294020652771,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 4,
+        "loss": 3.5735599994659424,
+        "elapsed_s": 96.09950992604718
+      },
+      {
+        "iteration": 30,
+        "transitions": 245760,
+        "reward_mean": 0.1914924681186676,
+        "successes": 3,
+        "drops": 1,
+        "episodes": 9,
+        "loss": 3.6814186573028564,
+        "elapsed_s": 99.28071877732873
+      },
+      {
+        "iteration": 31,
+        "transitions": 253952,
+        "reward_mean": 0.17395120859146118,
+        "successes": 1,
+        "drops": 2,
+        "episodes": 6,
+        "loss": 3.7110815048217773,
+        "elapsed_s": 102.4418415161781
+      },
+      {
+        "iteration": 32,
+        "transitions": 262144,
+        "reward_mean": 0.17444491386413574,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 1,
+        "loss": 1.2954285144805908,
+        "elapsed_s": 105.5366040780209
+      },
+      {
+        "iteration": 33,
+        "transitions": 270336,
+        "reward_mean": 0.16080151498317719,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 0.6917221546173096,
+        "elapsed_s": 108.5881603481248
+      },
+      {
+        "iteration": 34,
+        "transitions": 278528,
+        "reward_mean": 0.25371405482292175,
+        "successes": 2,
+        "drops": 0,
+        "episodes": 93,
+        "loss": 3.3173952102661133,
+        "elapsed_s": 111.66356505034491
+      },
+      {
+        "iteration": 35,
+        "transitions": 286720,
+        "reward_mean": 0.38780486583709717,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 1,
+        "loss": 20.420909881591797,
+        "elapsed_s": 114.6793045932427
+      },
+      {
+        "iteration": 36,
+        "transitions": 294912,
+        "reward_mean": 0.38953471183776855,
+        "successes": 0,
+        "drops": 5,
+        "episodes": 11,
+        "loss": 12.227140426635742,
+        "elapsed_s": 117.81165463104844
+      },
+      {
+        "iteration": 37,
+        "transitions": 303104,
+        "reward_mean": 0.3808697760105133,
+        "successes": 0,
+        "drops": 4,
+        "episodes": 9,
+        "loss": 8.159662246704102,
+        "elapsed_s": 121.0375172351487
+      },
+      {
+        "iteration": 38,
+        "transitions": 311296,
+        "reward_mean": 0.4073013961315155,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 4,
+        "loss": 2.688678503036499,
+        "elapsed_s": 124.14849138027057
+      },
+      {
+        "iteration": 39,
+        "transitions": 319488,
+        "reward_mean": 0.3356265425682068,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 1.9244258403778076,
+        "elapsed_s": 127.25168828014284
+      },
+      {
+        "iteration": 40,
+        "transitions": 327680,
+        "reward_mean": 0.20341162383556366,
+        "successes": 2,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 1.0569791793823242,
+        "elapsed_s": 130.30046913214028
+      },
+      {
+        "iteration": 41,
+        "transitions": 335872,
+        "reward_mean": 0.21241816878318787,
+        "successes": 5,
+        "drops": 0,
+        "episodes": 14,
+        "loss": 0.7814953923225403,
+        "elapsed_s": 133.5078147170134
+      },
+      {
+        "iteration": 42,
+        "transitions": 344064,
+        "reward_mean": 0.19329887628555298,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 5,
+        "loss": 1.7915006875991821,
+        "elapsed_s": 136.61855777120218
+      },
+      {
+        "iteration": 43,
+        "transitions": 352256,
+        "reward_mean": 0.19042742252349854,
+        "successes": 1,
+        "drops": 1,
+        "episodes": 5,
+        "loss": 2.0143282413482666,
+        "elapsed_s": 139.75601527420804
+      },
+      {
+        "iteration": 44,
+        "transitions": 360448,
+        "reward_mean": 0.18034592270851135,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 0,
+        "loss": 0.7284427285194397,
+        "elapsed_s": 143.00063978834078
+      },
+      {
+        "iteration": 45,
+        "transitions": 368640,
+        "reward_mean": 0.18953171372413635,
+        "successes": 2,
+        "drops": 0,
+        "episodes": 77,
+        "loss": 0.9397726655006409,
+        "elapsed_s": 146.35932405712083
+      },
+      {
+        "iteration": 46,
+        "transitions": 376832,
+        "reward_mean": 0.38541263341903687,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 3,
+        "loss": 3.5658175945281982,
+        "elapsed_s": 149.39082004409283
+      },
+      {
+        "iteration": 47,
+        "transitions": 385024,
+        "reward_mean": 0.3596581220626831,
+        "successes": 1,
+        "drops": 1,
+        "episodes": 10,
+        "loss": 6.7287373542785645,
+        "elapsed_s": 152.63932346412912
+      },
+      {
+        "iteration": 48,
+        "transitions": 393216,
+        "reward_mean": 0.3777191638946533,
+        "successes": 2,
+        "drops": 2,
+        "episodes": 12,
+        "loss": 2.926298141479492,
+        "elapsed_s": 155.97015760699287
+      },
+      {
+        "iteration": 49,
+        "transitions": 401408,
+        "reward_mean": 0.4012387692928314,
+        "successes": 0,
+        "drops": 2,
+        "episodes": 7,
+        "loss": 2.659897804260254,
+        "elapsed_s": 159.27488870825619
+      },
+      {
+        "iteration": 50,
+        "transitions": 409600,
+        "reward_mean": 0.3667042851448059,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 3,
+        "loss": 2.491730213165283,
+        "elapsed_s": 162.7785332542844
+      },
+      {
+        "iteration": 51,
+        "transitions": 417792,
+        "reward_mean": 0.21172893047332764,
+        "successes": 1,
+        "drops": 3,
+        "episodes": 5,
+        "loss": 0.6990674138069153,
+        "elapsed_s": 166.05728545831516
+      },
+      {
+        "iteration": 52,
+        "transitions": 425984,
+        "reward_mean": 0.23257458209991455,
+        "successes": 4,
+        "drops": 0,
+        "episodes": 16,
+        "loss": 0.8436756730079651,
+        "elapsed_s": 169.4937849813141
+      },
+      {
+        "iteration": 53,
+        "transitions": 434176,
+        "reward_mean": 0.22575564682483673,
+        "successes": 3,
+        "drops": 1,
+        "episodes": 7,
+        "loss": 0.8469937443733215,
+        "elapsed_s": 172.82939088298008
+      },
+      {
+        "iteration": 54,
+        "transitions": 442368,
+        "reward_mean": 0.22122517228126526,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 6,
+        "loss": 0.3896162211894989,
+        "elapsed_s": 176.03863168507814
+      },
+      {
+        "iteration": 55,
+        "transitions": 450560,
+        "reward_mean": 0.21420300006866455,
+        "successes": 2,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 0.42715275287628174,
+        "elapsed_s": 179.15152480220422
+      },
+      {
+        "iteration": 56,
+        "transitions": 458752,
+        "reward_mean": 0.20096319913864136,
+        "successes": 1,
+        "drops": 0,
+        "episodes": 2,
+        "loss": 1.1245430707931519,
+        "elapsed_s": 182.48230915004387
+      },
+      {
+        "iteration": 57,
+        "transitions": 466944,
+        "reward_mean": 0.3302462100982666,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 63,
+        "loss": 1.8930639028549194,
+        "elapsed_s": 185.72391768125817
+      },
+      {
+        "iteration": 58,
+        "transitions": 475136,
+        "reward_mean": 0.33574986457824707,
+        "successes": 0,
+        "drops": 1,
+        "episodes": 10,
+        "loss": 2.494239568710327,
+        "elapsed_s": 189.01779269101098
+      },
+      {
+        "iteration": 59,
+        "transitions": 483328,
+        "reward_mean": 0.3413908779621124,
+        "successes": 2,
+        "drops": 3,
+        "episodes": 12,
+        "loss": 4.322676658630371,
+        "elapsed_s": 192.3438147259876
+      },
+      {
+        "iteration": 60,
+        "transitions": 491520,
+        "reward_mean": 0.3533587157726288,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 7,
+        "loss": 4.205539703369141,
+        "elapsed_s": 195.62924148608
+      },
+      {
+        "iteration": 61,
+        "transitions": 499712,
+        "reward_mean": 0.35040706396102905,
+        "successes": 0,
+        "drops": 3,
+        "episodes": 7,
+        "loss": 2.269535779953003,
+        "elapsed_s": 198.88983207009733
+      },
+      {
+        "iteration": 62,
+        "transitions": 507904,
+        "reward_mean": 0.24776074290275574,
+        "successes": 0,
+        "drops": 0,
+        "episodes": 5,
+        "loss": 0.774080216884613,
+        "elapsed_s": 202.09052447229624
+      },
+      {
+        "iteration": 63,
+        "transitions": 516096,
+        "reward_mean": 0.2311866581439972,
+        "successes": 3,
+        "drops": 1,
+        "episodes": 15,
+        "loss": 0.8456712365150452,
+        "elapsed_s": 205.42281348630786
+      },
+      {
+        "iteration": 64,
+        "transitions": 524288,
+        "reward_mean": 0.25038784742355347,
+        "successes": 3,
+        "drops": 0,
+        "episodes": 11,
+        "loss": 0.9538145065307617,
+        "elapsed_s": 209.12290210230276
+      }
+    ]
+  },
+  "checkpoints": {
+    "ideal": {
+      "sha256": "918a8941c37475f2250a9f179c9d230bcff33c2131952cda55062c31a7a7be25",
+      "actor_max_parameter_change": 0.003572039306163788,
+      "normalizers_unchanged": true,
+      "protocol": {
+        "model": "ideal",
+        "num_envs": 128,
+        "iterations": 64,
+        "rollout_steps": 64,
+        "seed": 43000000,
+        "method": "Atlas PPO fine-tuning; own reward; frozen normalization; common pretrained initialization",
+        "training_temperature_C": [
+          25,
+          100
+        ],
+        "selection": "Final fixed-budget checkpoint; no selection on test outcomes",
+        "test_seed0": 42000000,
+        "test_trials": 64
+      }
+    },
+    "motor": {
+      "sha256": "52f9b405195e844c3025d582bd867288db3d653fb434561363b8cd284b1dc5a8",
+      "actor_max_parameter_change": 0.0036423392593860626,
+      "normalizers_unchanged": true,
+      "protocol": {
+        "model": "motor",
+        "num_envs": 128,
+        "iterations": 64,
+        "rollout_steps": 64,
+        "seed": 43000000,
+        "method": "Atlas PPO fine-tuning; own reward; frozen normalization; common pretrained initialization",
+        "training_temperature_C": [
+          25,
+          100
+        ],
+        "selection": "Final fixed-budget checkpoint; no selection on test outcomes",
+        "test_seed0": 42000000,
+        "test_trials": 64
+      }
+    },
+    "frozen": {
+      "sha256": "cc88085343402380b07df560a874b7784e05ed9fb8f75e0b19c575c7e08bf4cc"
+    }
+  },
+  "transitions": 524288,
+  "test_seed0": 42000000,
+  "test_trials": 64,
+  "protocol": "Two equal-budget PPO fine-tunes from the same external checkpoint; own reward, frozen observation normalization. Final checkpoint, not test-selected. One training seed per condition. Same prepared test poses and pen physics for all nine conditions.",
+  "training_seed0": 43000000,
+  "training_envs": 128,
+  "training_temperature_C": [
+    25,
+    100
+  ],
+  "selected_trial": 0,
+  "selection": "First test trial fixed before training; no replay selection based on outcomes.",
+  "parameter_status": "Assumed generic geared motors, not measured Sharpa hardware",
+  "paired_differences": {
+    "ideal": {
+      "motor_only_passes": 6,
+      "simplified_only_passes": 15
+    },
+    "motor": {
+      "motor_only_passes": 5,
+      "simplified_only_passes": 11
+    },
+    "motor-hot": {
+      "motor_only_passes": 5,
+      "simplified_only_passes": 9
+    }
+  },
+  "summary": [
+    "Under the 100\u00b0C-start motor model, motor-trained policy: 52/64 motion successes; simplified-trained: 56/64; original frozen policy: 47/64.",
+    "Under the cold motor model: 50/64 motor-trained, 56/64 simplified-trained, 47/64 frozen. This is a single-seed fine-tuning pilot, not a hardware result or a demonstrated advantage across repeated training runs.",
+    "The motor-trained policy completed 4 fewer hot-start trials than the simplified-trained policy in this batch; more detailed training dynamics did not automatically improve this skill."
+  ],
+  "source_sha256": {
+    "isaac/pen/train_matched.py": "f4c2d12775142c61b35a8737ba1ac9bea3c1529c3072ad4cb84cf7a2b82c81f8",
+    "isaac/pen/motor_model.py": "bb6cf882e321e50e1a85fdbd00d1389151927aab165df5bdd6819c1c29d9ce0e",
+    "isaac/precision/atlas_actuators_ext/atlas_actuators/foc_core.py": "969d063fe976d0694a628a6617b2705a2b6bc11664beeab993337db4f4b5fa62"
+  }
+}
