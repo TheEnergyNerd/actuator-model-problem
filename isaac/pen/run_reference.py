@@ -14,7 +14,9 @@ REVISION = "a1c93b3ab814995b0c75bae51595417caa91c34b"
 CHECKPOINT = "cc88085343402380b07df560a874b7784e05ed9fb8f75e0b19c575c7e08bf4cc"
 
 
-def prepare(reference: Path, output: Path, effort_scale=1.0, mass_scale=1.0):
+def prepare(
+    reference: Path, output: Path, effort_scale=1.0, mass_scale=1.0, model="native"
+):
     import json
 
     if not all(math.isfinite(v) and 0 < v <= 4 for v in (effort_scale, mass_scale)):
@@ -31,7 +33,7 @@ def prepare(reference: Path, output: Path, effort_scale=1.0, mass_scale=1.0):
     source = (pen / "policy/evaluate.py").read_text()
     replacements = {
         "weights_only=False": "weights_only=True",
-        "steps = int(args.seconds / CONTROL_DT)": f"from intervention import apply_intervention\napply_intervention(env, args.out, {effort_scale!r}, {mass_scale!r})\nfrom recording import PenRecording\nrecorder = PenRecording(args.out, env)\nsteps = int(args.seconds / CONTROL_DT)",
+        "steps = int(args.seconds / CONTROL_DT)": f"from intervention import apply_intervention\napply_intervention(env, args.out, {effort_scale!r}, {mass_scale!r})\nfrom motor_model import attach\nattach(env, args.out, {model!r})\nfrom recording import PenRecording\nrecorder = PenRecording(args.out, env)\nsteps = int(args.seconds / CONTROL_DT)",
         "        if (term | trunc).any():": "        recorder.capture()\n        if (term | trunc).any():",
         "app.close()": "recorder.finish()\nimport threading, os\n_shutdown = threading.Timer(10, lambda: os._exit(0))\n_shutdown.daemon = True\n_shutdown.start()\napp.close()",
     }
@@ -55,6 +57,7 @@ def prepare(reference: Path, output: Path, effort_scale=1.0, mass_scale=1.0):
                 "selected_trial": 0,
                 "effort_scale": effort_scale,
                 "hand_mass_scale": mass_scale,
+                "motor_model": model,
                 "selection": "fixed before evaluation",
                 "penetration_method": "PhysX contact separation; different from upstream MuJoCo hull check",
             },
@@ -72,12 +75,16 @@ if __name__ == "__main__":
     p.add_argument("--seed0", type=int, default=41000000)
     p.add_argument("--effort-scale", type=float, default=1.0)
     p.add_argument("--hand-mass-scale", type=float, default=1.0)
+    p.add_argument(
+        "--model", choices=["native", "ideal", "motor", "motor-hot"], default="native"
+    )
     args, rest = p.parse_known_args()
     source, pen = prepare(
         args.reference.resolve(),
         args.out.resolve(),
         args.effort_scale,
         args.hand_mass_scale,
+        args.model,
     )
     sys.argv = [
         str(pen / "policy/evaluate.py"),

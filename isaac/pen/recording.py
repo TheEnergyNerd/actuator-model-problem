@@ -15,6 +15,7 @@ class PenRecording:
         self.env = env
         self.assets = [env.robot, env.pen]
         self.frames, self.samples = [], []
+        self.motor_samples = []
         stage = omni.usd.get_context().get_stage()
         meshes, names = [], []
         for asset in self.assets:
@@ -154,7 +155,23 @@ class PenRecording:
         self.frames.append(state)
         self.samples.append(self.env.robot.data.applied_torque.detach().cpu().numpy())
 
+        if hasattr(self.env, "motor_state"):
+            self.motor_samples.append(
+                {
+                    k: v.detach().cpu().numpy().copy()
+                    for k, v in self.env.motor_state.items()
+                }
+            )
+
     def finish(self):
+        if self.motor_samples:
+            np.savez_compressed(
+                self.output.parent / "motor_traces.npz",
+                **{
+                    k: np.stack([s[k] for s in self.motor_samples], 1)
+                    for k in self.motor_samples[0]
+                }
+            )
         np.savez_compressed(
             self.output.parent / "body_states.npz",
             poses=np.stack(self.frames, 1),

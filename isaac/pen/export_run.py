@@ -8,14 +8,20 @@ import sys
 import numpy as np
 
 
+def load_arrays(path):
+    # Inflate each compressed array once, rather than again for every frame.
+    with np.load(path) as archive:
+        return {key: archive[key] for key in archive.files}
+
+
 def export(run, reference, trial=0):
     sys.path.insert(0, str(reference / "pen/policy"))
     sys.path.insert(0, str(reference / "pen/sim"))
     from gate import check_trial
     from spec import FINGERS, JOINTS
 
-    z = np.load(run / "trajectories.npz")
-    body = np.load(run / "body_states.npz")
+    z = load_arrays(run / "trajectories.npz")
+    body = load_arrays(run / "body_states.npz")
     meta = json.loads((run / "meta.json").read_text())
     provenance = json.loads((run / "reference.json").read_text())
     slices = {f: [i for i, j in enumerate(JOINTS) if f"_{f}_" in j] for f in FINGERS}
@@ -67,6 +73,16 @@ def export(run, reference, trial=0):
         np.unwrap(np.arctan2(z["pen_axis"][trial, :, 1], z["pen_axis"][trial, :, 0]))
         - z["heading0"][trial]
     ) / (2 * np.pi)
+    motor = (
+        load_arrays(run / "motor_traces.npz")
+        if (run / "motor_traces.npz").exists()
+        else None
+    )
+    motor_config = (
+        json.loads((run / "motor-model.json").read_text())
+        if (run / "motor-model.json").exists()
+        else None
+    )
     samples = []
     for k, turn in enumerate(turns):
         samples.append(
@@ -86,6 +102,38 @@ def export(run, reference, trial=0):
                 penetration_mm=float(1000 * z["physx_penetration"][trial, k]),
             )
         )
+        if motor is not None:
+            row = samples[-1]
+            row["motor_joints"] = {
+                key: motor[key][trial, k].tolist()
+                for key in ("requested", "applied", "motor_rpm")
+            }
+            if motor_config["mode"] != "ideal":
+                row["motor_joints"].update(
+                    current=np.hypot(
+                        motor["id"][trial, k], motor["iq"][trial, k]
+                    ).tolist(),
+                    temperature=motor["temperature"][trial, k].tolist(),
+                )
+            row.update(
+                requested_torque=float(np.abs(motor["requested"][trial, k]).max()),
+                delivered_torque=float(np.abs(motor["applied"][trial, k]).max()),
+                torque_shortfall=float(
+                    np.abs(
+                        motor["requested"][trial, k] - motor["applied"][trial, k]
+                    ).max()
+                ),
+                motor_rpm=float(np.abs(motor["motor_rpm"][trial, k]).max()),
+                joint_speed_rad_s=float(np.abs(motor["velocity"][trial, k]).max()),
+            )
+            if motor_config["mode"] != "ideal":
+                row.update(
+                    current_A=float(
+                        np.hypot(motor["id"][trial, k], motor["iq"][trial, k]).max()
+                    ),
+                    winding_C=float(motor["temperature"][trial, k].max()),
+                    copper_energy_J=float(motor["energy"][trial, k].sum()),
+                )
     (root / "telemetry.json").write_text(json.dumps(samples, separators=(",", ":")))
     result = dict(
         frames=len(states),
@@ -95,11 +143,25 @@ def export(run, reference, trial=0):
         duration=(len(states) - 1) / 60,
         source_time_offset_s=1 / 60,
         trial=trial,
+        display_selection=(
+            "Trial 0 was preselected before evaluation."
+            if trial == 0
+            else (
+                "Trial 1 is the first simplified-model success, selected before inspecting the motor-model outcome; the same trial is shown for all models."
+                if trial == 1 and motor_config
+                else f"Trial {trial} was selected explicitly for export; consult the complete evaluation outcomes."
+            )
+        ),
         seed=meta["seed0"] + trial,
         task_success=results[trial]["motion_passed"],
         outcome=results[trial],
         provenance=provenance,
-        actuation="Native Sharpa implicit position control; optional torque-ceiling or hand-mass intervention",
+        actuation=(
+            "Matched explicit PD"
+            if motor_config
+            else "Native Sharpa implicit position control; optional torque-ceiling or hand-mass intervention"
+        ),
+        motor_model=motor_config,
         intervention=(
             json.loads((run / "intervention.json").read_text())
             if (run / "intervention.json").exists()

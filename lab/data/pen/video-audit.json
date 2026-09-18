@@ -1,0 +1,74 @@
+[
+  {
+    "model": "ideal",
+    "trial": "paired",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "a9334c2a7590eead34dc1738bc2890b94c53098484029fb961c60b01660b3e40",
+    "video_sha256": "6497e445d8086437983bc4635140b71ad655178f076b870715aa1bdf7db1138c"
+  },
+  {
+    "model": "ideal",
+    "trial": "first",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "29e03f8d8f5903b615cd15700368485e713bf3bae8fabfcebdb594cce05ea635",
+    "video_sha256": "e609a9fe7c7335dfb4d484879c2a8a5c88f8a847f66571343edecfdfbbc7db05"
+  },
+  {
+    "model": "motor",
+    "trial": "paired",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "040b22523bc11616495537581ca1196785cbd9afb8a99ee092e457391c6bd5fc",
+    "video_sha256": "8cecf066c06d2d364b36bc578e2057f2a423e1309c4212a9c757f8dd853db1bd"
+  },
+  {
+    "model": "motor",
+    "trial": "first",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "2aee1bde8577b2072620779648d1eacf505ce6f1b613455893c8b903d4adcee0",
+    "video_sha256": "5ccb023b5df7e96c7b29a0a12011bf469b9a730089fa4f133309239647eb6e0e"
+  },
+  {
+    "model": "motor-hot",
+    "trial": "paired",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "bf7f4e4b1fad7b7d77522bf155a0dba76909b5aa74b86eb08438f4264c9512c6",
+    "video_sha256": "f5c0297d25d94076c223ac9b18ee73699aa77ac9e59c7255cf77642d807def37"
+  },
+  {
+    "model": "motor-hot",
+    "trial": "first",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      1080,
+      1080
+    ],
+    "poses_sha256": "d84f677881f4ebc32e2ae273439e44fefd27cf1795cbca59cb35ca3743cb594b",
+    "video_sha256": "3669fc23f7fb1a99539a503a280b34d380bebea215925df4194b3d86938205e4"
+  }
+]

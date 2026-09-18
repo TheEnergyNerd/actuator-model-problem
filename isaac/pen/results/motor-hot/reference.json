@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/jianglongye/dexterous-astra",
+  "revision": "a1c93b3ab814995b0c75bae51595417caa91c34b",
+  "checkpoint_sha256": "cc88085343402380b07df560a874b7784e05ed9fb8f75e0b19c575c7e08bf4cc",
+  "changes": [
+    "weights-only checkpoint loading",
+    "measured body and torque recording"
+  ],
+  "selected_trial": 0,
+  "effort_scale": 1.0,
+  "hand_mass_scale": 1.0,
+  "motor_model": "motor-hot",
+  "selection": "fixed before evaluation",
+  "penetration_method": "PhysX contact separation; different from upstream MuJoCo hull check"
+}

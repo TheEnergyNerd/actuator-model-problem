@@ -32,6 +32,7 @@ export type Sample = {
   contact_forces?: number[][];
   failures?: number;
   target?: number[];
+  turns?: number;
 };
 export type Recording = { poses: Float32Array; samples: Sample[]; result: any };
 const sceneCache = new Map<string, Promise<SceneData>>();

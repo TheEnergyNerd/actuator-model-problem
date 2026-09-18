@@ -45,3 +45,19 @@ using Isaac's Python. It renders every recorded frame. The hand palette and
 studio floor are presentation choices, not physical changes.
 
 The baseline and two sensitivity runs are complete; see [RESULTS.md](RESULTS.md).
+
+## Matched explicit motor-model experiment
+
+Use `--model ideal`, `--model motor`, or `--model motor-hot` on otherwise identical
+runs. `motor_model.py` disables native implicit drives after prepared-grasp settling
+and uses identical explicit PD gains and cold stall ceilings in all three modes.
+The cold/hot models use the existing FOC core's quasi-static references and first-order
+current loop. They are assumed generic geared motors, not measured Sharpa hardware.
+The current model does not simulate PWM, gearbox backlash, friction, or a calibrated
+thermal network. No policy retraining is performed.
+
+`export_run.py --trial 0` retains the preselected first attempt. The paired illustrative
+view uses trial 1, the first ideal-model success selected before inspecting motor
+outcomes. All 32 trials remain in evaluation.json. Motor traces sample the final
+physics substep at 60 Hz; the actuator runs at 240 Hz. Copper energy accumulates at
+240 Hz and is a model loss integral, not measured battery consumption.

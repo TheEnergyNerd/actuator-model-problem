@@ -1,6 +1,48 @@
 {
   "rows": [
     {
+      "id": "ideal",
+      "motion_successes": 26,
+      "native_contact_successes": 3,
+      "trials": 32,
+      "selected_trial_third_turn_s": 8.933333333333334,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    },
+    {
+      "id": "motor",
+      "motion_successes": 27,
+      "native_contact_successes": 2,
+      "trials": 32,
+      "selected_trial_third_turn_s": 5.35,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    },
+    {
+      "id": "motor-hot",
+      "motion_successes": 25,
+      "native_contact_successes": 4,
+      "trials": 32,
+      "selected_trial_third_turn_s": 5.133333333333333,
+      "initial_state_max_abs_difference": {
+        "q0": 0.0,
+        "pen_pos0": 0.0,
+        "pen_quat0": 0.0,
+        "masses": 0.0,
+        "friction": 0.0
+      }
+    },
+    {
       "id": "baseline",
       "motion_successes": 31,
       "native_contact_successes": 5,
@@ -43,5 +85,5 @@
       }
     }
   ],
-  "protocol": "Same checkpoint, seeds 41000000\u201341000031 and prepared-grasp setup. Interventions applied after settling. All outcomes are development trials, not held-out reliability estimates."
+  "protocol": "Same checkpoint, seeds 41000000\u201341000031 and prepared-grasp setup. Interventions applied after settling. All outcomes are development trials, not held-out reliability estimates. Models ideal/motor/motor-hot share explicit PD; baseline/weak/heavy use native implicit actuation and are a separate reference. Model parameters assumed, not hardware measurements."
 }

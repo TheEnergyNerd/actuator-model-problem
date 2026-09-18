@@ -1,0 +1,54 @@
+{
+  "note": "Audit of recorded 60 Hz samples from 240 Hz actuation. Generic assumed motor parameters, not hardware calibration; no switching-transient validation.",
+  "models": {
+    "ideal": {
+      "samples_shape": [
+        32,
+        720,
+        22
+      ],
+      "all_finite": true,
+      "max_torque_shortfall_Nm": 0.0,
+      "source_sha256": {
+        "motor_traces.npz": "63f0f3dc6884a43b54521cdb6fc88c8643257214b0812385250f6b9ca2848485",
+        "trajectories.npz": "eb92179f9d36b8ac81d268d37ae90b44595418521c42ffddc8ef7285b8b1c305"
+      }
+    },
+    "motor": {
+      "samples_shape": [
+        32,
+        720,
+        22
+      ],
+      "all_finite": true,
+      "max_torque_shortfall_Nm": 8.046627044677734e-07,
+      "source_sha256": {
+        "motor_traces.npz": "734a78585be35c9aa6609853b701f00cf330f0c3d58fe564998da9e921de10d2",
+        "trajectories.npz": "fb73e7b9cdd6a3cdf0640473cbf608cf96480fd59198261d4b4ad1947d0d4585"
+      },
+      "current_peak_A": 1.9246811866760254,
+      "temperature_min_C": 25.0,
+      "temperature_max_C": 30.072999954223633,
+      "steady_phase_voltage_peak_V": 4.790982850258106,
+      "steady_voltage_exceeded_fraction": 0.0
+    },
+    "motor-hot": {
+      "samples_shape": [
+        32,
+        720,
+        22
+      ],
+      "all_finite": true,
+      "max_torque_shortfall_Nm": 0.9319999814033508,
+      "source_sha256": {
+        "motor_traces.npz": "0402538e55693f74dce75f3a7ec6e2890609bdfc24f102dd9414eb4dbe3b36f1",
+        "trajectories.npz": "faa599c4380bd0b8026f4adbcfb5c2279d6417bd10eb6c1c2d6d10cb1efae935"
+      },
+      "current_peak_A": 1.0000001192092896,
+      "temperature_min_C": 89.554443359375,
+      "temperature_max_C": 99.98506164550781,
+      "steady_phase_voltage_peak_V": 3.748673244995452,
+      "steady_voltage_exceeded_fraction": 0.0
+    }
+  }
+}

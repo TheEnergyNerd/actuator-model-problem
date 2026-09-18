@@ -39,3 +39,38 @@ Raw evaluation trajectories and the checkpoint hash are retained under `results/
 The public replay is `lab/data/pen/`; it includes all per-trial outcomes and the
 matched initial-state comparison. Bootstrap failures before physics evaluation
 are retained in the local run workspace and are not counted as task trials.
+
+## Matched explicit PD comparison — September 18
+
+| Model | Motion | Additional contact gate | Trial 0 third turn |
+|---|---:|---:|---:|
+| Fixed torque ceiling | 26/32 | 3/32 | 8.93 s (fails timing/hold) |
+| Cold FOC/current-lag model | 27/32 | 2/32 | 5.35 s |
+| Same motor model, 100°C start | 25/32 | 4/32 | 5.13 s |
+
+All three use identical explicit PD, gains, native nominal stall ceilings, mass,
+inertia and checkpoint. Initial q0, pen poses, mass and friction match bitwise for
+all seeds. The earlier native implicit runs are a separate controller reference.
+
+Assumptions: 12 V bus, 2 A peak/1 A continuous, 2 Ω phase resistance, 0.012 Nm/peak-q-A,
+200 µH Ld/Lq, 7 pole pairs, 80% gear efficiency, joint gearing chosen to match the
+native cold stall ceilings. Thermal R = 10 K/W, C = 8 J/K, linear current derating
+from 2 A at 25°C to 1 A at 85°C. Magnet temperature dependence is disabled because
+only winding temperature is modeled. Phase-peak Kv is 1194 RPM/V; conventions matter.
+
+Cold peak winding temperature was 30.073°C and peak dq current 1.925 A. The largest
+recorded requested/delivered torque difference was 8.05e-7 Nm: constraints did not
+bind. Contact-sensitive trajectory divergence from tiny numerical differences
+must not be presented as a cold motor-design penalty or benefit. The hot-start
+model cooled to approximately 89.6°C and clipped up to 0.932 Nm. No strong ranking
+is established by these 32 development seeds. All three pass trial 1's motion gate.
+
+All motor trace values were finite. Current remained within the temperature-dependent
+circle (floating-point tolerance); the steady-state dq voltage check stayed below
+12/sqrt(3) V on recorded samples, peaking at 4.79 V cold / 3.75 V hot. This sample
+audit does not validate switching transients or hardware fidelity.
+
+Both trial 0 and trial 1 have video and measured body-state replay. Trial 1 was
+chosen as the first simplified success before inspecting motor outcomes, not as
+a selected motor failure. Default comparison is cold versus fixed torque; hot
+is available in the selector. Parameter and selection provenance accompany each replay.
