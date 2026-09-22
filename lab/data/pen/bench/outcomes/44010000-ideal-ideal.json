@@ -1,0 +1,6124 @@
+{
+  "trials": [
+    {
+      "turn_times": [
+        1.4833333333333334,
+        3.2,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.047117991689957,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.28955796360969543,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 0,
+      "seed": 46000000,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.25,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0438874639945226,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.445492211540113e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.505630373954773,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 1,
+      "seed": 46000001,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2666666666666666,
+        4.966666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0585908881118,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.6635992728406563e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.3317515254020691,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 2,
+      "seed": 46000002,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.2666666666666666,
+        5.05
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0474974466438467,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.1489992175484076e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6769466996192932,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 112.25202799013852,
+      "trial": 3,
+      "seed": 46000003,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6333333333333333,
+        3.3,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0368034953513483,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.71083877376077e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.28057536482810974,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 4,
+      "seed": 46000004,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        6.6499999999999995,
+        null,
+        null
+      ],
+      "turns_ok": false,
+      "timing_ok": false,
+      "net_turns": 1.8608545311916813,
+      "hold_ok": false,
+      "drop": true,
+      "max_limit_violation_rad": 1.1920928955078125e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 3.7068307399749756,
+      "penetration_ok": false,
+      "participation": [],
+      "participation_ok": false,
+      "all_fingers_revolutions": {},
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 5,
+      "seed": 46000005,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4666666666666666,
+        3.1333333333333333,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.058950611408087,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.5298639886605088e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6583402752876282,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 6,
+      "seed": 46000006,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.216666666666667,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0427487955688908,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.4901161193847656e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5295141339302063,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 7,
+      "seed": 46000007,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.1666666666666665,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.03559591790609,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7176710963249207,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 8,
+      "seed": 46000008,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.95
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.059308816884559,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6075794696807861,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 9,
+      "seed": 46000009,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.024209840777697,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 6.661238671767933e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6133280992507935,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 10,
+      "seed": 46000010,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.026653227116783,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5525052547454834,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 11,
+      "seed": 46000011,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.216666666666667,
+        5.05
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0261839172298126,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9014036059379578,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 12,
+      "seed": 46000012,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.8,
+        3.4833333333333334,
+        5.166666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0562528384679135,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.5725746607131441e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0999001264572144,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 13,
+      "seed": 46000013,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.3333333333333335,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.054326117994044,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.6955094654113054e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 2.4987239837646484,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 14,
+      "seed": 46000014,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.816666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.041153870506702,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.682209014892578e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.3685750961303711,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 15,
+      "seed": 46000015,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.216666666666667,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.039953882160521,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0371237993240356,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 16,
+      "seed": 46000016,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.2666666666666666,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0186676735031672,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.23342622816562653,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 17,
+      "seed": 46000017,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2666666666666666,
+        5.133333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.077578510440472,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.7250508739816723e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.171081781387329,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 18,
+      "seed": 46000018,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.3166666666666664,
+        5.0
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0325274933669575,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6686179041862488,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 19,
+      "seed": 46000019,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.216666666666667,
+        4.966666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0219188435480935,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.4356447458267212,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 20,
+      "seed": 46000020,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0338246221813336,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.360084974701749e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.18670736253261566,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 21,
+      "seed": 46000021,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2333333333333334,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.076579785001835,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.3511508703231812,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 22,
+      "seed": 46000022,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.1666666666666665,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0486191154875444,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8673930764198303,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 23,
+      "seed": 46000023,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.3666666666666667,
+        5.45
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.055112652222466,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.5168956518173218,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 24,
+      "seed": 46000024,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.9166666666666667,
+        3.6333333333333333,
+        5.283333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0779628224177715,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 8.728147236070072e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5213227272033691,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 25,
+      "seed": 46000025,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0580484193097193,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9218340516090393,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 26,
+      "seed": 46000026,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2333333333333334,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0333100812638594,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 6.817526241320593e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7592753767967224,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 27,
+      "seed": 46000027,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.2,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.03783773777367,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8500835299491882,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 28,
+      "seed": 46000028,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.6166666666666667,
+        6.8
+      ],
+      "turns_ok": true,
+      "timing_ok": false,
+      "net_turns": 3.0334995051768407,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.90726393359364e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.2723686695098877,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 29,
+      "seed": 46000029,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.026393983492286,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.30790966749191284,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 30,
+      "seed": 46000030,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.15,
+        4.8
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.04612321258284,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.9159011840820312,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 31,
+      "seed": 46000031,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.3,
+        4.95
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0327718623572624,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5836724042892456,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 32,
+      "seed": 46000032,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.029750793796375,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.294200599193573,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 33,
+      "seed": 46000033,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.4499999999999997,
+        5.133333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.055849401960938,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9099766612052917,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 34,
+      "seed": 46000034,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2333333333333334,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.042975254285372,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.684471039377968e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.19785156846046448,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 35,
+      "seed": 46000035,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.15,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0319012409110577,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0346386432647705,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 36,
+      "seed": 46000036,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6,
+        3.2666666666666666,
+        4.966666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.036857226172819,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8971022963523865,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 37,
+      "seed": 46000037,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.216666666666667,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.056235535322016,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.4364387627429096e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.42877811193466187,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 38,
+      "seed": 46000038,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4833333333333334,
+        3.1666666666666665,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0500489017538004,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.590031610656297e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.4815016984939575,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 39,
+      "seed": 46000039,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.3333333333333335,
+        5.033333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.030969299544305,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0004019737243652,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 40,
+      "seed": 46000040,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.047582444553518,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7120109796524048,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 41,
+      "seed": 46000041,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2333333333333334,
+        4.95
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.023749334245657,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5273656249046326,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 42,
+      "seed": 46000042,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.15,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.044337345787854,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 3.6482808589935303,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 43,
+      "seed": 46000043,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.216666666666667,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0368262626485816,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1156038045883179,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 44,
+      "seed": 46000044,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0692723932818105,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1746985912322998,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 45,
+      "seed": 46000045,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        2.2333333333333334,
+        3.8833333333333333,
+        5.633333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.059594470573847,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.999558884970611e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0980541706085205,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 46,
+      "seed": 46000046,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0493564723539426,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.351669430732727,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 47,
+      "seed": 46000047,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.466666666666667,
+        5.116666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0490717293565437,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.6763178741239244e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.4813092947006226,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 48,
+      "seed": 46000048,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.3,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0526310168240283,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9305171966552734,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 49,
+      "seed": 46000049,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.283333333333333,
+        5.0
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.046146587008,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9151270985603333,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 50,
+      "seed": 46000050,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6333333333333333,
+        3.433333333333333,
+        5.1
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0515761320522152,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5963640213012695,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 51,
+      "seed": 46000051,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.2666666666666666,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.02501883873939,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.4901161193847656e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.2330857515335083,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 52,
+      "seed": 46000052,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6,
+        3.5,
+        5.183333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.041853281877711,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7885757088661194,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 53,
+      "seed": 46000053,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.85,
+        5.5
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0431488928722716,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 3.5001845359802246,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 54,
+      "seed": 46000054,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.283333333333333,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0456699915859144,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.6167232337902533e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.24301372468471527,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 55,
+      "seed": 46000055,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.9333333333333333,
+        3.7333333333333334,
+        5.383333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0489843029351675,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 7.873269396441174e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.4527382552623749,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 56,
+      "seed": 46000056,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2333333333333334,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0470184227100563,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.4901161193847656e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6617223620414734,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 57,
+      "seed": 46000057,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.95
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0306957884135413,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 8.108128213279997e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9285323619842529,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 58,
+      "seed": 46000058,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.7,
+        3.4,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0498515851777777,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.919070303440094,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 59,
+      "seed": 46000059,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.2,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.052079441103054,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9869651198387146,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 60,
+      "seed": 46000060,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.816666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.052899670931382,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.4139291074097855e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.4195756912231445,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 61,
+      "seed": 46000061,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2666666666666666,
+        5.016666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0528171015334156,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8650349974632263,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 62,
+      "seed": 46000062,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.25,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.028471271691859,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.4901161193847656e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.344414234161377,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 63,
+      "seed": 46000063,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.183333333333333,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0479096865057524,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.0637943382316735e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.007716178894043,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 64,
+      "seed": 46000064,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.3333333333333335,
+        5.0
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0536224567275507,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.4748829926247708e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.19262032210826874,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 65,
+      "seed": 46000065,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.15,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.02016151176564,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8199126720428467,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 66,
+      "seed": 46000066,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2666666666666666,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.041642912051275,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7600751519203186,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 67,
+      "seed": 46000067,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.7,
+        3.433333333333333,
+        5.1
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0265934250160504,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6886816024780273,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 68,
+      "seed": 46000068,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6,
+        3.3,
+        5.016666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0498792094984206,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.5372324873605976e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 2.634702205657959,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 69,
+      "seed": 46000069,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.2333333333333334,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.053636420669854,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5442341566085815,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 70,
+      "seed": 46000070,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.8
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.027133465306426,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.9293870536785107e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1751763820648193,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": true,
+      "best_thumb_free_rotation_deg": 113.31387651926538,
+      "trial": 71,
+      "seed": 46000071,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": true
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.25,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.042799794314693,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6929412484169006,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": true,
+      "best_thumb_free_rotation_deg": 110.00877530065289,
+      "trial": 72,
+      "seed": 46000072,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": true
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.15,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0445826254700483,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.04454783872643e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6984782218933105,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 73,
+      "seed": 46000073,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.2666666666666666,
+        4.966666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0324576736554416,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 8.054628324316582e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.42402559518814087,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": true,
+      "best_thumb_free_rotation_deg": 111.27842550508822,
+      "trial": 74,
+      "seed": 46000074,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": true
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.183333333333333,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0364401292875036,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5952315330505371,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 75,
+      "seed": 46000075,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.15,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.01893329197089,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9384660720825195,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 76,
+      "seed": 46000076,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.283333333333333,
+        5.016666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0299563065994013,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.21471315622329712,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 77,
+      "seed": 46000077,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4833333333333334,
+        3.1666666666666665,
+        4.783333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0394681798195426,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.5120042412017938e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8018277883529663,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 78,
+      "seed": 46000078,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0538055057973073,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.0283447409165092e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1246262788772583,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 79,
+      "seed": 46000079,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.1666666666666665,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.030469026133097,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.439375638961792,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 80,
+      "seed": 46000080,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.1666666666666665,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0487608798583175,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.4953452348709106,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 81,
+      "seed": 46000081,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.183333333333333,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0315988912037986,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5352957844734192,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 82,
+      "seed": 46000082,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.3,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0444120225227795,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.634707582023111e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7056498527526855,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 83,
+      "seed": 46000083,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.183333333333333,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0527679241713916,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.265637993812561,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 84,
+      "seed": 46000084,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        2.6166666666666667,
+        2.9166666666666665
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 26.45002595081999,
+      "hold_ok": false,
+      "drop": true,
+      "max_limit_violation_rad": 6.540213234984549e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 3.994957447052002,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "pinky"
+        ],
+        []
+      ],
+      "participation_ok": false,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 1,
+        "ring": 1,
+        "pinky": 2
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 563.4667281847136,
+      "trial": 85,
+      "seed": 46000085,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        3.1166666666666667,
+        4.8,
+        6.433333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": false,
+      "net_turns": 3.048061468487308,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.6304031709732953e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0247653722763062,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 86,
+      "seed": 46000086,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.6,
+        5.233333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0304514194232364,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 9.07656669824064e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.401760458946228,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 87,
+      "seed": 46000087,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0709174063979123,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 8.225345027312869e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.563019871711731,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 88,
+      "seed": 46000088,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.2666666666666666,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.038215978471707,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7763262987136841,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 89,
+      "seed": 46000089,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4833333333333334,
+        3.283333333333333,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.034654566056481,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.245476245880127,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 90,
+      "seed": 46000090,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.1666666666666665,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0416283409810454,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5771825313568115,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 91,
+      "seed": 46000091,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.183333333333333,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0338625676767226,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.09645987302064896,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 92,
+      "seed": 46000092,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.216666666666667,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0362434198394075,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5019926428794861,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 93,
+      "seed": 46000093,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.716666666666667,
+        5.4
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.037756686195519,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.0347437132149935e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6791322827339172,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 94,
+      "seed": 46000094,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.2666666666666666,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0411799770075296,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.682209014892578e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.5560331344604492,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 95,
+      "seed": 46000095,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.7666666666666666,
+        5.466666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0567412728845604,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.5777186440100195e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1327786445617676,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 96,
+      "seed": 46000096,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.2,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0421966127199904,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7193209528923035,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 97,
+      "seed": 46000097,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.25,
+        5.05
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.041115925011313,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.6338192330731545e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.8123356103897095,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 98,
+      "seed": 46000098,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.25,
+        5.033333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.067192373006569,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 2.567096710205078,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 99,
+      "seed": 46000099,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0246949359907496,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.9713174104690552,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 100,
+      "seed": 46000100,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.25,
+        4.9
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0519009454927444,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.429545813560253e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.22980105876922607,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 101,
+      "seed": 46000101,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.15,
+        5.25
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0694038364778375,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.1955544650554657,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 102,
+      "seed": 46000102,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.2333333333333334,
+        5.016666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0248861812875103,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 2.407238721847534,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 103,
+      "seed": 46000103,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.25,
+        4.966666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.033407525296018,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.696310386658297e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6588248014450073,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 104,
+      "seed": 46000104,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.3666666666666667,
+        5.033333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.043287925167377,
+      "hold_ok": false,
+      "drop": false,
+      "max_limit_violation_rad": 3.036843736481387e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0682114362716675,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": true,
+      "best_thumb_free_rotation_deg": 110.33372838060542,
+      "trial": 105,
+      "seed": 46000105,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.216666666666667,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.041210636967804,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.4881233870983124,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 106,
+      "seed": 46000106,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.183333333333333,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0467027161884204,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.4789847135543823,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 107,
+      "seed": 46000107,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.15,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0174500784471263,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0027259588241577,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 108,
+      "seed": 46000108,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.25,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0323568904196887,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.1920928955078125e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1321853399276733,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 109,
+      "seed": 46000109,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.2,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0545890043860986,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.0884029911248945e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 1.4578125476837158,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": true,
+      "best_thumb_free_rotation_deg": 110.12625455437711,
+      "trial": 110,
+      "seed": 46000110,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": true
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.2,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0481215741520042,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.3322983980178833,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 111,
+      "seed": 46000111,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        4.983333333333333,
+        6.733333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": false,
+      "net_turns": 3.026323860216807,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.2057823773357086e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.44714751839637756,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 112,
+      "seed": 46000112,
+      "unsettled": false,
+      "motion_passed": false,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.25,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.036813209398168,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7494774460792542,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 113,
+      "seed": 46000113,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.1666666666666665,
+        4.85
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0331394783165906,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.1694223880767822,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 114,
+      "seed": 46000114,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.2,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.020133887444997,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.2279282808303833,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 115,
+      "seed": 46000115,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.4,
+        5.066666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0569100544480503,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.384185791015625e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.0781164169311523,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 116,
+      "seed": 46000116,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.3166666666666664,
+        4.983333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0585738885298657,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.41141873598098755,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 117,
+      "seed": 46000117,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4666666666666666,
+        3.2,
+        4.816666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0411144071914973,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 8.194166980501905e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 4.414725303649902,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 118,
+      "seed": 46000118,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5,
+        3.1666666666666665,
+        4.833333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0311310991366436,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.681572823348688e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.9113331437110901,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 119,
+      "seed": 46000119,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5166666666666666,
+        3.2,
+        4.883333333333333
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0547067872037856,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.892318069934845,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 120,
+      "seed": 46000120,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.183333333333333,
+        4.8
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.04015180586447,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.3022756576538086,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 1,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": false,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 121,
+      "seed": 46000121,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5666666666666667,
+        3.25,
+        4.916666666666667
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.035258961907036,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6970120668411255,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 122,
+      "seed": 46000122,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.55,
+        3.216666666666667,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0550297792605368,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.086162567138672e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.2332350015640259,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 123,
+      "seed": 46000123,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5833333333333333,
+        3.283333333333333,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.037726329799208,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.682209014892578e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 1.059686541557312,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 3,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 124,
+      "seed": 46000124,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.5333333333333332,
+        3.25,
+        4.933333333333334
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.033508004967808,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 3.679637757159071e-06,
+      "limits_ok": true,
+      "max_penetration_mm": 0.6664532423019409,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 125,
+      "seed": 46000125,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.4833333333333334,
+        3.183333333333333,
+        4.866666666666666
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0469634776327332,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 2.3830597228879924e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 0.7681243419647217,
+      "penetration_ok": true,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 126,
+      "seed": 46000126,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    },
+    {
+      "turn_times": [
+        1.6166666666666667,
+        3.3,
+        5.1
+      ],
+      "turns_ok": true,
+      "timing_ok": true,
+      "net_turns": 3.0366213569734812,
+      "hold_ok": true,
+      "drop": false,
+      "max_limit_violation_rad": 1.7881393432617188e-07,
+      "limits_ok": true,
+      "max_penetration_mm": 3.6505515575408936,
+      "penetration_ok": false,
+      "participation": [
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ],
+        [
+          "middle",
+          "ring",
+          "pinky"
+        ]
+      ],
+      "participation_ok": true,
+      "all_fingers_revolutions": {
+        "index": 2,
+        "middle": 3,
+        "ring": 3,
+        "pinky": 3
+      },
+      "all_fingers_ok": true,
+      "thumb_release_ok": false,
+      "best_thumb_free_rotation_deg": 0.0,
+      "trial": 127,
+      "seed": 46000127,
+      "unsettled": false,
+      "motion_passed": true,
+      "native_contact_gate_passed": false
+    }
+  ],
+  "motion_successes": 122,
+  "native_contact_successes": 4,
+  "method": "Upstream motion thresholds; PhysX contact separations replace independent MuJoCo hull replay. Initial penetration is not measured. Not an upstream gate reproduction."
+}

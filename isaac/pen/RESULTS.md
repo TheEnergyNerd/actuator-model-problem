@@ -100,3 +100,50 @@ Raw trajectories, motor traces and final checkpoints are retained in the local
 `/root/atlas/sharpa-training-run/` workspace. Public artifacts include every test
 outcome, trial-0 measured poses/telemetry/video, learning logs, parameter provenance
 and checkpoint/raw-data hashes. Rendered videos are 720×720, 60 FPS; physics is 240 Hz.
+
+## Bench-informed virtual actuator — three training seeds
+
+Cold motor test, motion success: simplified-trained mean 95.6% (seed range 92.2–97.7%); motor-trained mean 95.1% (range 92.2–96.9%).
+100°C-start stress test, motion success: simplified-trained mean 95.8% (seed range 94.5–97.7%); motor-trained mean 94.5% (range 91.4–96.1%).
+Three training seeds provide replication; the shared test simulator and assumed transmission/cooling do not establish real-hand performance.
+
+| Training seed | Test plant | Simplified trained | Motor trained |
+|---|---|---:|---:|
+| 44000000 | ideal | 122/128 | 127/128 |
+| 44000000 | motor | 118/128 | 124/128 |
+| 44000000 | motor-hot | 121/128 | 123/128 |
+| 44010000 | ideal | 122/128 | 119/128 |
+| 44010000 | motor | 125/128 | 123/128 |
+| 44010000 | motor-hot | 122/128 | 123/128 |
+| 44020000 | ideal | 123/128 | 119/128 |
+| 44020000 | motor | 124/128 | 118/128 |
+| 44020000 | motor-hot | 125/128 | 117/128 |
+
+motor: torque delivery differs from the clipped request by more than 0.001 Nm in 0.030% of recorded joint samples, averaged across six policies. Largest difference: 0.008 Nm. This includes current-loop lag and limits; samples are recorded at 60 Hz.
+
+motor-hot: torque delivery differs from the clipped request by more than 0.001 Nm in 0.268% of recorded joint samples, averaged across six policies. Largest difference: 1.093 Nm. This includes current-loop lag and limits; samples are recorded at 60 Hz.
+
+Validation motion success (%), mean across three seeds:
+[
+  {
+    "iteration": 64,
+    "ideal": 85.41666666666666,
+    "motor": 82.29166666666666
+  },
+  {
+    "iteration": 128,
+    "ideal": 92.70833333333334,
+    "motor": 89.58333333333334
+  },
+  {
+    "iteration": 256,
+    "ideal": 91.66666666666666,
+    "motor": 90.625
+  }
+]
+
+All six policies received 4,194,304 transitions. Fixed final checkpoint at iteration 256; cold training starts; 18 independent validation evaluations and 21 final evaluations. Full per-trial motion and additional-contact outcomes are published in `lab/data/pen/bench/`. The replay uses predeclared training seed 44000000 and test seed 46000000.
+
+Electrical calibration was checked against the supplied raw log and source conventions. Torque constant is derived, not measured. See BENCH_STUDY.md for virtual remote-drive, gearing and thermal assumptions. This study does not demonstrate hardware transfer.
+
+Training checkpoints and raw evaluation arrays are retained in the local study workspace; public manifests contain checkpoint and raw-array hashes. Prior raw NPZ results remain available in the GitHub repository.

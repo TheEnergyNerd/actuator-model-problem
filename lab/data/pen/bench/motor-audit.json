@@ -1,0 +1,114 @@
+[
+  {
+    "name": "frozen-motor",
+    "max_current_A": 1.9999313354492188,
+    "max_temperature_C": 25.39410400390625,
+    "max_dq_voltage_V": 4.298580392559559,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 7.126360124232178e-08
+  },
+  {
+    "name": "44000000-ideal-motor",
+    "max_current_A": 1.999947190284729,
+    "max_temperature_C": 25.4951114654541,
+    "max_dq_voltage_V": 3.9850738109546984,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 7.146255542878066e-08
+  },
+  {
+    "name": "44000000-motor-motor",
+    "max_current_A": 1.9999244213104248,
+    "max_temperature_C": 25.503299713134766,
+    "max_dq_voltage_V": 5.043153419969989,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 7.150195324712172e-08
+  },
+  {
+    "name": "44010000-ideal-motor",
+    "max_current_A": 1.9999135732650757,
+    "max_temperature_C": 25.455957412719727,
+    "max_dq_voltage_V": 3.1853800102946375,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 7.109068445032563e-08
+  },
+  {
+    "name": "44010000-motor-motor",
+    "max_current_A": 1.9999128580093384,
+    "max_temperature_C": 25.17965316772461,
+    "max_dq_voltage_V": 5.034110260470572,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 5.011492731910039e-08
+  },
+  {
+    "name": "44020000-ideal-motor",
+    "max_current_A": 1.9999288320541382,
+    "max_temperature_C": 25.21575164794922,
+    "max_dq_voltage_V": 3.5667074350382033,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44020000-motor-motor",
+    "max_current_A": 1.999907374382019,
+    "max_temperature_C": 25.252538681030273,
+    "max_dq_voltage_V": 3.6462584974946144,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 7.069260510306208e-08
+  },
+  {
+    "name": "frozen-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 2.6310057682822987,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44000000-ideal-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 3.4599343352402516,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44000000-motor-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 4.670729852327703,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44010000-ideal-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 3.435974431820984,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44010000-motor-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 2.860554034052404,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44020000-ideal-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 2.811649998735719,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  },
+  {
+    "name": "44020000-motor-motor-hot",
+    "max_current_A": 1.0,
+    "max_temperature_C": 99.98440551757812,
+    "max_dq_voltage_V": 3.4632568699496713,
+    "dq_voltage_violation_samples": 0,
+    "max_current_excess_A": 0.0
+  }
+]

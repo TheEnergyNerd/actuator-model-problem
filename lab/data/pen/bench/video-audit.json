@@ -1,0 +1,92 @@
+[
+  {
+    "condition": "frozen-ideal",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "3a508fbc7cf6b081e8cf43aacb60c354fe7982dd79f5158e18b227eb95c4f35d"
+  },
+  {
+    "condition": "44000000-ideal-ideal",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "20763065776ea2c93180c5e01aa313433198ada3d040b2addd592aec497f50d1"
+  },
+  {
+    "condition": "44000000-motor-ideal",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "f03fc8763206e890062601cdcd33a39a46e2365dad4fea903a328373c4f5fde7"
+  },
+  {
+    "condition": "frozen-motor",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "b63eda24498617cf98393aa5f42599c72763326267502fd3a3ffaa6071ffc061"
+  },
+  {
+    "condition": "44000000-ideal-motor",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "1fb785aa3d93ab5d5451c4b74233262724eecfad8ff524a30824f1a739196c82"
+  },
+  {
+    "condition": "44000000-motor-motor",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "b239dec0c6b7ba34ff8b85ff30e37f80215aa1bf232b4783e78b9eba0f8c759f"
+  },
+  {
+    "condition": "frozen-motor-hot",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "b7842cacb77bd4cc11921d52510ea462f8ab6a9d8a11db1427dbe01e5f78a5c9"
+  },
+  {
+    "condition": "44000000-ideal-motor-hot",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "4d1f26f68036586dc75fd38b262df3998cceb1983af75f65f19ed4c7bb1b83a3"
+  },
+  {
+    "condition": "44000000-motor-motor-hot",
+    "frames": 720,
+    "fps": 60.0,
+    "size": [
+      720,
+      720
+    ],
+    "sha256": "866c8dab3bcff362f21b2797c27063880f8b131557f15c9d563425464dae8109"
+  }
+]

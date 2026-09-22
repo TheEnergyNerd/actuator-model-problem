@@ -1,0 +1,71 @@
+{
+  "profile": "mj5208-virtual",
+  "status": "Controller-calibrated electrical parameters; virtual remote-drive transmission; unvalidated thermal model",
+  "raw_log_sha256": "1e1b08b78c474780261213c34723f02d504bbc77c3140a81100e5b2ac133b4bc",
+  "firmware_revision": "6f063a90a97012dc9f6ccc420390c5a6cc55fac7",
+  "tool_version": "1.1.1",
+  "measured": {
+    "Rs": 0.06507539791011802,
+    "Ld": 2.7011447531700632e-05,
+    "Lq": 4.524194701244842e-05,
+    "pole_pairs": 7,
+    "Kv_line_line_peak_rpm_per_V": 310.6750471286357
+  },
+  "derived": {
+    "Kt_Nm_per_peak_q_A": 0.026619239323403716,
+    "phase_peak_Kv_rpm_per_V": 538.1049662706524
+  },
+  "assumptions": [
+    "12 V bus, 2 A peak and 1 A continuous drive limits",
+    "Per-joint gearing preserves the native nominal cold stall ceiling, efficiency 0.8",
+    "Virtual remote motors: native hand link mass/inertia retained; no packaging claim",
+    "Thermal R=10 K/W, C=8 J/K, ambient/reference=25 C, derate endpoint=85 C",
+    "200 Hz requested calibration bandwidth approximated as first-order current lag, not measured bandwidth",
+    "No measured backlash, cable compliance, friction, rotor inertia or thermal validation"
+  ],
+  "sources": [
+    "https://github.com/mjbots/moteus/blob/6f063a90a97012dc9f6ccc420390c5a6cc55fac7/fw/bldc_servo.cc",
+    "https://pypi.org/project/moteus/1.1.1/"
+  ],
+  "source_verification": "Raw calibration values equal provided summary; recorded firmware and tool inspected",
+  "audit_files": {
+    "moteus_tool.py": "b444e6260a0f35de445970e2611f34c4fd09628b02140c97daec8319c4c18f73",
+    "bldc_servo.cc": "c4688af7c09364de856f5711bf799874422a6814594ba1d7b0a7ff0a351625d3",
+    "moteus_tool_1_1_1.py": "a3617827452b284348d1883dbb9055376adb69370c19357b5685226b7f1828c0",
+    "moteus-1.1.1-py3-none-any.whl": "c870833c43c8c04453b46447818a3543f4f46a444f7be93ecd96fe7f2e6d8dc4"
+  },
+  "raw_values_verified": true,
+  "calibration_check": {
+    "profile": "mj5208-virtual",
+    "status": "Controller-calibrated electrical parameters; virtual remote-drive transmission; unvalidated thermal model",
+    "raw_log_sha256": "1e1b08b78c474780261213c34723f02d504bbc77c3140a81100e5b2ac133b4bc",
+    "firmware_revision": "6f063a90a97012dc9f6ccc420390c5a6cc55fac7",
+    "tool_version": "1.1.1",
+    "measured": {
+      "Rs": 0.06507539791011802,
+      "Ld": 2.7011447531700632e-05,
+      "Lq": 4.524194701244842e-05,
+      "pole_pairs": 7,
+      "Kv_line_line_peak_rpm_per_V": 310.6750471286357
+    },
+    "derived": {
+      "Kt_Nm_per_peak_q_A": 0.026619239323403716,
+      "phase_peak_Kv_rpm_per_V": 538.1049662706524
+    },
+    "assumptions": [
+      "12 V bus, 2 A peak and 1 A continuous drive limits",
+      "Per-joint gearing preserves the native nominal cold stall ceiling, efficiency 0.8",
+      "Virtual remote motors: native hand link mass/inertia retained; no packaging claim",
+      "Thermal R=10 K/W, C=8 J/K, ambient/reference=25 C, derate endpoint=85 C",
+      "200 Hz requested calibration bandwidth approximated as first-order current lag, not measured bandwidth",
+      "No measured backlash, cable compliance, friction, rotor inertia or thermal validation"
+    ],
+    "sources": [
+      "https://github.com/mjbots/moteus/blob/6f063a90a97012dc9f6ccc420390c5a6cc55fac7/fw/bldc_servo.cc",
+      "https://pypi.org/project/moteus/1.1.1/"
+    ],
+    "raw_values_verified": true,
+    "scalar_inductance_H": 2.6361707412522946e-05,
+    "torque_bandwidth_requested_Hz": 200.0
+  }
+}

@@ -82,3 +82,29 @@ training/test split and limitations. This is separate from the frozen-policy tes
 Repeat the same training budget with `--model ideal`; evaluate both policies and
 the original checkpoint under all three actuation conditions. The public training
 comparison retains every test outcome, measured trial-0 replay and checkpoint hashes.
+
+## Bench-informed software study
+
+`BENCH_STUDY.md` fixes the three-seed comparison protocol. The optional
+`ATLAS_MOTOR_PROFILE=mj5208-virtual` profile uses the supplied mj5208 electrical
+calibration, with the exact moteus voltage/current convention. This is a virtual
+remote-drive design, not a measurement of Sharpa actuation. Drive limits, gearing,
+link-mass treatment and cooling assumptions are recorded in every run's
+`motor-model.json`. The default `generic` profile and earlier results are retained.
+
+```bash
+# Run with Isaac Sim's Python, with reference assets already installed.
+export SHARPA_ROOT=/path/to/sharpa-urdf-usd-xml
+/isaac-sim/python.sh isaac/pen/run_bench_study.py \
+  --reference /path/to/dexterous-astra --out /path/to/new-study
+
+# These software checks need no Isaac runtime or physical hardware.
+python isaac/pen/audit_bench.py /path/to/supplied-calibration.log --out evidence.json
+python isaac/pen/audit_bench_dynamics.py --out dq-audit.json
+```
+
+The scalar inductance and source hashes remain in the calibration evidence;
+the model uses separate d/q measurements. Shaft torque and thermal performance
+remain predictions. The electrical solver cross-check tests numerical consistency,
+not agreement with a physical motor. Raw NPZ archives from earlier runs remain in
+the GitHub repository; Pages serves the smaller replay and outcome files.

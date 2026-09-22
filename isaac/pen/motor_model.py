@@ -6,6 +6,7 @@ mass, inertia, observations and policy. Only the torque-delivery law differs.
 """
 
 import json
+import os
 from pathlib import Path
 import sys
 import types
@@ -47,6 +48,17 @@ def attach(env, output, mode):
         T_derate_C=85.0,
         alpha_pm_perC=0.0,
     )
+    profile = os.environ.get("ATLAS_MOTOR_PROFILE", "generic")
+    if profile not in ("generic", "mj5208-virtual"):
+        raise ValueError(f"Unknown motor profile: {profile}")
+    evidence = None
+    if profile == "mj5208-virtual":
+        from bench_profile import electrical_parameters, provenance, KT
+
+        for key, value in electrical_parameters().items():
+            setattr(p, key, value)
+        p.gear_ratio = limits / (KT * p.I_peak * p.gear_eff)
+        evidence = provenance()
     # Equal fixed stall torque in the simplified law; FOC adds voltage/current
     # feasibility, electrical lag, winding resistance and thermal derating.
     robot.write_joint_stiffness_to_sim(torch.zeros_like(stiffness))
@@ -129,5 +141,17 @@ def attach(env, output, mode):
         damping=damping[0].cpu().tolist(),
         changes_after="Identical native prepared-grasp settling; before the first policy action",
     )
+    if evidence is not None:
+        config.update(
+            parameter_status=evidence["status"],
+            bench_evidence=evidence,
+            phase_peak_Kv_rpm_per_V=evidence["derived"]["phase_peak_Kv_rpm_per_V"],
+            Kt_Nm_per_peak_q_A=KT,
+            phase_resistance_ohm=p.Rs,
+            Ld_H=p.Ld,
+            Lq_H=p.Lq,
+            current_bandwidth_Hz=p.current_bw_hz,
+        )
+    config["profile"] = profile
     (Path(output) / "motor-model.json").write_text(json.dumps(config, indent=2))
     env.motor_mode = mode

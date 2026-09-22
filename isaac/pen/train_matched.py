@@ -13,7 +13,7 @@ import types
 from pathlib import Path
 
 
-def install_objective(env, model, output):
+def install_objective(env, model, output, temperature_range=(25, 100), seed=43001000):
     import torch
     from motor_model import attach
 
@@ -21,15 +21,15 @@ def install_objective(env, model, output):
     env.cfg.episode_length_s = 12.0
     env.hold_steps = torch.zeros(env.num_envs, device=env.device, dtype=torch.long)
     original_reset, original_dones = env._reset_idx, env._get_dones
-    generator = torch.Generator(device=env.device).manual_seed(43001000)
+    generator = torch.Generator(device=env.device).manual_seed(seed)
 
     def reset(self, ids):
         original_reset(ids)
         self.hold_steps[ids] = 0
         # Draw identically in both conditions, including the ideal negative control.
-        temperature = 25 + 75 * torch.rand(
-            len(ids), device=self.device, generator=generator
-        )
+        temperature = temperature_range[0] + (
+            temperature_range[1] - temperature_range[0]
+        ) * torch.rand(len(ids), device=self.device, generator=generator)
         for key in ("id", "iq", "energy"):
             self.motor_state[key][ids] = 0
         self.motor_state["temperature"][ids] = temperature[:, None]
@@ -80,7 +80,13 @@ def train(env, policy, args, ck):
     from tensordict import TensorDict
 
     torch.manual_seed(args.train_seed)
-    install_objective(env, args.model, args.out)
+    install_objective(
+        env,
+        args.model,
+        args.out,
+        (args.temperature_min, args.temperature_max),
+        args.train_seed + 1000,
+    )
     teacher = copy.deepcopy(policy).eval()
     # Preserve both observation normalizers; adapt the actor and critic only.
     policy.eval()
@@ -202,7 +208,13 @@ def main():
     p.add_argument("--iterations", type=int, default=64)
     p.add_argument("--rollout-steps", type=int, default=64)
     p.add_argument("--train-seed", type=int, default=43000000)
+    p.add_argument("--temperature-min", type=float, default=25)
+    p.add_argument("--temperature-max", type=float, default=100)
+    p.add_argument("--test-seed0", type=int, default=42000000)
+    p.add_argument("--test-trials", type=int, default=64)
     args, rest = p.parse_known_args()
+    if not (0 <= args.temperature_min <= args.temperature_max <= 150):
+        p.error("Invalid temperature range")
     source, pen = prepare(
         args.reference.resolve(), args.out.resolve(), model=args.model
     )
@@ -217,10 +229,10 @@ def main():
                 rollout_steps=args.rollout_steps,
                 seed=args.train_seed,
                 method="Atlas PPO fine-tuning; own reward; frozen normalization; common pretrained initialization",
-                training_temperature_C=[25, 100],
+                training_temperature_C=[args.temperature_min, args.temperature_max],
                 selection="Final fixed-budget checkpoint; no selection on test outcomes",
-                test_seed0=42000000,
-                test_trials=64,
+                test_seed0=args.test_seed0,
+                test_trials=args.test_trials,
             ),
             indent=2,
         )

@@ -22,7 +22,9 @@ jobs:
       - name: Stage the reviewed static build and research artifacts
         run: |
           mkdir _site
-          rsync -a --exclude=.git --exclude=.github --exclude=lab-src --exclude=_site ./ _site/
+          # Raw pen NPZ archives remain downloadable from the GitHub repository.
+          # Keep Pages below its size limit; the viewer uses poses.bin and JSON.
+          rsync -a --exclude='/isaac/pen/results/*/*.npz' --exclude=.git --exclude=.github --exclude=lab-src --exclude=_site ./ _site/
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

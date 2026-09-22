@@ -38,11 +38,16 @@ const models: Record<string, string> = {
   motor: "Motor model · 25°C start",
   "motor-hot": "Motor model · 100°C start",
 };
-const base = "./data/pen/training";
-export default function PenTraining() {
+export default function PenTraining({
+  base = "./data/pen/training",
+  bench = false,
+}: {
+  base?: string;
+  bench?: boolean;
+}) {
   const [left, setLeft] = useState("ideal"),
     [right, setRight] = useState("motor"),
-    [model, setModel] = useState("motor-hot");
+    [model, setModel] = useState(bench ? "motor" : "motor-hot");
   const [mode, setMode] = useState("compare"),
     [playing, setPlaying] = useState(false),
     [time, setTime] = useState(0),
@@ -65,7 +70,7 @@ export default function PenTraining() {
     return () => {
       active = false;
     };
-  }, []);
+  }, [base]);
   useEffect(() => {
     let active = true;
     setPair(null);
@@ -88,7 +93,7 @@ export default function PenTraining() {
     return () => {
       active = false;
     };
-  }, [left, right, model]);
+  }, [left, right, model, base]);
   useEffect(() => {
     let frame = 0,
       last = performance.now();
@@ -185,15 +190,17 @@ export default function PenTraining() {
   const row = (p: string) => manifest.rows.find((r) => r.policy === p && r.model === model)!;
   return (
     <>
-      <section className="motion-analysis">
+      {!bench && (      <section className="motion-analysis">
         <div>
           <p className="eyebrow">MATCHED POLICY TRAINING / ISAAC LAB</p>
           <h2>Train with motor limits. Test under the same conditions.</h2>
           <p>
-            Two copies of the supplied Sharpa policy, {manifest.transitions.toLocaleString()}{" "}
-            training transitions each. One learns with fixed torque limits; the other learns with
-            current, speed and thermal constraints. The original frozen policy is a separate
-            control.
+            {bench
+              ? "Replay pair from preselected training seed 44000000,"
+              : "Two copies of the supplied Sharpa policy,"}{" "}
+            {manifest.transitions.toLocaleString()} training transitions each. One learns with fixed
+            torque limits; the other learns with current, speed and thermal constraints. The
+            original frozen policy is a separate control.
           </p>
         </div>
         <div>
@@ -202,6 +209,7 @@ export default function PenTraining() {
           ))}
         </div>
       </section>
+      )}
       {selectors}
       <section className="motion-workbench">
         <div className="motion-stage">
@@ -351,8 +359,9 @@ export default function PenTraining() {
             )}
           </dl>
           <p>
-            Generic assumed motor parameters; no Sharpa hardware calibration. Neither policy sees
-            temperature directly. Training motor starts span 25–100°C.
+            {bench
+              ? "mj5208 electrical calibration; virtual remote drive, assumed gearing and cooling. Both policies trained with 25°C starts. Temperature is not observed directly."
+              : "Generic assumed motor parameters; no Sharpa hardware calibration. Neither policy sees temperature directly. Training motor starts span 25–100°C."}
           </p>
         </aside>
       </section>
@@ -397,7 +406,9 @@ export default function PenTraining() {
         </div>
       </section>
       <section className="precision-results">
-        <h2>All nine held-out evaluations</h2>
+        <h2>
+          {bench ? "Selected training seed · all test conditions" : "All nine held-out evaluations"}
+        </h2>
         <div style={{ overflowX: "auto" }}>
           <table>
             <thead>
@@ -432,8 +443,10 @@ export default function PenTraining() {
           Shared evaluation seeds {manifest.test_seed0}–
           {manifest.test_seed0 + manifest.test_trials - 1}, separate from training and the earlier
           development batch. Same frozen motion gate; additional contact checks use PhysX
-          separations and differ from the reference's independent collision audit. One training seed
-          per condition cannot establish a robust advantage across repeated training runs.
+          separations and differ from the reference's independent collision audit.{" "}
+          {bench
+            ? "The three-seed study is reported above; this replay panel shows the preselected first training seed."
+            : "One training seed per condition cannot establish a robust advantage across repeated training runs."}
         </p>
       </section>
       <section className="motion-analysis">

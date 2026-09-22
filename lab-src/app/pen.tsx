@@ -1,3 +1,4 @@
+import PenBench from "./pen-bench";
 import PenTraining from "./pen-training";
 import { useEffect, useRef, useState } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceLine } from "recharts";
@@ -59,4 +60,37 @@ function MotorComparison() {
   <section className="precision-results"><h2>Same policy. Different physical limits.</h2><p>The matched explicit runs completed 26/32 trials with fixed torque limits, 27/32 with the cold motor model, and 25/32 with a 100°C start. Cold torque delivery differed by less than 0.000001 Nm: its constraints did not bind here, so the one-trial difference is not evidence of an advantage. The hot model clipped up to 0.93 Nm. This batch does not establish a reliable success-rate separation.</p>{comparison&&<div style={{overflowX:"auto"}}><table><thead><tr><th>Configuration / controller</th><th>Motion successes</th><th>Additional contact checks</th><th>Trial 0 · third turn</th></tr></thead><tbody>{comparison.rows.map(r=><tr key={r.id}><td><Button variant="ghost" onClick={()=>{setVariant(r.id);setMode(["motor","motor-hot"].includes(r.id)?"compare":"both")}}>{labels[r.id]}</Button><small>{["ideal","motor","motor-hot"].includes(r.id)?" · explicit PD":" · native implicit"}</small></td><td>{r.motion_successes}/{r.trials}</td><td>{r.native_contact_successes}/{r.trials}</td><td>{r.selected_trial_third_turn_s===null?"Not reached":`${r.selected_trial_third_turn_s.toFixed(2)} s`}</td></tr>)}</tbody></table></div>}<p>Matched comparisons use the same prepared starting poses, pen mass and friction for each seed. These 32 development trials show sensitivity, not a reliable ranking of motor designs. Extra hand mass also increases inertia and does not necessarily reduce success on this task.</p><a href="./data/pen/comparison.json">Matched comparison data</a><h2>Every evaluation trial · {labels[variant]}</h2><div style={{overflowX:"auto"}}><table><thead><tr><th>Seed</th><th>Max net turns</th><th>Hold</th><th>Drop</th><th>Motion</th><th>Native contact gate</th></tr></thead><tbody>{evaluation.trials.map(r=><tr key={r.seed}><td>{r.seed}</td><td>{r.net_turns.toFixed(2)}</td><td>{r.hold_ok?"Yes":"No"}</td><td>{r.drop?"Yes":"No"}</td><td>{r.motion_passed?"Pass":"Fail"}</td><td>{r.native_contact_gate_passed?"Pass":"Fail"}</td></tr>)}</tbody></table></div><p>{evaluation.method}</p><a href={`${root}/evaluation.json`}>All numerical checks</a> · <a href={`${root}/result.json`}>Recording provenance</a> · <a href={`${root}/telemetry.json`}>Recorded telemetry</a> · <a href="./data/pen/SHARPA-LICENSE.txt">Sharpa asset license</a></section></>;
 }
 
-export default function PenSpinning(){const [experiment,setExperiment]=useState("training");return <><div className="motion-modes"><Button variant={experiment==="training"?"default":"outline"} onClick={()=>setExperiment("training")}>Compare policy training</Button><Button variant={experiment==="models"?"default":"outline"} onClick={()=>setExperiment("models")}>Frozen policy · actuator models</Button></div>{experiment==="training"?<PenTraining/>:<MotorComparison/>}</>}
+export default function PenSpinning() {
+  const [experiment, setExperiment] = useState("bench");
+  return (
+    <>
+      <div className="motion-modes">
+        <Button
+          variant={experiment === "bench" ? "default" : "outline"}
+          onClick={() => setExperiment("bench")}
+        >
+          Bench-informed · 3 seeds
+        </Button>
+        <Button
+          variant={experiment === "training" ? "default" : "outline"}
+          onClick={() => setExperiment("training")}
+        >
+          Earlier training pilot
+        </Button>
+        <Button
+          variant={experiment === "models" ? "default" : "outline"}
+          onClick={() => setExperiment("models")}
+        >
+          Frozen policy · actuator models
+        </Button>
+      </div>
+      {experiment === "bench" ? (
+        <PenBench />
+      ) : experiment === "training" ? (
+        <PenTraining />
+      ) : (
+        <MotorComparison />
+      )}
+    </>
+  );
+}
