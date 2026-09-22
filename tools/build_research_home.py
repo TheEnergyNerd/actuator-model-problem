@@ -1,4 +1,27 @@
-<!doctype html>
+"""Build the research landing page from the recorded course manifest.
+
+No simulation or generated motion is used. Existing full videos remain in lab/data.
+"""
+from html import escape
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+data = json.loads((ROOT / "assets/research/data/candidates.json").read_text())
+labels = {"nominal":"Nominal actuator", "kv_high":"Higher-Kv winding", "gear_low":"Lower gearing · 6:1", "mass_added_double":"Added carrier mass · +6 kg", "torque_low":"Lower current limit", "torque_focused":"Combined actuator design"}
+order = ["nominal", "kv_high", "gear_low", "mass_added_double", "torque_low", "torque_focused"]
+cases = [next(c for c in data["variants"] if c["id"] == name) for name in order]
+cards=[]
+for i,c in enumerate(cases,1):
+    name=c["id"];passed=c["passed"]
+    status="Completed" if passed else "Not completed"
+    cards.append(f'''<article class="candidate{' active' if name=='kv_high' else ''}">
+<button type="button" data-candidate="{name}" aria-pressed="{'true' if name=='kv_high' else 'false'}" aria-label="Inspect {escape(labels[name])}: {status.lower()}">
+<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/{name}.jpg" data-src="lab/data/challenge/{name}/video.mp4" aria-label="Recorded {escape(labels[name])} trial"></video><span class="tile-index">DESIGN {i:02d}</span></div>
+<div class="candidate-info"><h3>{escape(labels[name])}</h3><div><span class="status{'' if passed else ' failed'}">{status}</span><span>{c['duration']:.2f} s recorded</span></div></div></button></article>''')
+options=''.join(f'<option value="{c["id"]}"{" selected" if c["id"]=="kv_high" else ""}>{escape(labels[c["id"]])}</option>' for c in cases)
+max_time=max(c['recording_duration'] for c in cases)
+html='''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Atlas — Actuator Design, Tested in Motion</title>
@@ -23,31 +46,8 @@
 
 <section class="section candidate-section" id="candidates" aria-labelledby="candidate-title">
 <div class="candidate-top"><h2 id="candidate-title">One robot. Different actuators.</h2><span class="micro">Recorded trials · Same policy · Seed 201</span></div>
-<div class="candidate-grid" id="candidate-grid"><article class="candidate">
-<button type="button" data-candidate="nominal" aria-pressed="false" aria-label="Inspect Nominal actuator: not completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/nominal.jpg" data-src="lab/data/challenge/nominal/video.mp4" aria-label="Recorded Nominal actuator trial"></video><span class="tile-index">DESIGN 01</span></div>
-<div class="candidate-info"><h3>Nominal actuator</h3><div><span class="status failed">Not completed</span><span>12.52 s recorded</span></div></div></button></article>
-<article class="candidate active">
-<button type="button" data-candidate="kv_high" aria-pressed="true" aria-label="Inspect Higher-Kv winding: completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/kv_high.jpg" data-src="lab/data/challenge/kv_high/video.mp4" aria-label="Recorded Higher-Kv winding trial"></video><span class="tile-index">DESIGN 02</span></div>
-<div class="candidate-info"><h3>Higher-Kv winding</h3><div><span class="status">Completed</span><span>28.68 s recorded</span></div></div></button></article>
-<article class="candidate">
-<button type="button" data-candidate="gear_low" aria-pressed="false" aria-label="Inspect Lower gearing · 6:1: completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/gear_low.jpg" data-src="lab/data/challenge/gear_low/video.mp4" aria-label="Recorded Lower gearing · 6:1 trial"></video><span class="tile-index">DESIGN 03</span></div>
-<div class="candidate-info"><h3>Lower gearing · 6:1</h3><div><span class="status">Completed</span><span>29.52 s recorded</span></div></div></button></article>
-<article class="candidate">
-<button type="button" data-candidate="mass_added_double" aria-pressed="false" aria-label="Inspect Added carrier mass · +6 kg: not completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/mass_added_double.jpg" data-src="lab/data/challenge/mass_added_double/video.mp4" aria-label="Recorded Added carrier mass · +6 kg trial"></video><span class="tile-index">DESIGN 04</span></div>
-<div class="candidate-info"><h3>Added carrier mass · +6 kg</h3><div><span class="status failed">Not completed</span><span>7.46 s recorded</span></div></div></button></article>
-<article class="candidate">
-<button type="button" data-candidate="torque_low" aria-pressed="false" aria-label="Inspect Lower current limit: completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/torque_low.jpg" data-src="lab/data/challenge/torque_low/video.mp4" aria-label="Recorded Lower current limit trial"></video><span class="tile-index">DESIGN 05</span></div>
-<div class="candidate-info"><h3>Lower current limit</h3><div><span class="status">Completed</span><span>28.86 s recorded</span></div></div></button></article>
-<article class="candidate">
-<button type="button" data-candidate="torque_focused" aria-pressed="false" aria-label="Inspect Combined actuator design: completed">
-<div class="candidate-media"><video muted playsinline preload="none" poster="assets/research/posters/torque_focused.jpg" data-src="lab/data/challenge/torque_focused/video.mp4" aria-label="Recorded Combined actuator design trial"></video><span class="tile-index">DESIGN 06</span></div>
-<div class="candidate-info"><h3>Combined actuator design</h3><div><span class="status">Completed</span><span>29.34 s recorded</span></div></div></button></article></div>
-<div class="transport" aria-label="Synchronized candidate recordings"><button class="small-button" id="grid-play" type="button" aria-pressed="false">Play six recordings</button><button class="small-button" id="grid-reset" type="button">Restart</button><label for="grid-time" class="visually-hidden">Candidate recording time in seconds</label><input type="range" id="grid-time" min="0" max="29.50" step=".02" value="0"><output id="grid-clock" for="grid-time">0.0 s</output></div>
+<div class="candidate-grid" id="candidate-grid">__CARDS__</div>
+<div class="transport" aria-label="Synchronized candidate recordings"><button class="small-button" id="grid-play" type="button" aria-pressed="false">Play six recordings</button><button class="small-button" id="grid-reset" type="button">Restart</button><label for="grid-time" class="visually-hidden">Candidate recording time in seconds</label><input type="range" id="grid-time" min="0" max="__MAXTIME__" step=".02" value="0"><output id="grid-clock" for="grid-time">0.0 s</output></div>
 <p id="grid-message" class="grid-message" role="status" aria-live="polite"></p>
 <p class="note">Six completed development evaluations on the same 19 m challenge, shown as synchronized recordings. Select a tile to inspect its design. A stopped recording holds its final frame. These runs show design sensitivity; independent design-search and unseen-course evaluations are the next study.</p>
 <div class="numbers" aria-label="Completed design sensitivity study"><div class="number"><strong>18</strong><p>actuator variants in the broader design sweep</p></div><div class="number"><strong>32</strong><p>physical simulation replicas per design</p></div><div class="number"><strong>3</strong><p>robot embodiments: ANYmal, G1 and Allegro</p></div></div>
@@ -56,7 +56,7 @@
 <section class="section" id="designs" aria-labelledby="design-heading">
 <div class="section-head"><div><p class="eyebrow">01 / From design to movement</p><h2 id="design-heading">See what changed.<br>Then watch what happened.</h2></div><p>Actuator design is a set of connected choices. A faster winding changes the electrical model. Gearing trades speed for torque. Added mass changes the robot’s dynamics.</p></div>
 <div class="design-layout"><article class="design-description"><span class="design-number" id="design-outcome">Completed · 28.68 s</span><h3 id="design-title">A faster winding. A different outcome.</h3><p id="design-text">The higher-Kv winding completes this recorded challenge with a lower ideal stall torque than the nominal design. Inspect the same run in the video and 3D replay.</p><a class="button" id="design-replay" href="lab/?design=kv_high#terrain">Open this design’s replay <span aria-hidden="true">↗</span></a></article>
-<div><div class="selector"><label for="design-select">Compare with nominal</label><select id="design-select"><option value="nominal">Nominal actuator</option><option value="kv_high" selected>Higher-Kv winding</option><option value="gear_low">Lower gearing · 6:1</option><option value="mass_added_double">Added carrier mass · +6 kg</option><option value="torque_low">Lower current limit</option><option value="torque_focused">Combined actuator design</option></select></div><div class="table-wrap"><table><thead><tr><th>Design parameter</th><th>Nominal</th><th>Selected</th></tr></thead><tbody id="design-rows"><tr><td>Kv · phase-peak rpm/V</td><td>57.3</td><td class="changed">85.9</td></tr><tr><td>Gear ratio</td><td>9.0</td><td>9.0</td></tr><tr><td>Peak current · A</td><td>55.00</td><td>55.00</td></tr><tr><td>Phase resistance · mΩ</td><td>30.0</td><td class="changed">13.3</td></tr><tr><td>Ideal stall torque · N·m</td><td>111.4</td><td class="changed">74.2</td></tr><tr><td>Added carrier mass · kg</td><td>0.0</td><td>0.0</td></tr></tbody></table></div><p class="note" style="margin-top:15px">These are the evaluated model parameters. Stall torque is a model rating; the replay shows delivered torque and recorded joint speed through the task. <a href="assets/research/data/candidates.json">Download the design records ↗</a></p></div></div>
+<div><div class="selector"><label for="design-select">Compare with nominal</label><select id="design-select">__OPTIONS__</select></div><div class="table-wrap"><table><thead><tr><th>Design parameter</th><th>Nominal</th><th>Selected</th></tr></thead><tbody id="design-rows"><tr><td>Kv · phase-peak rpm/V</td><td>57.3</td><td class="changed">85.9</td></tr><tr><td>Gear ratio</td><td>9.0</td><td>9.0</td></tr><tr><td>Peak current · A</td><td>55.00</td><td>55.00</td></tr><tr><td>Phase resistance · mΩ</td><td>30.0</td><td class="changed">13.3</td></tr><tr><td>Ideal stall torque · N·m</td><td>111.4</td><td class="changed">74.2</td></tr><tr><td>Added carrier mass · kg</td><td>0.0</td><td>0.0</td></tr></tbody></table></div><p class="note" style="margin-top:15px">These are the evaluated model parameters. Stall torque is a model rating; the replay shows delivered torque and recorded joint speed through the task. <a href="assets/research/data/candidates.json">Download the design records ↗</a></p></div></div>
 <div class="design-details"><article><h3>Windings</h3><p>Kv, Kt, resistance and inductance change together under the stated rewind model. A single torque number cannot capture the tradeoff.</p></article><article><h3>Gearing</h3><p>Compare 9:1 with 6:1 reduction and inspect the resulting motion. These course runs retain native joint armature.</p></article><article><h3>Mass &amp; placement</h3><p>Recorded mass changes affect carrier-body inertia. Relocating motors and modeling the associated transmission is part of the next design study.</p></article></div>
 </section>
 
@@ -86,3 +86,7 @@
 </main><footer><span>Atlas Motion Systems · Research, September 2026</span><span>Built on Isaac Lab &amp; PhysX · <a href="paper/manuscript.html#references">Sources &amp; acknowledgments</a></span></footer>
 <noscript><p class="noscript-note">The paper and results are available without JavaScript. Open the <a href="lab/#terrain">interactive lab</a> with JavaScript enabled to play synchronized videos and 3D replays.</p></noscript>
 </div></body></html>
+'''
+html=html.replace('__CARDS__','\n'.join(cards)).replace('__OPTIONS__',options).replace('__MAXTIME__',f'{max_time:.2f}')
+(ROOT/'index.html').write_text(html)
+print('Built index.html with',len(cards),'recorded candidates.')

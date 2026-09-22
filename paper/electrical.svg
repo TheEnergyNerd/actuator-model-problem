@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1008pt" height="532.8pt" viewBox="0 0 1008 532.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-22T16:28:36.251055</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 532.8 
+L 1008 532.8 
+L 1008 0 
+L 0 0 
+z
+" style="fill: #f5f3ed"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 55.44 322.344 
+L 317.52 322.344 
+L 317.52 157.176 
+L 55.44 157.176 
+z
+" style="fill: #f5f3ed"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 55.44 214.9848 
+L 197.531566 214.9848 
+L 197.531566 190.2096 
+L 55.44 190.2096 
+z
+" clip-path="url(#pcd36462699)" style="fill: #bdc6bb"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 55.44 297.5688 
+L 260.921449 297.5688 
+L 260.921449 272.7936 
+L 55.44 272.7936 
+z
+" clip-path="url(#pcd36462699)" style="fill: #18785f"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1"/>
+     <g id="text_1">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="55.44" y="332.681891" transform="rotate(-0 55.44 332.681891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2"/>
+     <g id="text_2">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="87.015904" y="332.681891" transform="rotate(-0 87.015904 332.681891)">10</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3"/>
+     <g id="text_3">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="118.591807" y="332.681891" transform="rotate(-0 118.591807 332.681891)">20</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4"/>
+     <g id="text_4">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="150.167711" y="332.681891" transform="rotate(-0 150.167711 332.681891)">30</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_5"/>
+     <g id="text_5">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="181.743614" y="332.681891" transform="rotate(-0 181.743614 332.681891)">40</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_6"/>
+     <g id="text_6">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="213.319518" y="332.681891" transform="rotate(-0 213.319518 332.681891)">50</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_7"/>
+     <g id="text_7">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="244.895422" y="332.681891" transform="rotate(-0 244.895422 332.681891)">60</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_8"/>
+     <g id="text_8">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="276.471325" y="332.681891" transform="rotate(-0 276.471325 332.681891)">70</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_9"/>
+     <g id="text_9">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="308.047229" y="332.681891" transform="rotate(-0 308.047229 332.681891)">80</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="186.48" y="347.201422" transform="rotate(-0 186.48 347.201422)">mΩ</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2"/>
+   <g id="patch_5">
+    <path d="M 55.44 322.344 
+L 317.52 322.344 
+" style="fill: none; stroke: #bdc6bb; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="55.44" y="183.60288" transform="rotate(-0 55.44 183.60288)">Nominal</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="203.846747" y="205.974153" transform="rotate(-0 203.846747 205.974153)">45.0</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="55.44" y="266.18688" transform="rotate(-0 55.44 266.18688)">Calibrated</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="267.23663" y="288.558153" transform="rotate(-0 267.23663 288.558153)">65.1</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="55.44" y="135.176" transform="rotate(-0 55.44 135.176)">Phase resistance</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_6">
+    <path d="M 375.984 322.344 
+L 638.064 322.344 
+L 638.064 157.176 
+L 375.984 157.176 
+z
+" style="fill: #f5f3ed"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 375.984 214.9848 
+L 584.384964 214.9848 
+L 584.384964 190.2096 
+L 375.984 190.2096 
+z
+" clip-path="url(#p39632da29f)" style="fill: #bdc6bb"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 375.984 297.5688 
+L 572.180907 297.5688 
+L 572.180907 272.7936 
+L 375.984 272.7936 
+z
+" clip-path="url(#p39632da29f)" style="fill: #18785f"/>
+   </g>
+   <g id="matplotlib.axis_3">
+    <g id="xtick_10">
+     <g id="line2d_10"/>
+     <g id="text_16">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="375.984" y="332.681891" transform="rotate(-0 375.984 332.681891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_11">
+     <g id="line2d_11"/>
+     <g id="text_17">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="407.559904" y="332.681891" transform="rotate(-0 407.559904 332.681891)">50</text>
+     </g>
+    </g>
+    <g id="xtick_12">
+     <g id="line2d_12"/>
+     <g id="text_18">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="439.135807" y="332.681891" transform="rotate(-0 439.135807 332.681891)">100</text>
+     </g>
+    </g>
+    <g id="xtick_13">
+     <g id="line2d_13"/>
+     <g id="text_19">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="470.711711" y="332.681891" transform="rotate(-0 470.711711 332.681891)">150</text>
+     </g>
+    </g>
+    <g id="xtick_14">
+     <g id="line2d_14"/>
+     <g id="text_20">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="502.287614" y="332.681891" transform="rotate(-0 502.287614 332.681891)">200</text>
+     </g>
+    </g>
+    <g id="xtick_15">
+     <g id="line2d_15"/>
+     <g id="text_21">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="533.863518" y="332.681891" transform="rotate(-0 533.863518 332.681891)">250</text>
+     </g>
+    </g>
+    <g id="xtick_16">
+     <g id="line2d_16"/>
+     <g id="text_22">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="565.439422" y="332.681891" transform="rotate(-0 565.439422 332.681891)">300</text>
+     </g>
+    </g>
+    <g id="xtick_17">
+     <g id="line2d_17"/>
+     <g id="text_23">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="597.015325" y="332.681891" transform="rotate(-0 597.015325 332.681891)">350</text>
+     </g>
+    </g>
+    <g id="xtick_18">
+     <g id="line2d_18"/>
+     <g id="text_24">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="628.591229" y="332.681891" transform="rotate(-0 628.591229 332.681891)">400</text>
+     </g>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="507.024" y="347.201422" transform="rotate(-0 507.024 347.201422)">rpm/V</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_4"/>
+   <g id="patch_9">
+    <path d="M 375.984 322.344 
+L 638.064 322.344 
+" style="fill: none; stroke: #bdc6bb; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_26">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="375.984" y="183.60288" transform="rotate(-0 375.984 183.60288)">Nominal*</text>
+   </g>
+   <g id="text_27">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="589.437108" y="205.974153" transform="rotate(-0 589.437108 205.974153)">330</text>
+   </g>
+   <g id="text_28">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="375.984" y="266.18688" transform="rotate(-0 375.984 266.18688)">Calibrated</text>
+   </g>
+   <g id="text_29">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="577.233051" y="288.558153" transform="rotate(-0 577.233051 288.558153)">311</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="375.984" y="135.176" transform="rotate(-0 375.984 135.176)">Speed constant</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_10">
+    <path d="M 696.528 322.344 
+L 958.608 322.344 
+L 958.608 157.176 
+L 696.528 157.176 
+z
+" style="fill: #f5f3ed"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 696.528 214.9848 
+L 818.582486 214.9848 
+L 818.582486 190.2096 
+L 696.528 190.2096 
+z
+" clip-path="url(#pde65120a0a)" style="fill: #18785f"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 696.528 297.5688 
+L 900.959198 297.5688 
+L 900.959198 272.7936 
+L 696.528 272.7936 
+z
+" clip-path="url(#pde65120a0a)" style="fill: #b46b2c"/>
+   </g>
+   <g id="matplotlib.axis_5">
+    <g id="xtick_19">
+     <g id="line2d_19"/>
+     <g id="text_31">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="696.528" y="332.681891" transform="rotate(-0 696.528 332.681891)">0</text>
+     </g>
+    </g>
+    <g id="xtick_20">
+     <g id="line2d_20"/>
+     <g id="text_32">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="741.714207" y="332.681891" transform="rotate(-0 741.714207 332.681891)">10</text>
+     </g>
+    </g>
+    <g id="xtick_21">
+     <g id="line2d_21"/>
+     <g id="text_33">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="786.900414" y="332.681891" transform="rotate(-0 786.900414 332.681891)">20</text>
+     </g>
+    </g>
+    <g id="xtick_22">
+     <g id="line2d_22"/>
+     <g id="text_34">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="832.086621" y="332.681891" transform="rotate(-0 832.086621 332.681891)">30</text>
+     </g>
+    </g>
+    <g id="xtick_23">
+     <g id="line2d_23"/>
+     <g id="text_35">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="877.272828" y="332.681891" transform="rotate(-0 877.272828 332.681891)">40</text>
+     </g>
+    </g>
+    <g id="xtick_24">
+     <g id="line2d_24"/>
+     <g id="text_36">
+      <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="922.459034" y="332.681891" transform="rotate(-0 922.459034 332.681891)">50</text>
+     </g>
+    </g>
+    <g id="text_37">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #64736a" x="827.568" y="347.201422" transform="rotate(-0 827.568 347.201422)">μH</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_6"/>
+   <g id="patch_13">
+    <path d="M 696.528 322.344 
+L 958.608 322.344 
+" style="fill: none; stroke: #bdc6bb; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_38">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="696.528" y="183.60288" transform="rotate(-0 696.528 183.60288)">d axis</text>
+   </g>
+   <g id="text_39">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="827.619727" y="205.974153" transform="rotate(-0 827.619727 205.974153)">27.0</text>
+   </g>
+   <g id="text_40">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="696.528" y="266.18688" transform="rotate(-0 696.528 266.18688)">q axis</text>
+   </g>
+   <g id="text_41">
+    <text style="font-weight: 700; font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="909.996439" y="288.558153" transform="rotate(-0 909.996439 288.558153)">45.2</text>
+   </g>
+   <g id="text_42">
+    <text style="font-weight: 700; font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="696.528" y="135.176" transform="rotate(-0 696.528 135.176)">Axis inductance</text>
+   </g>
+  </g>
+  <g id="text_43">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="55.44" y="37.296" transform="rotate(-0 55.44 37.296)">ATLAS  /  BENCH CALIBRATION  /  16 SEPT 2026</text>
+  </g>
+  <g id="text_44">
+   <text style="font-weight: 700; font-size: 26px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="55.44" y="77.256" transform="rotate(-0 55.44 77.256)">The motor measurements change the model.</text>
+  </g>
+  <g id="text_45">
+   <text style="font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="55.44" y="106.0272" transform="rotate(-0 55.44 106.0272)">One mj5208 motor. Controller calibration compared with the supplied nominal values.</text>
+  </g>
+  <g id="text_46">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="55.44" y="370.296" transform="rotate(-0 55.44 370.296)">+44.6% resistance</text>
+  </g>
+  <g id="text_47">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="375.984" y="370.296" transform="rotate(-0 375.984 370.296)">-5.9% numerical difference*</text>
+  </g>
+  <g id="text_48">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #193b32" x="696.528" y="370.296" transform="rotate(-0 696.528 370.296)">Lq / Ld = 1.67</text>
+  </g>
+  <g id="text_49">
+   <text style="font-weight: 700; font-size: 21px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #18785f" x="55.44" y="420.912" transform="rotate(-0 55.44 420.912)">+44.6% predicted copper loss at the same current</text>
+  </g>
+  <g id="text_50">
+   <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64736a" x="55.44" y="448.6176" transform="rotate(-0 55.44 448.6176)">Conditional on comparable phase resistance and reference temperature. This is not a measured heating result.</text>
+  </g>
+  <g id="text_51">
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #64736a" transform="translate(55.44 475.326)">*Calibration Kv uses peak line-to-line voltage; the nominal voltage convention has not been confirmed.</text>
+   <text style="font-size: 9px; font-family: 'DejaVu Sans'; fill: #64736a" transform="translate(55.44 490.176)">Scalar inductance: 26.4 μH, reported separately from Ld/Lq. Source: supplied moteus calibration log, hash in provenance JSON.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pcd36462699">
+   <rect x="55.44" y="157.176" width="262.08" height="165.168"/>
+  </clipPath>
+  <clipPath id="p39632da29f">
+   <rect x="375.984" y="157.176" width="262.08" height="165.168"/>
+  </clipPath>
+  <clipPath id="pde65120a0a">
+   <rect x="696.528" y="157.176" width="262.08" height="165.168"/>
+  </clipPath>
+ </defs>
+</svg>

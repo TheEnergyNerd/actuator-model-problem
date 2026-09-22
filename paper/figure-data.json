@@ -1,0 +1,85 @@
+{
+  "source": "/root/atlas/actuator-model-problem/lab/data/pen/bench/study.json",
+  "sha256": "8349e522fe6519b7443fc0432b4f54a64d2bbf6eeef5b17e8540c0a836240c4f",
+  "training_seeds": [
+    44000000,
+    44010000,
+    44020000
+  ],
+  "trials_per_policy": 128,
+  "cold_rows": [
+    {
+      "seed": 44000000,
+      "policy": "ideal",
+      "motion_successes": 118,
+      "native_contact_successes": 26,
+      "trials": 128
+    },
+    {
+      "seed": 44000000,
+      "policy": "motor",
+      "motion_successes": 124,
+      "native_contact_successes": 14,
+      "trials": 128
+    },
+    {
+      "seed": 44010000,
+      "policy": "ideal",
+      "motion_successes": 125,
+      "native_contact_successes": 6,
+      "trials": 128
+    },
+    {
+      "seed": 44010000,
+      "policy": "motor",
+      "motion_successes": 123,
+      "native_contact_successes": 2,
+      "trials": 128
+    },
+    {
+      "seed": 44020000,
+      "policy": "ideal",
+      "motion_successes": 124,
+      "native_contact_successes": 27,
+      "trials": 128
+    },
+    {
+      "seed": 44020000,
+      "policy": "motor",
+      "motion_successes": 118,
+      "native_contact_successes": 47,
+      "trials": 128
+    }
+  ],
+  "figure_percentages": {
+    "motion_successes": [
+      [
+        92.1875,
+        96.875
+      ],
+      [
+        97.65625,
+        96.09375
+      ],
+      [
+        96.875,
+        92.1875
+      ]
+    ],
+    "native_contact_successes": [
+      [
+        20.3125,
+        10.9375
+      ],
+      [
+        4.6875,
+        1.5625
+      ],
+      [
+        21.09375,
+        36.71875
+      ]
+    ]
+  },
+  "intervals": "No confidence intervals plotted. Each connected pair is one training seed."
+}

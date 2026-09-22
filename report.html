@@ -1,0 +1,763 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Every RL policy trains against an actuator model, and the industry default is fiction. A/B experiments on a quadruped and a humanoid, from Atlas Motion Systems.">
+<meta property="og:title" content="The Actuator Model Problem: Why Sim-to-Real Fails at the Motor">
+<meta property="og:description" content="A humanoid trained on stock simulation actuators falls in 4,554 of 4,554 episodes on real motor physics. Trained on a design-derived model, it walks with zero falls.">
+<meta property="og:image" content="https://TheEnergyNerd.github.io/actuator-model-problem/assets/fig-anatomy.png">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+<meta charset="utf-8">
+<meta name="theme-color" content="#181818">
+<title>The Actuator Model Problem | Atlas Motion Systems</title>
+<style>
+  /* Design language matched to atlasmotion.com: #181818 ground, warm off-white
+     #EEE8E8 text, pale-cream #FFFDE0 accent, medium (500) headings, and the
+     site's signature tight negative tracking (~-0.038em). SuisseIntl is
+     licensed, so the stack falls back to a neutral grotesque. */
+  :root{
+    --bg:#181818; --panel:#121211; --line:rgba(255,255,255,.2);
+    --ink:#EEE8E8; --dim:#BBBBBB; --faint:rgba(204,203,189,.5); --acc:#FFFDE0;
+  }
+  html{background:var(--bg);}
+  body{font-family:"SuisseIntl","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);margin:0;padding:0 20px;
+       font-size:16.5px;line-height:1.6;letter-spacing:-.011em;
+       -webkit-font-smoothing:antialiased;}
+  .page{max-width:720px;margin:0 auto;padding:48px 0 80px;}
+  a{color:var(--acc);text-decoration:none;border-bottom:1px solid rgba(255,253,224,.35);}
+  a:hover{border-bottom-color:var(--acc);}
+  h1{font-size:clamp(34px,5.2vw,52px);line-height:1.04;margin:6px 0 14px;
+     font-weight:500;letter-spacing:-.038em;}
+  h2{font-size:27px;margin:52px 0 14px;font-weight:500;letter-spacing:-.032em;}
+  h3{font-size:19px;margin:34px 0 10px;font-weight:500;letter-spacing:-.024em;color:var(--ink);}
+  p{margin:0 0 16px;}
+  .eyebrow{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--faint);margin:0 0 16px;}
+  .byline{color:var(--dim);font-size:15px;margin:0 0 4px;letter-spacing:-.011em;}
+  .meta{color:var(--faint);font-size:13px;margin:0 0 8px;}
+  .dek{font-size:19px;line-height:1.5;color:var(--dim);margin:0 0 20px;
+       letter-spacing:-.018em;}
+  hr{border:none;border-top:1px solid var(--line);margin:34px 0;}
+  code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13.5px;
+       background:var(--panel);color:var(--acc);padding:1px 5px;border-radius:2px;}
+  pre{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px;
+      background:var(--panel);border:1px solid var(--line);padding:12px 14px;
+      overflow-x:auto;line-height:1.55;margin:16px 0;border-radius:3px;}
+  pre .c{color:var(--faint);}
+  figure{margin:26px 0;}
+  figure img{width:100%;height:auto;display:block;border-radius:3px;}
+  figcaption{font-size:13px;color:var(--dim);margin-top:9px;line-height:1.5;}
+  figcaption b{color:var(--ink);font-weight:500;}
+  table{border-collapse:collapse;width:100%;font-size:14px;margin:18px 0;}
+  th{border-bottom:1px solid var(--ink);padding:8px 10px;text-align:left;
+     font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+     color:var(--dim);}
+  td{border-bottom:1px solid var(--line);padding:9px 10px;text-align:left;
+     vertical-align:top;color:var(--ink);}
+  .tablewrap{overflow-x:auto;}
+  .vidrow{display:flex;flex-wrap:wrap;gap:12px;margin:22px 0;}
+  .vidrow figure{flex:1 1 200px;margin:0;}
+  .vidrow video,figure.wide video{width:100%;height:auto;display:block;
+    background:#000;border-radius:3px;}
+  figure.wide{margin:26px 0;}
+  blockquote{margin:16px 0;padding-left:14px;border-left:2px solid var(--acc);
+    color:var(--dim);font-size:15px;}
+  ol.findings{margin:0 0 16px 22px;padding:0;}
+  ol.findings li{margin:0 0 10px;}
+  ol.findings li::marker{color:var(--faint);}
+  ol.refs{margin:0 0 16px 22px;padding:0;font-size:13.5px;color:var(--dim);
+    line-height:1.55;}
+  ol.refs li{margin:0 0 8px;}
+  a.cit{font-size:12px;vertical-align:super;text-decoration:none;border:0;}
+  footer{margin-top:60px;padding-top:14px;border-top:1px solid var(--line);
+    color:var(--faint);font-size:12.5px;display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:6px;}
+  .demo-hub{width:min(1280px,calc(100vw - 40px));margin:36px 0 36px 50%;transform:translateX(-50%);padding:20px;box-sizing:border-box;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+  .demo-hub h2{margin:0 0 12px}
+  .demo-nav{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+  .demo-nav button{font:inherit;font-size:14px;padding:9px 13px;border:1px solid var(--line);border-radius:5px;color:var(--ink);background:transparent;cursor:pointer}
+  .demo-nav button[aria-pressed="true"]{background:var(--acc);color:var(--bg)}
+  .demo-nav button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+  .demo-frame{display:block;width:100%;height:1080px;border:0;border-radius:8px;background:#f3f2ed}
+  .demo-description{color:var(--dim);font-size:14px}
+  @media(max-width:600px){.demo-hub{padding:12px}.demo-frame{height:1150px}}
+  .explorer-box{position:relative;width:100%;height:620px;
+    border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#101116;}
+</style>
+</head>
+<body>
+
+<div class="page">
+<p style="border:1px solid #666;padding:12px 16px;font-size:14px"><a href="./">← Atlas research: paper, design grid and latest results</a><br>This page preserves the longer research report and earlier experiment history.</p>
+<p class="eyebrow">Atlas Motion Systems · Research</p>
+<h1>The Actuator Model Problem: Why Sim-to-Real Fails at the Motor</h1>
+<p class="dek">Actuators consist of up to 80% of a robot's BOM cost. They are the core
+robotics component that allows the robot to move. All policies train against a model of an
+actuator in simulation, and the industry default for this model is far from accurate. Atlas
+tested against real actuator physics on a quadruped, humanoid, and hands. The humanoid
+trained on the default physics falls in 4,554 of 4,554 episodes. But, trained on our model,
+it walks with zero falls. Our simulation platform also enables hardware-software co-design.
+The actuators that are formed are customized for the policy. The policy grades the
+hardware, and the hardware grades the policy.</p>
+<p class="byline">Pranav Myana · Atlas Motion Systems</p>
+<p class="meta">July 2026</p>
+
+<hr>
+
+<p>All RL policies train against an actuator model. The default is a PD controller that has
+a torque clamp that can achieve 30 N&middot;m without any ramp up. However, real motors ramp
+current through inductance, lose torque with speed, and derate with heat.</p>
+
+<p>The current model of the actuator is incredibly inaccurate. This means that when you
+train a robot in simulation, it's unfaithful to the physics reality. Policies trained with
+an ideal/analytical actuator model "could not make a single step without falling" on
+ANYmal, and this is after ETH Zurich spent a week trying to tune the analytical model
+<a class="cit" href="#ref1">[1]</a>.</p>
+
+<p>Atlas builds actuators and motors, and a finished design (along with our data flywheel)
+contains the numbers a faithful simulation needs. So, we built
+<a href="https://github.com/pranavatlas/atlas-actuators"><code>atlas_actuators</code></a>,
+an open source Isaac Lab plugin that turns an Atlas design into a physics-accurate training
+actuator, and measured what happens when you use the default vs the true model.</p>
+
+<ol class="findings">
+<li><b>Humanoids:</b> The stock Unitree G1 policy falls in every episode that uses accurate
+physics. Ours walks with zero falls in 256 episodes.</li>
+<li><b>Hardware iteration:</b> Every layer of the actuator comes out of one design solve
+&mdash; the winding, the magnets, the iron, the gear, the bearings, the shaft, the housing,
+and the sensors &mdash; so every layer is a knob a trained policy can grade. Because Atlas
+manufactures the actuator, the design you converge on is the one that ships.</li>
+<li><b>Transfer:</b> For the quadrupeds and humanoids there are several multiples more
+falls on multiple seeds. For the hand, trained to plateau across three seeds, there is no
+transfer penalty at all &mdash; 1.21x, with seeds on both sides of one. What replicates there
+is the saturation gap: the default model tells the policy that 6 of 16 joints are pinned when
+the truth is 10.</li>
+</ol>
+
+<section class="demo-hub" id="demo-update" aria-labelledby="demo-title">
+<p class="eyebrow">Interactive Isaac Lab experiments</p>
+<h2 id="demo-title">Explore the motion. Compare the actuators.</h2>
+<p>Play the video beside the measured 3D replay, drag to orbit, scrub the timeline, and select recorded actuator designs. Recorded-design selectors choose measured runs. The design panels compare Kv, gearing, torque, unloaded RPM and physical added mass. The obstacle-course builder also exports new candidate designs for Isaac Lab; editing a candidate does not change the recorded video.</p>
+<nav class="demo-nav" aria-label="Choose an interactive experiment">
+<button type="button" data-demo="terrain" aria-pressed="false">ANYmal obstacle course</button>
+<button type="button" data-demo="g1" aria-pressed="false">G1 walking</button>
+<button type="button" data-demo="anymal" aria-pressed="false">ANYmal walking</button>
+<button type="button" data-demo="transfer" aria-pressed="false">Two-arm transfer</button>
+<button type="button" data-demo="pen" aria-pressed="true">Sharpa pen spinning</button>
+<button type="button" data-demo="allegro" aria-pressed="false">Allegro hand</button>
+<button type="button" data-demo="rubik" aria-pressed="false">Wuji cube</button>
+<button type="button" data-demo="assembly" aria-pressed="false">Peg insertion</button>
+</nav>
+<p class="demo-description" id="demo-description" aria-live="polite">Sharpa pen spinning: a bench-informed virtual actuator, three training seeds and fresh test grasps. Compare simplified versus motor-model training with paired videos, measured 3D replays and joint torque/current inspection.</p>
+<p><a id="demo-full" href="lab/#pen" target="_blank" rel="noopener">Open Sharpa pen spinning in a full window ↗</a></p>
+<iframe class="demo-frame" id="demo-frame" src="lab/#pen" title="Interactive Sharpa pen spinning: synchronized video and measured 3D replay" loading="lazy" allow="fullscreen" allowfullscreen></iframe>
+<p class="demo-description" style="margin-top:14px">Available now: the eight experiments above. Full Rubik solving, the tool workshop and reliable gear-meshing/nut-threading policies remain unfinished. The assembly viewer includes a failed gear-meshing transfer episode. <a href="#experiment-notes">Read the outcomes and limitations below ↓</a></p>
+</section>
+<section id="experiment-notes">
+<p class="eyebrow">Experiment update · September 22, 2026</p>
+<h2>Harder tasks, with the evidence attached.</h2>
+<p>The interactive lab now pairs video with orbitable, measured body trajectories. The complete ANYmal obstacle-course runs extend this format to stairs and uneven blocks. Two-hand manipulation and precision assembly have separate, explicitly reported milestones. All of this work runs in Isaac Lab and PhysX. These are simulation experiments; they do not establish performance on physical robots.</p>
+<!-- bench-study-start -->
+<h3>Electrical measurements, longer training, three seeds</h3>
+<p>We used the supplied mj5208 controller calibration to build a virtual remote-drive actuator case: 65.08 mΩ resistance, 310.68 RPM/V peak line-to-line Kv, and separate 27.01 / 45.24 μH inductances. Checking the recorded moteus tool and firmware corrected the derived torque constant to 0.02662 Nm per peak q-axis ampere. This is not a measured Sharpa motor or a load-cell torque result.</p>
+<p>Each training condition now has three independent seeds and 4,194,304 transitions per seed—eight times the earlier budget. Both start training episodes at 25°C. Motion success requires three timed pen rotations and a supported hold; the stricter contact/finger gate is reported separately. We fixed the final checkpoint in advance, checked intermediate checkpoints on separate validation grasps, and evaluated on 128 fresh test grasps. The table reports mean motion success across the three training seeds, with the seed range in parentheses.</p>
+<table><thead><tr><th>Shared test plant</th><th>Simplified-model training</th><th>Motor-model training</th></tr></thead><tbody><tr><td>Fixed torque</td><td>95.6% (95.3–96.1%)</td><td>95.1% (93.0–99.2%)</td></tr><tr><td>Cold motor</td><td>95.6% (92.2–97.7%)</td><td>95.1% (92.2–96.9%)</td></tr><tr><td>100°C start</td><td>95.8% (94.5–97.7%)</td><td>94.5% (91.4–96.1%)</td></tr></tbody></table>
+<p>The two training conditions achieve similar motion success here. In the cold test, delivered torque differs from the already-clipped request by more than 0.001 Nm in only 0.030% of recorded joint samples, averaged across the six trained policies. The motor model rarely changes the available torque on this task. These results do not establish a benefit from motor-model training, or resolve its value on more demanding workloads. Three training seeds provide replication; the shared simulator and assumed transmission/cooling do not establish real-hand performance.</p>
+<p>Gearing, drive limits, remote-motor packaging and cooling remain engineering assumptions. Hot starts are a separate stress scenario. Shaft torque, copper heat and winding temperature are predictions; the available hardware evidence supports electrical inputs, not this complete hand design. <a href="lab/#pen">Inspect all training seeds, synchronized videos and 3D replays</a> · <a href="lab/data/pen/bench/study.json">Full study results and logs</a> · <a href="lab/data/pen/bench/evidence.json">Calibration evidence</a>.</p>
+<figure><img src="lab/data/pen/bench/electrical-model.svg" alt="Predicted torque-speed envelope from the mj5208 electrical calibration and an electrical solver consistency check"><figcaption>Electrical calibration plus stated drive assumptions. These curves are software predictions, not a measured torque-speed or thermal test.</figcaption></figure>
+<!-- bench-study-end -->
+<h3>Earlier single-seed training pilot</h3>
+<p>We fine-tuned two copies of the supplied Sharpa pen policy for 524,288 transitions each: one with fixed torque limits, one with the Atlas motor model and randomized 25–100°C starting temperatures. Both use the same explicit controller, observations and PPO settings. We then tested the final checkpoints and the unchanged policy on 64 separate seeds under each of three actuation conditions.</p>
+<table><thead><tr><th>Policy</th><th>Fixed torque</th><th>Cold motor</th><th>100°C motor</th></tr></thead><tbody><tr><td>Original frozen policy</td><td>48/64</td><td>47/64</td><td>47/64</td></tr><tr><td>Simplified-model fine-tuning</td><td>56/64</td><td>56/64</td><td>56/64</td></tr><tr><td>Motor-model fine-tuning</td><td>47/64</td><td>50/64</td><td>52/64</td></tr></tbody></table>
+<p>The motor-trained policy completed 4 fewer hot-start trials than the simplified-trained policy in this small batch. That gap did not resolve the value of motor-aware training: the budget was short, the motor parameters were assumed, and the motor policy faced unobserved randomized starting temperatures. These are motion successes from a single training seed per condition; stricter contact checks are reported separately. The motor parameters are assumptions, not measured Sharpa specifications. This is Atlas fine-tuning with a new reward, not a reproduction of the reference project’s unpublished training code. <a href="lab/#pen">Compare the policies with paired videos and 3D replays</a> · <a href="lab/data/pen/training/comparison.json">Training logs and all nine evaluations</a>.</p>
+<h3>Same hand policy, different actuator models</h3>
+<p>The matched explicit-controller experiment completed 26/32 development trials with fixed torque limits, 27/32 with the cold Atlas motor model and 25/32 with a 100°C start. The cold drive delivered essentially identical requested torque: its electrical and thermal limits did not bind in this task. The hot model clipped joint torque by up to 0.93 Nm, but this small batch does not establish a reliable success-rate ranking. Motor parameters are generic assumptions, not measured Sharpa specifications. The model includes back EMF, current limits, a first-order current loop and winding heating/derating; the policy was frozen throughout.</p>
+<p>Compare synchronized, orbitable body-state replays and inspect delivered torque, RPM, current and temperature for each joint. Trial 0 remains available, including the simplified-model failure. The default paired view uses trial 1, selected as the first simplified-model success before inspecting the motor outcome. All 32 outcomes per condition are published.</p>
+<h3>The native-controller reference</h3>
+<p>We reproduced the supplied Sharpa Wave pen policy from <a href="https://github.com/jianglongye/dexterous-astra">Dexterous Astra</a> in Isaac Lab 2.3.2 / Isaac Sim 5.1. It completed three timed rotations and a supported one-second hold in 31 of 32 development trials. This checkpoint was trained by the reference project, not Atlas. Trial 0 was chosen before evaluation and reaches its third turn at 5.15 seconds. The full twelve-second recording is available as an Isaac-rendered video and an orbitable replay of every recorded body.</p>
+<p>With the same policy and identical seeded starting poses, a 75% reduction in physical joint torque ceilings completed 28/32 trials; increasing hand-body mass and inertia by 50% completed 32/32, with trial 0 reaching its third turn at 5.50 seconds. These are isolated torque and mass sensitivity tests, not complete motor designs or a reliable design ranking. The stricter native contact and finger-participation checks passed 5/32, 2/32 and 7/32 respectively. Our penetration check uses PhysX contact separations, so it is distinct from the reference's independent collision audit. These native implicit-controller runs remain a separate reference for the matched explicit-controller experiment above. <a href="lab/#pen">Open the pen experiment</a> · <a href="lab/data/pen/comparison.json">Matched comparison data</a>.</p>
+<h3>A harder course, with actuator differences visible</h3>
+<p>The new 19 m challenge adds a real 22 cm gap, a 1.05 m wide raised crossing, irregular rubble, an 8° side slope and a 70 N body-side push. The native ANYdrive policy completed it in 26.08 seconds. With the same policy, the higher-Kv Atlas winding completed it in 28.68 seconds; a new torque-focused candidate completed it in 29.34 seconds. Nominal Atlas and the +6 kg actuator-mass intervention terminated earlier. These outcomes show task-specific tradeoffs, not a universal winning motor. The candidate changes Kv, gearing and added mass together; its 167 Nm ideal stall rating does not by itself explain the outcome.</p>
+<p>Obstacle buttons seek to the actual recorded crossings. Video and orbitable replay share a clock, with measured joint RPM, torque, current and winding temperature beside the motion. The push is applied for 13 control steps (0.26 s, 18.2 N·s). Native terrain sensing and collision geometry agree; an independent pose audit checks corridor, gap and bridge clearance, resets and stopping. <a href="lab/data/challenge/manifest.json">All new course outcomes</a>.</p>
+<h3>The earlier stairs-and-blocks course</h3>
+<p>ANYmal traversed a 12.5 m route with five steps up, a raised platform, five steps down and uneven blocks, then stopped for one second. The native ANYdrive reference finished in 17.94 seconds; Atlas nominal finished in 18.62 seconds. The comparison includes a higher-Kv winding, lower gearing, reduced current limit, and 6 kg of physically added actuator carrier mass and inertia. The reduced-current run had a failure termination. Higher Kv, lower gearing and added mass reached the finish but failed the post-run corridor audit; only the native reference and Atlas nominal satisfied the complete course criterion. Every run remains selectable with its matching video, measured 3D poses and telemetry.</p>
+<p>These are fixed-policy, single-seed development demonstrations. They do not measure general reliability or the performance achievable after retraining. Stock-to-Atlas also changes controller behavior; the Atlas design variants isolate the stated motor-model interventions.</p>
+<h3>The earlier random-terrain pilot</h3>
+<p>We tested NVIDIA’s pretrained rough-terrain ANYmal policy in eight environments for 20 seconds each. With the native ANYdrive model, there were zero failure terminations. With Atlas FOC legs, the same policy had one failure termination. Mean planar velocity tracking error increased from 0.118 to 0.167 m/s.</p>
+<p>This is a development pilot with one seed. It changes the actuator model and controller behavior together, so it does not isolate Kv, gearing, or mass. The native heading controller responds to each robot’s actual heading; after the Atlas reset, subsequent planar commands also diverged. Per-design retraining and held-out course trials are still needed.</p>
+<p><a href="lab/#terrain">Watch the rough-terrain video and 3D replay →</a> &nbsp; <a href="isaac/suite/results/comparison.json">Read the pilot comparison</a></p>
+<h3>Dexterity needs more than a good-looking hand</h3>
+<p>The Wuji Hand 2 experiments use native detailed geometry and measured contact motion. A fixed-core fixture completed one validated cube quarter-turn. A longer fixture attempt completed six of twelve quarter-turns before failing. The corrected two-hand controller subsequently completed a free-cube quarter-turn and a continuous solved hold. A fixture prepared the grasp for two seconds, then released; the turn used only hand contact, with no cube motors or physical-state resets. Independent pose validation measured a final sticker error of 2.37 degrees. These results do not constitute a working Rubik solver.</p>
+<p>The stricter Allegro experiment also measures sustained target holds, rather than counting brief crossings as completed manipulation. Failed trials remain visible alongside the successful portions.</p>
+<h3>Assembly under disturbance</h3>
+<p>A newer insertion checkpoint completed 16/16 unperturbed trials and 13/16 trials with a physical 2 N side push. The checkpoint, seed and initial recorded poses match. The push acts for five control steps (one third of a second) along the held part’s local Y axis. The selected first episode recovers successfully; all three failed trials remain in the downloadable evaluation. Switch between both videos and measured replays, slow them down, and inspect alignment error through the disturbance. <a href="lab/#assembly">Open the recovery challenge</a>.</p>
+<h3>What must work before the next release</h3>
+<p>The assembly track starts with peg insertion, gear meshing and nut threading. A trained peg-insertion checkpoint achieved sustained insertion in 42 of 48 deterministic evaluation trials across 16 environments and three episodes, using development seed 201. Success had to remain true for the final half-second, measured before automatic reset. The native prepared grasp was retained. Dedicated gear-meshing and nut-threading policies have not yet been validated for publication. A separate zero-retraining transfer of the newer insertion policy to gear meshing achieved 4/16 sustained successes; the preselected first episode failed and is available in the assembly viewer. The recorder includes the two physical flanking gears as well as the held gear and fixture. <a href="isaac/suite/results/peg-pilot/result.json">All peg-insertion trial outcomes</a>. <a href="lab/#assembly">Watch the complete first episode with video and 3D replay</a>. The tool workshop needs a reliable grasp and controlled object motion. Across all tracks, the design comparison will report task completion, energy, heat, and failure modes, with motor mass represented in the physical robot’s mass and inertia.</p>
+<p><a href="isaac/suite/README.md">Experiment protocol and reproduction commands →</a></p>
+</section>
+<h2>So first, let's break down an actuator</h2>
+
+<p>It consists of a motor, a gearbox, a drive, the housings, and the shafts. It includes
+sensors, power electronics, and a microcontroller.</p>
+
+<figure><img src="assets/fig-anatomy.svg" alt="Cross-section of an integrated actuator: drive board, encoder, motor, planetary gearbox, output flange">
+<figcaption><b>Fig 1: what is actually inside.</b> The motor, the gearbox, the drive, the
+housings, the shafts, and the sensors. The robot's computer talks to the drive a few hundred
+times a second. The drive commutates at 20&ndash;40 kHz on its own. Everything the robot does
+passes through this.</figcaption></figure>
+
+<h2>Fantasy motors</h2>
+
+<p>ETH Zurich's Actuator Net from 2019 takes hours of measured torque on the ANYdrive and
+distills it into an LSTM <a class="cit" href="#ref1">[1]</a>. It transferred well, and Isaac
+Lab ships it today <a class="cit" href="#ref2">[2]</a>. However, it describes not more than
+one actuator. In addition, this needs hardware to exist first, so it's unable to answer the
+design question of whether the motor is actually worth building.</p>
+
+<p>In addition to the previously written statement that policies trained on an analytical
+actuator model "could not make a single step without falling" on ANYmal, after ETH spent a
+week tuning it, there are several other cases to note. On TOCABI, a full-size humanoid with
+100:1 harmonic drives, every training seed with the baseline failed at controlling the robot
+<a class="cit" href="#ref3">[3]</a>. On a NAO, 7/10 policies both improved in simulation and
+degraded the real walk <a class="cit" href="#ref4">[4]</a>. Google's Minitaur "fell to the
+ground immediately" until they took into account torque saturation and latency (better
+training of domain randomization did not save it) <a class="cit" href="#ref5">[5]</a>. It's
+obvious but still a wide hole: the better your actuator model, the better your transfer.</p>
+
+<h2>Co-design</h2>
+
+<p>A finished Atlas design understands the torque constant, resistance, inductance, current
+limits, and thermal resistances. This includes everything that the microcontroller needs to
+understand how to run. Simpler models can miss the tradeoffs of torque. The reason for this
+is that they require a physics-based design engine that you can feed a spec (peak/continuous
+torque, speed, voltage rail, mass &amp; envelope budget) and that solves the coupled problem
+that an actuator actually is.</p>
+
+<p>For example, the electromagnetics determine the winding. The torque constant and the
+phase resistance are determined by the turns, the wire gauge, and the slot fill, and the
+magnet grade and thickness fix the airgap flux and the demagnetization margin at peak
+current. The magnetics then hand the thermal model a loss map, and the thermal model sizes
+the copper and the iron against the duty cycle, because a winding that makes the torque but
+cooks in ninety seconds is not a design. The mechanics close the loop: the gear ratio trades
+motor speed for joint torque, the tooth loads set the gear module and face width, the
+bearings are picked against the reaction forces, and the whole stack has to fit the envelope
+and hit the mass budget.</p>
+
+<figure><img src="assets/fig-torque-speed.svg" alt="Maximum torque versus speed under a resistive envelope model and the FOC model">
+<figcaption><b>Fig 2: the price of torque at speed.</b> Same motor, two models. The simple
+envelope holds full torque nearly to no-load speed. The real one pays the voltage cost of
+going fast, and past ~130 rad/s the inverter saturates and torque falls away. The wedge
+between them is capability a policy can train on but will never receive.</figcaption></figure>
+
+<figure><img src="assets/fig-field-weakening.svg" alt="dq currents versus speed showing field weakening">
+<figcaption><b>Fig 3: what the drive does about it.</b> Past base speed the controller drives
+flux-axis current negative to cancel back-EMF, trading torque for speed. Engineers tune this
+by hand. Here it falls out of the design parameters.</figcaption></figure>
+
+<p>When looking at a motor catalog, it sells you a part and a page of numbers that are
+measured at one operating point on one sample. However, it doesn't tell you the effect of
+the winding at your bus voltage, your thermal enclosure, or your duty cycle. We build the
+part on all of those factors. The model and the hardware are optimized for the same
+thing.</p>
+
+<figure><img src="assets/fig-codesign-loop.svg" alt="Hardware design loop before and after a design-time actuator model">
+<figcaption><b>Fig 4: the loop that did not exist.</b> Top: the normal flow, where you learn
+the truth after the robot is built and a revision costs a quarter. Bottom: with a design-time
+model, every actuator parameter is a knob you can turn against trained behavior in minutes.
+The last box is the one that matters. The loop ends in a factory.</figcaption></figure>
+
+<p>Give the design engine two different tasks for the same joint envelope and it answers
+with two different motors. Nothing in this table was hand-chosen. The tasks were.</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th></th><th>sprint-recovery task</th><th>steady-carry task</th></tr>
+  <tr><td>what the policy demands</td><td>14 N&middot;m peak / 7 cont at 250 rpm</td><td>12 N&middot;m peak / 10 cont at 120 rpm</td></tr>
+  <tr><td>winding</td><td>15 turns per coil, Kv 147</td><td>38 turns per coil, Kv 52</td></tr>
+  <tr><td>torque constant</td><td>0.113 N&middot;m/A</td><td>0.320 N&middot;m/A</td></tr>
+  <tr><td>magnet thickness</td><td>2.42 mm</td><td>2.67 mm</td></tr>
+  <tr><td>stator back iron</td><td>1.24 mm</td><td>1.38 mm</td></tr>
+  <tr><td>stack length</td><td>16.8 mm</td><td>18.8 mm</td></tr>
+  <tr><td>slots / poles</td><td>18 / 20</td><td>18 / 20</td></tr>
+  <tr><td>actuator mass</td><td>606 g</td><td>651 g</td></tr>
+</table>
+</div>
+
+<figure><img src="assets/fig-cad-pair.svg" alt="Cutaway CAD renders of the sprint and carry motor designs side by side">
+<figcaption><b>Fig 5: the table, in metal.</b> The generated CAD for both designs, same
+scale, housing removed. Gold is copper, black is magnet, gray is iron. The carry design's
+winding is visibly heavier and its stack is two millimeters longer. The sprint design trades
+that copper for a faster winding. Both STEP files come out of the same run that produced the
+table.</figcaption></figure>
+
+<figure class="wide" style="margin-top:26px">
+  <div class="explorer-box" id="explorer-box">
+    <iframe id="explorer-frame" src="motor-explorer.html" title="Interactive 3D: one joint, four motors"
+      loading="lazy" scrolling="no" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+  </div>
+  <figcaption><b>Four tasks, four motors, one joint envelope.</b> Switch the task and the
+  winding, the magnets, the iron, and the gear stack all change. Section it, pull it apart,
+  or drop the housing. <a href="motor-explorer.html">Open full screen.</a></figcaption>
+</figure>
+
+<h2>A/B testing</h2>
+
+<p>We start with the quadruped. It's statically stable, so what the actuator swap changes is
+attributable to the model. We performed 1,500 iterations in ANYmal-C. Policy A trained on the
+stock actuator net, and policy B trained on our FOC model that we developed with our data
+flywheel. Both are evaluated on FOC physics, which stands in for the robot that we actually
+build.</p>
+
+<figure><img src="assets/fig-training-curves.svg" alt="Training curves for both policies">
+<figcaption><b>Fig 6: both policies train fine.</b> Policy B tracks the baseline almost
+exactly, 23.6 against 23.4. Fidelity costs nothing at train time. Nothing here tells you
+which one is about to fail.</figcaption></figure>
+
+<figure><img src="assets/fig-eval.svg" alt="Evaluation reward and fall rates for the three policy-world combinations">
+<figcaption><b>Fig 7: where they land.</b> B on its own physics scores 25.9, parity with the
+baseline's 26.1 at home. A transferred onto real physics scores 24.5 and falls 2.6x as often,
+on the most forgiving terrain there is.</figcaption></figure>
+
+<p>Transfer falls 5.0 / 6.3 / 5.8 percent across seeds 42/43/44. The matched policy falls
+2.7 / 0.9 / 1.5. Every seed shows the penalty.</p>
+
+<div class="vidrow">
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-a-ideal.mp4"></video>
+    <figcaption><b>Policy A at home.</b> The stock model in the world it trained
+    in.</figcaption>
+  </figure>
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-a-foc.mp4"></video>
+    <figcaption><b>Policy A transferred.</b> Same policy, real physics, 2.6x the
+    falls.</figcaption>
+  </figure>
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-b-foc.mp4"></video>
+    <figcaption><b>Policy B matched.</b> Trained on the physics that ships.</figcaption>
+  </figure>
+</div>
+
+<h2>Recovery</h2>
+
+<p>At a steady cruise, the two policies are almost identical (0.97 vs 0.95), so cruise
+doesn't prove much. However, shove recovery exposes the gap. Torque is demanded and the
+curves separate.</p>
+
+<figure class="wide">
+  <video controls muted loop playsinline preload="metadata" src="assets/vid-quad-falls.mp4"></video>
+  <figcaption><b>The falls, counted.</b> Twenty-four robots a side, the same random shoves
+  every six seconds. Neither policy ever trained against a push. Stock model: 28 falls in 45
+  seconds. Matched: 11.</figcaption>
+</figure>
+
+<p>To find out if better training could close it, we trained both policies with &plusmn;2.0
+m/s shoves:</p>
+
+<figure><img src="assets/fig-hard-curves.svg" alt="Training curves for both policies under the hardened curriculum">
+<figcaption><b>Fig 8: the hardened retrain.</b> Policy B learns slower on real physics and
+finishes two points higher. Neither curve predicts the fall-rate gap in the next figure.
+Training dashboards do not surface actuator mismatch.</figcaption></figure>
+
+<figure><img src="assets/fig-push-two-gen.svg" alt="Fall rate versus shove strength for both policies and both training curricula">
+<figcaption><b>Fig 9: better training does not close a model gap.</b> Hardening collapses
+fall rates for both, but at &plusmn;2.5 the mismatched policy still falls 2.2x as often, and
+the gap persists through &plusmn;3.5. Training harder moved the cliff, not the
+ordering.</figcaption></figure>
+
+<figure class="wide">
+  <video controls muted loop playsinline preload="metadata" src="assets/vid-quad-shove.mp4"></video>
+  <figcaption><b>The hardened policies, stressed.</b> Sixteen robots a side, identical 3.5
+  m/s shoves. Mismatched: eight falls. Matched: three.</figcaption>
+</figure>
+
+<p>During recovery, torque is demanded at speed and the actuator stops being the thing that
+the policy is trained against. There are two failures that exist here. The torque envelope
+shrinks and the torque vector rotates.</p>
+
+<p>Field oriented control creates torque by holding stator current 90 degrees ahead of rotor
+flux on the q-axis. The torque command is completely projected onto the rotor angle. The
+angle error comes from latency, as any delay in sensing and the current loop causes an error
+that grows with electrical speed. It's the worst at the top of a jump when the rotor spins
+the fastest while the robot still needs force. You can drive tens of amps of q-axis current
+and this causes the iron to cross-saturate. The angle of maximum torque-per-amp shifts
+several electrical degrees from where it sat at the gentle current the commutation offset got
+trimmed at. A motor calibrated in pick-and-place duty (a few amps at rest) is systematically
+miscommutated at its sixty-amp peak. Calibration only is honest in the regime that you
+calibrated in, and the robot spends a lot of time in the regimes that you did not.</p>
+
+<figure><img src="assets/fig-misalignment.svg" alt="Torque retention cos delta and copper-loss penalty versus electrical misalignment">
+<figcaption><b>Fig 10: what being off by a few degrees costs.</b> The torque you get follows
+cos&nbsp;&delta;. The current you wasted is not free, so holding the same torque through a
+&delta;&deg; error costs 1/cos&sup2;&delta; in heat. Thirty degrees is thirteen percent less
+torque and a third more heat, both landing in the same corner.</figcaption></figure>
+
+<p>There is a cascading of misalignment. After base speed, the inverter runs out of volts
+against the back-EMF and torque falls away, and at the same time field weakening is already
+spending current to cancel back-EMF and the winding derates as it heats.</p>
+
+<p>If you misdirect a newton-meter, it is multiplied by the gear ratio and becomes a
+joint-torque error, and this joint is just one actuator inside a whole-body controller that
+solves a constrained optimization on false facts.</p>
+
+<figure><img src="assets/fig-cascade.svg" alt="Three control ticks: one joint clips, load redistributes, all three saturate">
+<figcaption><b>Fig 11: one saturated actuator becomes three.</b> The knee is commanded past
+its derated ceiling and clips. The controller makes up the missing force with the hip and the
+ankle, which are derated too. By the third tick all three are saturated, there is no feasible
+torque set left, and the posture error it was correcting has gone from 2&deg; to 19&deg;. The
+ceilings sag across the ticks because the windings are heating while it
+happens.</figcaption></figure>
+
+<figure><img src="assets/fig-timing.svg" alt="Commanded versus delivered joint force across an 80 ms foot-strike window">
+<figcaption><b>Fig 12: the force shows up late.</b> A foot strike is eighty milliseconds
+long. The commanded force is instant. The real one climbs against inductance and the voltage
+ceiling, peaks short because the winding is derating, and is still arriving after the foot has
+left. Legged motion is timing, and this is the wrong instant.</figcaption></figure>
+
+<h2>Humanoid rising</h2>
+
+<p>A quadruped is inherently stable, but a humanoid needs to balance. The baseline is
+terrible: the stock G1 task drives every joint at 300 N&middot;m when the real knee peaks at
+139.</p>
+
+<figure><img src="assets/fig-g1-curves.svg" alt="G1 training curves: episode length for stock and Atlas actuator models">
+<figcaption><b>Fig 13: what fantasy torque buys during training.</b> The stock policy
+survives everything by iteration 125, because any balance error can be erased with torque the
+robot does not have. The same recipe on real physics takes twice as long. Both curves end
+healthy. Only one describes a robot that can exist.</figcaption></figure>
+
+<figure><img src="assets/fig-g1-falls.svg" alt="G1 fall rates on real physics for both policies">
+<figcaption><b>Fig 14: the humanoid does not get up.</b> 256 robots, 30 seconds, real
+physics. Stock: 97.7 percent falls unpushed, 100 percent under any shove. Ours: 0.4 percent
+unpushed. A second seed retrained from scratch lands in the same place, 99.7 percent against
+4.5.</figcaption></figure>
+
+<div class="vidrow">
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-ref.mp4"></video>
+    <figcaption><b>The stock policy at home.</b> Fantasy joints, torque is free.</figcaption>
+  </figure>
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-collapse.mp4"></video>
+    <figcaption><b>The same policy on real physics.</b> It falls in every
+    episode.</figcaption>
+  </figure>
+  <figure>
+    <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-walk.mp4"></video>
+    <figcaption><b>Ours on real physics.</b> Zero falls in 256 episodes.</figcaption>
+  </figure>
+</div>
+
+<p>The gait chase serves as evidence, as the stock reward is satisfied by a crouch:</p>
+
+<figure class="wide">
+  <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-gait-ab.mp4"></video>
+  <figcaption><b>The crouch.</b> The stock reward is satisfied by something that is not
+  walking. You cannot see this in the reward curve. You have to watch it.</figcaption>
+</figure>
+
+<p>Getting the clip on the right produced a very sharp finding for us. The posture reward
+fixed the fantasy world on the first try. Trained from scratch on real physics it provided a
+policy that stands, perfectly stable, and never walks. Fantasy torque doesn't just distort
+your gait, it changes the behaviors that are reachable.</p>
+
+<figure><img src="assets/fig-standing-trap.svg" alt="One reward, two starting points: walking versus standing">
+<figcaption><b>Fig 15: the standing trap.</b> One reward, two starting points. On real
+physics the same recipe finds a policy that stands perfectly still forever. It is stable, it
+is safe, and it never walks. The reachable set changed, not just the
+gait.</figcaption></figure>
+
+<p>The last two rows close open loops. However, training against shoves does for the humanoid
+the same thing it did for the quadruped: 0.4 percent falls at &plusmn;1.0, one fall in 512
+episodes. The actuator model also covers a 14-bit motor shaft encoder and gear play, modeled
+as a play operator whose gap traversal costs the physical fraction of a control step. Half a
+degree of backlash after 1,500 adaptation iterations still costs 14.3 percent of unpunished
+episodes. Our first backlash model gated torque for a full control step per reversal (about
+10x the physical dead time) and collapsed the policy.</p>
+
+<figure class="wide">
+  <video controls muted loop playsinline preload="metadata" src="assets/vid-g1-shove.mp4"></video>
+  <figcaption><b>Shoved.</b> Training against disturbances does for the humanoid what it did
+  for the quadruped.</figcaption>
+</figure>
+
+<p>The quadruped pays for mismatch as a 2x robustness tax and the humanoid pays it as
+nonexistence.</p>
+
+<h2>Hands are the hard case</h2>
+
+<p>A leg touches the ground a few times a second. A hand is in contact the whole
+time, and it is in contact with sixteen motors at once. That changes what the
+actuator model is doing. On a leg it sets a ceiling the policy occasionally
+reaches. On a hand it is the thing the policy lives inside.</p>
+
+<p>We ran the same experiment on Isaac Lab's Allegro in-hand cube reorientation:
+one task, one reward, 8,192 robots, 1,300 iterations, and nothing different
+between the arms except the actuator. Four of them. A real finger motor
+(0.135&nbsp;N&middot;m continuous), a bigger one matched to the fantasy actuator's
+torque (0.54&nbsp;N&middot;m continuous), the stock PD-with-a-torque-clamp at
+0.5&nbsp;N&middot;m, and that same clamp solved inside the physics engine.</p>
+
+<p>The first thing we measured is not the score. It is whether the actuator is
+the binding constraint at all. It is.</p>
+
+<figure><img src="assets/fig-hand-saturation.svg" alt="Joints at the torque limit, of 16, for four actuator models">
+<figcaption><b>Fig 16: the hand runs past what its motors can sustain.</b> On the real
+finger motor, 9.8 of the hand's 16 joints are asking for more than the winding can hold
+continuously, 61 percent of the time; the flat clamp, which has no sustainable-versus-peak
+distinction at all, still shows 6.3. This is the cascade from Fig 11, counted rather than
+drawn. It is measured direct-drive, which is the worst case and our modelling choice: a
+finger is the one joint where you can gear freely, because it needs torque and not
+speed.</figcaption></figure>
+
+<p>That number is not an artifact of our motor being weak. The real Allegro
+peaks at 0.70&nbsp;N&middot;m per joint, and it is documented as unable to handle
+stiff tool-use because that torque saturates
+<a class="cit" href="#ref10">[10]</a>. The hardware is at its limit in real life
+too. What the simulator's default does is tell the policy that only 6 joints
+will be pinned when the truth is 10.</p>
+
+<p>The second thing is the part we did not expect. The default model is not too
+generous. It is the wrong shape.</p>
+
+<figure><img src="assets/fig-hand-shape.svg" alt="Continuous torque as a share of peak torque, real actuators versus the default model">
+<figcaption><b>Fig 17: no motor holds its peak forever.</b> A typical air-cooled
+actuator sustains 25&ndash;30 percent of its peak torque; the best humanoid joints
+reach 80&ndash;90 <a class="cit" href="#ref11">[11]</a>. A flat torque clamp
+sustains 100 percent, which is not a generous motor, it is an impossible one. It
+is too kind at steady state and too mean in transient, and the transient is where
+a regrasp lives.</figcaption></figure>
+
+<p>The policy trained on the torque-matched motor uses the shape: the 95th percentile of
+its commanded torque is 0.96&nbsp;N&middot;m, a transient the clamp never allows. On one seed
+it beat the clamp 1.33 against 0.39. Across three seeds they are statistically the same
+(1.05 against 1.03 on average, and the clamp's own three seeds span 0.39 to 1.90). The shape
+argument stands on the physics above, not on the task score, and we say so.</p>
+
+<p>The third thing is the one that matters for design. Two real finger motors,
+same hand, same task, same everything, and the only difference is how much
+continuous torque the winding can hold:</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th>actuator</th><th>continuous</th><th>peak</th><th>reorientations</th><th>joints pinned</th></tr>
+  <tr><td>real finger (F1)</td><td>0.135 N&middot;m</td><td>0.45 N&middot;m</td><td>0.19</td><td>9.8 / 16</td></tr>
+  <tr><td>torque-matched (F4)</td><td>0.540 N&middot;m</td><td>0.99 N&middot;m</td><td><b>1.33</b></td><td>8.9 / 16</td></tr>
+</table>
+</div>
+
+<p><b>Seven times the task performance on this seed, for a bigger winding.</b> F4's three
+seeds span 0.83 to 1.33, every one of them at least 4x above F1's single seed, and F1's
+saturation &mdash; 9.8 of 16 joints pinned, median demand above its continuous rating &mdash;
+is a physics bound, not a training outcome. Nobody had to build either hand to find this
+out.</p>
+
+<h3>And the transfer test, which came back null</h3>
+
+<p>The same cross-evaluation as the quadruped and the humanoid, all explicit so the actuator
+model is the only thing that moves. Our first attempt looked like the report's signature
+result: the clamp-trained policy completed 2.7x fewer reorientations on the real motor. It was
+an artifact of stopping too early. This task learns as a takeoff, and at 1,300 iterations every
+arm was still doubling every two to five hundred iterations, so that score was an exponential
+race against a clock nobody controls &mdash; the same seed, same configuration, rerun, diverges
+2.5x at the same iteration, because GPU physics is not deterministic. So we trained all six
+policies to plateau, 3,000 iterations, three seeds, and ran the matrix again.</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th>seed</th><th>clamp &rarr; real motor</th><th>real motor, matched</th><th>ratio</th></tr>
+  <tr><td>42</td><td>3.35</td><td>6.35</td><td>1.89x</td></tr>
+  <tr><td>43</td><td>4.90</td><td>4.44</td><td>0.91x</td></tr>
+  <tr><td>44</td><td>6.06</td><td>5.09</td><td>0.84x</td></tr>
+  <tr><td><b>mean</b></td><td><b>4.77</b></td><td><b>5.29</b></td><td><b>1.21x</b></td></tr>
+</table>
+</div>
+
+<p><b>There is no transfer penalty for this hand.</b> The distributions overlap
+(3.35&ndash;6.06 against 4.44&ndash;6.35), the mean ratio is 1.21x with seeds landing on both
+sides of one, and the reverse direction mirrors it. Training the policy against a flat torque
+clamp instead of a real motor's envelope cost it nothing it could not recover, on this task, at
+this torque class.</p>
+
+<p>We report it because it is what happened. The quadruped and the humanoid pay for a bad
+actuator model; this hand did not. The honest reading is that in-hand cube reorientation at
+0.5&nbsp;N&middot;m is not a task where torque <em>shape</em> decides the outcome: the hand is
+saturated either way (Fig 16), so both models leave the policy in the same regime, and the
+policy adapts. A task with a real transient demand, or a motor closer to its thermal edge,
+is where we would expect shape to bite, and that experiment is not this one. What the section
+above establishes does not rest on a policy score &mdash; it is measured from the actuators
+themselves: the hand runs pinned, and the default model understates how pinned by 3.5x. The
+one arm that never left the floor in any run, at any budget, is F1, the finger motor that
+saturates. <b>Torque you do not have is the thing a policy cannot learn around.</b></p>
+
+<h3>What we could not measure, and why we are saying so</h3>
+
+<p>There is a fourth number and it is bigger than any of the ones above. The
+stock clamp scores 6.47 when the physics engine solves it internally and 0.39
+when the identical torque limit is applied as an explicit torque, a 17x gap from
+changing nothing but where the PD law is evaluated. Isaac Lab documents this:
+implicit actuators are integrated with the solver and are more accurate at large
+timesteps <a class="cit" href="#ref12">[12]</a>.</p>
+
+<p>Every Atlas actuator is explicit, because a real motor's envelope cannot be
+expressed as a solver constraint. So our numbers and the stock number are not
+directly comparable, and we are not going to compare them. The comparisons above
+are all explicit against explicit, where the actuator is the only thing that
+moves. <b>Anyone benchmarking an actuator model against a stock implicit baseline
+is measuring their integrator, not their motor.</b> We made that mistake twice
+before catching it, which is why it is here rather than in a footnote.</p>
+
+<h2>So, actuator net or physics?</h2>
+
+<p>On an ANYdrive, ETH's network is almost certainly more accurate; it absorbed friction and
+backlash that first principles miss. The right metric is transfer quality per dollar and week
+of characterization:</p>
+
+<div class="tablewrap">
+<table>
+  <tr><th></th><th>actuator net (ETH)</th><th>physics-from-design (Atlas)</th></tr>
+  <tr><td>needs the hardware to exist</td><td>yes, plus a torque-instrumented rig</td><td>no</td></tr>
+  <tr><td>marginal cost per new actuator</td><td>weeks of collection and fitting</td><td>zero; it is a design output</td></tr>
+  <tr><td>captures friction, backlash, comm delays</td><td>yes, when the data covers them</td><td>backlash and encoder quantization modeled from design parameters; friction and delays arrive through fleet telemetry</td></tr>
+  <tr><td>extrapolates to a new bus voltage, a hotter winding, a gear swap</td><td>silent; it never saw that data</td><td>answers from physics</td></tr>
+  <tr><td>thermal state, temperature-aware policies</td><td>none</td><td>winding temperature per joint, observable by the policy</td></tr>
+  <tr><td>auditable</td><td>black box</td><td>every parameter is a design quantity; energy-balance checked</td></tr>
+  <tr><td>doubles as the deployed controller</td><td>no; a simulation-only artifact</td><td>the same law compiles to the drive firmware, at 1e-6 parity</td></tr>
+</table>
+</div>
+
+<p>The approaches compose. The endgame is a learned residual on a physics prior, and it
+belongs to whoever builds the actuator. ETH needed a rig to characterize someone else's black
+box from outside. We are inside, where comparing commanded against delivered torque at 20 kHz
+is what FOC already does. <b>ETH characterized one actuator, once. A fleet that ships with its
+own characterization loop does it continuously.</b></p>
+
+<p>The field's other routes agree on the diagnosis and pick different medicine. Berkeley
+Humanoid constrains the hardware to low gear ratios so the ideal model becomes nearly true
+<a class="cit" href="#ref7">[7]</a>. Booster measures each actuator's torque-speed envelope on
+a bench and pastes the knee points into simulation <a class="cit" href="#ref8">[8]</a>. Recent
+work reshapes the real actuator's own controller until it imitates the simulator's reference
+model <a class="cit" href="#ref9">[9]</a>. Each treats the actuator model as the product. Ours
+is the same conclusion with a different origin: the model is emitted by the tool that designed
+the motor.</p>
+
+<h2>The permanent layer</h2>
+
+<p>As robots get more neural, the engineered actuator layer does not fade. It becomes the
+most important layer on the robot. Policies run at 50&ndash;100 Hz. Commutation runs at
+20&ndash;40 kHz with hard real-time guarantees. No network does that job, and the more the
+stack neuralizes, the more this is the only engineered interface left.</p>
+
+<p>Every policy trains against an actuator model; the only question is whose. In a hand-tuned
+world a datasheet model was fine because an engineer compensated. In an RL world the model is
+the product interface. RL does not route around your characterization data. It consumes
+it.</p>
+
+<p>A learned policy also cannot be the safety layer. Thermal limits, overcurrent, joint
+limits, and sanity when the policy outputs garbage all need guarantees, and networks do not
+issue them. That layer lives in firmware, which in our case is the same law the simulation
+runs.</p>
+
+<p>The last piece is that we keep the manufacturing files. The same solve that produced the
+training actuator also emits the STEP geometry, the winding sheet, the bearing and gear
+selections, and the firmware constants, and we hold all of it. So the design a policy was
+trained against is the design that gets machined, and the unit that arrives is the unit the
+policy already knows. The thing that protects the hardware, the thing the policy trains
+against, and the thing that ships are one object.</p>
+
+<h2>References</h2>
+<ol class="refs">
+<li id="ref1">Hwangbo, J., Lee, J., Dosovitskiy, A., Bellicoso, D., Tsounis, V., Koltun,
+V., Hutter, M. Learning agile and dynamic motor skills for legged robots. <i>Science
+Robotics</i> 4(26), 2019. <a href="https://arxiv.org/abs/1901.08652">arXiv:1901.08652</a></li>
+<li id="ref2">Rudin, N., Hoeller, D., Reist, P., Hutter, M. Learning to walk in minutes
+using massively parallel deep reinforcement learning. <i>CoRL</i>, 2021.
+<a href="https://arxiv.org/abs/2109.11978">arXiv:2109.11978</a></li>
+<li id="ref3">Cha, J. R., Cha, W., Shin, J., Kim, D., Park, J. Sim-to-real of humanoid
+locomotion policies via joint torque space perturbation injection, 2025.
+<a href="https://arxiv.org/abs/2504.06585">arXiv:2504.06585</a></li>
+<li id="ref4">Hanna, J., Stone, P. Grounded action transformation for robot learning in
+simulation. <i>AAAI</i>, 2017.
+<a href="https://ojs.aaai.org/index.php/AAAI/article/view/11044">AAAI 11044</a></li>
+<li id="ref5">Tan, J., Zhang, T., Coumans, E., Iscen, A., Bai, Y., Hafner, D., Bohez, S.,
+Vanhoucke, V. Sim-to-real: Learning agile locomotion for quadruped robots. <i>RSS</i>,
+2018. <a href="https://arxiv.org/abs/1804.10332">arXiv:1804.10332</a></li>
+<li id="ref6">He, T., Gao, J., Xiao, W., Zhang, Y., Wang, Z., Wang, J., Luo, Z., He, G.,
+Sobanbab, N., Pan, C., Yi, Z., Qu, G., Kitani, K., Hodgins, J., Fan, L., Zhu, Y., Liu,
+C., Shi, G. ASAP: Aligning simulation and real-world physics for learning agile humanoid
+whole-body skills. <i>RSS</i>, 2025.
+<a href="https://arxiv.org/abs/2502.01143">arXiv:2502.01143</a></li>
+<li id="ref7">Liao, Q., Zhang, B., Huang, X., Huang, X., Li, Z., Sreenath, K. Berkeley
+Humanoid: A research platform for learning-based control, 2024.
+<a href="https://arxiv.org/abs/2407.21781">arXiv:2407.21781</a></li>
+<li id="ref8">Chen, P., Zheng, T., Zhang, Y., Zhao, M. Booster Lab: A data-centric
+pipeline for learning deployable humanoid locomotion policies, 2026.
+<a href="https://arxiv.org/abs/2606.27813">arXiv:2606.27813</a></li>
+<li id="ref9">Yamamori, S., Ishihara, K., Minamikawa, K., Ohmori, R., Yasaki, T.,
+Sugimoto, N., Morimoto, J. Actuator reality shaping for zero-shot sim-to-real robot
+learning, 2026. <a href="https://arxiv.org/abs/2607.02205">arXiv:2607.02205</a></li>
+<li id="ref10">Yin, Z.-H., Shi, G., Abbeel, P., Liu, C. K. Mana: Dexterous
+manipulation of articulated tools, 2026. Section 6 (Limitations): "Due to insufficient motor
+strength (maximum torque of 0.7 Nm and a longest finger link of 0.06&ndash;0.07 m), our system
+cannot handle common stiff tool-use cases where the required force or activation threshold
+exceeds 10 N."
+<a href="https://arxiv.org/abs/2606.13677">arxiv.org/abs/2606.13677</a></li>
+<li id="ref11">Peak versus continuous torque in electric robotic actuators: continuous rating is
+a fraction of peak because the winding is thermally limited. Typical air-cooled joints sustain
+roughly a quarter to a third of peak; the best humanoid joints reach 80&ndash;90 percent. See
+also Wan et al., <i>Learning to balance motor thermal safety and quadrupedal locomotion
+performance with residual policy</i>, 2026, which notes that "existing RL-based policies usually
+assume that actuators can operate reliably at different thermal states."
+<a href="https://arxiv.org/abs/2605.27046">arxiv.org/abs/2605.27046</a></li>
+<li id="ref12">Isaac Lab documentation, <i>Actuators</i>: implicit actuators are integrated by
+the physics solver and are more accurate than an explicit PD law at large simulation timesteps.
+<a href="https://isaac-sim.github.io/IsaacLab/main/source/overview/core-concepts/actuators.html">isaac-sim.github.io/IsaacLab</a></li>
+</ol>
+
+<footer>
+<span>Written by Pranav Myana (@pranavatlas) · Isaac Sim 4.5 · Isaac Lab 2.1</span>
+<span>Atlas Motion Systems</span>
+</footer>
+</div>
+
+<script>
+/* The 3D explorer reports its own content height; size the frame to it so the
+   embed never scrolls internally. Its viewport is a fixed px height, so this
+   settles on one value rather than feeding back. */
+window.addEventListener("message", function (e) {
+  var h = e.data && e.data.atlasExplorerHeight;
+  var box = document.getElementById("explorer-box");
+  if (box && typeof h === "number" && h > 400 && h < 4000) box.style.height = h + "px";
+});
+</script>
+<script>
+(function () {
+  var descriptions = {
+    terrain: "A 19 m course with a gap, narrow crossing, rubble, a side slope and a physical push. Jump between obstacles and compare recorded actuator designs.",
+    g1: "Recorded G1 walking trials with actuator comparisons. This is the existing walking experiment, not a parkour policy.",
+    anymal: "Recorded ANYmal locomotion with motor-design comparisons, video, and measured body trajectories.",
+    transfer: "Two arms perform a continuous transfer sequence under a scripted controller. Compare the actuator designs and object motion.",
+    pen: "Sharpa pen spinning: compare the original policy with simplified-model and motor-model fine-tuning. All nine held-out evaluations, paired videos and measured 3D replays.",
+    allegro: "Detailed Allegro hand reorientation trials, including sustained-hold results and failed trials.",
+    rubik: "Detailed Wuji hands: one validated free-cube quarter-turn, a fixture quarter-turn, and a failed longer fixture attempt. Not a full Rubik solver.",
+    assembly: "Insertion under a physical side push: 13/16 successes versus 16/16 without the disturbance. Paired videos, measured replays and alignment telemetry."
+  };
+  document.querySelectorAll("[data-demo]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      var task = button.dataset.demo;
+      document.querySelectorAll("[data-demo]").forEach(function (b) { b.setAttribute("aria-pressed", String(b === button)); });
+      var frame = document.getElementById("demo-frame");
+      frame.src = "lab/#" + task;
+      frame.title = "Interactive " + button.textContent + ": video and measured 3D replay";
+      document.getElementById("demo-description").textContent = descriptions[task];
+      var full = document.getElementById("demo-full");
+      full.href = "lab/#" + task;
+      full.textContent = "Open " + button.textContent + " in a full window ↗";
+    });
+  });
+})();
+</script>
+</body>
+</html>

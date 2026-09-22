@@ -9,7 +9,10 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, ReferenceL
 
 type Case = {id: string; label: string; description: string; passed: boolean; duration: number; parameters?: {kv:number;gear:number;torque:number;rpm:number;mass:number}};
 export default function RoughTerrain() {
-  const [track, setTrack] = useState("challenge"), [variant, setVariant] = useState("stock");
+  const [track, setTrack] = useState("challenge"), [variant, setVariant] = useState(() => {
+    const selected = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("design") : null;
+    return selected && ["stock", "nominal", "kv_high", "gear_low", "mass_added_double", "torque_low", "torque_focused"].includes(selected) ? selected : "stock";
+  });
   const [nominal, setNominal] = useState<Recording | null>(null);
   useEffect(() => {loadRecording("./data/course/nominal").then(setNominal).catch(()=>{});}, []);
   const [cases, setCases] = useState<Case[]>([]);

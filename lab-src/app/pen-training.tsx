@@ -360,7 +360,7 @@ export default function PenTraining({
           </dl>
           <p>
             {bench
-              ? "mj5208 electrical calibration; virtual remote drive, assumed gearing and cooling. Both policies trained with 25°C starts. Temperature is not observed directly."
+              ? "mj5208 electrical calibration; virtual remote drive with the documented gearing and thermal settings. Both policies trained with 25°C starts. Temperature is not observed directly."
               : "Generic assumed motor parameters; no Sharpa hardware calibration. Neither policy sees temperature directly. Training motor starts span 25–100°C."}
           </p>
         </aside>

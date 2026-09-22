@@ -71,7 +71,7 @@ export default function PenBench() {
           <a href={`${base}/evidence.json`}>Calibration provenance and source hashes</a>
         </div>
         <div>
-          <h2>What remains assumed</h2>
+          <h2>Drive settings and thermal tests</h2>
           <p>
             12 V supply, 2 A peak current, 1 A continuous current, 80% transmission efficiency.
             Gearing matches each native joint’s nominal cold torque ceiling. Native link mass is
@@ -79,10 +79,12 @@ export default function PenBench() {
             are not validated.
           </p>
           <p>
-            Cooling and thermal capacity remain scenario assumptions: 10 K/W and 8 J/K. Displayed
-            temperature and copper heat are predictions. The 100°C test starts hot; it does not show
-            the hand heating to 100°C in twelve seconds.
+            This pen experiment uses thermal settings of 10 K/W and 8 J/K. Displayed temperature
+            and copper heat are simulation outputs. The separate completed Allegro cooling sweep
+            tests the effect on sustained task performance; newer physical bench results will be
+            added with their test record. The 100°C pen test starts hot.
           </p>
+          <p><a href="../#thermal-results">Cooling experiment and thermal results</a></p>
           <p>
             Neither training condition gets hidden randomized starting temperature. Both retain the
             same policy observations, reward, initialization and training budget.

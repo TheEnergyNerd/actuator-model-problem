@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="864pt" height="316.8pt" viewBox="0 0 864 316.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-22T20:49:01.320669</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 316.8 
+L 864 316.8 
+L 864 -0 
+L 0 -0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 26.316 195.84 
+L 204.024 195.84 
+Q 210.396 195.84 210.396 189.36 
+L 210.396 84.24 
+Q 210.396 77.76 204.024 77.76 
+L 26.316 77.76 
+Q 19.944 77.76 19.944 84.24 
+L 19.944 189.36 
+Q 19.944 195.84 26.316 195.84 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #eff5f0; stroke: #19775c; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 238.716 195.84 
+L 416.424 195.84 
+Q 422.796 195.84 422.796 189.36 
+L 422.796 84.24 
+Q 422.796 77.76 416.424 77.76 
+L 238.716 77.76 
+Q 232.344 77.76 232.344 84.24 
+L 232.344 189.36 
+Q 232.344 195.84 238.716 195.84 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #fffaf2; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #b47436; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 451.116 195.84 
+L 628.824 195.84 
+Q 635.196 195.84 635.196 189.36 
+L 635.196 84.24 
+Q 635.196 77.76 628.824 77.76 
+L 451.116 77.76 
+Q 444.744 77.76 444.744 84.24 
+L 444.744 189.36 
+Q 444.744 195.84 451.116 195.84 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #eff5f0; stroke: #19775c; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 663.516 195.84 
+L 841.224 195.84 
+Q 847.596 195.84 847.596 189.36 
+L 847.596 84.24 
+Q 847.596 77.76 841.224 77.76 
+L 663.516 77.76 
+Q 657.144 77.76 657.144 84.24 
+L 657.144 189.36 
+Q 657.144 195.84 663.516 195.84 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #fffaf2; stroke-dasharray: 5.55,2.4; stroke-dashoffset: 0; stroke: #b47436; stroke-width: 1.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 208.856584 136.8 
+Q 219.601102 136.8 229.227586 136.8 
+" clip-path="url(#p8a61b5fd97)" style="fill: none; stroke: #7a877e; stroke-linecap: round"/>
+    <path d="M 224.427586 134.4 
+L 229.227586 136.8 
+L 224.427586 139.2 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #7a877e; stroke: #7a877e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 421.256584 136.8 
+Q 432.001102 136.8 441.627586 136.8 
+" clip-path="url(#p8a61b5fd97)" style="fill: none; stroke: #7a877e; stroke-linecap: round"/>
+    <path d="M 436.827586 134.4 
+L 441.627586 136.8 
+L 436.827586 139.2 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #7a877e; stroke: #7a877e; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 633.656584 136.8 
+Q 644.401102 136.8 654.027586 136.8 
+" clip-path="url(#p8a61b5fd97)" style="fill: none; stroke: #7a877e; stroke-linecap: round"/>
+    <path d="M 649.227586 134.4 
+L 654.027586 136.8 
+L 649.227586 139.2 
+z
+" clip-path="url(#p8a61b5fd97)" style="fill: #7a877e; stroke: #7a877e; stroke-linecap: round"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 17px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="24.9" y="26.64" transform="rotate(-0 24.9 26.64)">Atlas design workflow</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #7a877e" x="24.9" y="54" transform="rotate(-0 24.9 54)">Existing evaluation components support the next design-search study.</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="31.98" y="111.6" transform="rotate(-0 31.98 111.6)">Task + candidate schema</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(31.98 136.058156)">Task and allowed changes</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(31.98 149.543156)">shared budgets to be frozen</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #19775c" x="31.98" y="180.72" transform="rotate(-0 31.98 180.72)">EXISTING COMPONENT</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="244.38" y="111.6" transform="rotate(-0 244.38 111.6)">Atlas design search</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(244.38 136.900969)">Candidate selection</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(244.38 149.543156)">algorithm and baseline study</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #b47436" x="244.38" y="180.72" transform="rotate(-0 244.38 180.72)">PLANNED STUDY</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="456.78" y="111.6" transform="rotate(-0 456.78 111.6)">Actuator + robot model</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(456.78 136.457133)">Electrical model, task evaluator</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(456.78 149.543156)">mechanical extensions pending</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #19775c" x="456.78" y="180.72" transform="rotate(-0 456.78 180.72)">EXISTING COMPONENT</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="669.18" y="111.6" transform="rotate(-0 669.18 111.6)">Independent evaluation</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(669.18 136.457133)">Frozen choices, fresh tasks</text>
+    <text style="font-size: 8.7px; font-family: 'DejaVu Sans'; fill: #173a30" transform="translate(669.18 149.543156)">retraining and uncertainty</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.5px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #b47436" x="669.18" y="180.72" transform="rotate(-0 669.18 180.72)">PLANNED STUDY</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 9px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #7a877e" x="432" y="236.16" transform="rotate(-0 432 236.16)">Development outcomes guide the next candidate; final test outcomes stay outside selection.</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #173a30" x="24.9" y="278.64" transform="rotate(-0 24.9 278.64)">Evidence: controller calibration → explicit parameter provenance → logged simulation and matched comparisons.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p8a61b5fd97">
+   <rect x="7.2" y="7.2" width="849.6" height="302.4"/>
+  </clipPath>
+ </defs>
+</svg>

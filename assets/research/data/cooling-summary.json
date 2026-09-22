@@ -1,0 +1,233 @@
+{
+  "experiment": "Allegro cooling-resistance sweep in Isaac Lab",
+  "date": "2026-09-10",
+  "evidence_type": "Recorded simulation experiment",
+  "replicas_per_design": 32,
+  "seconds_per_replica": 120,
+  "seed": 42,
+  "policy_checkpoint_sha256": "1c03e388150fc17859b3e1638232b15a8f09cfbec12cd3b097b9b8c3eebda29b",
+  "source_sha256": "665a346850a063c87f94649a0c11ca5e8bf6e95bf6c4d0d459f5db13b34cbe8d",
+  "protocol": "Fixed policy; paired startup mass/inertia/COM/friction/gains; observation noise and unrelated pushes disabled. Normal episode resets remain. Locomotion commands 0.5 m/s for 20s, 2 m/s for 20s, then 1 m/s. Physical local-y force pulse at 45s for 0.2s. Allegro uses paired seeded orientation goal sequences consumed on success/reset. Added actuator housing mass is placed at parent-link COM with spherical-equivalent inertia. Added rotor inertia is reflected by gear ratio squared. Existing asset motor mass/inertia are not subtracted. Electrical power is a control-rate estimate from motor shaft power and copper loss, excluding auxiliary loads. Kv is phase-peak back-EMF rpm/V, not an unverified catalog convention. Hypothetical design sensitivities, not hardware validation.",
+  "physical_bench_status": "A newer physical thermal test has been reported by Atlas; its source record has not yet been supplied for this release.",
+  "variants": [
+    {
+      "id": "cooling_better",
+      "thermal_R_K_per_W": 2.5,
+      "thermal_C_J_per_K": 6.0,
+      "goals_per_hand_minute": 40.671875,
+      "peak_modeled_temperature_C": 62.4173469543457,
+      "drops_across_replicas": 9,
+      "goals_per_replica": [
+        75.0,
+        91.0,
+        85.0,
+        77.0,
+        94.0,
+        88.0,
+        69.0,
+        96.0,
+        76.0,
+        61.0,
+        78.0,
+        79.0,
+        85.0,
+        84.0,
+        82.0,
+        86.0,
+        72.0,
+        79.0,
+        83.0,
+        72.0,
+        84.0,
+        84.0,
+        91.0,
+        90.0,
+        69.0,
+        73.0,
+        74.0,
+        78.0,
+        96.0,
+        83.0,
+        82.0,
+        87.0
+      ]
+    },
+    {
+      "id": "nominal",
+      "thermal_R_K_per_W": 5.0,
+      "thermal_C_J_per_K": 6.0,
+      "goals_per_hand_minute": 40.921875,
+      "peak_modeled_temperature_C": 68.95144653320312,
+      "drops_across_replicas": 2,
+      "goals_per_replica": [
+        79.0,
+        75.0,
+        79.0,
+        79.0,
+        96.0,
+        81.0,
+        84.0,
+        89.0,
+        82.0,
+        68.0,
+        88.0,
+        83.0,
+        80.0,
+        81.0,
+        81.0,
+        88.0,
+        74.0,
+        78.0,
+        85.0,
+        90.0,
+        80.0,
+        80.0,
+        86.0,
+        89.0,
+        59.0,
+        77.0,
+        86.0,
+        89.0,
+        85.0,
+        87.0,
+        74.0,
+        87.0
+      ]
+    },
+    {
+      "id": "cooling_worse",
+      "thermal_R_K_per_W": 10.0,
+      "thermal_C_J_per_K": 6.0,
+      "goals_per_hand_minute": 20.625,
+      "peak_modeled_temperature_C": 107.69548797607422,
+      "drops_across_replicas": 19,
+      "goals_per_replica": [
+        43.0,
+        30.0,
+        34.0,
+        43.0,
+        49.0,
+        40.0,
+        45.0,
+        55.0,
+        38.0,
+        36.0,
+        46.0,
+        44.0,
+        34.0,
+        40.0,
+        33.0,
+        50.0,
+        37.0,
+        38.0,
+        37.0,
+        58.0,
+        35.0,
+        42.0,
+        51.0,
+        44.0,
+        26.0,
+        44.0,
+        45.0,
+        49.0,
+        47.0,
+        32.0,
+        40.0,
+        35.0
+      ]
+    }
+  ],
+  "uncertainty_scope": "95% paired bootstrap intervals over startup replicas. Conditional on one fixed policy, one seed and this protocol; not training-seed or hardware uncertainty.",
+  "uncertainty": [
+    {
+      "design": "nominal",
+      "estimated_positive_motor_input_W": {
+        "mean": 151.18844509124756,
+        "replica_sd": 5.268441368441731,
+        "difference_from_reference": 0.0,
+        "paired_95pct_interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "failures_per_robot": {
+        "mean": 0.0625,
+        "replica_sd": 0.24593468841898236,
+        "difference_from_reference": 0.0,
+        "paired_95pct_interval": [
+          0.0,
+          0.0
+        ]
+      },
+      "goals_per_hand_minute": {
+        "mean": 40.921875,
+        "replica_sd": 3.5562515944777875,
+        "difference_from_reference": 0.0,
+        "paired_95pct_interval": [
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "design": "cooling_better",
+      "estimated_positive_motor_input_W": {
+        "mean": 221.4431390762329,
+        "replica_sd": 10.875249265186278,
+        "difference_from_reference": 70.25469398498535,
+        "paired_95pct_interval": [
+          68.18208559751511,
+          72.29757318496704
+        ]
+      },
+      "failures_per_robot": {
+        "mean": 0.28125,
+        "replica_sd": 0.5226714875243987,
+        "difference_from_reference": 0.21875,
+        "paired_95pct_interval": [
+          0.03125,
+          0.40625
+        ]
+      },
+      "goals_per_hand_minute": {
+        "mean": 40.671875,
+        "replica_sd": 4.155465454694731,
+        "difference_from_reference": -0.25,
+        "paired_95pct_interval": [
+          -1.546875,
+          1.03125
+        ]
+      }
+    },
+    {
+      "design": "cooling_worse",
+      "estimated_positive_motor_input_W": {
+        "mean": 124.80065965652466,
+        "replica_sd": 5.462642191845149,
+        "difference_from_reference": -26.3877854347229,
+        "paired_95pct_interval": [
+          -27.325304871797563,
+          -25.457652419805527
+        ]
+      },
+      "failures_per_robot": {
+        "mean": 0.59375,
+        "replica_sd": 0.7975516971817058,
+        "difference_from_reference": 0.53125,
+        "paired_95pct_interval": [
+          0.25,
+          0.8125
+        ]
+      },
+      "goals_per_hand_minute": {
+        "mean": 20.625,
+        "replica_sd": 3.6588381727255372,
+        "difference_from_reference": -20.296875,
+        "paired_95pct_interval": [
+          -21.3125,
+          -19.28125
+        ]
+      }
+    }
+  ]
+}
